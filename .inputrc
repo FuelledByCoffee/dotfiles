@@ -1,0 +1,18 @@
+# Make tab completion case-insensitive
+set completion-ignore-case on
+# Press escape to enter command mode
+set editing-mode vi
+# Show all possible matches if ambiguous auto-complete
+set show-all-if-ambiguous on
+
+# Change the way tab-completion works
+# TAB: menu-complete
+
+set expand-tilde off
+set convert-meta off
+set input-meta on
+set output-meta on
+set visible-stats on
+set keymap vi-insert
+"\C-x\C-e": edit-and-execute-command
+"jj": "\e"

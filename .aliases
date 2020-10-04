@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Some ls aliases
+alias ls='ls -FG'
+alias la='ls -A'
+alias ll='ls -Al'
+
+# Common commands
+alias mv='mv -vi'
+alias cp='cp -vi'
+alias rm='rm -vI'
+alias ln='ln -v'
+alias du='du -h'
+
+alias mkdir='mkdir -pv'
+
+# Grep color — Seriously though use ripgrep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias vim='nvim'
+
+# make commands
+alias clean='make clean'
+alias rebuild='make -B'
+
+alias path='echo -e "${PATH//:/\\n}"' # Print one directory in the path variable per line
+alias vtop='vtop -t brew'
