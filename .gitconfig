@@ -38,5 +38,12 @@
 [alias]
     st = status
     co = checkout
-    br = checkout -b
+    br = branch
+    cb = checkout -b
+    unstage = reset HEAD --
     reorder = "!GIT_SEQUENCE_EDITOR \"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
+    uncommit = reset --soft HEAD~1
+    recommit = commit --amend --no-edit
+    get = pull origin master
+    yeet = push origin HEAD
+
