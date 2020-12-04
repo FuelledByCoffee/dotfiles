@@ -20,6 +20,8 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="nb_NO.UTF-8"
 
 # Programming
+export CXX='clang++'
+export CC='clang'
 export CFLAGS='-Wall -Wextra -Wshadow -std=c18'
 export CXXFLAGS='-Wall -Wextra -Wshadow -std=c++17'
 
