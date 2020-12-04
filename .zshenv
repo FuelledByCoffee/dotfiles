@@ -5,6 +5,7 @@
 path+=("/Library/Developer/CommandLineTools/usr/bin")
 path+=("/usr/local/opt/llvm/bin")
 path+=("$HOME/.cargo/bin")
+path+=("$HOME/.local/bin")
 path+=("$HOME/bin")
 path+=(".")
 
