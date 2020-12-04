@@ -78,7 +78,7 @@ VISUAL='%F{yellow}%S VISUAL %s%f'
 REPLACE='%F{red}%K{white}%S REPLACE %s%f%k'
 
 # Short delay after pressing escape -- 20 looks like the sweet spot
-KEYTIMEOUT=20
+KEYTIMEOUT=40
 
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
@@ -93,7 +93,7 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-RPROMPT='%(?..%B%F{red}❌ %?%f%b) %T'
+RPROMPT='%(?..%B%F{red}❌ %?%f%b)'
 #: }}}
 
 #: Completions {{{
