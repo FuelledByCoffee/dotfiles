@@ -58,6 +58,8 @@ let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
+"let g:airline_left_sep=''
+"let g:airline_right_sep=''
 ": }}}
 
 ": GitGutter {{{
@@ -306,13 +308,13 @@ endif
 
 " No background color. Persist after setting colorscheme.
 " Only sets when colorsceme is set
-au colorscheme * highlight Normal	        ctermbg=none
+au colorscheme * highlight Normal	          ctermbg=none
 au colorscheme * highlight NonText	        ctermbg=none
-au colorscheme * highlight Text		        ctermbg=none
-au colorscheme * highlight LineNr	        ctermbg=none ctermfg=grey
-"au colorscheme * highlight CursorLineNR     ctermbg=none
-"au colorscheme * highlight SignColumn       guibg=none ctermbg=none
-"au colorscheme * highlight FoldColumn       guibg=none ctermbg=none
+au colorscheme * highlight Text		          ctermbg=none
+au colorscheme * highlight LineNr	          ctermbg=none ctermfg=grey
+"au colorscheme * highlight CursorLineNR    ctermbg=none
+"au colorscheme * highlight SignColumn      guibg=none ctermbg=none
+"au colorscheme * highlight FoldColumn      guibg=none ctermbg=none
 au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
 au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
 au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
