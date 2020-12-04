@@ -4,12 +4,14 @@
 #path=('/usr/local/bin' $PATH)
 path+=("/Library/Developer/CommandLineTools/usr/bin")
 path+=("/usr/local/opt/llvm/bin")
+path+=("/Users/Johannes/Library/Python/3.9/bin")
 path+=("$HOME/.cargo/bin")
 path+=("$HOME/bin")
 path+=(".")
 
 # Encoding
-export LANG=en_US.UTF-8
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
@@ -18,7 +20,9 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="nb_NO.UTF-8"
 
 # Programming
-export CFLAGS='-Wall -Wextra -Wshadow -std=c18'
+export CC='clang'
+export CXX='clang++'
+export CFLAGS='-Wall -Wextra -Wshadow -std=gnu17'
 export CXXFLAGS='-Wall -Wextra -Wshadow -std=c++17'
 
 # CLI
@@ -32,4 +36,3 @@ export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR='/usr/local/share/zsh-syntax-highlighting/highlighters'
-
