@@ -1,7 +1,7 @@
 # vim:foldmethod=marker:ft=zsh
 
 #: Aliases {{{
-[[ -r .aliases ]] && source .aliases
+[[ -r ~/.aliases ]] && source ~/.aliases
 
 alias edprof='nvim ~/.zshrc && source ~/.zshrc'
 #: }}}
