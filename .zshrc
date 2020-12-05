@@ -81,13 +81,13 @@ REPLACE='%F{red}%K{white}%S REPLACE %s%f%k'
 KEYTIMEOUT=40
 
 function zle-line-init zle-keymap-select {
-    case $KEYMAP in
-        (vicmd)         MODE=$NORMAL ;;
-        (viins|main)    MODE=$INSERT ;;
-    esac
+  case $KEYMAP in
+    (vicmd)         MODE=$NORMAL ;;
+    (viins|main)    MODE=$INSERT ;;
+  esac
 
-    PROMPT="%(!.%B%F{red}%n%f%b:.)%F{yellow}%~%f $MODE "
-    zle reset-prompt
+  PROMPT="%(!.%B%F{red}%n%f%b:.)%F{yellow}%~%f $MODE "
+  zle reset-prompt
 }
 
 zle -N zle-line-init
