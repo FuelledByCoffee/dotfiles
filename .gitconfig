@@ -46,4 +46,3 @@
     recommit = commit --amend --no-edit
     get = pull origin master
     yeet = push origin HEAD
-
