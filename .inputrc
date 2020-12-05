@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Make tab completion case-insensitive
 set completion-ignore-case on
 # Press escape to enter command mode
