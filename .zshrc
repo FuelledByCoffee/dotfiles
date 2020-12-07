@@ -1,7 +1,7 @@
 # vim:foldmethod=marker:ft=zsh
 
 #: Aliases {{{
-[[ -r .aliases ]] && source .aliases
+[[ -r ~/.aliases ]] && source ~/.aliases
 
 alias edprof='nvim ~/.zshrc && source ~/.zshrc'
 #: }}}
@@ -78,22 +78,22 @@ VISUAL='%F{yellow}%S VISUAL %s%f'
 REPLACE='%F{red}%K{white}%S REPLACE %s%f%k'
 
 # Short delay after pressing escape -- 20 looks like the sweet spot
-KEYTIMEOUT=20
+KEYTIMEOUT=40
 
 function zle-line-init zle-keymap-select {
-    case $KEYMAP in
-        (vicmd)         MODE=$NORMAL ;;
-        (viins|main)    MODE=$INSERT ;;
-    esac
+  case $KEYMAP in
+    (vicmd)         MODE=$NORMAL ;;
+    (viins|main)    MODE=$INSERT ;;
+  esac
 
-    PROMPT="%(!.%B%F{red}%n%f%b:.)%F{yellow}%~%f $MODE "
-    zle reset-prompt
+  PROMPT="%(!.%B%F{red}%n%f%b:.)%F{yellow}%~%f $MODE "
+  zle reset-prompt
 }
 
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-RPROMPT='%(?..%B%F{red}❌ %?%f%b) %T'
+RPROMPT='%(?..%B%F{red}❌ %?%f%b)'
 #: }}}
 
 #: Completions {{{

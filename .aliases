@@ -27,3 +27,4 @@ alias rebuild='make -B'
 
 alias path='echo -e "${PATH//:/\\n}"' # Print one directory in the path variable per line
 alias vtop='vtop -t brew'
+alias clock='tty-clock -C 4 -Sc'
