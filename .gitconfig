@@ -32,7 +32,7 @@
 [core]
     pager = less
     editor = nvim
-    excludesfile = /Users/Johannes/.config/git/ignore
+    excludesfile = ~/.config/git/ignore
 [diff]
     tool = diffmerge
 [alias]
