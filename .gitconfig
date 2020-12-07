@@ -9,6 +9,8 @@
     process = git-lfs filter-process
 [commit]
     verbose = true
+[help]
+    autocorrect = 1
 [color]
     ui = auto
     branch = auto
