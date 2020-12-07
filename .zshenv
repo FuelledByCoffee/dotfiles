@@ -35,5 +35,8 @@ export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR='/usr/local/share/zsh-syntax-highlighting/highlighters'
-
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR='/usr/local/share/zsh-syntax-highlighting/highlighters'
+else
+    export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR='/usr/share/zsh-syntax-highlighting/highlighters'
+fi
