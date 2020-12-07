@@ -32,7 +32,6 @@
     untracked = cyan
 [credential]
     helper = osxkeychain
-    helper = manager
 [core]
     pager = less
     editor = nvim
