@@ -5,6 +5,10 @@ alias ls='ls -FG'
 alias la='ls -A'
 alias ll='ls -Al'
 
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    alias ls='ls -F --color=auto'
+fi
+
 # Common commands
 alias mv='mv -vi'
 alias cp='cp -vi'
