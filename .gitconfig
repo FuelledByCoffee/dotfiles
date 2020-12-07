@@ -2,6 +2,7 @@
 [user]
     name = Johannes Eckhoff
     email = j.eckhoff@gmail.com
+    user = FuelledByCoffee
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f
@@ -9,6 +10,8 @@
     process = git-lfs filter-process
 [commit]
     verbose = true
+[help]
+    autocorrect = 1
 [color]
     ui = auto
     branch = auto
@@ -32,7 +35,7 @@
 [core]
     pager = less
     editor = nvim
-    excludesfile = /Users/Johannes/.config/git/ignore
+    excludesfile = ~/.config/git/ignore
 [diff]
     tool = diffmerge
 [alias]
@@ -44,7 +47,7 @@
     reorder = "!GIT_SEQUENCE_EDITOR \"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
     uncommit = reset --soft HEAD~1
     recommit = commit --amend --no-edit
-    get = pull origin master
+    get = pull origin main
     yeet = push origin HEAD
 [init]
     defaultBranch = main
