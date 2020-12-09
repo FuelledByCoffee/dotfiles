@@ -38,6 +38,6 @@ export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR='/usr/local/share/zsh-syntax-highlighting/highlighters'
-else
+elif [[ "$OSTYPE" == "linux"* ]]; then
     export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR='/usr/share/zsh-syntax-highlighting/highlighters'
 fi
