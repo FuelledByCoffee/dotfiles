@@ -150,7 +150,7 @@
 
 #	  Flags
 #   ------------------------------------------------------------------
-    export CFLAGS="-Wall -Wextra -Wshadow -std=c18"
+    export CFLAGS="-Wall -Wextra -Wshadow -std=c17"
     export CXXFLAGS="-Wall -Wextra -Wshadow -std=c++17"
     export CPPFLAGS=""
     export LDFLAGS=""
