@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # vim:foldmethod=marker
 
 #PATH=$(getconf PATH)
