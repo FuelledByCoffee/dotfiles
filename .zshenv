@@ -27,6 +27,7 @@ export CC='clang'
 export CXX='clang++'
 export CFLAGS='-Wall -Wextra -Wshadow -std=gnu17'
 export CXXFLAGS='-Wall -Wextra -Wshadow -std=c++17'
+export LDFLAGS='-flto=thin'
 
 # CLI
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31' # For Linux
