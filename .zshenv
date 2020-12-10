@@ -7,6 +7,7 @@ path+=("/usr/local/opt/llvm/bin")
 path+=("/Users/Johannes/Library/Python/3.9/bin")
 path+=("$HOME/.cargo/bin")
 path+=("$HOME/.local/bin")
+path+=("$HOME/.local/sbin")
 path+=("$HOME/bin")
 path+=(".")
 
