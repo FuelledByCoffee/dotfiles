@@ -148,7 +148,7 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :qa<cr>
 nnoremap <leader>m :make<cr>
-nnoremap <leader>r :ctest -j4<cr>
+nnoremap <leader>r :!make test<cr>
 
 " Escape from terminal mode
 tnoremap <Esc> <C-\><C-n>
@@ -261,6 +261,11 @@ set breakindent
 
 set scrolloff=7
 set mouse=a
+
+set undofile                " Save undos after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=100          " How many undos
+set undoreload=1000         " number of lines to save for undo
 
 " Open new splits to the right and one the bottom
 " set splitbelow
