@@ -25,8 +25,8 @@ export LC_TIME="nb_NO.UTF-8"
 # Programming
 export CC='clang'
 export CXX='clang++'
-export CFLAGS='-Wall -Wextra -Wshadow -std=gnu17'
-export CXXFLAGS='-Wall -Wextra -Wshadow -std=c++17'
+export CFLAGS='-WCL4 -Wshadow -std=gnu17'
+export CXXFLAGS='-WCL4 -Wshadow -std=c++17'
 export LDFLAGS='-flto=thin'
 
 # CLI
