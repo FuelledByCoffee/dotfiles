@@ -1,11 +1,11 @@
 #!/usr/bin/env zsh
 # vim:foldmethod=marker
 
-#PATH=$(getconf PATH)
-#path=('/usr/local/bin' $PATH)
+PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
 path+=("/Library/Developer/CommandLineTools/usr/bin")
 path+=("/usr/local/opt/llvm/bin")
-path+=("/Users/Johannes/Library/Python/3.9/bin")
+path+=("$HOME/Library/Python/3.9/bin")
 path+=("$HOME/.cargo/bin")
 path+=("$HOME/.local/bin")
 path+=("$HOME/.local/sbin")
