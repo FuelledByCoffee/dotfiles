@@ -707,6 +707,8 @@ key_bindings:
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
 
   # (macOS only)
+  - { key: D,      mods: Command, mode: ~Vi, chars: "\x04"            }
+  - { key: J,      mods: Command, mode: ~Vi, chars: "\x0A"            }
   - { key: K,      mods: Command, mode: ~Vi, chars: "\x0c"            }
   - { key: Key0,   mods: Command,            action: ResetFontSize    }
   - { key: Equals, mods: Command,            action: IncreaseFontSize }
