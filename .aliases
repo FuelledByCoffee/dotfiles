@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 # Some ls aliases
-alias ls='ls -FG'
-alias la='ls -A'
-alias ll='ls -Al'
+alias ls='exa -F'
+alias la='exa -Fa'
+alias ll='exa -FlhH'
+alias lt='exa -FT'
 
 if [[ "$OSTYPE" == "linux"* ]]; then
     alias ls='ls -F --color=auto'
@@ -19,7 +20,7 @@ alias du='du -h'
 alias mkdir='mkdir -pv'
 
 # Grep color — Seriously though use ripgrep
-alias grep='grep --color=auto'
+alias grep='grep   --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
