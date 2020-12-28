@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 
 # Some ls aliases
-alias ls='exa -F'
-alias la='exa -Fa'
-alias ll='exa -FlhH'
-alias lt='exa -FT'
-
-if [[ "$OSTYPE" == "linux"* ]]; then
+# Use exa if it is available
+if command -v exa &> /dev/null
+then
+  alias ls='exa -F'
+  alias la='exa -Fa'
+  alias ll='exa -FlhH'
+  alias lt='exa -FT'    # Tree replacement
+elif [[ "$OSTYPE" == "linux"* ]]; then
   alias ls='ls -F --color=auto'
+  alias la='ls -A --color=auto'
+  alias ll='ls -l --color=auto'
+else
+  alias ls='ls -FG'
+  alias la='ls -FA'
+  alias ll='ls -Fl --color=auto'
 fi
 
 # Common commands
