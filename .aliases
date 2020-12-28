@@ -12,10 +12,10 @@ elif [[ "$OSTYPE" == "linux"* ]]; then
   alias ls='ls -F --color=auto'
   alias la='ls -A --color=auto'
   alias ll='ls -l --color=auto'
-else
+elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls='ls -FG'
-  alias la='ls -FA'
-  alias ll='ls -Fl --color=auto'
+  alias la='ls -FGA'
+  alias ll='ls -FGl'
 fi
 
 # Common commands
