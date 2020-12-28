@@ -7,7 +7,7 @@ alias ll='exa -FlhH'
 alias lt='exa -FT'
 
 if [[ "$OSTYPE" == "linux"* ]]; then
-    alias ls='ls -F --color=auto'
+  alias ls='ls -F --color=auto'
 fi
 
 # Common commands
