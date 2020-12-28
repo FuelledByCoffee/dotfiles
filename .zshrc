@@ -18,6 +18,11 @@ function mcd {
   mkdir -p $1 && cd $1
 }
 
+function ql {
+  emulate -l zsh
+  qlmanage -p $@ >& /dev/null
+}
+
 # Hide folder in finder
 hide () {
   if [[ -d $1 ]] ; then
