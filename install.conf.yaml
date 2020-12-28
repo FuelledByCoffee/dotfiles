@@ -1,0 +1,38 @@
+- defaults:
+    link:
+        relink: true
+        force: true
+        create: true
+
+- clean: ['~']
+
+- link:
+    ~/.tmux.conf: tmux.conf
+    ~/.aliases: aliases
+    ~/.zshrc: zshrc
+    ~/.zshenv: zshenv
+    ~/.gitconfig: gitconfig
+    ~/.inputrc: inputrc
+    ~/.bash_profile: bash_profile
+    ~/.vim: vim
+    ~/.config/nvim:
+        create: true
+        path: nvim
+    ~/.config/git/ignore:
+        create: true
+        path: ignore
+    ~/.alacritty.yml: alacritty.yml
+
+- create:
+    - ~/bin
+    - ~/.config
+    - ~/.local/bin
+    - ~/.local/include
+    - ~/.local/lib
+    - ~/.vim/undo-history
+
+- shell:
+    - [chsh -s $(which zsh), Making zsh the default shell]
+    - [git submodule update --init --recursive, Installing submodules]
+    - [/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)", installing homebrew]
+

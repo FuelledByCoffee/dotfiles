@@ -262,10 +262,10 @@ set breakindent
 set scrolloff=7
 set mouse=a
 
-set undofile                " Save undos after file closes
-set undodir=$HOME/.vim/undo " where to save undo histories
-set undolevels=100          " How many undos
-set undoreload=1000         " number of lines to save for undo
+set undofile                        " Save undos after file closes
+set undodir=$HOME/.vim/undo-history " where to save undo histories
+set undolevels=100                  " How many undos
+set undoreload=1000                 " number of lines to save for undo
 
 " Open new splits to the right and one the bottom
 " set splitbelow

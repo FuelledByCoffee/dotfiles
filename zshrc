@@ -85,6 +85,9 @@ REPLACE='%F{red}%K{white}%S REPLACE %s%f%k'
 
 # Short delay after pressing escape -- 20 looks like the sweet spot
 KEYTIMEOUT=40
+NEWLINE=$'\n'
+
+#if [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 
 function zle-line-init zle-keymap-select {
   case $KEYMAP in
