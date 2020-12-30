@@ -14,7 +14,6 @@
     ~/.gitconfig: gitconfig
     ~/.inputrc: inputrc
     ~/.bash_profile: bash_profile
-    ~/.vim: vim
     ~/.config/nvim:
         create: true
         path: nvim
@@ -34,5 +33,4 @@
 - shell:
     - [chsh -s $(which zsh), Making zsh the default shell]
     - [git submodule update --init --recursive, Installing submodules]
-    - [/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)", installing homebrew]
-
+    - [bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)", Installing homebrew]
