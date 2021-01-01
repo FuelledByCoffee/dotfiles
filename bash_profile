@@ -67,7 +67,6 @@
 #   Custom colors
 #   ------------------------------------------------------------------
     export CLICOLOR=1	# I'll never understand how some people can work in mono-bit color
-    export TERM="xterm-256color"    # So many colors
 
 #   Add and define colors and options for ls
 #   ------------------------------------------------------------------

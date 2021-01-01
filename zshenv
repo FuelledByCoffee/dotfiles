@@ -2,8 +2,8 @@
 # vim:foldmethod=marker
 
 PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
-PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
 path+=("/Library/Developer/CommandLineTools/usr/bin")
+path+=("/Users/Johannes/Library/Python/3.8/bin")
 path+=("/usr/local/opt/llvm/bin")
 path+=("$HOME/Library/Python/3.9/bin")
 path+=("$HOME/.cargo/bin")
@@ -39,8 +39,5 @@ export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR='/usr/local/share/zsh-syntax-highlighting/highlighters'
-elif [[ "$OSTYPE" == "linux"* ]]; then
-    export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR='/usr/share/zsh-syntax-highlighting/highlighters'
-fi
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$HOME/.zsh-syntax-highlighting/highlighters"
+

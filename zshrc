@@ -139,11 +139,8 @@ unsetopt nomatch notify
 #: }}}
 
 #: Plugins {{{
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-else
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+source ~/.zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh-hist/zsh-hist.plugin.zsh
+#source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #: }}}

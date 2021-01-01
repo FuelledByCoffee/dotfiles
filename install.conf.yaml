@@ -21,6 +21,10 @@
         create: true
         path: ignore
     ~/.alacritty.yml: alacritty.yml
+    ~/.zsh-hist:
+    ~/.zsh-autocomplete:
+    ~/.zsh-syntax-highlighting:
+    ~/.zsh-autosuggestions:
 
 - create:
     - ~/bin
