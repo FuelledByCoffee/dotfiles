@@ -2,8 +2,8 @@
 # vim:foldmethod=marker
 
 PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
-PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
 path+=("/Library/Developer/CommandLineTools/usr/bin")
+path+=("/Users/Johannes/Library/Python/3.8/bin")
 path+=("/usr/local/opt/llvm/bin")
 path+=("$HOME/Library/Python/3.9/bin")
 path+=("$HOME/.cargo/bin")
