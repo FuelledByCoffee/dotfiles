@@ -21,6 +21,10 @@
         create: true
         path: ignore
     ~/.alacritty.yml: alacritty.yml
+    ~/.zsh-hist:
+    ~/.zsh-autocomplete:
+    ~/.zsh-syntax-highlighting:
+    ~/.zsh-autosuggestions:
 
 - create:
     - ~/bin
@@ -33,4 +37,3 @@
 - shell:
     - [chsh -s $(which zsh), Making zsh the default shell]
     - [git submodule update --init --recursive, Installing submodules]
-    - [bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)", Installing homebrew]
