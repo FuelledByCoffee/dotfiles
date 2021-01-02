@@ -35,7 +35,9 @@ alias grep='grep   --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias vim='nvim'
+if command -v nvim &> /dev/null; then
+  alias vim='nvim'
+fi
 
 # make commands
 alias clean='make clean'
