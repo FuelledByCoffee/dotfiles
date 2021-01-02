@@ -1,16 +1,5 @@
-#!/usr/bin/env zsh
 # vim:foldmethod=marker
-
-PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
-path+=("/Library/Developer/CommandLineTools/usr/bin")
-path+=("/Users/Johannes/Library/Python/3.8/bin")
-path+=("/usr/local/opt/llvm/bin")
-path+=("$HOME/Library/Python/3.9/bin")
-path+=("$HOME/.cargo/bin")
-path+=("$HOME/.local/bin")
-path+=("$HOME/.local/sbin")
-path+=("$HOME/bin")
-path+=(".")
+# shellcheck shell=bash
 
 # Encoding
 export LANG="en_US.UTF-8"
@@ -32,12 +21,12 @@ export LDFLAGS='-flto=thin'
 # CLI
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31' # For Linux
 export QUOTING_STYLE='literal' # Don't put names with spaces in quotes
+
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+  nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+  -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+  -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$HOME/.zsh-syntax-highlighting/highlighters"
-
