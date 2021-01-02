@@ -87,8 +87,6 @@ REPLACE='%F{red}%K{white}%S REPLACE %s%f%k'
 KEYTIMEOUT=40
 NEWLINE=$'\n'
 
-#if [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
-
 function zle-line-init zle-keymap-select {
   case $KEYMAP in
     (vicmd)         MODE=$NORMAL ;;
