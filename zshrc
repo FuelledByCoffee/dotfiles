@@ -137,8 +137,8 @@ unsetopt nomatch notify
 #: }}}
 
 #: Plugins {{{
-source ~/.zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh-hist/zsh-hist.plugin.zsh
+source $ZDOTDIR/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
 #source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #: }}}
