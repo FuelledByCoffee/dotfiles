@@ -56,6 +56,7 @@
     PATH="$PATH:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin"
     PATH="$PATH:/Library/Developer/CommandLineTools/usr/bin"
     PATH="$PATH:$HOME/Library/Python/3.8/bin"
+    PATH="$HOME/.cargo/bin:$PATH"
     PATH="$PATH:."
     export PATH
 
