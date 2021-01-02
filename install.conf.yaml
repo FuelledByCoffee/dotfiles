@@ -6,29 +6,10 @@
 
 - clean: ['~']
 
-- link:
-    ~/.tmux.conf: tmux.conf
-    ~/.aliases: aliases
-    ~/.zshrc: zshrc
-    ~/.zshenv: zshenv
-    ~/.gitconfig: gitconfig
-    ~/.inputrc: inputrc
-    ~/.bash_profile: bash_profile
-    ~/.config/nvim:
-        create: true
-        path: nvim
-    ~/.config/git/ignore:
-        create: true
-        path: ignore
-    ~/.alacritty.yml: alacritty.yml
-    ~/.zsh-hist:
-    ~/.zsh-autocomplete:
-    ~/.zsh-syntax-highlighting:
-    ~/.zsh-autosuggestions:
-
 - create:
     - ~/bin
     - ~/.config
+    - ~/.config/zsh
     - ~/.local/bin
     - ~/.local/include
     - ~/.local/lib
@@ -37,3 +18,42 @@
 - shell:
     - [chsh -s $(which zsh), Making zsh the default shell]
     - [git submodule update --init --recursive, Installing submodules]
+    -
+      command: /bin/bash -c 
+        \ "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      stdin: true
+      stdout: true
+      description: Installing Homebrew
+    -
+      command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      stdin: true
+      stdout: true
+      description: Installing rust
+    - [source ~/.cargo/env, Adding rust toolchain to path]
+    - [cargo install exa, Installing exa]
+    - [cargo install ripgrep, Installing ripgrep]
+    - [cargo install fd-find, Installing fd-find]
+
+- link:
+    ~/.alacritty.yml: alacritty.yml
+    ~/.tmux.conf: tmux.conf
+    ~/.aliases: aliases
+    ~/.gitconfig: gitconfig
+    ~/.inputrc: inputrc
+    ~/.vimrc: nvim/init.vim
+    ~/.config/nvim:
+        create: true
+        path: nvim
+    ~/.config/git/ignore:
+        create: true
+        path: ignore
+    ~/.bash_profile: bash_profile
+    ~/.zshenv: zshenv
+    ~/.config/zsh/.zshenv:
+    ~/.config/zsh/.zshrc:
+    ~/.config/zsh/.zprofile:
+    ~/.config/zsh/.zsh-hist:
+    ~/.config/zsh/.zsh-autocomplete:
+    ~/.config/zsh/.zsh-syntax-highlighting:
+    ~/.config/zsh/.zsh-autosuggestions:
+
