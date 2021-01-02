@@ -12,12 +12,21 @@ path+=("$HOME/.local/sbin")
 path+=("$HOME/bin")
 path+=(".")
 
-export EDITOR='nvim'
-export VISUAL='nvim'
-export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-  nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-  -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-  -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+if command -v nvim &> /dev/null; then
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+  export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+    nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+else
+  export EDITOR='vim'
+  export VISUAL='vim'
+  export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+fi
 
 #: Aliases {{{
 [[ -r ~/.aliases ]] && source ~/.aliases
