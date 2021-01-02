@@ -16,13 +16,13 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/tagbar'
 "Plug 'neovim/nvim-lspconfig'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neomake/neomake'
-" Plug 'dense-analysis/ale'
-" Plug 'airblade/vim-gitgutter'
-Plug 'cdelledonne/vim-cmake'
-" Plug 'sheerun/vim-polyglot'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neomake/neomake'
+"Plug 'dense-analysis/ale'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'cdelledonne/vim-cmake'
+"Plug 'sheerun/vim-polyglot'
+"Plug 'jackguo380/vim-lsp-cxx-highlight'
 call plug#end()
 
 ": NerdTree {{{
@@ -234,7 +234,7 @@ set relativenumber
 set number
 set cursorline
 
-if &term =~# '^screen'
+if &term =~# '^screen' || &term =~# '^tmux' || &term =~# '^alacritty'
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
