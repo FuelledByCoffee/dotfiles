@@ -371,7 +371,7 @@ shell:
   args:
     - -l
     - -c
-    - "tmux new -A"
+    - "tmux -2 new -A"
 
 # Startup directory
 #
