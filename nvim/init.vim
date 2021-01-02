@@ -296,6 +296,8 @@ set undoreload=1000                 " number of lines to save for undo
 " set splitbelow
 set splitright
 
+set background=dark
+
 filetype plugin on
 filetype indent on
 
@@ -336,6 +338,8 @@ endif
 
 ": Colorscheme {{{
 
+colorscheme gruvbox
+
 " No background color. Persist after setting colorscheme.
 " Only sets when colorsceme is set
 au colorscheme * highlight Normal	          ctermbg=none
@@ -348,8 +352,6 @@ au colorscheme * highlight LineNr	          ctermbg=none ctermfg=grey
 au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
 au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
 au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
-
-colorscheme gruvbox
 
 " set background=dark " for the dark version
 " set background=light " for the light version
