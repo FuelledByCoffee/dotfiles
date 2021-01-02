@@ -259,6 +259,8 @@ set termguicolors
 
 set noshowmode
 
+set hidden
+
 set wildmenu
 set wildmode=full
 
