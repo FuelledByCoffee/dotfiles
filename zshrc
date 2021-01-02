@@ -1,12 +1,6 @@
 #!/usr/bin/env zsh
 # vim:foldmethod=marker:ft=zsh
 
-#: Aliases {{{
-[[ -r ~/.aliases ]] && source ~/.aliases
-
-alias edprof='nvim ~/.zshrc && source ~/.zshrc'
-#: }}}
-
 #: Functions {{{
 function chpwd {
   emulate -L zsh
