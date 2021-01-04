@@ -56,6 +56,7 @@
     PATH="$PATH:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin"
     PATH="$PATH:/Library/Developer/CommandLineTools/usr/bin"
     PATH="$PATH:$HOME/Library/Python/3.8/bin"
+    PATH="$HOME/.cargo/bin:$PATH"
     PATH="$PATH:."
     export PATH
 
@@ -66,7 +67,6 @@
 #   Custom colors
 #   ------------------------------------------------------------------
     export CLICOLOR=1	# I'll never understand how some people can work in mono-bit color
-    export TERM="xterm-256color"    # So many colors
 
 #   Add and define colors and options for ls
 #   ------------------------------------------------------------------
@@ -273,3 +273,4 @@
         echo "$1 is not a valid file"
       fi
     }
+source "$HOME/.cargo/env"

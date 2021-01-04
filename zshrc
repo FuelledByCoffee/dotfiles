@@ -1,12 +1,6 @@
 #!/usr/bin/env zsh
 # vim:foldmethod=marker:ft=zsh
 
-#: Aliases {{{
-[[ -r ~/.aliases ]] && source ~/.aliases
-
-alias edprof='nvim ~/.zshrc && source ~/.zshrc'
-#: }}}
-
 #: Functions {{{
 function chpwd {
   emulate -L zsh
@@ -87,8 +81,6 @@ REPLACE='%F{red}%K{white}%S REPLACE %s%f%k'
 KEYTIMEOUT=40
 NEWLINE=$'\n'
 
-#if [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
-
 function zle-line-init zle-keymap-select {
   case $KEYMAP in
     (vicmd)         MODE=$NORMAL ;;
@@ -139,11 +131,8 @@ unsetopt nomatch notify
 #: }}}
 
 #: Plugins {{{
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-else
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+source $ZDOTDIR/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
+#source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 #: }}}

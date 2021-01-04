@@ -4,6 +4,23 @@
 """"""""""""""""""""
 
 ": Plugins {{{
+
+" Install vim-plug if not found
+if has ("nvim")
+  if empty(glob('"${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'))
+    silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
+          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  endif
+elseif empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+      \| PlugInstall --sync | source $MYVIMRC
+      \| endif
+
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -16,13 +33,13 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/tagbar'
 "Plug 'neovim/nvim-lspconfig'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neomake/neomake'
-" Plug 'dense-analysis/ale'
-" Plug 'airblade/vim-gitgutter'
-Plug 'cdelledonne/vim-cmake'
-" Plug 'sheerun/vim-polyglot'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neomake/neomake'
+"Plug 'dense-analysis/ale'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'cdelledonne/vim-cmake'
+"Plug 'sheerun/vim-polyglot'
+"Plug 'jackguo380/vim-lsp-cxx-highlight'
 call plug#end()
 
 ": NerdTree {{{
@@ -234,7 +251,15 @@ set relativenumber
 set number
 set cursorline
 
+if &term =~# '^screen' || &term =~# '^tmux' || &term =~# '^alacritty'
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+set termguicolors
+
 set noshowmode
+
+set hidden
 
 set wildmenu
 set wildmode=full
@@ -270,6 +295,8 @@ set undoreload=1000                 " number of lines to save for undo
 " Open new splits to the right and one the bottom
 " set splitbelow
 set splitright
+
+set background=dark
 
 filetype plugin on
 filetype indent on
@@ -311,6 +338,8 @@ endif
 
 ": Colorscheme {{{
 
+colorscheme gruvbox
+
 " No background color. Persist after setting colorscheme.
 " Only sets when colorsceme is set
 au colorscheme * highlight Normal	          ctermbg=none
@@ -323,8 +352,6 @@ au colorscheme * highlight LineNr	          ctermbg=none ctermfg=grey
 au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
 au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
 au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
-
-colorscheme gruvbox
 
 " set background=dark " for the dark version
 " set background=light " for the light version

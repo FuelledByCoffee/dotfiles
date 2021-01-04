@@ -7,7 +7,8 @@ then
   alias ls='exa -F'
   alias la='exa -Fa'
   alias ll='exa -FlhH'
-  alias lt='exa -FT'    # Tree replacement
+  alias lt='exa -FT'
+  alias tree='exa -FT'    # Tree replacement
 elif [[ "$OSTYPE" == "linux"* ]]; then
   alias ls='ls -F --color=auto'
   alias la='ls -A --color=auto'
@@ -25,6 +26,8 @@ alias rm='rm -vI'
 alias ln='ln -v'
 alias du='du -h'
 
+alias del='mv -t ~/.Trash'
+
 alias mkdir='mkdir -pv'
 
 # Grep color — Seriously though use ripgrep
@@ -32,7 +35,9 @@ alias grep='grep   --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias vim='nvim'
+if command -v nvim &> /dev/null; then
+  alias vim='nvim'
+fi
 
 # make commands
 alias clean='make clean'
@@ -43,4 +48,4 @@ alias vtop='vtop -t brew'
 alias clock='tty-clock -C 4 -Sc'
 
 alias C='cd ~/Code/C'
-alias cs50='cd ~/Code/C/cs50'
+alias cs50='cd ~/Code/cs50'
