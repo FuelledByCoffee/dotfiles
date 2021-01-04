@@ -1,18 +1,6 @@
 #!/usr/bin/env zsh
 # vim:foldmethod=marker:ft=zsh
 
-#: Tmux {{{
-if ! [[ $TMUX ]] then
-  tmux new -A
-fi
-#: }}}
-
-#: Aliases {{{
-[[ -r ~/.aliases ]] && source ~/.aliases
-
-alias edprof='nvim ~/.zshrc && source ~/.zshrc'
-#: }}}
-
 #: Functions {{{
 function chpwd {
   emulate -L zsh
