@@ -1,4 +1,4 @@
-set makeprg=shellcheck\ -f\ gcc\ %
+setlocal makeprg=shellcheck\ -f\ gcc\ %
 au BufWritePost * :silent make | redraw!
 
 au QuickFixCmdPost [^l]* nested cwindow
