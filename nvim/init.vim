@@ -32,14 +32,14 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/tagbar'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 "Plug 'neovim/nvim-lspconfig'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neomake/neomake'
 "Plug 'dense-analysis/ale'
 "Plug 'airblade/vim-gitgutter'
 "Plug 'cdelledonne/vim-cmake'
 "Plug 'sheerun/vim-polyglot'
-"Plug 'jackguo380/vim-lsp-cxx-highlight'
 call plug#end()
 
 ": NerdTree {{{
@@ -239,10 +239,10 @@ endfun
 function! MyOnBattery()
   if has('macunix')
     return match(system('pmset -g batt'), "Now drawing from 'Battery Power'") != -1
-  elsif has('unix')
-  return readfile('/sys/class/power_supply/AC/online') == ['0']
-endif
-return 0
+  elseif has('unix')
+    return readfile('/sys/class/power_supply/AC/online') == ['0']
+  endif
+  return 0
 endfunction
 ": }}}
 
@@ -357,3 +357,4 @@ au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
 " set background=light " for the light version
 
 ": }}}
+
