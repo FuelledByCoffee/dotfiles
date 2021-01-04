@@ -223,7 +223,7 @@ colors:
     # affected cell, or hexadecimal colors like #ff00ff.
     matches:
       foreground: '#000000'
-      background: '#ffffff'
+      background: '#9f9f9f'
 
     bar:
       background: '#c5c8c6'
@@ -231,7 +231,7 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#1d1f21'
+    black:   '#1d1f21' #1d1f21
     red:     '#c91b00'
     green:   '#00c200'
     yellow:  '#ffb926'
