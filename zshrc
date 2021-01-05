@@ -68,8 +68,50 @@ autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 setopt promptsubst
 
-#local branch=''
-#local lock=''
+#: Powerlineglyphs {{{
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#: }}}
 
 # Vi mode
 INSERT='%F{blue}%S INSERT %s%f'
@@ -136,3 +178,4 @@ source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
 #source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 #: }}}
+
