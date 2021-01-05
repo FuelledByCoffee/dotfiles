@@ -166,6 +166,7 @@ nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :qa<cr>
 nnoremap <leader>m :make<cr>
 nnoremap <leader>r :!make test<cr>
+nnoremap <leader><bs> :!make clean<cr>
 
 " Escape from terminal mode
 tnoremap <Esc> <C-\><C-n>
