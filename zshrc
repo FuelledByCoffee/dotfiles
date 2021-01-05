@@ -69,57 +69,15 @@ autoload -Uz vcs_info
 setopt promptsubst
 
 #: Powerlineglyphs {{{
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+#                                        
 #: }}}
 
 # Vi mode
-INSERT='%F{blue}%S INSERT %s%f'
-NORMAL='%F{green}%S NORMAL %s%f'
-VISUAL='%F{yellow}%S VISUAL %s%f'
-REPLACE='%F{red}%K{white}%S REPLACE %s%f%k'
+INSERT='%F{blue}%S I %s%f'
+NORMAL='%F{green}%S N %s%f'
+VISUAL='%F{yellow}%S V %s%f'
+REPLACE='%F{red}%K{white}%S R %s%f%k'
 
-# Short delay after pressing escape -- 20 looks like the sweet spot
 KEYTIMEOUT=40
 NEWLINE=$'\n'
 
