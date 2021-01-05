@@ -33,6 +33,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'autozimu/LanguageClient-neovim'
 "Plug 'neovim/nvim-lspconfig'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neomake/neomake'
@@ -41,6 +42,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'cdelledonne/vim-cmake'
 "Plug 'sheerun/vim-polyglot'
 call plug#end()
+
+": LanguageClient {{{
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd'],
+  \ 'c': ['clangd'],
+  \ }
+": }}}
 
 ": NerdTree {{{
 
