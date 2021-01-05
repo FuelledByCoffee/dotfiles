@@ -39,12 +39,17 @@
     editor = nvim
     excludesfile = ~/.config/git/ignore
 [diff]
-    tool = diffmerge
+    tool = vimdiff
+[difftool]
+	prompt = false
+[difftool "vimdiff"]
+	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
 [alias]
     st = status
     co = checkout
     br = branch
     cb = checkout -b
+    d  = difftool
     unstage = reset HEAD --
     reorder = "!GIT_SEQUENCE_EDITOR \"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
     uncommit = reset --soft HEAD~1
