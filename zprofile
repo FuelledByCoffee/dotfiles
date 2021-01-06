@@ -13,13 +13,12 @@ if [[ "$OSTYPE" == "linux"* ]]; then
   path=("/home/linuxbrew/.linuxbrew/sbin" $path)
   path=("/home/linuxbrew/.linuxbrew/bin"  $path)
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  arch=$(uname -i)
-  if [[ arch == arm* ]]; then
+  if [[ $(machine) == "x86"* ]]; then
+    path=("/Library/Developer/CommandLineTools/usr/bin" $path)
+    path=("/usr/local/opt/llvm/bin" $path)
+  else
     path=("/opt/homebrew/sbin" $path)
     path=("/opt/homebrew/bin"  $path)
-  else
-    path+=("/usr/local/opt/llvm/bin")
-    path+=("/Library/Developer/CommandLineTools/usr/bin")
   fi
 fi
 
