@@ -73,18 +73,18 @@ setopt promptsubst
 #: }}}
 
 # Vi mode
-INSERT='%F{blue}%S I %s%f'
-NORMAL='%F{green}%S N %s%f'
-VISUAL='%F{yellow}%S V %s%f'
-REPLACE='%F{red}%K{white}%S R %s%f%k'
+viinsert='%F{blue}%S I %s%f'
+vicommand='%F{green}%S more ~ %s%f'
+vivisual='%F{yellow}%S V %s%f'
+vireplace='%F{red}%S %K{white}R%k %s%f'
 
 KEYTIMEOUT=40
 NEWLINE=$'\n'
 
 function zle-line-init zle-keymap-select {
   case $KEYMAP in
-    (vicmd)         MODE=$NORMAL ;;
-    (viins|main)    MODE=$INSERT ;;
+    (vicmd)       MODE=$vicommand ;;
+    (viins|main)  MODE=$viinsert  ;;
   esac
 
   PROMPT="%(!.%B%F{red}%n%f%b:.)%F{yellow}%~%f $MODE "
