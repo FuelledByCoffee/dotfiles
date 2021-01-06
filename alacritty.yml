@@ -367,11 +367,11 @@ live_config_reload: true
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /usr/local/bin/zsh
+  program: zsh
   args:
     - -l
     - -c
-    - "tmux -2 new -A"
+    - "tmux -2 new -A -s main"
 
 # Startup directory
 #
