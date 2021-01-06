@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
-path+=("$HOME/Library/Python/3.8/bin")
 path+=("$HOME/Library/Python/3.9/bin")
+path+=("$HOME/Library/Python/3.8/bin")
 path+=("$HOME/.cargo/bin")
 path+=("$HOME/.local/bin")
 path+=("$HOME/.local/sbin")
@@ -36,5 +36,5 @@ export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
 #: Aliases {{{
 [[ -r ~/.aliases ]] && source ~/.aliases
 
-alias edprof='nvim ~/.zshrc && source ~/.zshrc'
+alias edprof="nvim $ZDOTDIR/.zshrc && source $ZDOTDIR/.zshrc"
 #: }}}
