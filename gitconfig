@@ -1,3 +1,4 @@
+# vim:ft=gitconfig
 # This is Git's per-user configuration file.
 [user]
     name = Johannes Eckhoff
@@ -52,11 +53,11 @@
     br = branch
     cb = checkout -b
     d  = difftool
-    unstage = reset HEAD --
-    reorder = "!GIT_SEQUENCE_EDITOR \"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
+    reorder  = "!GIT_SEQUENCE_EDITOR \"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
+    unstage  = reset HEAD --
     uncommit = reset --soft HEAD~1
     recommit = commit --amend --no-edit
-    get = pull origin main
+    get  = pull origin main
     yeet = push origin HEAD
 [init]
     defaultBranch = main
