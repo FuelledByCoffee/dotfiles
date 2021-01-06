@@ -7,6 +7,11 @@ function chpwd {
   ls
 }
 
+function goto {
+  emulate -L zsh
+  cd $(fd -1 $1)
+}
+
 function mcd {
   emulate -L zsh
   mkdir -p $1 && cd $1
@@ -14,7 +19,7 @@ function mcd {
 
 function ql {
   emulate -l zsh
-  qlmanage -p $@ >& /dev/null
+  qlmanage -p $@ &>/dev/null
 }
 
 # Hide folder in finder
@@ -74,7 +79,7 @@ setopt promptsubst
 
 # Vi mode
 viinsert='%F{blue}%S I %s%f'
-vicommand='%F{green}%S more ~ %s%f'
+vicommand='%F{green}%S N %s%f'
 vivisual='%F{yellow}%S V %s%f'
 vireplace='%F{red}%S %K{white}R%k %s%f'
 
