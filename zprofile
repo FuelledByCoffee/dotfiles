@@ -13,11 +13,14 @@ if [[ "$OSTYPE" == "linux"* ]]; then
   path=("/home/linuxbrew/.linuxbrew/sbin" $path)
   path=("/home/linuxbrew/.linuxbrew/bin"  $path)
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  path=("/opt/homebrew/sbin" $path)
-  path=("/opt/homebrew/bin"  $path)
-  path+=("/usr/local/opt/llvm/bin")
-  path+=("/home/linuxbrew/.linuxbrew/lib/ruby/gems/3.0.0/bin")
-  path+=("/Library/Developer/CommandLineTools/usr/bin")
+  arch=$(uname -i)
+  if [[ arch == arm* ]]; then
+    path=("/opt/homebrew/sbin" $path)
+    path=("/opt/homebrew/bin"  $path)
+  else
+    path+=("/usr/local/opt/llvm/bin")
+    path+=("/Library/Developer/CommandLineTools/usr/bin")
+  fi
 fi
 
 if command -v nvim &> /dev/null; then
