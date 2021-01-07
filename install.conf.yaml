@@ -32,7 +32,7 @@
     - [source ~/.cargo/env, Adding rust toolchain to path]
     - [brew install exa, Installing exa]
     - [brew install ripgrep, Installing ripgrep]
-    - [brew install fd-find, Installing fd-find]
+    - [brew install fd, Installing fd-find]
 
 - link:
     ~/.alacritty.yml: alacritty.yml
