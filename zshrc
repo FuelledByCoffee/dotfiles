@@ -86,9 +86,15 @@ vireplace='%F{red}%S %K{white}R%k %s%f'
 KEYTIMEOUT=40
 NEWLINE=$'\n'
 
-function zle-line-init zle-keymap-select {
+function zle-line-init zle-keymap-select zle-line-pre-redraw {
   case $KEYMAP in
-    (vicmd)       MODE=$vicommand ;;
+    (vicmd)
+      if (( REGION_ACTIVE )); then
+        MODE=$vivisual
+      else
+        MODE=$vicommand
+      fi
+      ;;
     (viins|main)  MODE=$viinsert  ;;
   esac
 
@@ -98,6 +104,7 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+zle -N zle-line-pre-redraw
 
 RPROMPT='%(?..%B%F{red}❌ %?%f%b)'
 #: }}}
