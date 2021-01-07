@@ -16,7 +16,6 @@
     - ~/.vim/undo-history
 
 - shell:
-    - [chsh -s $(which zsh), Making zsh the default shell]
     - [git submodule update --init --recursive, Installing submodules]
     -
       command: /bin/bash -c 
@@ -56,4 +55,3 @@
     ~/.config/zsh/.zsh-autocomplete:
     ~/.config/zsh/.zsh-syntax-highlighting:
     ~/.config/zsh/.zsh-autosuggestions:
-
