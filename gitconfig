@@ -10,9 +10,9 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
 [pull]
-	rebase = true
+    rebase = true
 [rebase]
-	autoStash = true
+    autoStash = true
 [commit]
     verbose = true
 [help]
@@ -39,12 +39,11 @@
     helper = osxkeychain
 [core]
     pager = less
-    editor = nvim
     excludesfile = ~/.config/git/ignore
 [diff]
     tool = vimdiff
 [difftool]
-	prompt = false
+    prompt = false
 [difftool "vimdiff"]
 	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
 [alias]
@@ -53,7 +52,7 @@
     br = branch
     cb = checkout -b
     d  = difftool
-    reorder  = "!GIT_SEQUENCE_EDITOR \"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
+    ;reorder  = "!GIT_SEQUENCE_EDITOR \"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
     discard  = checkout HEAD --
     unstage  = reset HEAD --
     uncommit = reset --soft HEAD~1
