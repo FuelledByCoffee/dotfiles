@@ -54,6 +54,7 @@
     cb = checkout -b
     d  = difftool
     reorder  = "!GIT_SEQUENCE_EDITOR \"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
+    discard  = checkout HEAD --
     unstage  = reset HEAD --
     uncommit = reset --soft HEAD~1
     recommit = commit --amend --no-edit
