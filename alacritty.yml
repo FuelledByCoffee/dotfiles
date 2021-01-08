@@ -691,6 +691,19 @@ key_bindings:
   - { key: N,                           mode: Vi, action: SearchNext              }
   - { key: N,      mods: Shift,         mode: Vi, action: SearchPrevious          }
 
+  # Search Mode
+  - { key: Return,                mode: Search|Vi,  action: SearchConfirm         }
+  - { key: Escape,                mode: Search,     action: SearchCancel          }
+  - { key: C,      mods: Control, mode: Search,     action: SearchCancel          }
+  - { key: U,      mods: Control, mode: Search,     action: SearchClear           }
+  - { key: W,      mods: Control, mode: Search,     action: SearchDeleteWord      }
+  - { key: P,      mods: Control, mode: Search,     action: SearchHistoryPrevious }
+  - { key: N,      mods: Control, mode: Search,     action: SearchHistoryNext     }
+  - { key: Up,                    mode: Search,     action: SearchHistoryPrevious }
+  - { key: Down,                  mode: Search,     action: SearchHistoryNext     }
+  - { key: Return,                mode: Search|~Vi, action: SearchFocusNext       }
+  - { key: Return, mods: Shift,   mode: Search|~Vi, action: SearchFocusPrevious   }
+
   # (Windows, Linux, and BSD only)
   - { key: V,        mods: Control|Shift,           action: Paste            }
   - { key: C,        mods: Control|Shift,           action: Copy             }
@@ -713,6 +726,7 @@ key_bindings:
   - { key: D,      mods: Command, mode: ~Vi, chars: "\x04"            }
   - { key: J,      mods: Command, mode: ~Vi, chars: "\x0A"            }
   - { key: K,      mods: Command, mode: ~Vi, chars: "\x0c"            }
+  - { key: K,      mods: Command,            action: ClearHistory     }
   - { key: Key0,   mods: Command,            action: ResetFontSize    }
   - { key: Key1,   mods: Command, mode: ~Vi, chars: "\x0A1"           }
   - { key: Key2,   mods: Command, mode: ~Vi, chars: "\x0A2"           }
@@ -726,7 +740,6 @@ key_bindings:
   - { key: Equals, mods: Command,            action: IncreaseFontSize }
   - { key: Plus,   mods: Command,            action: IncreaseFontSize }
   - { key: Minus,  mods: Command,            action: DecreaseFontSize }
-  - { key: K,      mods: Command,            action: ClearHistory     }
   - { key: V,      mods: Command,            action: Paste            }
   - { key: C,      mods: Command,            action: Copy             }
   - { key: C,      mods: Command, mode: Vi,  action: ClearSelection   }
