@@ -15,24 +15,6 @@
     - ~/.local/lib
     - ~/.vim/undo-history
 
-- shell:
-    - [git submodule update --init --recursive, Installing submodules]
-    -
-      command: /bin/bash -c 
-        \ "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      stdin: true
-      stdout: true
-      description: Installing Homebrew
-    -
-      command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-      stdin: true
-      stdout: true
-      description: Installing rust
-    - [source ~/.cargo/env, Adding rust toolchain to path]
-    - [brew install exa, Installing exa]
-    - [brew install ripgrep, Installing ripgrep]
-    - [brew install fd, Installing fd-find]
-
 - link:
     ~/.alacritty.yml: alacritty.yml
     ~/.tmux.conf: tmux.conf
@@ -55,3 +37,25 @@
     ~/.config/zsh/.zsh-autocomplete:
     ~/.config/zsh/.zsh-syntax-highlighting:
     ~/.config/zsh/.zsh-autosuggestions:
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - [source ~/.config/zsh/.zprofile, Setting up path and aliases]
+    -
+      command: /bin/bash -c 
+        \ "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      description: Installing Homebrew
+      stdin: true
+      stdout: true
+    -
+      command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      description: Installing rust
+      stdin: true
+      stdout: true
+    - [chsh -s $(which zsh), Setting zsh as default shell]
+    - echo hello
+    - [brew install exa, Installing exa]
+    - [brew install ripgrep, Installing ripgrep]
+    - [brew install fd, Installing fd-find]
+    - [brew install cmake, Installing cmake]
+    - [brew install ctags, Installing ctags]
