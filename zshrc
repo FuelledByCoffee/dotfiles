@@ -70,6 +70,7 @@ bindkey -M viins jj vi-cmd-mode # Double tap 'j' to exit insert mode
 
 autoload -Uz colors && colors
 autoload -Uz add-zsh-hook
+autoload -Uz add-zsh-hook-widget
 autoload -Uz vcs_info
 setopt promptsubst
 
@@ -86,7 +87,7 @@ vireplace='%F{red}%S %K{white}R%k %s%f'
 KEYTIMEOUT=40
 NEWLINE=$'\n'
 
-function zle-line-init zle-keymap-select zle-line-pre-redraw {
+function zle-line-init zle-keymap-select {
   case $KEYMAP in
     (vicmd)
       if (( REGION_ACTIVE )); then
@@ -104,7 +105,6 @@ function zle-line-init zle-keymap-select zle-line-pre-redraw {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
-zle -N zle-line-pre-redraw
 
 RPROMPT='%(?..%B%F{red}❌ %?%f%b)'
 #: }}}
