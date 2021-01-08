@@ -16,9 +16,11 @@ export LC_TIME="nb_NO.UTF-8"
 # Programming
 export CC='clang'
 export CXX='clang++'
+export CPPFLAGS="-I $HOME/.local/include"
 export CFLAGS='-WCL4 -Wshadow -std=gnu17'
 export CXXFLAGS='-WCL4 -Wshadow -std=c++17'
-export LDFLAGS='-flto=thin'
+export LDFLAGS="-flto=thin -Wl,-rpath,$HOME/.local/lib"
+export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
 
 # CLI
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31' # For Linux
