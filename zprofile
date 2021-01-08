@@ -28,7 +28,7 @@ else
   export EDITOR='vim'
 fi
 export VISUAL=$EDITOR
-export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
   $EDITOR -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
   -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
   -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
