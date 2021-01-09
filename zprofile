@@ -16,12 +16,12 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   fi
 fi
 
+path=("$HOME/.local/bin" $path)
+path=("$HOME/.local/sbin" $path)
+path=("$HOME/bin" $path)
+path+=("$HOME/.cargo/bin")
 path+=("$HOME/Library/Python/3.9/bin")
 path+=("$HOME/Library/Python/3.8/bin")
-path+=("$HOME/.cargo/bin")
-path+=("$HOME/.local/bin")
-path+=("$HOME/.local/sbin")
-path+=("$HOME/bin")
 path+=(".")
 
 if command -v nvim &> /dev/null; then
