@@ -6,7 +6,7 @@ if command -v exa &> /dev/null
 then
   alias ls='exa -F'
   alias la='exa -Fa'
-  alias ll='exa -FlhH'
+  alias ll='exa -FlhH --sort=extension'
   alias lt='exa -FT'
   alias tree='exa -FT'    # Tree replacement
 elif [[ "$OSTYPE" == "linux"* ]]; then
