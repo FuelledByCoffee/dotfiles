@@ -5,7 +5,7 @@
 
 ": Plugins {{{
 
-" Install vim-plug if not found
+": Install vim-plug if not found {{{
 if has ("nvim")
   if empty(glob('"${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'))
     silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
@@ -20,6 +20,7 @@ endif
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
       \| PlugInstall --sync | source $MYVIMRC
       \| endif
+": }}}
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
@@ -182,9 +183,6 @@ nnoremap <leader><bs> :!make clean<cr>
 " Escape from terminal mode
 tnoremap <Esc> <C-\><C-n>
 
-" Search by pressing space
-nnoremap <space> /
-
 " Cancel search highlight
 nnoremap <silent> // :noh<cr>
 
@@ -320,7 +318,7 @@ filetype indent on
 ": Configuration {{{
 
 " Reset pager variable to use nvim for man pages
-let $PAGER=''
+let $MANPAGER=''
 
 " Default is using c++ syntax for .h files
 " Use C syntax for .h files
