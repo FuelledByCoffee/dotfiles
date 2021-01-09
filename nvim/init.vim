@@ -273,6 +273,8 @@ set noshowmode
 
 set hidden
 
+set formatoptions-=cro
+
 set wildmenu
 set wildmode=full
 
