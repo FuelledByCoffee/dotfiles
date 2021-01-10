@@ -16,9 +16,11 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   fi
 fi
 
-path=("$HOME/.local/bin" $path)
+# Put home folder bin dirs first in path
+path=("$HOME/.local/bin"  $path)
 path=("$HOME/.local/sbin" $path)
-path=("$HOME/bin" $path)
+path=("$HOME/bin"         $path)
+
 path+=("$HOME/.cargo/bin")
 path+=("$HOME/Library/Python/3.9/bin")
 path+=("$HOME/Library/Python/3.8/bin")
