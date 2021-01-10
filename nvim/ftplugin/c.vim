@@ -1,12 +1,8 @@
-setlocal makeprg=shellcheck\ -f\ gcc\ %
+setlocal foldmethod=syntax
+setlocal makeprg=make
 au BufWritePost * :silent make | redraw!
 
 au QuickFixCmdPost [^l]* nested cwindow
 au QuickFixCmdPost    l* nested lwindow
-
-set expandtab
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
 
 set fo-=o
