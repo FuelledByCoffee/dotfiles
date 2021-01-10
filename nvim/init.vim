@@ -29,29 +29,67 @@ Plug 'tpope/vim-fugitive' " Show git brach in statusline
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/tagbar'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-"Plug 'neovim/nvim-lspconfig'
+Plug 'voldikss/vim-floaterm'
+" Debug adabter protocol
+Plug 'puremourning/vimspector', {
+  \ 'do': 'python3 install_gadget.py --enable-vscode-cpptools'
+  \ }
+"Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'bfrg/vim-cpp-modern' " syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neomake/neomake'
 "Plug 'dense-analysis/ale'
 "Plug 'airblade/vim-gitgutter'
 "Plug 'cdelledonne/vim-cmake'
 "Plug 'sheerun/vim-polyglot'
+" Plug 'lervag/vimtex'
 call plug#end()
+": vimspector {{{
+command! -nargs=+ Vfb call vimspector#AddFunctionBreakpoint(<f-args>)
+
+nnoremap <localleader>gd :call vimspector#Launch()<cr>
+nnoremap <localleader>gc :call vimspector#Continue()<cr>
+nnoremap <localleader>gs :call vimspector#Stop()<cr>
+nnoremap <localleader>gR :call vimspector#Restart()<cr>
+nnoremap <localleader>gp :call vimspector#Pause()<cr>
+nnoremap <localleader>gb :call vimspector#ToggleBreakpoint()<cr>
+nnoremap <localleader>gB :call vimspector#ToggleConditionalBreakpoint()<cr>
+nnoremap <localleader>gn :call vimspector#StepOver()<cr>
+nnoremap <localleader>gi :call vimspector#StepInto()<cr>
+nnoremap <localleader>go :call vimspector#StepOut()<cr>
+nnoremap <localleader>gr :call vimspector#RunToCursor()<cr>
+": }}}
+
+": cpp-modern {{{
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
+
+" Highlight struct/class member variables (affects both C and C++ files)
+let g:cpp_member_highlight = 1
+
+" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
+" (affects both C and C++ files)
+let g:cpp_simple_highlight = 1
+": }}}
+
+": vimtex {{{
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+": }}}
 
 ": LanguageClient {{{
-let g:LanguageClient_serverCommands = {
-  \ 'cpp': ['clangd'],
-  \ 'c': ['clangd'],
-  \ }
+"let g:LanguageClient_serverCommands = {
+  "\ 'cpp': ['clangd'],
+  "\ 'c': ['clangd'],
+  "\ }
 ": }}}
 
 ": NerdTree {{{
@@ -70,13 +108,13 @@ let g:loaded_netrwPlugin = 1
 
 ": Nerdcommenter {{{
 " Enable NERDCommenterToggle to check all selected lines is commented or not
-" let g:NERDToggleCheckAllLines = 1
+let g:NERDToggleCheckAllLines = 1
 " " Enable trimming of trailing whitespace when uncommenting
-" let g:NERDTrimTrailingWhitespace = 1
+let g:NERDTrimTrailingWhitespace = 1
 " " Add spaces after comment delimiters by default
-" let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 1
 " " Use compact syntax for prettified multi-line comments
-" let g:NERDCompactSexyComs = 1
+let g:NERDCompactSexyComs = 1
 ": }}}
 
 ": airline {{{
@@ -207,6 +245,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"map <C-j> :cn<CR>
+"map <C-k> :cp<CR>
+
 nnoremap <Down>     <C-W><C-J>
 nnoremap <Up>       <C-W><C-K>
 nnoremap <Right>    <C-W><C-L>
@@ -215,8 +256,8 @@ nnoremap <Left>     <C-W><C-H>
 " Navigate through quick-fix errors
 nnoremap <C-N> :cn<CR>
 nnoremap <C-P> :cp<CR>
-nnoremap co :lopen<CR>
-nnoremap cc :lclose<CR>
+nnoremap co :copen<CR>
+nnoremap cc :cclose<CR>
 
 noremap <silent> <leader>e :NERDTreeToggle<CR>
 noremap <silent> <leader>b :TagbarToggle<CR>
@@ -261,17 +302,21 @@ set relativenumber
 set number
 set cursorline
 
+" Auto remove trailing spaces
+autocmd BufWritePre * %s/\s\+$//e
+
 if &term =~# '^screen' || &term =~# '^tmux' || &term =~# '^alacritty'
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set t_8b=[48;2;%lu;%lu;%lum
+  set t_8f=[38;2;%lu;%lu;%lum
 endif
+
 set termguicolors
 
 set noshowmode
 
-set hidden
+set encoding=UTF-8
 
-set formatoptions-=cro
+set hidden
 
 set wildmenu
 set wildmode=full
@@ -307,8 +352,6 @@ set undoreload=1000                 " number of lines to save for undo
 " Open new splits to the right and one the bottom
 " set splitbelow
 set splitright
-
-set background=dark
 
 filetype plugin on
 filetype indent on
@@ -350,23 +393,22 @@ endif
 
 ": Colorscheme {{{
 
-colorscheme gruvbox
+colorscheme one
 
 " No background color. Persist after setting colorscheme.
 " Only sets when colorsceme is set
-au colorscheme * highlight Normal	          ctermbg=none
+au colorscheme * highlight Normal           ctermbg=none
 au colorscheme * highlight NonText	        ctermbg=none
 au colorscheme * highlight Text		          ctermbg=none
 au colorscheme * highlight LineNr	          ctermbg=none ctermfg=grey
-"au colorscheme * highlight CursorLineNR    ctermbg=none
+au colorscheme * highlight CursorLineNR     ctermbg=none ctermfg=yellow
 "au colorscheme * highlight SignColumn      guibg=none ctermbg=none
 "au colorscheme * highlight FoldColumn      guibg=none ctermbg=none
 au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
 au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
 au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
 
-" set background=dark " for the dark version
-" set background=light " for the light version
+set background=dark
 
 ": }}}
 
