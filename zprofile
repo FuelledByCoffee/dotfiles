@@ -8,6 +8,8 @@ if [[ "$OSTYPE" == "linux"* ]]; then
   path=("/home/linuxbrew/.linuxbrew/bin"  $path)
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   path+=("/Library/Developer/CommandLineTools/usr/bin")
+  path+=("$HOME/Library/Python/3.9/bin")
+  path+=("$HOME/Library/Python/3.8/bin")
   if [[ $(machine) == "x86"* ]]; then
     path+=("/usr/local/opt/llvm/bin")
   else
@@ -22,8 +24,6 @@ path=("$HOME/.local/sbin" $path)
 path=("$HOME/bin"         $path)
 
 path+=("$HOME/.cargo/bin")
-path+=("$HOME/Library/Python/3.9/bin")
-path+=("$HOME/Library/Python/3.8/bin")
 path+=(".")
 
 if command -v nvim &> /dev/null; then
