@@ -7,8 +7,8 @@ if [[ "$OSTYPE" == "linux"* ]]; then
   path=("/home/linuxbrew/.linuxbrew/sbin" $path)
   path=("/home/linuxbrew/.linuxbrew/bin"  $path)
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+  path+=("/Library/Developer/CommandLineTools/usr/bin")
   if [[ $(machine) == "x86"* ]]; then
-    path+=("/Library/Developer/CommandLineTools/usr/bin")
     path+=("/usr/local/opt/llvm/bin")
   else
     path=("/opt/homebrew/sbin" $path)
