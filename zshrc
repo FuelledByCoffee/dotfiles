@@ -105,6 +105,7 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+#zle -N zle-line-pre-redraw
 
 RPROMPT='%(?..%B%F{red}❌ %?%f%b)'
 #: }}}
@@ -148,4 +149,3 @@ source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
 #source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 #: }}}
-

@@ -38,7 +38,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-"Plug 'neovim/nvim-lspconfig'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neomake/neomake'
 "Plug 'dense-analysis/ale'
@@ -51,6 +50,7 @@ call plug#end()
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd'],
   \ 'c': ['clangd'],
+  \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
   \ }
 ": }}}
 
@@ -369,4 +369,3 @@ au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
 " set background=light " for the light version
 
 ": }}}
-
