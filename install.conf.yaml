@@ -52,7 +52,8 @@
       stdout: true
       description: Installing rust
     - [source $ZDOTDIR/.zprofile, Setting up path]
-    - [brew install exa, Installing exa]
+    - [brew install exa, Installing exa the replacement for ls]
     - [brew install ripgrep, Installing ripgrep]
     - [brew install fd, Installing fd-find]
+    - [brew install sd, Installing sd the sed replacement]
     - [brew install cppman, Installing cppman]
