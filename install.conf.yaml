@@ -57,3 +57,5 @@
     - [brew install fd, Installing fd-find]
     - [brew install sd, Installing sd the sed replacement]
     - [brew install cppman, Installing cppman]
+    - [brew install bat, Installing bat the replacement for cat]
+    - [brew install neovim, Installing neovim]
