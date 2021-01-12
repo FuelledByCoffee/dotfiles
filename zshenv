@@ -17,10 +17,11 @@ export LC_TIME="nb_NO.UTF-8"
 export CC="clang"
 export CXX="clang++"
 export CPPFLAGS=""
-export CFLAGS="-WCL4 -Wshadow -std=gnu17 -Wl,-rpath,$HOME/.local/lib"
+export CFLAGS="-WCL4 -Wshadow -std=gnu17"
 export CXXFLAGS="-WCL4 -Wshadow -std=c++17"
 export LDFLAGS="-flto=thin"
 export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
+export BLOCALFLAGS="-Wl,-rpath,$HOME/.local/lib"
 
 export CMAKE_C_STANDARD=17
 export CMAKE_EXPORT_COMPILE_COMMANDS=true
