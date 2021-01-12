@@ -42,7 +42,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector', {
   \ 'do': 'python3 install_gadget.py --enable-vscode-cpptools'
   \ }
-" Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'bfrg/vim-cpp-modern' " syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'neomake/neomake'
@@ -53,6 +53,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'lervag/vimtex'
 call plug#end()
 ": vimspector {{{
+let g:vimspector_install_gadgets = [ 'vscode-python', 'vscode-cpptools', 'CodeLLDB' ]
+
 command! -nargs=+ Vfb call vimspector#AddFunctionBreakpoint(<f-args>)
 
 nnoremap <localleader>gd :call vimspector#Launch()<cr>
@@ -111,7 +113,7 @@ let g:loaded_netrwPlugin = 1
 
 ": Nerdcommenter {{{
 " Create default mappings
-let g:NERDCreateDefaultMappings = 1
+let g:NERDCreateDefaultMappings = 0
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
@@ -227,6 +229,7 @@ endfunction
 
 ": Key maps {{{
 let mapleader = ','
+let maplocalleader="\<space>"
 
 " Press jj to escape from insert mode
 inoremap jj <esc>
