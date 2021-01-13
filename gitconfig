@@ -11,7 +11,7 @@
 [push]
     default = upstream
 [merge]
-    confligstyle = diff3
+    conflictstyle = diff3
 [branch]
     autosetupmerge = true
     autosetuprebase = local
