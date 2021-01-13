@@ -382,6 +382,10 @@ filetype indent on
 
 ": }}}
 
+": commands {{{
+command W :execute 'silent w !sudo tee % > /dev/null' | :edit!
+": }}}
+
 ": Configuration {{{
 
 " Reset pager variable to use nvim for man pages
