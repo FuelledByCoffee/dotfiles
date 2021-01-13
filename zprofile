@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-[[ -z $TMUX ]] && { tmux new -A -s main }
-
 # Reset path
 PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 
@@ -44,3 +42,5 @@ export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
 
 alias edprof="nvim $ZDOTDIR/.zshrc && source $ZDOTDIR/.zshrc"
 #: }}}
+
+[[ -z $TMUX ]] && { tmux new -A -s main }
