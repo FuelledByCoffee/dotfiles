@@ -4,6 +4,20 @@
     name = Johannes Eckhoff
     email = j.eckhoff@gmail.com
     user = FuelledByCoffee
+[github]
+    user = FuelledByCoffee
+[url "https://github.com/FuelledByCoffee/"]
+    insteadOf = gh:
+[url "git@github.com:"]
+    pushInsteadOf = https://github.com/
+    pushInsteadOf = git://github.com/
+[push]
+    default = upstream
+[merge]
+    confligstyle = diff3
+[branch]
+    autosetupmerge = true
+    autosetuprebase = local
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f
@@ -45,7 +59,7 @@
 [difftool]
     prompt = false
 [difftool "vimdiff"]
-	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
+    cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
 [alias]
     st = status
     co = checkout
