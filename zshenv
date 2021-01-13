@@ -14,26 +14,36 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="nb_NO.UTF-8"
 
 # Programming
-export CC="clang"
-export CXX="clang++"
-export CPPFLAGS=""
-export CFLAGS="-WCL4 -Wshadow -std=gnu17"
-export CXXFLAGS="-WCL4 -Wshadow -std=c++17"
-export LDFLAGS="-flto=thin"
-export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
-export BLOCALFLAGS="-Wl,-rpath,$HOME/.local/lib"
+if command -v clang &> /dev/null; then
+  export CC="clang"
+  export CXX="clang++"
+  # export CPPFLAGS="-I $HOME/.local/include"
+  export CFLAGS="-WCL4 -Wshadow -std=gnu17"
+  export CXXFLAGS="-WCL4 -Wshadow -std=c++17"
+  export LDFLAGS="-flto=thin"
+  export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
+elif command -v gcc &> /dev/null; then
+  export CC="gcc"
+  export CXX="g++"
+  # export CPPFLAGS="-I $HOME/.local/include"
+  export CFLAGS="-Wall -Wextra -Wshadow -std=gnu17"
+  export CXXFLAGS="-Wall -Wextra -Wshadow -std=c++17"
+  # export LDFLAGS="-flto=thin"
+  # export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
+fi
 
+export C_INCLUDE_PATH="$HOME/.local/include"
+export CPLUS_INCLUDE_PATH="$HOME/.local/include"
+export LIBRARY_PATH="$HOME/.local/lib"
+export LD_LIBRARY_PATH"=$HOME/.local/lib"
+export DYLD_FALLBACK_LIBRARY_PATH="$HOME/.local/lib"
+export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
+
+# I dont't think these do anything?
 export CMAKE_C_STANDARD=17
 export CMAKE_EXPORT_COMPILE_COMMANDS=true
 export CMAKE_C_FLAGS_DEBUG=$DBGFLAGS
 export CMAKE_CXX_FLAGS_DEBUG=$DBGFLAGS
-
-export C_INCLUDE_PATH=$HOME/.local/include
-export CPLUS_INCLUDE_PATH=$HOME/.local/include
-export LIBRARY_PATH=$HOME/.local/lib
-export LD_LIBRARY_PATH=$HOME/.local/lib
-export DYLD_FALLBACK_LIBRARY_PATH=$HOME/.local/lib
-export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
 
 # CLI
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31' # For Linux
