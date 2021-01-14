@@ -139,8 +139,8 @@ SAVEHIST=1000
 #: }}}
 
 #: Options {{{
-setopt autocd beep extendedglob menu_complete
-unsetopt nomatch notify
+setopt autocd beep extendedglob
+unsetopt nomatch notify menu_complete
 #: }}}
 
 #: Plugins {{{
