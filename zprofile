@@ -10,6 +10,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   path+=("/Library/Developer/CommandLineTools/usr/bin")
   path+=("$HOME/Library/Python/3.9/bin")
   path+=("$HOME/Library/Python/3.8/bin")
+  path+=("$HOME/go/bin")
   if [[ $(machine) == "x86"* ]]; then
     path+=("/usr/local/opt/llvm/bin")
   else
@@ -42,5 +43,3 @@ export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
 
 alias edprof="nvim $ZDOTDIR/.zshrc && source $ZDOTDIR/.zshrc"
 #: }}}
-
-[[ -z $TMUX ]] && { tmux new -A -s main }
