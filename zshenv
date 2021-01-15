@@ -17,7 +17,7 @@ export LC_TIME="nb_NO.UTF-8"
 if command -v clang &> /dev/null; then
   export CC="clang"
   export CXX="clang++"
-  # export CPPFLAGS="-I $HOME/.local/include"
+  export CPPFLAGS=""
   export CFLAGS="-WCL4 -Wshadow -std=gnu17"
   export CXXFLAGS="-WCL4 -Wshadow -std=c++17"
   export LDFLAGS="-flto=thin"
@@ -35,7 +35,7 @@ fi
 export C_INCLUDE_PATH="$HOME/.local/include"
 export CPLUS_INCLUDE_PATH="$HOME/.local/include"
 export LIBRARY_PATH="$HOME/.local/lib"
-export LD_LIBRARY_PATH"=$HOME/.local/lib"
+# export LD_LIBRARY_PATH"=$HOME/.local/lib"
 export DYLD_FALLBACK_LIBRARY_PATH="$HOME/.local/lib"
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 
