@@ -18,6 +18,7 @@
 - link:
     ~/.alacritty.yml: alacritty.yml
     ~/.tmux.conf: tmux.conf
+    ~/.gitmux.conf:
     ~/.aliases: aliases
     ~/.gitconfig: gitconfig
     ~/.inputrc: inputrc
@@ -53,6 +54,8 @@
       description: Installing rust
     - [source ~/.zshenv, Setting up environment]
     - [source $ZDOTDIR/.zprofile, Setting up path]
+    - [brew install go, Installing go]
+    - [go get -u github.com/arl/gitmux, Installing gitmux]
     - [brew install exa, Installing exa the replacement for ls]
     - [brew install ripgrep, Installing ripgrep]
     - [brew install fd, Installing fd-find]
