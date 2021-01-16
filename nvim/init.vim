@@ -40,9 +40,9 @@ Plug 'rust-lang/rust.vim'
 "     \ 'do': 'bash install.sh',
 "     \ }
 Plug 'voldikss/vim-floaterm'
-Plug 'puremourning/vimspector', {
-  \ 'do': 'python3 install_gadget.py --enable-vscode-cpptools'
-  \ }
+" Plug 'puremourning/vimspector', {
+  " \ 'do': 'python3 install_gadget.py --enable-vscode-cpptools'
+  " \ }
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'bfrg/vim-cpp-modern' " syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -239,9 +239,6 @@ inoremap jj <esc>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :qa<cr>
-nnoremap <leader>m :make<cr>
-nnoremap <leader>r :!make test<cr>
-nnoremap <leader><bs> :!make clean<cr>
 
 " Escape from terminal mode
 tnoremap <Esc> <C-\><C-n>
