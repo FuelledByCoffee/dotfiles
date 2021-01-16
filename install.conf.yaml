@@ -64,3 +64,5 @@
     - [brew install bat, Installing bat the replacement for cat]
     - [brew install neovim, Installing neovim]
     - [brew install tmux, Installing tmux]
+    - [curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz && gunzip terminfo.src.gz, downloading terminfo]
+    - [/usr/bin/tic -xe alacritty-direct,tmux-256color terminfo.src, getting info for terminals]
