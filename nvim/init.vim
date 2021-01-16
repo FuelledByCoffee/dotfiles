@@ -34,6 +34,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/tagbar'
+Plug 'rust-lang/rust.vim'
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
 "     \ 'do': 'bash install.sh',
@@ -383,7 +384,7 @@ filetype indent on
 ": }}}
 
 ": commands {{{
-command W :execute 'silent w !sudo tee % > /dev/null' | :edit!
+command! W :execute 'silent w !sudo tee % > /dev/null' | :edit!
 ": }}}
 
 ": Configuration {{{
