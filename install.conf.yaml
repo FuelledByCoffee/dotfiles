@@ -52,6 +52,7 @@
       stdin: true
       stdout: true
       description: Installing rust
+    - [chsh -s $(which zsh), Making zsh the default shell]
     - [source ~/.zshenv, Setting up environment]
     - [source $ZDOTDIR/.zprofile, Setting up path]
     - [brew install go, Installing go]
@@ -64,5 +65,6 @@
     - [brew install bat, Installing bat the replacement for cat]
     - [brew install neovim, Installing neovim]
     - [brew install tmux, Installing tmux]
-    - [curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz && gunzip terminfo.src.gz, downloading terminfo]
-    - [/usr/bin/tic -xe alacritty-direct,tmux-256color terminfo.src, getting info for terminals]
+    - ['curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz && gunzip terminfo.src.gz', downloading terminfo]
+    - ['/usr/bin/tic -xe alacritty-direct\,tmux-256color terminfo.src', getting info for terminals]
+    - [rm terminfo.srcppll, Cleaning up]
