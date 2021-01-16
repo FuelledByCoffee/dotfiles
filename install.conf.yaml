@@ -51,6 +51,7 @@
       stdin: true
       stdout: true
       description: Installing rust
+    - [source ~/.zshenv, Setting up environment]
     - [source $ZDOTDIR/.zprofile, Setting up path]
     - [brew install exa, Installing exa the replacement for ls]
     - [brew install ripgrep, Installing ripgrep]
@@ -59,3 +60,4 @@
     - [brew install cppman, Installing cppman]
     - [brew install bat, Installing bat the replacement for cat]
     - [brew install neovim, Installing neovim]
+    - [brew install tmux, Installing tmux]
