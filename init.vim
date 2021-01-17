@@ -237,6 +237,8 @@ set copyindent
 set autoindent
 set preserveindent
 
+set grepprg=rg
+
 set wrap
 set breakindent
 
