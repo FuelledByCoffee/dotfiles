@@ -1,4 +1,3 @@
-" vim:foldmethod=marker
 """"""""""""""""""""
 "     init.vim     "
 """"""""""""""""""""
@@ -204,12 +203,12 @@ set relativenumber
 set number
 set cursorline
 
-if &term =~# '^screen' || &term =~# '^tmux' || &term =~# '^alacritty'
-  set t_8b=[48;2;%lu;%lu;%lum
-  set t_8f=[38;2;%lu;%lu;%lum
+if ('+termguicolors')
+  set t_8b=\<esc>[48;2;%lu;%lu;%lum
+  set t_8f=\<esc>[38;2;%lu;%lu;%lum
+  set termguicolors
 endif
 
-set termguicolors
 
 set noshowmode
 
@@ -316,3 +315,5 @@ au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
 set background=dark
 
 ": }}}
+
+" vim:foldmethod=marker
