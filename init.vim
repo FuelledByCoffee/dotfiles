@@ -90,8 +90,11 @@ let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
-"let g:airline_left_sep=''
-"let g:airline_right_sep=''
+let g:airline_detect_modified = 0
+let g:airline_skip_empty_sections = 1
+
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
 ": }}}
 
 ": vim-lsp-cxx-highlight {{{
@@ -273,6 +276,9 @@ let $MANPAGER=''
 " Default is using c++ syntax for .h files
 " Use C syntax for .h files
 let g:c_syntax_for_h=1
+
+let g:termdebug_popup = 0
+" let g:termdebug_wide = 163
 
 " jump to previous position when reopening a file
 if has("autocmd")
