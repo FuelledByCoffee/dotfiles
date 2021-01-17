@@ -28,7 +28,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " Show git brach in statusline
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -306,11 +306,12 @@ au colorscheme * highlight NonText	        ctermbg=none
 au colorscheme * highlight Text		          ctermbg=none
 au colorscheme * highlight LineNr	          ctermbg=none ctermfg=grey
 au colorscheme * highlight CursorLineNR     ctermbg=none ctermfg=yellow
-"au colorscheme * highlight SignColumn      guibg=none ctermbg=none
-"au colorscheme * highlight FoldColumn      guibg=none ctermbg=none
-au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
-au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
-au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
+" au colorscheme * highlight SignColumn      guibg=none ctermbg=none
+" au colorscheme * highlight FoldColumn      guibg=none ctermbg=none
+" au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
+" au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
+" au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
+au colorscheme * highlight EndOfBuffer ctermfg=black ctermbg=black
 
 set background=dark
 
