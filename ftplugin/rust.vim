@@ -1,2 +1,2 @@
-set makeprg="cargo build"
+setlocal makeprg="cargo build"
 nnoremap <leader>m :make<cr>
