@@ -4,6 +4,9 @@
 
 ": Plugins {{{
 
+
+
+
 ": Install vim-plug if not found {{{
 if has('nvim')
   let s:home = $HOME.'/.config/nvim/'
@@ -15,12 +18,11 @@ let s:vim_plug_dir=expand(s:home.'/autoload')
 if !filereadable(s:vim_plug_dir.'/plug.vim')
   exe '!wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -P '.s:vim_plug_dir
 endif
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-    \| PlugInstall --sync | source $MYVIMRC
-    \| endif
 ": }}}
+
+
+
+
 
 call plug#begin(s:home.'/plugged')
 Plug 'vim-airline/vim-airline'
@@ -32,10 +34,24 @@ Plug 'joshdick/onedark.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-" Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'bfrg/vim-cpp-modern' " syntax highlighting
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+
+
+
+
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \| PlugInstall --sync | source $MYVIMRC
+    \| endif
+
+
 
 ": NerdTree {{{
 
@@ -97,6 +113,30 @@ let g:airline_skip_empty_sections = 1
 " let g:airline_right_sep=''
 ": }}}
 
+": Language server {{{
+lua require'lspconfig'.clangd.setup { on_attach=require'completion'.on_attach, config = { cmd = { "clangd-11 --background-index --clang-tidy --header-insertion=never --header-insertion-decorator --suggest-missing-includes" }}}
+lua require'lspconfig'.cmake.setup { config = { filetypes = { "cmake", "CMakeLists.txt" } }}
+lua require'lspconfig'.bashls.setup{}
+lua require'lspconfig'.diagnosticls.setup { config = { filetypes = { "sh" }}}
+lua require'lspconfig'.cssls.setup{}
+lua require'lspconfig'.html.setup{}
+lua require'lspconfig'.vimls.setup{}
+" Language server protocol mappings
+nnoremap <silent> H <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-F> <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR>
+vnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR><ESC>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD    :tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
+" Show diagnostic on hover
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+" Enable integrated highlight on yank
+autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("YankRegion", 1000)
+
+": }}}
+
 ": vim-lsp-cxx-highlight {{{
 if has('nvim')
   let g:lsp_cxx_hl_use_nvim_text_props = 1
@@ -139,8 +179,8 @@ nnoremap <silent> <S-Down>  :move+<CR>
 nnoremap <tab>   :bnext<cr>
 nnoremap <s-tab> :bNext<cr>
 
-xnoremap <tab> >
-xnoremap <s-tab> <
+xnoremap <tab>   >gv
+xnoremap <s-tab> <gv
 
 " Move between splits
 nnoremap <C-J> <C-W><C-J>
@@ -212,7 +252,6 @@ if ('+termguicolors')
   set termguicolors
 endif
 
-
 set noshowmode
 
 set encoding=UTF-8
@@ -237,6 +276,7 @@ set smarttab
 set smartindent
 set copyindent
 set autoindent
+set cindent
 set preserveindent
 
 set grepprg=rg
@@ -323,4 +363,3 @@ set background=dark
 
 ": }}}
 
-" vim:foldmethod=marker
