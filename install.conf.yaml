@@ -10,6 +10,7 @@
     - ~/bin
     - ~/.config
     - ~/.config/zsh
+    - ~/.config/nvim
     - ~/.local/bin
     - ~/.local/include
     - ~/.local/lib
@@ -22,15 +23,15 @@
     ~/.aliases: aliases
     ~/.gitconfig: gitconfig
     ~/.inputrc: inputrc
-    ~/.vimrc: nvim/init.vim
-    ~/.config/nvim:
-        create: true
-        path: nvim
+    ~/.vimrc: init.vim
+    ~/.vim/after/ftplugin:
+    ~/.config/nvim/init.vim:
+    ~/.config/nvim/after/ftplugin:
     ~/.config/git/ignore:
         create: true
         path: ignore
-    ~/.bash_profile: bash_profile
-    ~/.zshenv: zshenv
+    ~/.bash_profile:
+    ~/.zshenv:
     ~/.config/zsh/.zshenv:
     ~/.config/zsh/.zshrc:
     ~/.config/zsh/.zprofile:
