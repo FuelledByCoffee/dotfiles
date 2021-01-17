@@ -6,103 +6,45 @@
 ": Plugins {{{
 
 ": Install vim-plug if not found {{{
-if has ("nvim")
-  if empty(glob('"${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'))
-    silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
-          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  endif
-elseif empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if has('nvim')
+  let s:home = $HOME.'/.config/nvim/'
+else
+  let s:home = $HOME.'/.vim/'
+endif
+let s:vim_plug_dir=expand(s:home.'/autoload')
+
+if !filereadable(s:vim_plug_dir.'/plug.vim')
+  exe '!wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -P '.s:vim_plug_dir
 endif
 
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \| PlugInstall --sync | source $MYVIMRC
-      \| endif
+    \| PlugInstall --sync | source $MYVIMRC
+    \| endif
 ": }}}
 
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin(s:home.'/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " Show git brach in statusline
-Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'preservim/tagbar'
-Plug 'rust-lang/rust.vim'
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-Plug 'voldikss/vim-floaterm'
-" Plug 'puremourning/vimspector', {
-  " \ 'do': 'python3 install_gadget.py --enable-vscode-cpptools'
-  " \ }
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+" Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'bfrg/vim-cpp-modern' " syntax highlighting
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neomake/neomake'
-" Plug 'dense-analysis/ale'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'cdelledonne/vim-cmake'
-" Plug 'sheerun/vim-polyglot'
-" Plug 'lervag/vimtex'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-": vimspector {{{
-let g:vimspector_install_gadgets = [ 'vscode-python', 'vscode-cpptools', 'CodeLLDB' ]
-
-command! -nargs=+ Vfb call vimspector#AddFunctionBreakpoint(<f-args>)
-
-nnoremap <localleader>gd :call vimspector#Launch()<cr>
-nnoremap <localleader>gc :call vimspector#Continue()<cr>
-nnoremap <localleader>gs :call vimspector#Stop()<cr>
-nnoremap <localleader>gR :call vimspector#Restart()<cr>
-nnoremap <localleader>gp :call vimspector#Pause()<cr>
-nnoremap <localleader>gb :call vimspector#ToggleBreakpoint()<cr>
-nnoremap <localleader>gB :call vimspector#ToggleConditionalBreakpoint()<cr>
-nnoremap <localleader>gn :call vimspector#StepOver()<cr>
-nnoremap <localleader>gi :call vimspector#StepInto()<cr>
-nnoremap <localleader>go :call vimspector#StepOut()<cr>
-nnoremap <localleader>gr :call vimspector#RunToCursor()<cr>
-": }}}
-
-": cpp-modern {{{
-" Enable highlighting of C++11 attributes
-let g:cpp_attributes_highlight = 1
-
-" Highlight struct/class member variables (affects both C and C++ files)
-let g:cpp_member_highlight = 1
-
-" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
-" (affects both C and C++ files)
-let g:cpp_simple_highlight = 1
-": }}}
-
-": vimtex {{{
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
-": }}}
-
-": LanguageClient {{{
-"let g:LanguageClient_serverCommands = {
-  "\ 'cpp': ['clangd'],
-  "\ 'c': ['clangd'],
-  "\ }
-": }}}
 
 ": NerdTree {{{
 
 " Disable built in file manager
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
+
+noremap <silent> <leader>e :NERDTreeToggle<CR>
 
 " Open NERDTree immediately when starting neovim
 " autocmd vimenter * NERDTree
@@ -153,84 +95,20 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 2
 "let g:airline_right_sep=''
 ": }}}
 
-": GitGutter {{{
-"let g:gitgutter_preview_win_floating=1
-": }}}
-
-": Neomake {{{
-" let g:neomake_c_enabled_makers=['clang']
-" let g:neomake_c_clang_args=['-WCL4 -Wshadow std=c18']
- "if MyOnBattery()
-   "call neomake#configure#automake('w')
- "else
-   "call neomake#configure#automake('nw', 1000)
- "endif
-
-": }}}
-
-": coc {{{
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
+": vim-lsp-cxx-highlight {{{
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+  let g:lsp_cxx_hl_use_nvim_text_props = 1
 else
-  inoremap <silent><expr> <c-@> coc#refresh()
+  let g:lsp_cxx_hl_use_text_props = 1
 endif
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
 ": }}}
 
-": Lsp {{{
-"if executable('clangd')
-  "augroup lsp_clangd
-    "autocmd!
-    "autocmd User lsp_setup call lsp#register_server({
-          "\ 'name': 'clangd',
-          "\ 'cmd': {server_info->['clangd']},
-          "\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-          "\ })
-    "autocmd FileType c setlocal omnifunc=lsp#complete
-    "autocmd FileType cpp setlocal omnifunc=lsp#complete
-    "autocmd FileType objc setlocal omnifunc=lsp#complete
-    "autocmd FileType objcpp setlocal omnifunc=lsp#complete
-  "augroup end
-"endif
-": }}}
+
 ": }}}
 
 ": Key maps {{{
 let mapleader = ','
-let maplocalleader="\<space>"
+let maplocalleader=" "
 
 " Press jj to escape from insert mode
 inoremap jj <esc>
@@ -280,9 +158,6 @@ nnoremap <C-N> :cn<CR>
 nnoremap <C-P> :cp<CR>
 nnoremap co :copen<CR>
 nnoremap cc :cclose<CR>
-
-noremap <silent> <leader>e :NERDTreeToggle<CR>
-noremap <silent> <leader>b :TagbarToggle<CR>
 
 " clang-format
 noremap <silent> <leader>f :pyf /usr/local/Cellar/clang-format/*/share/clang/clang-format.py<cr>
@@ -392,9 +267,6 @@ let $MANPAGER=''
 " Default is using c++ syntax for .h files
 " Use C syntax for .h files
 let g:c_syntax_for_h=1
-
-"Textbox moves with cursor
-let g:lsp_cxx_hl_use_text_props = 1
 
 " jump to previous position when reopening a file
 if has("autocmd")
