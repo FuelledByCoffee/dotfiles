@@ -1,4 +1,6 @@
 setlocal foldmethod=syntax
+setlocal foldlevel=20
+setlocal foldlevelstart=20
 setlocal makeprg=make
 au BufWritePost * :silent make | redraw!
 
