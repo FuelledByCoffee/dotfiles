@@ -35,7 +35,7 @@ fi
 export C_INCLUDE_PATH="$HOME/.local/include"
 export CPLUS_INCLUDE_PATH="$HOME/.local/include"
 export LIBRARY_PATH="$HOME/.local/lib"
-# export LD_LIBRARY_PATH"=$HOME/.local/lib"
+export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/usr/lib/:$HOME/.local/lib"
 export DYLD_FALLBACK_LIBRARY_PATH="$HOME/.local/lib"
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 
