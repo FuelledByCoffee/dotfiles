@@ -10,8 +10,19 @@
     insteadOf = gh:
 [push]
     default = upstream
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[difftool "vimdiff"]
+    cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 [merge]
+    tool = nvim
     conflictstyle = diff3
+[mergetool]
+    prompt = false
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 [branch]
     autosetupmerge = true
     autosetuprebase = local
@@ -51,12 +62,6 @@
 [core]
     pager = less
     excludesfile = ~/.config/git/ignore
-[diff]
-    tool = vimdiff
-[difftool]
-    prompt = false
-[difftool "vimdiff"]
-    cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
 [alias]
     st = status
     co = checkout
