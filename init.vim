@@ -179,11 +179,13 @@ function! ToggleMinimal()
 endfun
 command! Minimal :call ToggleMinimal()
 
-" function! TrimWhitespace()
-"   let l:save = winsaveview()
-"   keeppatterns %s/\s\+$//e
-"   call winrestview(l:save)
-" endfun
+function! TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+" command! TrimWhiteSpace ':%s/\s\+$//gI'
+nnoremap <leader><space> :call TrimWhitespace()<cr>
 
 function! MyOnBattery()
   if has('macunix')
@@ -196,12 +198,11 @@ endfunction
 ": }}}
 
 ": Settings {{{
+set nocompatible
+
 set relativenumber
 set number
 set cursorline
-
-" Auto remove trailing spaces
-autocmd BufWritePre * %s/\s\+$//e
 
 if &term =~# '^screen' || &term =~# '^tmux' || &term =~# '^alacritty'
   set t_8b=[48;2;%lu;%lu;%lum
@@ -244,10 +245,13 @@ set mouse=a
 
 set undolevels=100    " How many undos
 set undoreload=1000   " number of lines to save for undo
-set undodir=expand(s:home.'/undo-history')
+if has('nvim')
+  set undodir=$HOME/.config/nvim/undo-history
+else
+  set undodir=$HOME/.vim/undo-history
+endif
 set undofile          " Save undos after file closes
 
-" Open new splits to the right and one the bottom
 " set splitbelow
 set splitright
 
