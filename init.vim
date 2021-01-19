@@ -355,7 +355,7 @@ au colorscheme * highlight CursorLineNR     ctermbg=none ctermfg=yellow
 " au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
-au colorscheme * highlight EndOfBuffer ctermfg=black ctermbg=black
+au colorscheme * highlight EndOfBuffer       ctermfg=black
 
 set background=dark
 
