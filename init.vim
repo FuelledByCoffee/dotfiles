@@ -36,9 +36,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'albertoCaroM/completion-tmux'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'bfrg/vim-cpp-modern' " syntax highlighting
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 
@@ -114,15 +114,9 @@ let g:airline_skip_empty_sections = 1
 ": }}}
 
 ": Language server {{{
-lua require'lspconfig'.clangd.setup { on_attach=require'completion'.on_attach, config = { cmd = { "clangd-11 --background-index --clang-tidy --header-insertion=never --header-insertion-decorator --suggest-missing-includes" }}}
-lua require'lspconfig'.cmake.setup { config = { filetypes = { "cmake", "CMakeLists.txt" } }}
-lua require'lspconfig'.bashls.setup{}
-lua require'lspconfig'.diagnosticls.setup { config = { filetypes = { "sh" }}}
-lua require'lspconfig'.cssls.setup{}
-lua require'lspconfig'.html.setup{}
-lua require'lspconfig'.vimls.setup{}
+autocmd BufEnter * lua require'completion'.on_attach()
 " Language server protocol mappings
-nnoremap <silent> H <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> H     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <C-F> <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR>
 vnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR><ESC>
@@ -135,6 +129,11 @@ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 " Enable integrated highlight on yank
 autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("YankRegion", 1000)
 
+let g:completion_chain_complete_list = {
+      \ 'default': {'comment': [],
+      \ 'default': [{'complete_items': [ 'lsp', 'tmux' ]},
+      \  {'mode': '<c-p>'}, {'mode': '<c-n>'}]}}
+
 ": }}}
 
 ": vim-lsp-cxx-highlight {{{
@@ -144,7 +143,6 @@ else
   let g:lsp_cxx_hl_use_text_props = 1
 endif
 ": }}}
-
 
 ": }}}
 
