@@ -42,6 +42,7 @@ if has('nvim')
   Plug 'albertoCaroM/completion-tmux'
   Plug 'jackguo380/vim-lsp-cxx-highlight'
 endif
+
 call plug#end()
 
 
@@ -212,17 +213,21 @@ noremap <silent> <leader>f :pyf /usr/local/Cellar/clang-format/*/share/clang/cla
 ": Functions {{{
 function! ToggleMinimal()
   AirlineToggle
-  GitGutterBufferToggle
+  " GitGutterBufferToggle
   set nu! rnu!
+  set showcmd!
+  AirlineToggle
+  " set showmode!
   if &ls == 2
     set ls=0
-    set fdc=3
+    " set fdc=3
   else
     set ls=2
-    set fdc=0
+    " set fdc=0
   endif
 endfun
 command! Minimal :call ToggleMinimal()
+nnoremap <c-m> :call ToggleMinimal()<cr>
 
 function! TrimWhitespace()
   let l:save = winsaveview()
@@ -354,13 +359,13 @@ au colorscheme * highlight Normal           ctermbg=none
 au colorscheme * highlight NonText	        ctermbg=none
 au colorscheme * highlight Text		          ctermbg=none
 au colorscheme * highlight LineNr	          ctermbg=none ctermfg=grey
-au colorscheme * highlight CursorLineNR     ctermbg=none ctermfg=yellow
+" au colorscheme * highlight CursorLineNR     ctermbg=none ctermfg=004433
 " au colorscheme * highlight SignColumn      guibg=none ctermbg=none
 " au colorscheme * highlight FoldColumn      guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
-au colorscheme * highlight EndOfBuffer       ctermfg=black
+au colorscheme * highlight EndOfBuffer      ctermbg=none ctermfg=black
 
 set background=dark
 
