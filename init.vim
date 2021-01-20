@@ -34,11 +34,14 @@ Plug 'joshdick/onedark.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'albertoCaroM/completion-tmux'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'bfrg/vim-cpp-modern' " syntax highlighting
+
+if has('nvim')
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/completion-nvim'
+  Plug 'albertoCaroM/completion-tmux'
+  Plug 'jackguo380/vim-lsp-cxx-highlight'
+endif
 call plug#end()
 
 
@@ -114,26 +117,28 @@ let g:airline_skip_empty_sections = 1
 ": }}}
 
 ": Language server {{{
-autocmd BufEnter * lua require'completion'.on_attach()
-" Language server protocol mappings
-nnoremap <silent> H     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <C-F> <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR>
-vnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR><ESC>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD    :tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
-" Show diagnostic on hover
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
-" Enable integrated highlight on yank
-autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("YankRegion", 1000)
+if has('nvim')
+  autocmd BufEnter * lua require'completion'.on_attach()
+  " Language server protocol mappings
+  nnoremap <silent> H     <cmd>lua vim.lsp.buf.hover()<CR>
+  nnoremap <silent> <C-F> <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+  nnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR>
+  vnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR><ESC>
+  nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
+  nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+  nnoremap <silent> gD    :tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
+  " Show diagnostic on hover
+  autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+  " Enable integrated highlight on yank
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("YankRegion", 1000)
 
-let g:completion_chain_complete_list = {
-      \ 'default': {'comment': [],
-      \ 'default': [{'complete_items': [ 'lsp', 'tmux' ]},
-      \  {'mode': '<c-p>'}, {'mode': '<c-n>'}]}}
+  let g:completion_chain_complete_list = {
+        \ 'default': {'comment': [],
+        \ 'default': [{'complete_items': [ 'lsp', 'tmux' ]},
+        \  {'mode': '<c-p>'}, {'mode': '<c-n>'}]}}
 
+endif
 ": }}}
 
 ": vim-lsp-cxx-highlight {{{
