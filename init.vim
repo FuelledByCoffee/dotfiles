@@ -266,6 +266,13 @@ set encoding=UTF-8
 
 set hidden
 
+set completeopt+=menuone
+set completeopt+=noselect
+
+set shortmess+=c
+
+set belloff+=ctrlg
+
 set wildmenu
 set wildmode=full
 
