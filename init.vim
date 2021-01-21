@@ -63,7 +63,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 
-noremap <silent> <leader>e :NERDTreeToggle<CR>
+map <silent> <leader>e :NERDTreeToggle<CR>
 
 " Open NERDTree immediately when starting neovim
 " autocmd vimenter * NERDTree
