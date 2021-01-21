@@ -1,7 +1,7 @@
 # vim:foldmethod=marker
 # shellcheck shell=bash
 
-export ZDOTDIR="$HOME/.config/zsh"
+export ZDOTDIR="$HOME"
 
 # Encoding
 export LANG="en_US.UTF-8"

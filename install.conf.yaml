@@ -9,12 +9,10 @@
 - create:
     - ~/bin
     - ~/.config
-    - ~/.config/zsh
     - ~/.config/nvim
     - ~/.local/bin
     - ~/.local/include
     - ~/.local/lib
-    - ~/.vim/undo-history
 
 - link:
     ~/.alacritty.yml: alacritty.yml
@@ -32,13 +30,12 @@
         path: ignore
     ~/.bash_profile:
     ~/.zshenv:
-    ~/.config/zsh/.zshenv:
-    ~/.config/zsh/.zshrc:
-    ~/.config/zsh/.zprofile:
-    ~/.config/zsh/.zsh-hist:
-    ~/.config/zsh/.zsh-autocomplete:
-    ~/.config/zsh/.zsh-syntax-highlighting:
-    ~/.config/zsh/.zsh-autosuggestions:
+    ~/.zshrc:
+    ~/.zprofile:
+    ~/.zsh-hist:
+    ~/.zsh-autocomplete:
+    ~/.zsh-syntax-highlighting:
+    ~/.zsh-autosuggestions:
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
@@ -68,4 +65,4 @@
     - [brew install tmux, Installing tmux]
     - ['curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz && gunzip terminfo.src.gz', downloading terminfo]
     - ['/usr/bin/tic -xe alacritty-direct\,tmux-256color terminfo.src', getting info for terminals]
-    - [rm terminfo.srcppll, Cleaning up]
+    - [rm terminfo.src, Cleaning up]
