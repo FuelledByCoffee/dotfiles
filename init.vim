@@ -216,7 +216,6 @@ function! ToggleMinimal()
   " GitGutterBufferToggle
   set nu! rnu!
   set showcmd!
-  AirlineToggle
   " set showmode!
   if &ls == 2
     set ls=0
@@ -226,8 +225,8 @@ function! ToggleMinimal()
     " set fdc=0
   endif
 endfun
-command! Minimal :call ToggleMinimal()
-nnoremap <c-m> :call ToggleMinimal()<cr>
+" command! Minimal :call ToggleMinimal()
+" nnoremap <c-o> :call ToggleMinimal()<cr>
 
 function! TrimWhitespace()
   let l:save = winsaveview()
@@ -377,4 +376,3 @@ au colorscheme * highlight EndOfBuffer      ctermbg=none ctermfg=black
 set background=dark
 
 ": }}}
-
