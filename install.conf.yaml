@@ -25,6 +25,7 @@
     ~/.vim/after/ftplugin:
     ~/.config/nvim/init.vim:
     ~/.config/nvim/after/ftplugin:
+    ~/.config/starship.toml:
     ~/.config/git/ignore:
         create: true
         path: ignore
