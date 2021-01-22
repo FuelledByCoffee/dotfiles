@@ -31,6 +31,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'preservim/tagbar'
 Plug 'bfrg/vim-cpp-modern' " syntax highlighting
 Plug 'rust-lang/rust.vim'
 
@@ -255,6 +256,10 @@ if executable('vimscript-language-server')
         \ })
 endif
 
+": }}}
+
+": Tagbar {{{
+nnoremap <silent> <leader>b :TagbarToggle<CR>
 ": }}}
 
 ": NerdTree {{{
