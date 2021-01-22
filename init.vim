@@ -362,12 +362,12 @@ colorscheme gruvbox
 " No background color. Persist after setting colorscheme.
 " Only sets when colorsceme is set
 au colorscheme * highlight Normal           ctermbg=none
-au colorscheme * highlight NonText	        ctermbg=none
-au colorscheme * highlight Text		          ctermbg=none
-au colorscheme * highlight LineNr	          ctermbg=none ctermfg=grey
-" au colorscheme * highlight CursorLineNR     ctermbg=none ctermfg=004433
-" au colorscheme * highlight SignColumn      guibg=none ctermbg=none
-" au colorscheme * highlight FoldColumn      guibg=none ctermbg=none
+au colorscheme * highlight NonText          ctermbg=none
+au colorscheme * highlight Text             ctermbg=none
+au colorscheme * highlight LineNr           ctermbg=none ctermfg=grey
+au colorscheme * highlight CursorLineNR     ctermbg=none ctermfg=004433
+" au colorscheme * highlight SignColumn       guibg=none ctermbg=none
+" au colorscheme * highlight FoldColumn       guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
