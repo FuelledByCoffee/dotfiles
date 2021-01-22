@@ -5,8 +5,6 @@
 ": Plugins {{{
 
 
-
-
 ": Install vim-plug if not found {{{
 if has('nvim')
   let s:home = $HOME.'/.config/nvim/'
@@ -22,9 +20,8 @@ endif
 
 
 
-
-
 call plug#begin(s:home.'/plugged')
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " Show git brach in statusline
@@ -35,6 +32,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'bfrg/vim-cpp-modern' " syntax highlighting
+Plug 'rust-lang/rust.vim'
 
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
@@ -48,107 +46,11 @@ call plug#end()
 
 
 
-
-
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
     \| PlugInstall --sync | source $MYVIMRC
     \| endif
 
-
-
-": NerdTree {{{
-
-" Disable built in file manager
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-
-map <silent> <leader>e :NERDTreeToggle<CR>
-
-" Open NERDTree immediately when starting neovim
-" autocmd vimenter * NERDTree
-" Go to previous (last accessed) window.
-" autocmd VimEnter * wincmd p
-" Automatically quit if NERDTree is the only open window
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-": }}}
-
-": Nerdcommenter {{{
-" Create default mappings
-let g:NERDCreateDefaultMappings = 0
-
-" Enable NERDCommenterToggle to check all selected lines is commented or not
-let g:NERDToggleCheckAllLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 0
-
-" Align line-wise comment delimiters flush left instead of following code
-" indentation
-let g:NERDDefaultAlign = 'left'
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 0
-
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '//','right': '' } }
-
-map mm <Plug>NERDCommenterToggle
-": }}}
-
-": airline {{{
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 0
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline_theme='powerlineish'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#whitespace#mixed_indent_algo = 2
-let g:airline_detect_modified = 0
-let g:airline_skip_empty_sections = 1
-
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
-": }}}
-
-": Language server {{{
-if has('nvim')
-  autocmd BufEnter * lua require'completion'.on_attach()
-  " Language server protocol mappings
-  nnoremap <silent> H     <cmd>lua vim.lsp.buf.hover()<CR>
-  nnoremap <silent> <C-F> <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-  nnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR>
-  vnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR><ESC>
-  nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-  nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
-  nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-  nnoremap <silent> gD    :tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
-  " Show diagnostic on hover
-  autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
-  " Enable integrated highlight on yank
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("YankRegion", 1000)
-
-  let g:completion_chain_complete_list = {
-        \ 'default': {'comment': [],
-        \ 'default': [{'complete_items': [ 'lsp', 'tmux' ]},
-        \  {'mode': '<c-p>'}, {'mode': '<c-n>'}]}}
-
-endif
-": }}}
-
-": vim-lsp-cxx-highlight {{{
-if has('nvim')
-  let g:lsp_cxx_hl_use_nvim_text_props = 1
-else
-  let g:lsp_cxx_hl_use_text_props = 1
-endif
-": }}}
 
 ": }}}
 
@@ -355,6 +257,99 @@ endif
 
 ": }}}
 
+": NerdTree {{{
+
+" Disable built in file manager
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+
+" Open NERDTree immediately when starting neovim
+" autocmd vimenter * NERDTree
+" Go to previous (last accessed) window.
+" autocmd VimEnter * wincmd p
+" Automatically quit if NERDTree is the only open window
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+": }}}
+
+": Nerdcommenter {{{
+" Create default mappings
+let g:NERDCreateDefaultMappings = 0
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 0
+
+" Align line-wise comment delimiters flush left instead of following code
+" indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 0
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '//','right': '' } }
+
+map <silent> mm <Plug>NERDCommenterToggle
+": }}}
+
+": airline {{{
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#whitespace#mixed_indent_algo = 2
+let g:airline_detect_modified = 0
+let g:airline_skip_empty_sections = 1
+
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
+": }}}
+
+": Language server {{{
+if has('nvim')
+  autocmd BufEnter * lua require'completion'.on_attach()
+  " Language server protocol mappings
+  nnoremap <silent> H     <cmd>lua vim.lsp.buf.hover()<CR>
+  nnoremap <silent> <C-F> <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+  nnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR>
+  vnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR><ESC>
+  nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
+  nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+  nnoremap <silent> gD    :tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
+  " Show diagnostic on hover
+  autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+  " Enable integrated highlight on yank
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("YankRegion", 1000)
+
+  let g:completion_chain_complete_list = {
+        \ 'default': {'comment': [],
+        \ 'default': [{'complete_items': [ 'lsp', 'tmux' ]},
+        \  {'mode': '<c-p>'}, {'mode': '<c-n>'}]}}
+
+endif
+": }}}
+
+": vim-lsp-cxx-highlight {{{
+if has('nvim')
+  let g:lsp_cxx_hl_use_nvim_text_props = 1
+else
+  let g:lsp_cxx_hl_use_text_props = 1
+endif
+": }}}
+
 ": Colorscheme {{{
 
 colorscheme gruvbox
@@ -364,8 +359,8 @@ colorscheme gruvbox
 au colorscheme * highlight Normal           ctermbg=none
 au colorscheme * highlight NonText          ctermbg=none
 au colorscheme * highlight Text             ctermbg=none
-au colorscheme * highlight LineNr           ctermbg=none ctermfg=grey
-au colorscheme * highlight CursorLineNR     ctermbg=none ctermfg=004433
+au colorscheme * highlight LineNr           ctermbg=none
+au colorscheme * highlight CursorLineNR     ctermbg=none
 " au colorscheme * highlight SignColumn       guibg=none ctermbg=none
 " au colorscheme * highlight FoldColumn       guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
