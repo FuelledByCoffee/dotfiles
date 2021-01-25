@@ -274,3 +274,5 @@
       fi
     }
 source "$HOME/.cargo/env"
+
+source /home/Johannes/.config/broot/launcher/bash/br
