@@ -40,6 +40,7 @@ if has('nvim')
   Plug 'nvim-lua/completion-nvim'
   Plug 'albertoCaroM/completion-tmux'
   Plug 'jackguo380/vim-lsp-cxx-highlight'
+  Plug 'glepnir/lspsaga.nvim'
 endif
 
 call plug#end()
