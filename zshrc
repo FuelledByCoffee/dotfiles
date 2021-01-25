@@ -87,27 +87,32 @@ vireplace='%F{red}%S %K{white}R%k %s%f'
 KEYTIMEOUT=40
 NEWLINE=$'\n'
 
-function zle-line-init zle-keymap-select {
-  case $KEYMAP in
-    (vicmd)
-      if (( REGION_ACTIVE )); then
-        MODE=$vivisual
-      else
-        MODE=$vicommand
-      fi
-      ;;
-    (viins|main)  MODE=$viinsert  ;;
-  esac
+# function zle-line-init zle-keymap-select {
+#   case $KEYMAP in
+#     (vicmd)
+#       if (( REGION_ACTIVE )); then
+#         MODE=$vivisual
+#       else
+#         MODE=$vicommand
+#       fi
+#       ;;
+#     (viins|main)  MODE=$viinsert  ;;
+#   esac
 
-  PROMPT="%(!.%B%F{red}%n%f%b:.)%F{yellow}%~%f $MODE "
-  zle reset-prompt
-}
+#   PROMPT="%(!.%B%F{red}%n%f%b:.)%F{yellow}%~%f $MODE "
+#   zle reset-prompt
+# }
 
-zle -N zle-line-init
-zle -N zle-keymap-select
+# zle -N zle-line-init
+# zle -N zle-keymap-select
 #zle -N zle-line-pre-redraw
 
 RPROMPT='%(?..%B%F{red}❌ %?%f%b)'
+eval "$(starship init zsh)"
+#: }}}
+
+#: broot {{{
+source /home/Johannes/.config/broot/launcher/bash/br
 #: }}}
 
 #: Completions {{{
