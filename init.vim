@@ -25,6 +25,7 @@ call plug#begin(s:home.'/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " Show git brach in statusline
+Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -34,6 +35,7 @@ Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'bfrg/vim-cpp-modern' " syntax highlighting
 Plug 'rust-lang/rust.vim'
+Plug 'rhysd/vim-clang-format'
 
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
@@ -110,8 +112,6 @@ nnoremap <C-P> :cp<CR>
 nnoremap co :copen<CR>
 nnoremap cc :cclose<CR>
 
-" clang-format
-noremap <silent> <leader>f :pyf /usr/local/Cellar/clang-format/*/share/clang/clang-format.py<cr>
 ": }}}
 
 ": Functions {{{
@@ -171,6 +171,8 @@ set hidden
 
 set completeopt+=menuone
 set completeopt+=noselect
+
+set rtp+=/opt/homebrew/opt/fzf
 
 set shortmess+=c
 
@@ -308,6 +310,10 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '//','right': '' } }
 map <silent> mm <Plug>NERDCommenterToggle
 ": }}}
 
+": clang-format {{{
+map <silent> <leader>f :ClangFormat<cr>
+": }}}
+
 ": airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 0
@@ -317,7 +323,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
 let g:airline_detect_modified = 0
-let g:airline_skip_empty_sections = 1
+let g:airline_skip_empty_sections = 0
 
 " let g:airline_left_sep=''
 " let g:airline_right_sep=''
@@ -354,6 +360,10 @@ if has('nvim')
 else
   let g:lsp_cxx_hl_use_text_props = 1
 endif
+
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
 ": }}}
 
 ": Colorscheme {{{
