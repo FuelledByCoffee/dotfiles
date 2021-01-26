@@ -22,11 +22,16 @@ fi
 # Common commands
 alias mv='mv -vi'
 alias cp='cp -vi'
-alias rm='rm -vI'
 alias ln='ln -v'
 alias du='du -h'
 
-alias del='mv -t ~/.Trash'
+if command -v grm &> /dev/null; then
+  alias rm='grm -vI'
+  alias del='gmv -t ~/.Trash'
+elif [[ "$OSTYPE" == "linux"* ]]; then
+  alias rm='rm -vI'
+  alias del='mv -t ~/.Trash'
+fi
 
 alias mkdir='mkdir -pv'
 
