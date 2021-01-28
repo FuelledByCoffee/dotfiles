@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+# vim: ft=bash
 
 # Reset path
 PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
@@ -38,8 +39,5 @@ export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
   -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
   -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
-#: Aliases {{{
 [[ -r ~/.aliases ]] && source ~/.aliases
-
 alias edprof="nvim $ZDOTDIR/.zshrc && source $ZDOTDIR/.zshrc"
-#: }}}
