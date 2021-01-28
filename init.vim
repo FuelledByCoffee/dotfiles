@@ -205,6 +205,8 @@ set wrap
 set breakindent
 
 set scrolloff=7
+set sidescrolloff=5
+
 set mouse=a
 
 set undolevels=100    " How many undos
