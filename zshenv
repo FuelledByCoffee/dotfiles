@@ -24,11 +24,8 @@ if command -v clang &> /dev/null; then
 elif command -v gcc &> /dev/null; then
   export CC="gcc"
   export CXX="g++"
-  # export CPPFLAGS="-I $HOME/.local/include"
   export CFLAGS="-Wall -Wextra -Wshadow -std=gnu17"
   export CXXFLAGS="-Wall -Wextra -Wshadow -std=c++17"
-  # export LDFLAGS="-flto=thin"
-  # export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
 fi
 
 export C_INCLUDE_PATH="$HOME/.local/include"
@@ -37,12 +34,6 @@ export LIBRARY_PATH="$HOME/.local/lib"
 export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/usr/lib/:$HOME/.local/lib"
 export DYLD_FALLBACK_LIBRARY_PATH="$HOME/.local/lib"
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
-
-# I dont't think these do anything?
-export CMAKE_C_STANDARD=17
-export CMAKE_EXPORT_COMPILE_COMMANDS=true
-export CMAKE_C_FLAGS_DEBUG=$DBGFLAGS
-export CMAKE_CXX_FLAGS_DEBUG=$DBGFLAGS
 
 # CLI
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31' # For Linux
