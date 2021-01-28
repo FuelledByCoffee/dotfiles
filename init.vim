@@ -35,6 +35,7 @@ Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'bfrg/vim-cpp-modern' " syntax highlighting
 Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
 Plug 'rhysd/vim-clang-format'
 
 if has('nvim')
