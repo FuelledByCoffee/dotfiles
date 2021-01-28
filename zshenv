@@ -1,5 +1,4 @@
-# vim:foldmethod=marker
-# shellcheck shell=bash
+# vim: ft=bash
 
 export ZDOTDIR="$HOME"
 
