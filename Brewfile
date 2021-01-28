@@ -1,3 +1,4 @@
+# vim: set ft=conf
 brew "fd"
 brew "sd"
 brew "gh"
@@ -19,3 +20,6 @@ brew "ranger"
 brew "cppman"
 brew "ripgrep"
 brew "starship"
+
+tap "jgavris/rs-git-fsmonitor https://github.com/jgavris/rs-git-fsmonitor.git"
+brew "rs-git-fsmonitor"
