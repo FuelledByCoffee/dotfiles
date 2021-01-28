@@ -203,7 +203,7 @@ colors:
   # affected cell, or hexadecimal colors like #ff00ff.
   vi_mode_cursor:
     text: CellBackground
-    cursor: CellForeground
+    cursor: CellBackground
 
   # Selection colors
   #
