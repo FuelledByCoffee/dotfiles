@@ -132,7 +132,8 @@ zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
-FPATH=usr/local/share/zsh-completions:$FPATH
+# Plugin completions
+FPATH="~/dotfiles/zsh-completions/src:$FPATH"
 
 autoload -Uz compinit
 compinit
