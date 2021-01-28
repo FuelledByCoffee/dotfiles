@@ -15,12 +15,12 @@
     - ~/.local/lib
 
 - link:
-    ~/.alacritty.yml: alacritty.yml
-    ~/.tmux.conf: tmux.conf
+    ~/.alacritty.yml:
+    ~/.tmux.conf:
     ~/.gitmux.conf:
-    ~/.aliases: aliases
-    ~/.gitconfig: gitconfig
-    ~/.inputrc: inputrc
+    ~/.aliases:
+    ~/.gitconfig:
+    ~/.inputrc:
     ~/.vimrc: init.vim
     ~/.vim/after/ftplugin:
     ~/.config/nvim/init.vim:
@@ -46,24 +46,11 @@
       stdin: true
       stdout: true
       description: Installing Homebrew
-    -
-      command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-      stdin: true
-      stdout: true
-      description: Installing rust
     - [chsh -s $(which zsh), Making zsh the default shell]
     - [source ~/.zshenv, Setting up environment]
     - [source $ZDOTDIR/.zprofile, Setting up path]
-    - [brew install go, Installing go]
+    - [brew bundle, Installing various utilities]
     - [go get -u github.com/arl/gitmux, Installing gitmux]
-    - [brew install exa, Installing exa the replacement for ls]
-    - [brew install ripgrep, Installing ripgrep]
-    - [brew install fd, Installing fd-find]
-    - [brew install sd, Installing sd the sed replacement]
-    - [brew install cppman, Installing cppman]
-    - [brew install bat, Installing bat the replacement for cat]
-    - [brew install neovim, Installing neovim]
-    - [brew install tmux, Installing tmux]
     - ['curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz && gunzip terminfo.src.gz', downloading terminfo]
     - ['/usr/bin/tic -xe alacritty-direct\,tmux-256color terminfo.src', getting info for terminals]
     - [rm terminfo.src, Cleaning up]
