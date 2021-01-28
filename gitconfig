@@ -62,7 +62,6 @@
 [core]
     pager = bat
     excludesfile = ~/.config/git/ignore
-    fsmonitor = rs-git-fsmonitor
 [alias]
     st = status
     co = checkout

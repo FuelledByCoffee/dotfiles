@@ -21,5 +21,5 @@ brew "cppman"
 brew "ripgrep"
 brew "starship"
 
-tap "jgavris/rs-git-fsmonitor https://github.com/jgavris/rs-git-fsmonitor.git"
-brew "rs-git-fsmonitor"
+# tap "jgavris/rs-git-fsmonitor https://github.com/jgavris/rs-git-fsmonitor.git"
+# brew "rs-git-fsmonitor"
