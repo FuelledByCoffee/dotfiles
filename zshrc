@@ -112,7 +112,9 @@ eval "$(starship init zsh)"
 #: }}}
 
 #: broot {{{
-source /home/Johannes/.config/broot/launcher/bash/br
+if [[ -f $XDG_CONFIG_HOME/broot/launcher/bash/br ]]; then
+  source $XDG_CONFIG_HOME/broot/launcher/bash/br
+fi
 #: }}}
 
 #: Completions {{{
@@ -158,3 +160,4 @@ source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
 #: tmux {{{
 [[ -z $TMUX ]] && { tmux new -A -s main } || true
 #: }}}
+
