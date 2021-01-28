@@ -12,34 +12,34 @@
 
 #   Color stuff
 #   ------------------------------------------------------------------
-    rd="\[\e[0;31m\]"	# Red
-    gr="\[\e[0;32m\]"	# Green
-    yl="\[\e[0;33m\]"	# Yellow
-    bl="\[\e[0;34m\]"	# Blue
-    mg="\[\e[0;35m\]"	# Magentae
-    cy="\[\e[0;36m\]"	# Cyan
+    rd="\[\e[0;31m\]"   # Red
+    gr="\[\e[0;32m\]"   # Green
+    yl="\[\e[0;33m\]"   # Yellow
+    bl="\[\e[0;34m\]"   # Blue
+    mg="\[\e[0;35m\]"   # Magentae
+    cy="\[\e[0;36m\]"   # Cyan
 
-    brd="\[\e[1;31m\]"	# Bold Red
-    bgr="\[\e[1;32m\]"	# Bold Green
-    byl="\[\e[1;33m\]"	# Bold Yellow
-    bbl="\[\e[1;34m\]"	# Bold Blue
-    bmg="\[\e[1;35m\]"	# Bold Magentae
-    bcy="\[\e[1;36m\]"	# Bold Cyan
+    brd="\[\e[1;31m\]"  # Bold Red
+    bgr="\[\e[1;32m\]"  # Bold Green
+    byl="\[\e[1;33m\]"  # Bold Yellow
+    bbl="\[\e[1;34m\]"  # Bold Blue
+    bmg="\[\e[1;35m\]"  # Bold Magentae
+    bcy="\[\e[1;36m\]"  # Bold Cyan
 
-    no="\[\e[0m\]"	# Normal
+    no="\[\e[0m\]"  # Normal
 
 #   Set colours depending on host and user state.
 #   ------------------------------------------------------------------
     if (( EUID == 0 )); then
-    	userClr=$rd     # If user is root: set colour to red.
+        userClr=$rd     # If user is root: set colour to red.
     else
-    	userClr=$bgr     # Else: set user colour to green.
+        userClr=$bgr     # Else: set user colour to green.
     fi
 
     if [ -n "$SSH_CONNECTION" ]; then
-    	hostClr=$cy     # If remote ssh connection: show host as cyan.
+        hostClr=$cy     # If remote ssh connection: show host as cyan.
     else
-    	hostClr=$bgr     # Else: show host as green.
+        hostClr=$bgr     # Else: show host as green.
     fi
 
 #   Get local host name. Using \h tends to replace the local name with an ip.
@@ -66,7 +66,7 @@
 
 #   Custom colors
 #   ------------------------------------------------------------------
-    export CLICOLOR=1	# I'll never understand how some people can work in mono-bit color
+    export CLICOLOR=1   # I'll never understand how some people can work in mono-bit color
 
 #   Add and define colors and options for ls
 #   ------------------------------------------------------------------
@@ -87,9 +87,9 @@
 #   Adds a few binds that make vim behave more like less
 #   ------------------------------------------------------------------
     export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    	nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    	-c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    	-c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+        nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+        -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+        -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
 #   Set language to american english
 #   ------------------------------------------------------------------
@@ -111,7 +111,7 @@
 
 #   Load automatic completion for bash
     if [ -f /usr/local/etc/bash_completion.d ]; then
-    	. /usr/local/etc/bash_completion.d
+        . /usr/local/etc/bash_completion.d
     fi
 
 #   Use vi mode in bash. Press escape to enter command mode
@@ -133,6 +133,10 @@
 #   ---------------
     [[ -r .aliases ]] && source .aliases
 
+    if [[ -f "$XDG_CONFIG_HOME/broot/launcher/bash/br" ]]; then
+      source "$XDG_CONFIG_HOME/broot/launcher/bash/br"
+    fi
+
     alias shortPS1='PS1=${userClr}\$\ ${no}'
 
 #   ------------------------------------------------------------------
@@ -140,15 +144,15 @@
 
 #   Aliases to make it easy to edit and load .bash_profile from anywhere
 #   ------------------------------------------------------------------
-    alias reload="source ~/.bash_profile" 	# Source bashrc
-    alias edprof="nvim ~/.bash_profile" 		# Edit bashrc
+    alias reload="source ~/.bash_profile"   # Source bashrc
+    alias edprof="nvim ~/.bash_profile"         # Edit bashrc
 
 
 #   ------------------------------------------------------------------
 #   Compilers and interpreters
 #   ------------------------------------------------------------------
 
-#	  Flags
+#     Flags
 #   ------------------------------------------------------------------
     export CFLAGS="-Wall -Wextra -Wshadow -std=c17"
     export CXXFLAGS="-Wall -Wextra -Wshadow -std=c++17"
@@ -196,11 +200,11 @@
 #   $@ to make cd return to $HOME after no argument. $1 stays in current dir.
 #   ------------------------------------------------------------------
     cd () {
-    	builtin cd "$@" && ls
+        builtin cd "$@" && ls
     }
 
     fbigfiles() {
-    	find / -type f -size +$1G -ls | sort -k7 -r |head -20
+        find / -type f -size +$1G -ls | sort -k7 -r |head -20
     }
 
 #   Move files to Trash
@@ -273,6 +277,5 @@
         echo "$1 is not a valid file"
       fi
     }
-source "$HOME/.cargo/env"
 
-source /home/Johannes/.config/broot/launcher/bash/br
+# vim:ft=bash
