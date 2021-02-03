@@ -12,11 +12,13 @@ export LC_TIME="nb_NO.UTF-8"
 
 # Programming
 if command -v clang &> /dev/null; then
-  export CC="clang"
+  export CC="clang -flto"
   export CXX="clang++"
   export CPPFLAGS=""
   export CFLAGS="-WCL4 -Wshadow -std=gnu17"
   export CXXFLAGS="-WCL4 -Wshadow -std=c++17"
+  export LDFLAGS=""
+  export LDLIBS=""
   export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
 elif command -v gcc &> /dev/null; then
   export CC="gcc"
