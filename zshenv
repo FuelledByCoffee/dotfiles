@@ -1,7 +1,5 @@
 # vim: ft=bash
 
-export ZDOTDIR="$HOME"
-
 # Encoding
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
@@ -19,7 +17,6 @@ if command -v clang &> /dev/null; then
   export CPPFLAGS=""
   export CFLAGS="-WCL4 -Wshadow -std=gnu17"
   export CXXFLAGS="-WCL4 -Wshadow -std=c++17"
-  export LDFLAGS="-flto=thin"
   export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
 elif command -v gcc &> /dev/null; then
   export CC="gcc"
@@ -31,8 +28,6 @@ fi
 export C_INCLUDE_PATH="$HOME/.local/include"
 export CPLUS_INCLUDE_PATH="$HOME/.local/include"
 export LIBRARY_PATH="$HOME/.local/lib"
-export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/usr/lib/:$HOME/.local/lib"
-export DYLD_FALLBACK_LIBRARY_PATH="$HOME/.local/lib"
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 
 # CLI
