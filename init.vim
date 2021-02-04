@@ -40,7 +40,11 @@ Plug 'rhysd/vim-clang-format'
 
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'nvim-lua/completion-nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   Plug 'albertoCaroM/completion-tmux'
   Plug 'jackguo380/vim-lsp-cxx-highlight'
   Plug 'glepnir/lspsaga.nvim'
@@ -172,6 +176,8 @@ set hidden
 
 set completeopt+=menuone
 set completeopt+=noselect
+set completeopt+=noinsert
+set completeopt+=preview
 
 set rtp+=/opt/homebrew/opt/fzf
 
@@ -353,6 +359,8 @@ if has('nvim')
         \ 'default': {'comment': [],
         \ 'default': [{'complete_items': [ 'lsp', 'tmux' ]},
         \  {'mode': '<c-p>'}, {'mode': '<c-n>'}]}}
+
+  lua require'lspconfig'.pyright.setup{}
 
 endif
 ": }}}
