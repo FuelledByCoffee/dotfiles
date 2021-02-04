@@ -732,6 +732,7 @@ key_bindings:
 
   # (macOS only)
   - { key: D,      mods: Command, mode: ~Vi, chars: "\x04"            }
+  - { key: U,      mods: Command, mode: ~Vi, chars: "\x15"            }
   - { key: K,      mods: Command, mode: ~Vi, chars: "\x0c"            }
   - { key: K,      mods: Command,            action: ClearHistory     }
   - { key: Key0,   mods: Command,            action: ResetFontSize    }
