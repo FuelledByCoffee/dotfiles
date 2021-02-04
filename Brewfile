@@ -1,4 +1,4 @@
-# vim: set ft=conf
+# vim: ft=ruby
 brew "fd"
 brew "sd"
 brew "gh"
