@@ -428,14 +428,14 @@ mouse:
     #   - (Linux/BSD) xdg-open
     #   - (Windows) explorer
     launcher:
-      program: open
+      program: open # Remeber to press shift if inside tmux
       args: []
 
     # URL modifiers
     #
     # These are the modifiers that need to be held down for opening URLs when clicking
     # on them. The available modifiers are documented in the key binding section.
-    modifiers: Command
+    modifiers: none
 
 # Mouse bindings
 #
