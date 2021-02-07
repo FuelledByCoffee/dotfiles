@@ -8,8 +8,10 @@ if [[ "$OSTYPE" == "linux"* ]]; then
   path=("/home/linuxbrew/.linuxbrew/bin"  $path)
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   path+=("/Library/Developer/CommandLineTools/usr/bin")
+
   path+=("$HOME/Library/Python/3.9/bin")
   path+=("$HOME/Library/Python/3.8/bin")
+
   if [[ $(machine) == "x86"* ]]; then
     path+=("/usr/local/opt/llvm/bin")
   else
@@ -27,6 +29,7 @@ path+=("$HOME/go/bin")
 path+=("$HOME/.cargo/bin")
 path+=(".")
 
+
 if command -v nvim &> /dev/null; then
   export EDITOR='nvim'
 else
@@ -40,6 +43,4 @@ export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
 
 [[ -r ~/.aliases ]] && source ~/.aliases
 alias edprof="nvim $ZDOTDIR/.zshrc && source $ZDOTDIR/.zshrc"
-
-[[ -z $TMUX ]] && { tmux new -A -s main } || true
 
