@@ -158,7 +158,3 @@ source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
 #source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 #: }}}
 
-#: tmux {{{
-[[ -z $TMUX ]] && { tmux new -A -s main } || true
-#: }}}
-

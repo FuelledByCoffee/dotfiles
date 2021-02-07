@@ -40,3 +40,6 @@ export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
 
 [[ -r ~/.aliases ]] && source ~/.aliases
 alias edprof="nvim $ZDOTDIR/.zshrc && source $ZDOTDIR/.zshrc"
+
+[[ -z $TMUX ]] && { tmux new -A -s main } || true
+
