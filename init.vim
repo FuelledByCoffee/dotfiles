@@ -46,8 +46,9 @@ if has('nvim')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'albertoCaroM/completion-tmux'
-  Plug 'jackguo380/vim-lsp-cxx-highlight'
+  " Plug 'jackguo380/vim-lsp-cxx-highlight'
   Plug 'glepnir/lspsaga.nvim'
+  Plug 'norcalli/nvim-colorizer.lua'
 endif
 
 call plug#end()
@@ -162,11 +163,12 @@ set relativenumber
 set number
 set cursorline
 
-if ('+termguicolors')
+if has('termguicolors')
   set t_8b=\<esc>[48;2;%lu;%lu;%lum
   set t_8f=\<esc>[38;2;%lu;%lu;%lum
   set termguicolors
 endif
+
 
 set noshowmode
 
@@ -362,19 +364,32 @@ if has('nvim')
 
   lua require'lspconfig'.pyright.setup{}
 
+lua <<EOF
+  require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}
+EOF
+
 endif
 ": }}}
 
-": vim-lsp-cxx-highlight {{{
-if has('nvim')
-  let g:lsp_cxx_hl_use_nvim_text_props = 1
-else
-  let g:lsp_cxx_hl_use_text_props = 1
-endif
+": colorizer {{{
+lua require'colorizer'.setup()
+": }}}
 
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
+": vim-lsp-cxx-highlight {{{
+" if has('nvim')
+"   let g:lsp_cxx_hl_use_nvim_text_props = 1
+" else
+"   let g:lsp_cxx_hl_use_text_props = 1
+" endif
+
+" let g:cpp_class_scope_highlight = 1
+" let g:cpp_member_variable_highlight = 1
+" let g:cpp_class_decl_highlight = 1
 ": }}}
 
 ": Colorscheme {{{
@@ -383,17 +398,18 @@ colorscheme gruvbox
 
 " No background color. Persist after setting colorscheme.
 " Only sets when colorsceme is set
-au colorscheme * highlight Normal           ctermbg=none
-au colorscheme * highlight NonText          ctermbg=none
-au colorscheme * highlight Text             ctermbg=none
-au colorscheme * highlight LineNr           ctermbg=none
-au colorscheme * highlight CursorLineNR     ctermbg=none
+au colorscheme * highlight Normal           ctermbg=none guibg=none
+au colorscheme * highlight NonText          ctermbg=none guibg=none
+au colorscheme * highlight Text             ctermbg=none guibg=none
+au colorscheme * highlight LineNr           ctermbg=none guibg=none
+au colorscheme * highlight CursorLineNR     ctermbg=none guibg=none
+au colorscheme * highlight folded           ctermbg=none guibg=none
 " au colorscheme * highlight SignColumn       guibg=none ctermbg=none
 " au colorscheme * highlight FoldColumn       guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
 " au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
-au colorscheme * highlight EndOfBuffer      ctermbg=none ctermfg=black
+au colorscheme * highlight EndOfBuffer      guifg=black ctermfg=black
 
 set background=dark
 
