@@ -40,7 +40,7 @@ Plug 'rhysd/vim-clang-format'
 
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  " Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'nvim-lua/completion-nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -363,21 +363,15 @@ if has('nvim')
         \  {'mode': '<c-p>'}, {'mode': '<c-n>'}]}}
 
   lua require'lspconfig'.pyright.setup{}
-
-lua <<EOF
-  require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-  },
-}
-EOF
+  lua require'lspconfig'.clangd.setup{}
 
 endif
 ": }}}
 
 ": colorizer {{{
-lua require'colorizer'.setup()
+if has('nvim')
+  lua require'colorizer'.setup()
+endif
 ": }}}
 
 ": vim-lsp-cxx-highlight {{{
