@@ -244,6 +244,8 @@ command! W :execute 'silent w !sudo tee % > /dev/null' | :edit!
 " Reset pager variable to use nvim for man pages
 let $MANPAGER=''
 
+let g:vimsyn_embed= 'l'
+
 " Default is using c++ syntax for .h files
 " Use C syntax for .h files
 let g:c_syntax_for_h=1
