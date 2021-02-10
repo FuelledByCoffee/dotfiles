@@ -2,7 +2,7 @@ setlocal foldmethod=syntax
 setlocal foldlevel=20
 setlocal foldlevelstart=20
 setlocal makeprg=make
-au BufWritePost * :silent make | redraw!
+" au BufWritePost * :silent make | redraw!
 
 au QuickFixCmdPost [^l]* nested cwindow
 au QuickFixCmdPost    l* nested lwindow
