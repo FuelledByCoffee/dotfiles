@@ -4,3 +4,5 @@ setlocal tabstop=2
 setlocal softtabstop=2
 setlocal fo-=o
 setlocal foldmethod=marker
+
+let g:vimsyn_embed= 'l'
