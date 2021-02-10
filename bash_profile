@@ -16,14 +16,14 @@
     gr="\[\e[0;32m\]"   # Green
     yl="\[\e[0;33m\]"   # Yellow
     bl="\[\e[0;34m\]"   # Blue
-    mg="\[\e[0;35m\]"   # Magentae
+    mg="\[\e[0;35m\]"   # Magenta
     cy="\[\e[0;36m\]"   # Cyan
 
     brd="\[\e[1;31m\]"  # Bold Red
     bgr="\[\e[1;32m\]"  # Bold Green
     byl="\[\e[1;33m\]"  # Bold Yellow
     bbl="\[\e[1;34m\]"  # Bold Blue
-    bmg="\[\e[1;35m\]"  # Bold Magentae
+    bmg="\[\e[1;35m\]"  # Bold Magenta
     bcy="\[\e[1;36m\]"  # Bold Cyan
 
     no="\[\e[0m\]"  # Normal
