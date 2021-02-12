@@ -392,18 +392,18 @@ colorscheme gruvbox
 
 " No background color. Persist after setting colorscheme.
 " Only sets when colorsceme is set
-au colorscheme * highlight Normal           ctermbg=none guibg=none
-au colorscheme * highlight NonText          ctermbg=none guibg=none
-au colorscheme * highlight Text             ctermbg=none guibg=none
-au colorscheme * highlight LineNr           ctermbg=none guibg=none
-au colorscheme * highlight CursorLineNR     ctermbg=none guibg=none
-au colorscheme * highlight folded           ctermbg=none guibg=none
-" au colorscheme * highlight SignColumn       guibg=none ctermbg=none
-" au colorscheme * highlight FoldColumn       guibg=none ctermbg=none
-" au colorscheme * highlight GitGutterAdd     guibg=none ctermbg=none
-" au colorscheme * highlight GitGutterChange  guibg=none ctermbg=none
-" au colorscheme * highlight GitGutterDelete  guibg=none ctermbg=none
-au colorscheme * highlight EndOfBuffer      guifg=black ctermfg=black
+au colorscheme * highlight Normal             ctermbg=NONE guibg=NONE
+au colorscheme * highlight NonText            ctermbg=NONE guibg=NONE
+au colorscheme * highlight Text               ctermbg=NONE guibg=NONE
+au colorscheme * highlight LineNr             ctermbg=NONE guibg=NONE
+au colorscheme * highlight CursorLineNR       ctermbg=NONE guibg=NONE
+au colorscheme * highlight folded             ctermbg=NONE guibg=NONE
+" au colorscheme * highlight SignColumn       ctermbg=NONE guibg=NONE 
+" au colorscheme * highlight FoldColumn       ctermbg=NONE guibg=NONE
+" au colorscheme * highlight GitGutterAdd     ctermbg=NONE guibg=NONE
+" au colorscheme * highlight GitGutterChange  ctermbg=NONE guibg=NONE
+" au colorscheme * highlight GitGutterDelete  ctermbg=NONE guibg=NONE
+au colorscheme * highlight EndOfBuffer        ctermfg=black guifg=black
 
 set background=dark
 
