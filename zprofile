@@ -31,13 +31,13 @@ path+=(".")
 
 
 if command -v nvim &> /dev/null; then
-  export EDITOR='nvim'
+  export VISUAL='nvim'
 else
-  export EDITOR='vim'
+  export VISUAL='vim'
 fi
-export VISUAL=$EDITOR
+export EDITOR=$VISUAL
 export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
-  $EDITOR -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+  $VISUAL -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
   -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
   -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
