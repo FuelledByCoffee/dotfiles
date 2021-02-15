@@ -264,9 +264,9 @@ nnoremap <leader><space> :call TrimWhitespace()<cr>
 
 function! CleverTab()
   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-	  return "\<Tab>"
+    return "\<Tab>"
   else
-	  return "\<C-N>"
+    return "\<C-N>"
   endif
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
