@@ -22,9 +22,24 @@ endif
 
 call plug#begin(s:home.'/plugged')
 
+if has('nvim-0.5')
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'norcalli/nvim-colorizer.lua'
+  " Plug 'nvim-lua/completion-nvim'
+  " Plug 'nvim-lua/popup.nvim'
+  " Plug 'nvim-lua/plenary.nvim'
+  " Plug 'nvim-telescope/telescope.nvim'
+  " Plug 'albertoCaroM/completion-tmux'
+  " Plug 'glepnir/lspsaga.nvim'
+else
+  Plug 'bfrg/vim-cpp-modern' " syntax highlighting
+  Plug 'cespare/vim-toml'
+endif
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " Show git brach in statusline
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
@@ -33,23 +48,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
-Plug 'bfrg/vim-cpp-modern' " syntax highlighting
 Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
 Plug 'rhysd/vim-clang-format'
-
-if has('nvim')
-  Plug 'neovim/nvim-lspconfig'
-  " Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'nvim-lua/completion-nvim'
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'albertoCaroM/completion-tmux'
-  " Plug 'jackguo380/vim-lsp-cxx-highlight'
-  Plug 'glepnir/lspsaga.nvim'
-  Plug 'norcalli/nvim-colorizer.lua'
-endif
 
 call plug#end()
 
@@ -74,8 +74,14 @@ inoremap jj <esc>
 " Quickly save and quit
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
+nnoremap <leader>d :bd<cr>
 nnoremap <leader>Q :qa<cr>
 nnoremap <leader>m :make<cr>
+nnoremap <leader>r :make test<cr>
+
+" Use tab and shift-tab to go through completion options
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Escape from terminal mode
 tnoremap <Esc> <C-\><C-n>
@@ -120,6 +126,116 @@ nnoremap cc :cclose<CR>
 
 ": }}}
 
+": Settings {{{
+set relativenumber
+set number
+set cursorline
+
+if exists('$TMUX')
+  set t_8b=\<esc>[48;2;%lu;%lu;%lum
+  set t_8f=\<esc>[38;2;%lu;%lu;%lum
+endif
+
+if has('termguicolors')
+  set termguicolors
+endif
+
+set noshowmode
+
+set encoding=UTF-8
+
+set hidden
+
+set updatetime=100
+
+" Set default register to system clipboard
+set clipboard=unnamedplus
+
+set completeopt+=menuone
+set completeopt+=noselect
+set completeopt+=noinsert
+set completeopt+=preview
+
+set rtp+=/opt/homebrew/opt/fzf
+
+set shortmess+=c
+
+set belloff+=ctrlg
+
+set wildmenu
+set wildmode=list:full
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+set ignorecase
+set smartcase
+
+set hlsearch
+set incsearch
+
+set path=./**,/usr/local/include,/usr/include,/Library/Developer/CommandLineTools/usr/include/**,,
+
+set smarttab
+set smartindent
+set copyindent
+set autoindent
+set cindent
+set preserveindent
+
+set grepprg=rg
+
+set wrap
+set breakindent
+
+set scrolloff=7
+set sidescrolloff=5
+
+set mouse=a
+
+set signcolumn=number
+
+set undolevels=100    " How many undos
+set undoreload=1000   " number of lines to save for undo
+if has('nvim')
+  set undodir=$HOME/.config/nvim/undo-history
+else
+  set undodir=$HOME/.vim/undo-history
+endif
+set undofile          " Save undos after file closes
+
+" set splitbelow
+set splitright
+
+filetype plugin on
+filetype indent on
+
+": }}}
+
+": Configuration {{{
+
+" Reset pager variable to use nvim for man pages
+let $MANPAGER=''
+
+" Default is using c++ syntax for .h files
+" Use C syntax for .h files
+let g:c_syntax_for_h=1
+
+" let g:completion_enable_auto_popup = 1
+
+let g:termdebug_popup = 0
+" let g:termdebug_wide = 163
+
+" jump to previous position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+        \| exe "normal! g'\"" | endif
+endif
+
+": }}}
+
 ": Functions {{{
 function! ToggleMinimal()
   AirlineToggle
@@ -146,6 +262,15 @@ endfun
 " command! TrimWhiteSpace ':%s/\s\+$//gI'
 nnoremap <leader><space> :call TrimWhitespace()<cr>
 
+function! CleverTab()
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+	  return "\<Tab>"
+  else
+	  return "\<C-N>"
+  endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
+
 function! MyOnBattery()
   if has('macunix')
     return match(system('pmset -g batt'), "Now drawing from 'Battery Power'") != -1
@@ -156,119 +281,32 @@ function! MyOnBattery()
 endfunction
 ": }}}
 
-": Settings {{{
-set nocompatible
-
-set relativenumber
-set number
-set cursorline
-
-if has('termguicolors')
-  set t_8b=\<esc>[48;2;%lu;%lu;%lum
-  set t_8f=\<esc>[38;2;%lu;%lu;%lum
-  set termguicolors
-endif
-
-
-set noshowmode
-
-set encoding=UTF-8
-
-set hidden
-
-set completeopt+=menuone
-set completeopt+=noselect
-set completeopt+=noinsert
-set completeopt+=preview
-
-set rtp+=/opt/homebrew/opt/fzf
-
-set shortmess+=c
-
-set belloff+=ctrlg
-
-set wildmenu
-set wildmode=full
-
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-
-set ignorecase
-set smartcase
-
-set hlsearch
-set incsearch
-
-set smarttab
-set smartindent
-set copyindent
-set autoindent
-set cindent
-set preserveindent
-
-set grepprg=rg
-
-set wrap
-set breakindent
-
-set scrolloff=7
-set sidescrolloff=5
-
-set mouse=a
-
-set undolevels=100    " How many undos
-set undoreload=1000   " number of lines to save for undo
-if has('nvim')
-  set undodir=$HOME/.config/nvim/undo-history
-else
-  set undodir=$HOME/.vim/undo-history
-endif
-set undofile          " Save undos after file closes
-
-" set splitbelow
-set splitright
-
-filetype plugin on
-filetype indent on
-
-": }}}
-
 ": commands {{{
 command! W :execute 'silent w !sudo tee % > /dev/null' | :edit!
 ": }}}
 
-": Configuration {{{
+": Colorscheme {{{
 
-" Reset pager variable to use nvim for man pages
-let $MANPAGER=''
+colorscheme gruvbox
 
-" Default is using c++ syntax for .h files
-" Use C syntax for .h files
-let g:c_syntax_for_h=1
+" No background color. Persist after setting colorscheme.
+" Only sets when colorsceme is set
+au colorscheme * highlight Normal             ctermbg=NONE guibg=NONE
+" au colorscheme * highlight NonText            ctermbg=NONE guibg=NONE
+au colorscheme * highlight Text               ctermbg=NONE guibg=NONE
+au colorscheme * highlight LineNr             ctermbg=NONE guibg=NONE
+au colorscheme * highlight CursorLineNR       ctermbg=NONE guibg=NONE
+au colorscheme * highlight SignColumn         ctermbg=NONE guibg=NONE
 
-let g:termdebug_popup = 0
-" let g:termdebug_wide = 163
+au colorscheme * highlight GitGutterAdd       ctermbg=NONE guibg=NONE
+au colorscheme * highlight GitGutterChange    ctermbg=NONE guibg=NONE
+au colorscheme * highlight GitGutterDelete    ctermbg=NONE guibg=NONE
 
-" jump to previous position when reopening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-        \| exe "normal! g'\"" | endif
-endif
+" au colorscheme * highlight folded             ctermbg=NONE guibg=NONE
+" au colorscheme * highlight FoldColumn         ctermbg=NONE guibg=NONE
+au colorscheme * highlight EndOfBuffer      guifg=black ctermfg=black
 
-if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-
-if executable('vimscript-language-server')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'vimscript-language-server',
-        \ 'cmd': {server_info->WrapLspTee(['vimscript-language-server'])},
-        \ 'whitelist': ['vim'],
-        \ })
-endif
+set background=dark
 
 ": }}}
 
@@ -340,9 +378,14 @@ let g:airline_skip_empty_sections = 0
 " let g:airline_right_sep=''
 ": }}}
 
+": Git gutter {{{
+let g:gitgutter_map_keys = 0
+command! Gqf GitGutterQuickFix | copen
+": }}}
+
 ": Language server {{{
 if has('nvim')
-  autocmd BufEnter * lua require'completion'.on_attach()
+  " autocmd BufEnter * lua require'completion'.on_attach()
   " Language server protocol mappings
   nnoremap <silent> H     <cmd>lua vim.lsp.buf.hover()<CR>
   nnoremap <silent> <C-F> <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
@@ -357,54 +400,40 @@ if has('nvim')
   " Enable integrated highlight on yank
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("YankRegion", 1000)
 
-  let g:completion_chain_complete_list = {
-        \ 'default': {'comment': [],
-        \ 'default': [{'complete_items': [ 'lsp', 'tmux' ]},
-        \  {'mode': '<c-p>'}, {'mode': '<c-n>'}]}}
+  " let g:completion_chain_complete_list = {
+  "       \ 'default': {'comment': [],
+  "       \ 'default': [{'complete_items': [ 'lsp', 'tmux' ]},
+  "       \  {'mode': '<c-p>'}, {'mode': '<c-n>'}]}}
 
-  lua require'lspconfig'.pyright.setup{}
-  lua require'lspconfig'.clangd.setup{}
+  if executable('vimscript-language-server')
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'vimscript-language-server',
+          \ 'cmd': {server_info->WrapLspTee(['vimscript-language-server'])},
+          \ 'whitelist': ['vim'],
+          \ })
+  endif
 
 endif
+
+": LUA config stuff {{{
+if has('nvim-0.0.5')
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = {},  -- list of language that will be disabled
+  },
+}
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.clangd.setup{}
+EOF
+endif
+": }}}
 ": }}}
 
 ": colorizer {{{
 if has('nvim')
   lua require'colorizer'.setup()
 endif
-": }}}
-
-": vim-lsp-cxx-highlight {{{
-" if has('nvim')
-"   let g:lsp_cxx_hl_use_nvim_text_props = 1
-" else
-"   let g:lsp_cxx_hl_use_text_props = 1
-" endif
-
-" let g:cpp_class_scope_highlight = 1
-" let g:cpp_member_variable_highlight = 1
-" let g:cpp_class_decl_highlight = 1
-": }}}
-
-": Colorscheme {{{
-
-colorscheme gruvbox
-
-" No background color. Persist after setting colorscheme.
-" Only sets when colorsceme is set
-au colorscheme * highlight Normal             ctermbg=NONE guibg=NONE
-au colorscheme * highlight NonText            ctermbg=NONE guibg=NONE
-au colorscheme * highlight Text               ctermbg=NONE guibg=NONE
-au colorscheme * highlight LineNr             ctermbg=NONE guibg=NONE
-au colorscheme * highlight CursorLineNR       ctermbg=NONE guibg=NONE
-au colorscheme * highlight folded             ctermbg=NONE guibg=NONE
-" au colorscheme * highlight SignColumn       ctermbg=NONE guibg=NONE 
-" au colorscheme * highlight FoldColumn       ctermbg=NONE guibg=NONE
-" au colorscheme * highlight GitGutterAdd     ctermbg=NONE guibg=NONE
-" au colorscheme * highlight GitGutterChange  ctermbg=NONE guibg=NONE
-" au colorscheme * highlight GitGutterDelete  ctermbg=NONE guibg=NONE
-au colorscheme * highlight EndOfBuffer        ctermfg=black guifg=black
-
-set background=dark
-
 ": }}}
