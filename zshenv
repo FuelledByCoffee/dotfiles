@@ -19,6 +19,10 @@ if command -v clang &> /dev/null; then
   export CPPFLAGS=""
   export CFLAGS="-WCL4 -Wshadow -std=gnu17"
   export CXXFLAGS="-WCL4 -Wshadow -std=c++17"
+  if [[ $(machine) != "x86"* ]]; then
+    CFLAGS="-arch arm64 $CFLAGS"
+    CXXFLAGS="-arch arm64 $CXXFLAGS"
+  fi
   export LDFLAGS=""
   export LDLIBS=""
   export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
