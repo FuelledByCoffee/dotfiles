@@ -216,7 +216,7 @@ filetype indent on
 
 ": Configuration {{{
 
-" Reset pager variable to use nvim for man pages
+" Reset manpager variable to use nvim for man pages
 let $MANPAGER=''
 
 " Default is using c++ syntax for .h files
