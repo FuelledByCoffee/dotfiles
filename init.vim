@@ -176,7 +176,8 @@ set smartcase
 set hlsearch
 set incsearch
 
-set path=./**,/usr/local/include,/usr/include,/Library/Developer/CommandLineTools/usr/include/**,,
+set path=.,/usr/local/include,/usr/include,/Library/Developer/CommandLineTools/usr/include/c++/v1,,
+set path+=$HOME/.local/include
 
 set smarttab
 set smartindent
