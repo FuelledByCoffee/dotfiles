@@ -417,7 +417,7 @@ if has('nvim')
 endif
 
 ": LUA config stuff {{{
-if has('nvim-0.0.5')
+if has('nvim')
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -426,9 +426,11 @@ require'nvim-treesitter.configs'.setup {
     disable = {},  -- list of language that will be disabled
   },
 }
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.rls.setup{}
+local nvim_lsp = require('lspconfig')
+local servers = { "pyright", "clangd", "rls" }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup { on_attach = on_attach }
+end
 EOF
 endif
 ": }}}
