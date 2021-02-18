@@ -427,6 +427,7 @@ require'nvim-treesitter.configs'.setup {
 }
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.clangd.setup{}
+require'lspconfig'.rls.setup{}
 EOF
 endif
 ": }}}
