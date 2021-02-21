@@ -12,6 +12,11 @@ function goto {
   cd $(fd -1 $1)
 }
 
+function showme {
+  emulate -L zsh
+  llvm-objdump -d $1 | $VISUAL -c 'setf asm'
+}
+
 function mcd {
   emulate -L zsh
   mkdir -p $1 && cd $1
