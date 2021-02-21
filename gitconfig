@@ -68,7 +68,7 @@
     br = branch
     cb = checkout -b
     d  = difftool
-    ps = "!git push &> .git/push.log || echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\" &"
+    ps = "!git push &> .git/push.log || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
     ;reorder  = "!GIT_SEQUENCE_EDITOR \"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
     discard  = checkout HEAD --
     unstage  = reset HEAD --
