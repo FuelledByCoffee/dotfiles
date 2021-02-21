@@ -16,7 +16,7 @@ function dump {
   emulate -L zsh
   llvm-objdump -d $1 | $VISUAL -R \
     -c 'setf asm' \
-    -c 'map q :q!<cr>' 
+    -c 'map q :q!<cr>'
 }
 
 function mcd {
