@@ -12,9 +12,11 @@ function goto {
   cd $(fd -1 $1)
 }
 
-function showme {
+function dump {
   emulate -L zsh
-  llvm-objdump -d $1 | $VISUAL -c 'setf asm'
+  llvm-objdump -d $1 | $VISUAL -R \
+    -c 'setf asm' \
+    -c 'map q :q!<cr>' 
 }
 
 function mcd {
