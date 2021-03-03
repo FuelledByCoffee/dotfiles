@@ -731,10 +731,10 @@ key_bindings:
   - { key: Return,   mods: Alt,                     action: ToggleFullscreen }
 
   # (macOS only)
-  - { key: D,      mods: Command, mode: ~Vi, chars: "\x04"            }
-  - { key: U,      mods: Command, mode: ~Vi, chars: "\x15"            }
-  - { key: Z,      mods: Command, mode: ~Vi, chars: "\x1A"            }
-  - { key: K,      mods: Command, mode: ~Vi, chars: "\x0C"            }
+  - { key: D,      mods: Command, mode: ~Vi, chars: "\x04"            } # C-d
+  - { key: U,      mods: Command, mode: ~Vi, chars: "\x15"            } # C-u
+  - { key: Z,      mods: Command, mode: ~Vi, chars: "\x1A"            } # C-z
+  - { key: K,      mods: Command, mode: ~Vi, chars: "\x0C"            } # C-l
   - { key: K,      mods: Command,            action: ClearHistory     }
   - { key: Key0,   mods: Command,            action: ResetFontSize    }
   - { key: Plus,   mods: Command,            action: IncreaseFontSize }
@@ -750,23 +750,23 @@ key_bindings:
   - { key: B,      mods: Command,            action: SearchBackward   }
 
   # Tmux commands
-  - { key: J,      mods: Command,            chars: "\x02"            }
-  - { key: N,      mods: Command,            chars: "\x02n"           }
-  - { key: P,      mods: Command,            chars: "\x02p"           }
-  - { key: R,      mods: Command,            chars: "\x02r"           }
-  - { key: T,      mods: Command,            chars: "\x02c"           }
-  - { key: S,      mods: Command,            chars: "\x02|"           }
-  - { key: W,      mods: Command,            chars: "\x02&"           }
-  - { key: Key1,   mods: Command,            chars: "\x021"           }
-  - { key: Key2,   mods: Command,            chars: "\x022"           }
-  - { key: Key3,   mods: Command,            chars: "\x023"           }
-  - { key: Key4,   mods: Command,            chars: "\x024"           }
-  - { key: Key5,   mods: Command,            chars: "\x025"           }
-  - { key: Key6,   mods: Command,            chars: "\x026"           }
-  - { key: Key7,   mods: Command,            chars: "\x027"           }
-  - { key: Key8,   mods: Command,            chars: "\x028"           }
-  - { key: Key9,   mods: Command,            chars: "\x029"           }
-  - { key: Comma,  mods: Command,            chars: "\x02,"           }
+  - { key: J,      mods: Command,  chars: "\x02"  }
+  - { key: N,      mods: Command,  chars: "\x02n" }
+  - { key: P,      mods: Command,  chars: "\x02p" }
+  - { key: R,      mods: Command,  chars: "\x02r" }
+  - { key: T,      mods: Command,  chars: "\x02c" }
+  - { key: S,      mods: Command,  chars: "\x02|" }
+  - { key: W,      mods: Command,  chars: "\x02&" }
+  - { key: Key1,   mods: Command,  chars: "\x021" }
+  - { key: Key2,   mods: Command,  chars: "\x022" }
+  - { key: Key3,   mods: Command,  chars: "\x023" }
+  - { key: Key4,   mods: Command,  chars: "\x024" }
+  - { key: Key5,   mods: Command,  chars: "\x025" }
+  - { key: Key6,   mods: Command,  chars: "\x026" }
+  - { key: Key7,   mods: Command,  chars: "\x027" }
+  - { key: Key8,   mods: Command,  chars: "\x028" }
+  - { key: Key9,   mods: Command,  chars: "\x029" }
+  - { key: Comma,  mods: Command,  chars: "\x02," }
 
 
 debug:
