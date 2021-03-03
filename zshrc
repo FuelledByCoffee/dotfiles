@@ -19,6 +19,16 @@ function dump {
     -c 'map q :q!<cr>'
 }
 
+function hex {
+  emulate -L zsh
+  $VISUAL -b \
+    -c ':%!xxd' \
+    -c 'setf xxd' \
+    -c 'map ,q :q!<cr>' \
+    -c 'map ,w :%!xxd -r<cr> :w<cr> :%!xxd<cr>' \
+    $@
+}
+
 function mcd {
   emulate -L zsh
   mkdir -p $1 && cd $1
