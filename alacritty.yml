@@ -749,10 +749,6 @@ key_bindings:
   - { key: F,      mods: Command,            action: SearchForward    }
   - { key: B,      mods: Command,            action: SearchBackward   }
 
-  - { key: Comma,  mods: Command,            command: {
-      program: "nvim",            args: ["~/.alacritty.yml"]}
-    }
-
   # Tmux commands
   - { key: J,      mods: Command,            chars: "\x02"            }
   - { key: N,      mods: Command,            chars: "\x02n"           }
@@ -770,6 +766,7 @@ key_bindings:
   - { key: Key7,   mods: Command,            chars: "\x027"           }
   - { key: Key8,   mods: Command,            chars: "\x028"           }
   - { key: Key9,   mods: Command,            chars: "\x029"           }
+  - { key: Comma,  mods: Command,            chars: "\x02,"           }
 
 
 debug:
