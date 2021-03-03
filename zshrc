@@ -150,7 +150,7 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
 # Plugin completions
-FPATH="~/dotfiles/zsh-completions/src:$FPATH"
+fpath=("~/dotfiles/zsh-completions/src" $fpath)
 
 autoload -Uz compinit
 compinit
