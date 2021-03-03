@@ -96,13 +96,13 @@ setopt promptsubst
 #: }}}
 
 # Vi mode
-viinsert='%F{blue}%S I %s%f'
-vicommand='%F{green}%S N %s%f'
-vivisual='%F{yellow}%S V %s%f'
-vireplace='%F{red}%S %K{white}R%k %s%f'
+# viinsert='%F{blue}%S I %s%f'
+# vicommand='%F{green}%S N %s%f'
+# vivisual='%F{yellow}%S V %s%f'
+# vireplace='%F{red}%S %K{white}R%k %s%f'
 
-KEYTIMEOUT=40
-NEWLINE=$'\n'
+# KEYTIMEOUT=40
+# NEWLINE=$'\n'
 
 # function zle-line-init zle-keymap-select {
 #   case $KEYMAP in
@@ -122,9 +122,9 @@ NEWLINE=$'\n'
 
 # zle -N zle-line-init
 # zle -N zle-keymap-select
-#zle -N zle-line-pre-redraw
+# zle -N zle-line-pre-redraw
 
-RPROMPT='%(?..%B%F{red}❌ %?%f%b)'
+# RPROMPT='%(?..%B%F{red}❌ %?%f%b)'
 eval "$(starship init zsh)"
 #: }}}
 
