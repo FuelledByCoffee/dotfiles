@@ -50,7 +50,6 @@
     - [source ~/.zshenv, Setting up environment]
     - [source $ZDOTDIR/.zprofile, Setting up path]
     - [brew bundle, Installing various utilities]
-    - [go get -u github.com/arl/gitmux, Installing gitmux]
     - ['curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz && gunzip terminfo.src.gz', downloading terminfo]
     - ['/usr/bin/tic -xe alacritty-direct\,tmux-256color terminfo.src', getting info for terminals]
     - [rm terminfo.src, Cleaning up]
