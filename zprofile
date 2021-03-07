@@ -13,7 +13,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   path+=("$HOME/Library/Python/3.8/bin")
 
   if [[ $(machine) == "x86"* ]]; then
-    path+=("/usr/local/opt/llvm/bin")
   else
     path=("/opt/homebrew/sbin" $path)
     path=("/opt/homebrew/bin"  $path)
@@ -27,6 +26,8 @@ path=("$HOME/bin"         $path)
 path+=("$HOME/go/bin")
 path+=("$HOME/.cargo/bin")
 path+=(".")
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if command -v nvim &> /dev/null; then
   export VISUAL='nvim'

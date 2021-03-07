@@ -38,4 +38,6 @@ export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31' # For Linux
 export QUOTING_STYLE='literal' # Don't put names with spaces in quotes
 
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZDOTDIR/.zsh-syntax-highlighting/highlighters"

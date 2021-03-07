@@ -42,7 +42,7 @@ Plug 'tpope/vim-fugitive' " Show git brach in statusline
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
-Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'joshdick/onedark.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
