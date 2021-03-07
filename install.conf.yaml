@@ -37,6 +37,7 @@
     ~/.zsh-autocomplete:
     ~/.zsh-syntax-highlighting:
     ~/.zsh-autosuggestions:
+    ~/.fzf.zsh:
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
