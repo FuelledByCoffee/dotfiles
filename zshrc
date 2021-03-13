@@ -7,11 +7,6 @@ function chpwd {
   ls
 }
 
-function goto {
-  emulate -L zsh
-  cd $(fd -1 $1)
-}
-
 function dump {
   emulate -L zsh
   llvm-objdump -d $1 | $VISUAL -R \
@@ -34,12 +29,11 @@ function mcd {
   mkdir -p $1 && cd $1
 }
 
-# fd - cd to selected directory
-zd() {
+# fdf - cd to selected directory
+fdf() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
-    -o -type d -print 2> /dev/null | fzf +m) &&
-    cd "$dir"
+    -o -type d -print 2> /dev/null | fzf +m) && cd "$dir"
 }
 
 # fh - search in your command history and execute selected command
@@ -185,5 +179,5 @@ unsetopt nomatch notify menu_complete
 source $ZDOTDIR/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
-#source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 #: }}}
