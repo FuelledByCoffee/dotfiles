@@ -29,6 +29,7 @@
     ~/.config/git/ignore:
         create: true
         path: ignore
+    ~/.config/powershell/Microsoft.Powershell_profile.ps1:
     ~/.bash_profile:
     ~/.zshenv:
     ~/.zshrc:
