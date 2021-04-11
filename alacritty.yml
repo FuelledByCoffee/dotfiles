@@ -428,7 +428,7 @@ mouse:
     #   - (Linux/BSD) xdg-open
     #   - (Windows) explorer
     launcher:
-      program: open # Remeber to press shift if inside tmux
+      program: open # Remember to press shift if inside tmux
       args: []
 
     # URL modifiers
