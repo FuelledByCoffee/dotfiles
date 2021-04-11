@@ -38,6 +38,7 @@ else
 endif
 
 Plug 'ARM9/arm-syntax-vim'
+Plug 'zigford/vim-powershell'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
