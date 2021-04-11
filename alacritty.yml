@@ -750,6 +750,7 @@ key_bindings:
   - { key: B,      mods: Command,            action: SearchBackward   }
 
   # Tmux commands
+  - { key: A,      mods: Command,        chars: "\x01"  }
   - { key: J,      mods: Command,        chars: "\x02"  }
   - { key: N,      mods: Command,        chars: "\x02n" }
   - { key: P,      mods: Command,        chars: "\x02p" }
