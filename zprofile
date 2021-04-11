@@ -7,16 +7,12 @@ if [[ "$OSTYPE" == "linux"* ]]; then
   path=("/home/linuxbrew/.linuxbrew/sbin" $path)
   path=("/home/linuxbrew/.linuxbrew/bin"  $path)
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  path+=("/Library/Developer/CommandLineTools/usr/bin")
-
-  path+=("$HOME/Library/Python/3.9/bin")
-  path+=("$HOME/Library/Python/3.8/bin")
-
-  if [[ $(machine) == "x86"* ]]; then
-  else
+  if [[ $(uname -m) == "arm64"* ]]; then
     path=("/opt/homebrew/sbin" $path)
     path=("/opt/homebrew/bin"  $path)
   fi
+  path+=("$HOME/Library/Python/3.9/bin")
+  path+=("$HOME/Library/Python/3.8/bin")
 fi
 
 # Put home folder bin dirs first in path
