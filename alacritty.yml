@@ -231,7 +231,7 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#1d1f21' #1d1f21
+    black:   '#000000' #1d1f21
     red:     '#c91b00'
     green:   '#00c200'
     yellow:  '#edb026'
@@ -378,7 +378,7 @@ live_config_reload: true
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: zsh
+  program: /opt/homebrew/bin/zsh
   args:
     - -l
     - -c
