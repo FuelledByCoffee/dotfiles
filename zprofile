@@ -11,6 +11,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     path=("/opt/homebrew/sbin" $path)
     path=("/opt/homebrew/bin"  $path)
   fi
+  path+=("/Library/Developer/CommandLineTools/usr/bin")
   path+=("$HOME/Library/Python/3.9/bin")
   path+=("$HOME/Library/Python/3.8/bin")
 fi
