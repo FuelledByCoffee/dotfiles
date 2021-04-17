@@ -133,6 +133,7 @@ setopt promptsubst
 
 # RPROMPT='%(?..%B%F{red}❌ %?%f%b)'
 eval "$(starship init zsh)"
+# eval "$(oh-my-posh --init --shell zsh --config $(brew --prefix oh-my-posh)/themes/half-life.omp.json)"
 #: }}}
 
 #: broot {{{
