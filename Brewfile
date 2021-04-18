@@ -19,6 +19,7 @@ brew "broot"
 brew "astyle"
 brew "ranger"
 brew "cppman"
+brew "zoxide"
 brew "ripgrep"
 brew "starship"
 

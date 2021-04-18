@@ -182,3 +182,5 @@ source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
 # source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 #: }}}
+
+eval "$(zoxide init zsh)"
