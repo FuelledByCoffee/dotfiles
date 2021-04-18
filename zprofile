@@ -24,8 +24,6 @@ path+=("$HOME/go/bin")
 path+=("$HOME/.cargo/bin")
 path+=(".")
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 if command -v nvim &> /dev/null; then
   export VISUAL='nvim'
 else
