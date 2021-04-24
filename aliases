@@ -51,6 +51,3 @@ alias rebuild='bear -- make -B -j4'
 alias path='echo -e "${PATH//:/\\n}"' # Print one directory in the path variable per line
 alias vtop='vtop -t brew'
 alias clock='tty-clock -C 4 -Sc'
-
-alias C='cd ~/Code/C'
-alias cs50='cd ~/Code/cs50'
