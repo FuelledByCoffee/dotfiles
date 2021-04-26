@@ -19,6 +19,16 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ll='ls -FGl'
 fi
 
+if command -v rg &> /dev/null
+then
+  alias grep='rg'
+else
+  # Grep color — Seriously though use ripgrep
+  alias grep='grep   --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
 # Common commands
 alias mv='mv -vi'
 alias cp='cp -vi'
@@ -34,11 +44,6 @@ elif [[ "$OSTYPE" == "linux"* ]]; then
 fi
 
 alias mkdir='mkdir -pv'
-
-# Grep color — Seriously though use ripgrep
-alias grep='grep   --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 
 if command -v nvim &> /dev/null; then
   alias vim='nvim'
