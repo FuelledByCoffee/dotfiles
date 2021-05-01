@@ -7,6 +7,11 @@ function chpwd {
   ls
 }
 
+cdl () {
+  emulate -L zsh
+  cd "$(dirname "$(readlink "$1")")";
+}
+
 function dump {
   emulate -L zsh
   llvm-objdump -d $1 | $VISUAL -R \
