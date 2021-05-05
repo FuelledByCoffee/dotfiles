@@ -52,5 +52,3 @@
     - [source ~/.zshenv, Setting up environment]
     - [source $ZDOTDIR/.zprofile, Setting up path]
     - [brew bundle, Installing various utilities]
-    - [ln -s $(brew --prefix)/bin/exa ~/.local/bin/ls]
-    - [ln -s $(brew --prefix)/bin/rg  ~/.local/bin/grep]
