@@ -26,6 +26,7 @@ if has('nvim-0.5')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'sainnhe/vim-color-forest-night'
   " Plug 'nvim-lua/completion-nvim'
   " Plug 'nvim-lua/popup.nvim'
   " Plug 'nvim-lua/plenary.nvim'
@@ -40,6 +41,9 @@ endif
 Plug 'ARM9/arm-syntax-vim'
 Plug 'zigford/vim-powershell'
 Plug 'morhetz/gruvbox'
+Plug 'nanotech/jellybeans.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'Luxed/ayu-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " Show git brach in statusline
@@ -47,8 +51,6 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'joshdick/onedark.vim'
-Plug 'Luxed/ayu-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
