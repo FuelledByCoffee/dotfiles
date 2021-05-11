@@ -18,7 +18,6 @@ fi
 
 # Put home folder bin dirs first in path
 path=("$HOME/.local/bin"  $path)
-path=("$HOME/bin"         $path)
 
 path+=("$HOME/go/bin")
 path+=("$HOME/.cargo/bin")
