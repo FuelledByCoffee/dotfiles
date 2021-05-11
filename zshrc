@@ -14,7 +14,7 @@ cdl () {
 
 function dump {
   emulate -L zsh
-  llvm-objdump -d $1 | $VISUAL -R \
+  objdump -d $1 | $VISUAL -R \
     -c 'setf asm' \
     -c 'map q :q!<cr>'
 }
