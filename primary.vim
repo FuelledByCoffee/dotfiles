@@ -1,0 +1,1 @@
+/Users/Johannes/.config/nvim/plugged/nvcode-color-schemes.vim/colors/primary.vim

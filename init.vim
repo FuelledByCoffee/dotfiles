@@ -25,6 +25,7 @@ call plug#begin(s:home.'/plugged')
 if has('nvim-0.5')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'christianchiarulli/nvcode-color-schemes.vim'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'sainnhe/vim-color-forest-night'
   " Plug 'nvim-lua/completion-nvim'
@@ -41,9 +42,6 @@ endif
 Plug 'ARM9/arm-syntax-vim'
 Plug 'zigford/vim-powershell'
 Plug 'morhetz/gruvbox'
-Plug 'nanotech/jellybeans.vim'
-Plug 'joshdick/onedark.vim'
-Plug 'Luxed/ayu-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " Show git brach in statusline
@@ -382,6 +380,8 @@ if has('termguicolors')
   set termguicolors
 endif
 
+let g:nvcode_termcolors=256
+
 " No background color. Persist after setting colorscheme.
 " Only sets when colorsceme is set
 au colorscheme * highlight Normal             ctermbg=NONE guibg=NONE
@@ -402,7 +402,7 @@ au colorscheme * highlight EndOfBuffer      guifg=black ctermfg=black
 set background=dark
 let g:ayucolor="dark"   " for dark version of theme
 let g:ayucolor="mirage" " for mirage version of theme
-colorscheme gruvbox
+colorscheme primary
 ": }}}
 
 ": Tagbar {{{
