@@ -400,8 +400,6 @@ au colorscheme * highlight GitGutterDelete    ctermbg=NONE guibg=NONE
 au colorscheme * highlight EndOfBuffer      guifg=black ctermfg=black
 
 set background=dark
-let g:ayucolor="dark"   " for dark version of theme
-let g:ayucolor="mirage" " for mirage version of theme
 colorscheme primary
 ": }}}
 
