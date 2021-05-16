@@ -392,10 +392,6 @@ au colorscheme * highlight LineNr             ctermbg=NONE guibg=NONE
 au colorscheme * highlight CursorLineNR       ctermbg=NONE guibg=NONE
 au colorscheme * highlight SignColumn         ctermbg=NONE guibg=NONE
 
-au colorscheme * highlight GitGutterAdd       ctermbg=NONE guibg=NONE
-au colorscheme * highlight GitGutterChange    ctermbg=NONE guibg=NONE
-au colorscheme * highlight GitGutterDelete    ctermbg=NONE guibg=NONE
-
 " au colorscheme * highlight folded             ctermbg=NONE guibg=NONE
 " au colorscheme * highlight FoldColumn         ctermbg=NONE guibg=NONE
 au colorscheme * highlight EndOfBuffer      guifg=black ctermfg=black
@@ -474,7 +470,11 @@ let g:airline_skip_empty_sections = 0
 
 ": Git gutter {{{
 let g:gitgutter_map_keys = 0
+let g:gitgutter_set_sign_backgrounds = 1
 command! Gqf GitGutterQuickFix | copen
+highlight GitGutterAdd    guifg=#00d900 ctermfg=2 ctermbg=NONE guibg=NONE
+highlight GitGutterChange guifg=#fdfd00 ctermfg=3 ctermbg=NONE guibg=NONE
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1 ctermbg=NONE guibg=NONE
 ": }}}
 
 ": Language server {{{
