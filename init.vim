@@ -41,7 +41,8 @@ endif
 
 Plug 'ARM9/arm-syntax-vim'
 Plug 'zigford/vim-powershell'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " Show git brach in statusline
