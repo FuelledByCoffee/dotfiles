@@ -845,4 +845,3 @@ debug:
   # Print all received window events.
   print_events: false
 
-# vim: foldmethod=indent
