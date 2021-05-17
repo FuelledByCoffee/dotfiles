@@ -8,7 +8,7 @@ palette:
   bg: "#202020"
 
   red:    "#ff2525"
-  error_red: "#c91b00"
+  error:  "#c91b00"
   green:  "#50ef2b"
   moss:   "#10bf0b"
   blue:   "#429df7"
@@ -22,13 +22,13 @@ palette:
   white : "#f3f3f3"
   black:  "#1E1E1E"
   grey:   "#707070"
-  line_grey: "#6272A4"
+  line_grey:      "#6272A4"
   gutter_fg_grey: "#4B5263"
-  cursor_grey: "#2C323C"
-  visual_grey: "#3E4452"
-  menu_grey: "#282C34"
-  special_grey: "#3B4048"
-  vertsplit: "#181A1F"
+  cursor_grey:    "#2C323C"
+  visual_grey:    "#3E4452"
+  menu_grey:      "#282C34"
+  special_grey:   "#3B4048"
+  vertsplit:      "#181A1F"
 
 highlights:
   Normal: ""
@@ -60,7 +60,7 @@ highlights:
   Typedef: "red"
   Special: "blue"
   SpecialComment: "line_grey"
-  Error: "error_red - br"
+  Error: "error - br"
   Todo: "purple - bi"
   Underlined: "cyan . u"
   Cursor: "- - r"
@@ -76,7 +76,7 @@ highlights:
   DiffChange: "orange"
   DiffDelete: "red"
   DiffText: "line_grey"
-  ErrorMsg: "error_red"
+  ErrorMsg: "error"
   VertSplit: "vertsplit"
   Folded: "black grey"
   FoldColumn: "black"
@@ -92,7 +92,7 @@ highlights:
   QuickFixLine: "black yellow"
   Search: "black yellow"
   SpecialKey: "special_grey"
-  SpellBad: "error_red - u"
+  SpellBad: "error - u"
   SpellCap: "yellow"
   SpellLocal: "yellow"
   SpellRare: "yellow"
@@ -112,7 +112,7 @@ highlights:
 
   # -- Start Treesitter --
   # Misc
-  TSError: "error_red"
+  TSError: "error"
   TSPunctDelimiter: "fg"
   TSPunctBracket: "fg"
   TSPunctSpecial: "#5050ff"
@@ -257,9 +257,9 @@ highlights:
   # -- END CoC --
 
   # -- START Easymotion --
-  EasyMotionTarget: "error_red - b"
-  EasyMotionTarget2First: "error_red - b"
-  EasyMotionTarget2Second: "error_red - b"
+  EasyMotionTarget: "error - b"
+  EasyMotionTarget2First: "error - b"
+  EasyMotionTarget2Second: "error - b"
   EasyMotionShade: ""
   # EasyMotionIncSearch:
   # EasyMotionMoveHL:
