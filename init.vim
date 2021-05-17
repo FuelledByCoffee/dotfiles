@@ -380,10 +380,6 @@ tnoremap :q! <C-\><C-n>:q!<CR>
 
 ": }}}
 
-": commands {{{
-command! W :execute 'silent w !sudo tee % > /dev/null' | :edit!
-": }}}
-
 ": Colorscheme {{{
 
 if has('termguicolors')
