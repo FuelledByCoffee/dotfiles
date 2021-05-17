@@ -5,7 +5,7 @@ set completion-ignore-case on
 set show-all-if-ambiguous on
 
 # Change the way tab-completion works
-# TAB: menu-complete
+TAB: menu-complete
 
 # Vi mode
 set editing-mode vi
@@ -19,5 +19,12 @@ set convert-meta off
 set input-meta on
 set output-meta on
 set visible-stats on
-"\C-x\C-e": edit-and-execute-command
+
+# Key binds
 "jj": "\e"
+"\C-x\C-e": edit-and-execute-command
+"\C-p":previous-history
+"\C-n":next-history
+"\C-a.":beginning-of-line
+"\C-e.":end-of-line
+"\C-l":clear-screen
