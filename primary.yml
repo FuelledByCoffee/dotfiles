@@ -34,7 +34,8 @@ highlights:
   Normal: ""
   Comment: "grey"
   Constant: "teal"
-  String: "orange"
+  String: "yellow"
+  Quote: "orange"
   Character: "yellow"
   Number: "fg"
   Boolean: "purple"
@@ -173,12 +174,14 @@ highlights:
 
   # -- START Languages --
   # VIM
+  vimFunc: "green"
+  vimFuncName: "green"
   vimUsrCmd: "teal"
   vimString: "yellow"
   vimMap: "moss"
   vimMapLhs: "yellow"
   vimMapRhs: "cyan"
-  vimBracket: "yellow"
+  vimBracket: "grey"
   # vimSet: "green"
   vimCommand: "red"
   vimOption: "orange"
@@ -195,6 +198,20 @@ highlights:
   makeDString: "yellow"
   makeSString: "yellow"
   makeSpecTarget: "green"
+
+  # Readline
+  readlineVariable: "orange"
+  readlineKeyword: "red"
+
+  # SQL
+  sqlFold: "red"
+  sqlStatement: "red"
+  sqlString: "yellow"
+
+  # Plug
+  plug1: "orange"
+  plug2: "fg"
+  plugName: "green"
 
   # HTML (keep consistent with Markdown, below)
   htmlArg: "yellow"
