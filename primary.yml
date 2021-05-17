@@ -29,7 +29,7 @@ palette:
   vertsplit: "#181A1F"
 
 highlights:
-  Normal: "fg bg"
+  Normal: ""
   Comment: "grey"
   Constant: "teal"
   String: "orange"
@@ -123,7 +123,7 @@ highlights:
   TSString: "yellow"
   TSStringEscape: "cyan"
   TSCharacter: "yellow"
-  TSNumber: "#a2a2a2"
+  TSNumber: "#008a0b"
   TSBoolean: "purple"
   TSFloat: "cyan"
   TSAnnotation: "yellow"
@@ -135,9 +135,9 @@ highlights:
   TSFuncMacro: "purple"
   TSParameter: "orange"
   TSParameterReference: "orange"
-  TSMethod: "green"
+  TSMethod: "moss"
   TSField: "orange"
-  TSProperty: "teal"
+  TSProperty: "orange"
   TSConstructor: "cyan"
   # Keywords
   TSConditional: "red"
