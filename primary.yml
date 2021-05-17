@@ -172,6 +172,30 @@ highlights:
   # -- END Treesitter --
 
   # -- START Languages --
+  # VIM
+  vimUsrCmd: "teal"
+  vimString: "yellow"
+  vimMap: "moss"
+  vimMapLhs: "yellow"
+  vimMapRhs: "cyan"
+  vimBracket: "yellow"
+  # vimSet: "green"
+  vimCommand: "red"
+  vimOption: "orange"
+  vimVar: "orange"
+  vimEnvvar: "teal"
+  vimParenSep: "fg"
+
+  # Make
+  makeCommands: "fg"
+  makeSpecial: "red"
+  makeTarget: "moss"
+  makeIdent: "blue"
+  makeStatement: "red"
+  makeDString: "yellow"
+  makeSString: "yellow"
+  makeSpecTarget: "green"
+
   # HTML (keep consistent with Markdown, below)
   htmlArg: "yellow"
   htmlBold: "yellow - b"
@@ -193,16 +217,16 @@ highlights:
 
   # Markdown (keep consistent with HTML, above)
   markdownBlockquote: "yellow - i"
-  markdownBold: "orange - b"
+  markdownBold: "pink - b"
   markdownCode: "green"
   markdownCodeBlock: "orange"
   markdownCodeDelimiter: "red"
-  markdownH1: "pink - b"
-  markdownH2: "pink - b"
-  markdownH3: "pink - b"
-  markdownH4: "pink - b"
-  markdownH5: "pink - b"
-  markdownH6: "pink - b"
+  markdownH1: "orange - b"
+  markdownH2: "orange - b"
+  markdownH3: "orange - b"
+  markdownH4: "orange - b"
+  markdownH5: "orange - b"
+  markdownH6: "orange - b"
   markdownHeadingDelimiter: "red"
   markdownHeadingRule: "line_grey"
   markdownId: "purple"
