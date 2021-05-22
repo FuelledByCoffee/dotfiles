@@ -198,10 +198,37 @@ schemes:
       cyan:    '#00ffff'
       white:   '#eaeaea'
 
+  grey: &grey
+    primary:
+      background: '#525252' # Default: #1d1f21
+      foreground: '#e7e7e7'
+
+    # Normal colors
+    normal:
+      black:   '#000000' #1d1f21
+      red:     '#d91b00'
+      green:   '#00c200'
+      yellow:  '#ffa026'
+      blue:    '#4499f7'
+      magenta: '#c930c7'
+      cyan:    '#3bc9c7'
+      white:   '#c5c8c6'
+
+    # Bright colors
+    bright:
+      black:   '#020202'
+      red:     '#fc0000'
+      green:   '#00ff00'
+      yellow:  '#ffda26'
+      blue:    '#0090ff'
+      magenta: '#ff1dce'
+      cyan:    '#00ffff'
+      white:   '#ffffff'
+
   dark: &dark
     # Default colors
     primary:
-      background: '#202020' # Default: #1d1f21
+      background: '#1d1f21' # Default: #1d1f21
       foreground: '#c5c8c6'
 
       # Bright and dim foreground colors
@@ -261,7 +288,7 @@ schemes:
       black:   '#000000' #1d1f21
       red:     '#c91b00'
       green:   '#00c200'
-      yellow:  '#ffa026'
+      yellow:  '#ffc026'
       blue:    '#4499f7'
       magenta: '#c930c7'
       cyan:    '#3bc9c7'
@@ -487,8 +514,8 @@ hints:
       enabled: true
       mods: None
     binding:
-      key: U
-      mods: Control|Shift
+      key: O
+      mods: Command
 
 # Mouse bindings
 #
