@@ -32,7 +32,7 @@ palette:
 
 highlights:
   Normal: ""
-  Comment: "grey"
+  Comment: ""
   Constant: "teal"
   String: "yellow"
   Quote: "orange"
@@ -188,6 +188,12 @@ highlights:
   vimVar: "orange"
   vimEnvvar: "teal"
   vimParenSep: "fg"
+
+  # Gitconfig
+  gitconfigVariable: "orange"
+  gitconfigSection: "red"
+  gitconfigAssignment: "green"
+  gitconfigDelim: "orange"
 
   # Make
   makeCommands: "fg"
