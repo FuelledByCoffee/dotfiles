@@ -60,7 +60,6 @@
 [credential]
     helper = osxkeychain
 [core]
-    pager = bat
     excludesfile = ~/.config/git/ignore
 [alias]
     st = status

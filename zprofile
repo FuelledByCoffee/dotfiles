@@ -17,7 +17,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # Put home folder bin dirs first in path
-path=("$HOME/.local/bin"  $path)
+path=("$HOME/.local/bin" $path)
 
 path+=("$HOME/go/bin")
 path+=("$HOME/.cargo/bin")
@@ -36,6 +36,10 @@ export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
   -c 'map <SPACE> <C-D>'\
   -c 'map b <C-U>' \
   -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+
+if command -v bat &> /dev/null; then
+  export PAGER=bat
+fi
 
 [[ -r ~/.aliases ]] && source ~/.aliases
 alias edprof="nvim $ZDOTDIR/.zshrc && source $ZDOTDIR/.zshrc"
