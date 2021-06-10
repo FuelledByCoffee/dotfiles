@@ -166,7 +166,7 @@ SAVEHIST=1000
 #: }}}
 
 #: Options {{{
-setopt autocd beep extendedglob
+setopt autocd beep extendedglob HIST_IGNORE_DUPS
 unsetopt nomatch notify menu_complete
 #: }}}
 
