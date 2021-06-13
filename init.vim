@@ -50,6 +50,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'alvan/vim-closetag'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
