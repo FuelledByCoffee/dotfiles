@@ -131,6 +131,16 @@ nnoremap <C-P> :cp<CR>
 nnoremap co :copen<CR>
 nnoremap cc :cclose<CR>
 
+" Auto close whatever
+" inoremap " ""<left>
+" inoremap ' ''<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+inoremap { {}<left>
+" inoremap < <><left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
 ": }}}
 
 ": Settings {{{
