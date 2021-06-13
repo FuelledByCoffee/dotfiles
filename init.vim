@@ -159,6 +159,8 @@ set encoding=UTF-8
 
 set hidden
 
+set fillchars=eob:\ ,
+
 set updatetime=100
 
 " Set default register to system clipboard
