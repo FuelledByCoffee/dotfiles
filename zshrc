@@ -1,6 +1,28 @@
 #!/usr/bin/env zsh
 # vim:foldmethod=marker:ft=zsh
 
+#: Completions {{{
+zstyle ':completion:*' expand prefix
+zstyle ':completion:*' file-sort name
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' ignore-parents pwd
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*'
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' preserve-prefix '//[^/]##/'
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+# Plugin completions
+fpath=("~/dotfiles/zsh-completions/src" $fpath)
+
+autoload -Uz compinit
+compinit
+#: }}}
+
 #: Functions {{{
 function chpwd {
   emulate -L zsh
@@ -79,6 +101,11 @@ function extract () {
     echo "$1 is not a valid file"
   fi
 }
+
+function cbuild() {
+  CC="clang -flto" CFLAGS="-WCL4 -Wshadow -std=c17" make $@
+}
+compdef _make cbuild
 #: }}}
 
 #: Prompt {{{
@@ -134,28 +161,6 @@ eval "$(starship init zsh)"
 if [[ -f $XDG_CONFIG_HOME/broot/launcher/bash/br ]]; then
   source $XDG_CONFIG_HOME/broot/launcher/bash/br
 fi
-#: }}}
-
-#: Completions {{{
-zstyle ':completion:*' expand prefix
-zstyle ':completion:*' file-sort name
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' ignore-parents pwd
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*'
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*' preserve-prefix '//[^/]##/'
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' special-dirs true
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-
-# Plugin completions
-fpath=("~/dotfiles/zsh-completions/src" $fpath)
-
-autoload -Uz compinit
-compinit
 #: }}}
 
 #: History {{{
