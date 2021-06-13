@@ -385,6 +385,7 @@ endfunction
 
 " Toggle terminal on/off (neovim)
 nnoremap <leader>t :call TermToggle(12, $SHELL)<CR>
+nnoremap <leader>r :call TermToggle(12, "make test")<CR>
 tnoremap <leader>t <C-\><C-n>:call TermToggle(12, $SHELL)<CR>
 
 " Terminal go back to normal mode
