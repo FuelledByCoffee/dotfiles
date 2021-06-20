@@ -1,7 +1,7 @@
 # vim: ft=zsh foldmethod=marker
 
 eval $(brew shellenv)
-eval $(zoxide init zsh)
+eval "$(zoxide init zsh)"
 
 #: FZF {{{
 
