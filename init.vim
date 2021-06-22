@@ -509,7 +509,7 @@ highlight GitGutterChangeDeleteLineNr   guifg=#df8202 ctermfg=1
 
 ": Language server {{{
 if has('nvim')
-  " autocmd BufEnter * lua require'completion'.on_attach()
+  autocmd BufEnter * lua require'completion'.on_attach()
   " Language server protocol mappings
   nnoremap <silent> H     <cmd>lua vim.lsp.buf.hover()<CR>
   nnoremap <silent> <C-F> <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
