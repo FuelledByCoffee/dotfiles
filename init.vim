@@ -488,13 +488,14 @@ let g:airline_skip_empty_sections = 0
 ": }}}
 
 ": Git gutter {{{
-let g:gitgutter_map_keys = 0
+let g:gitgutter_map_keys = 1
 let g:gitgutter_set_sign_backgrounds = 1
 let g:gitgutter_grep = 'rg'
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_highlight_linenrs = 0
 let g:gitgutter_preview_win_floating = 1
 command! Gqf GitGutterQuickFix | copen
+nnoremap <leader>G :Gqf<cr>
 
 highlight GitGutterAdd    guifg=#00d900 ctermfg=2 ctermbg=NONE guibg=NONE
 highlight GitGutterChange guifg=#fdfd00 ctermfg=3 ctermbg=NONE guibg=NONE
