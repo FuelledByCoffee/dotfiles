@@ -25,20 +25,21 @@ call plug#begin(s:home.'/plugged')
 if has('nvim-0.5')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'nvim-treesitter/playground'
   Plug 'christianchiarulli/nvcode-color-schemes.vim'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'sainnhe/vim-color-forest-night'
-  " Plug 'nvim-lua/completion-nvim'
-  " Plug 'nvim-lua/popup.nvim'
-  " Plug 'nvim-lua/plenary.nvim'
-  " Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-lua/completion-nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   " Plug 'albertoCaroM/completion-tmux'
   " Plug 'glepnir/lspsaga.nvim'
 else
   Plug 'bfrg/vim-cpp-modern' " syntax highlighting
   Plug 'cespare/vim-toml'
 endif
-
+Plug 'lifepillar/vim-colortemplate'
 Plug 'ARM9/arm-syntax-vim'
 Plug 'zigford/vim-powershell'
 " Plug 'morhetz/gruvbox'
