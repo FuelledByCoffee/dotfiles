@@ -188,5 +188,8 @@ unsetopt nomatch notify menu_complete
 source $ZDOTDIR/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
+
+bindkey '^ ' autosuggest-accept
+
 # source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 #: }}}
