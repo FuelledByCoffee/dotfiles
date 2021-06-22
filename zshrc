@@ -24,9 +24,18 @@ compinit
 #: }}}
 
 #: Functions {{{
+
+eval "$(zoxide init zsh)"
+
 function chpwd {
   emulate -L zsh
   ls
+}
+
+# Fall back to zoxide if cd doesn't work
+function cd {
+  emulate -L zsh
+  builtin cd $1 &> /dev/null && ls || z $1
 }
 
 cdl () {
