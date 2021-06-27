@@ -554,6 +554,7 @@ if has('nvim')
   endif
 
 endif
+": }}}
 
 ": LUA config stuff {{{
 if has('nvim')
@@ -602,12 +603,8 @@ require'lualine'.setup {
 }
 --: }}}
 
-EOF
-endif
-": }}}
+require'colorizer'.setup()
 
-": colorizer {{{
-if has('nvim')
-  lua require'colorizer'.setup()
+EOF
 endif
 ": }}}
