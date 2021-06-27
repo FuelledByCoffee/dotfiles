@@ -35,17 +35,18 @@ if has('nvim-0.5')
   Plug 'nvim-telescope/telescope.nvim'
   " Plug 'albertoCaroM/completion-tmux'
   " Plug 'glepnir/lspsaga.nvim'
+  Plug 'hoob3rt/lualine.nvim'
 else
   Plug 'bfrg/vim-cpp-modern' " syntax highlighting
   Plug 'cespare/vim-toml'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 endif
 Plug 'lifepillar/vim-colortemplate'
 Plug 'ARM9/arm-syntax-vim'
 Plug 'zigford/vim-powershell'
 " Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " Show git brach in statusline
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
@@ -554,6 +555,7 @@ endif
 ": LUA config stuff {{{
 if has('nvim')
 lua <<EOF
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
@@ -566,6 +568,36 @@ local servers = { "pyright", "clangd", "rls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
+
+
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'powerline',
+    component_separators = {'', ''},
+    section_separators = {'', ''},
+    disabled_filetypes = {}
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
+
 EOF
 endif
 ": }}}
