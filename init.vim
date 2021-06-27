@@ -87,6 +87,16 @@ nnoremap <leader>Q :qa<cr>
 nnoremap <leader>m :make<cr>
 nnoremap <leader>r :make test<cr>
 
+nnoremap <leader>g  :Telescope git_files<CR>
+" nnoremap <leader>ff :Telescope live_grep<CR>
+nnoremap <leader>fo :Telescope file_browser<CR>
+nnoremap <leader>fn :Telescope find_files<CR>
+nnoremap <leader>fg :Telescope git_branches<CR>
+nnoremap <leader>fb :Telescope buffers<CR>
+nnoremap <leader>fs :Telescope lsp_document_symbols<CR>
+nnoremap <leader>ff :Telescope live_grep<CR>
+nnoremap <leader>FF :Telescope grep_string<CR>
+
 " Use tab and shift-tab to go through completion options
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
