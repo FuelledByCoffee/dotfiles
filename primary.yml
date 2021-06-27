@@ -126,7 +126,7 @@ highlights:
   TSString: "yellow"
   TSStringEscape: "cyan"
   TSCharacter: "yellow"
-  TSNumber: "#008a0b"
+  TSNumber: "#00c3ff"
   TSBoolean: "purple"
   TSFloat: "cyan"
   TSAnnotation: "yellow"
@@ -176,7 +176,7 @@ highlights:
   # VIM
   vimFunc: "green"
   vimFuncName: "green"
-  vimUsrCmd: "teal"
+  vimUsrCmd: "green"
   vimString: "yellow"
   vimMap: "moss"
   vimMapLhs: "yellow"
@@ -189,11 +189,22 @@ highlights:
   vimEnvvar: "teal"
   vimParenSep: "fg"
 
+  # LspDiagnostics
+  LspDiagnosticsSignWarning: "yellow"
+
   # Gitconfig
   gitconfigVariable: "orange"
   gitconfigSection: "red"
   gitconfigAssignment: "green"
   gitconfigDelim: "orange"
+
+  # gitCommitDiff: blue
+  gitCommitFirstLine: orange
+  gitCommitSummary: yellow
+
+  diffIndexLine: teal
+  diffSubNmae: blue
+  diffFile: white
 
   # Make
   makeCommands: "fg"
@@ -213,6 +224,7 @@ highlights:
   sqlFold: "red"
   sqlStatement: "red"
   sqlString: "yellow"
+  sqlComment: "teal"
 
   # Plug
   plug1: "orange"
