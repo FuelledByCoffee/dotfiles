@@ -6,3 +6,5 @@ setlocal fo-=o
 setlocal foldmethod=marker
 
 let g:vimsyn_embed= 'lPr'
+
+nnoremap <buffer> <leader>r :source %<cr>
