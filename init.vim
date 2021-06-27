@@ -223,6 +223,9 @@ set mouse=a
 
 set signcolumn=yes
 
+set nobackup
+set nowritebackup
+
 set undolevels=100    " How many undos
 set undoreload=1000   " number of lines to save for undo
 if has('nvim')
