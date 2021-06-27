@@ -91,6 +91,12 @@ nnoremap <leader>r :make test<cr>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+nnoremap <tab>   :bnext<cr>
+nnoremap <s-tab> :bNext<cr>
+
+xnoremap <tab>   >gv
+xnoremap <s-tab> <gv
+
 " Escape from terminal mode
 tnoremap <Esc> <C-\><C-n>
 
@@ -105,12 +111,6 @@ nnoremap <silent> k gk
 " move current line up/down
 nnoremap <silent> <S-Up>    :move-2<CR>
 nnoremap <silent> <S-Down>  :move+<CR>
-
-nnoremap <tab>   :bnext<cr>
-nnoremap <s-tab> :bNext<cr>
-
-xnoremap <tab>   >gv
-xnoremap <s-tab> <gv
 
 " Move between splits
 nnoremap <C-J> <C-W><C-J>
