@@ -164,6 +164,7 @@ if exists('$TMUX')
   set t_8f=\<esc>[38;2;%lu;%lu;%lum
 endif
 
+set showtabline=2
 set noshowmode
 
 set encoding=UTF-8
