@@ -35,13 +35,13 @@ if has('nvim-0.5')
   Plug 'nvim-telescope/telescope.nvim'
   " Plug 'albertoCaroM/completion-tmux'
   " Plug 'glepnir/lspsaga.nvim'
-  Plug 'hoob3rt/lualine.nvim'
+  " Plug 'hoob3rt/lualine.nvim'
 else
   Plug 'bfrg/vim-cpp-modern' " syntax highlighting
   Plug 'cespare/vim-toml'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
 endif
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'lifepillar/vim-colortemplate'
 Plug 'ARM9/arm-syntax-vim'
 Plug 'zigford/vim-powershell'
