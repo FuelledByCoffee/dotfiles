@@ -171,7 +171,7 @@ set encoding=UTF-8
 
 set hidden
 
-set fillchars=eob:\ ,
+set fillchars=eob:\ ,fold:\ ,
 
 set updatetime=100
 
@@ -272,7 +272,6 @@ function! MyFoldText()
     return ' ✦ '. foldedlinecount . line
 endfunction
 set foldtext=MyFoldText()
-set fillchars=fold:\ 
 
 ": }}}
 
