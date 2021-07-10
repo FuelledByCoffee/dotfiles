@@ -1,5 +1,5 @@
 # Warning: This config does not include keys that have an unset value
-# format = ''
+format = '$all'
 scan_timeout = 0
 command_timeout = 0
 add_newline = false
