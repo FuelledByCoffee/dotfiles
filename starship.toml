@@ -25,7 +25,8 @@ disabled = false
 
 [cmake]
 format = 'via [$symbol($version )]($style)'
-symbol = '△ '
+# symbol = '△ '
+symbol = '⟁ '
 style = 'bold blue'
 disabled = false
 detect_extensions = []
@@ -489,8 +490,8 @@ python_binary = [
 ]
 format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 version_format = 'v${raw}'
-style = 'yellow bold'
-symbol = '🐍 '
+style = 'blue bold'
+symbol = ' '
 disabled = false
 detect_extensions = ['py']
 detect_files = [
@@ -532,7 +533,7 @@ detect_folders = []
 [rust]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '🦀 '
+symbol = ' '
 style = 'bold red'
 disabled = false
 detect_extensions = ['rs']
@@ -594,7 +595,7 @@ disabled = true
 
 [swift]
 format = 'via [$symbol($version )]($style)'
-symbol = '🐦 '
+symbol = 'ﯣ '
 style = 'bold 202'
 disabled = false
 detect_extensions = ['swift']
