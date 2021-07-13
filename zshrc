@@ -20,7 +20,7 @@ zstyle ':completion:*' verbose true
 fpath=("~/dotfiles/zsh-completions/src" $fpath)
 
 autoload -Uz compinit
-compinit
+compinit -i # -i: ignore insecure directories
 #: }}}
 
 #: Functions {{{
