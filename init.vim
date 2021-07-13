@@ -101,8 +101,8 @@ nnoremap <localleader>FF :Telescope grep_string<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-nnoremap <tab>   :bnext<cr>
-nnoremap <s-tab> :bNext<cr>
+nnoremap <silent><tab>   :bnext<cr>
+nnoremap <silent><s-tab> :bNext<cr>
 
 xnoremap <tab>   >gv
 xnoremap <s-tab> <gv
