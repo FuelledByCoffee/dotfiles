@@ -590,9 +590,10 @@ require'nvim-treesitter.configs'.setup {
     disable = {},  -- list of language that will be disabled
   },
   indent = {
-    enable = false, 
+    enable = false,
   },
 }
+
 local nvim_lsp = require('lspconfig')
 local servers = { "pyright", "clangd", "rls" }
 for _, lsp in ipairs(servers) do
