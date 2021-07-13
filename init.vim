@@ -317,7 +317,7 @@ function! CleverTab()
     return "\<C-N>"
   endif
 endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
+inoremap <silent> <Tab> <C-R>=CleverTab()<CR>
 
 function! MyOnBattery()
   if has('macunix')
