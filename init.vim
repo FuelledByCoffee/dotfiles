@@ -118,6 +118,7 @@ nnoremap <silent> k gk
 
 "--- some brilliant line movement mappings from junegunn ---"
 " move current line up/down
+" use alt with j/k only works if alt does not send escape
 nnoremap <silent> √ :move+<CR>
 nnoremap <silent> ª :move-2<CR>
 
