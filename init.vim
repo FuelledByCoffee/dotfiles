@@ -445,6 +445,7 @@ colorscheme primary
 
 ": Fugitive {{{
 nnoremap gs :Gstatus<CR>
+nnoremap gc :Git commit<CR>
 nnoremap gd :Gdiff<CR>
 nnoremap gb :Gblame<CR>
 nnoremap gr :Gread<CR>
