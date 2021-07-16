@@ -201,6 +201,7 @@ set smartcase
 
 set hlsearch
 set incsearch
+let @/ = "" " Don't highlight after source vimrc
 
 set path=.,/usr/local/include,/usr/include
 set path+=$HOME/.local/include
