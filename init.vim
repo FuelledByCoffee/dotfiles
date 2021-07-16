@@ -46,7 +46,7 @@ Plug 'ARM9/arm-syntax-vim'
 Plug 'zigford/vim-powershell'
 " Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
-Plug 'tpope/vim-fugitive' " Show git brach in statusline
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
@@ -442,6 +442,50 @@ set background=dark
 colorscheme primary
 ": }}}
 
+": Fugitive {{{
+nnoremap gs :Gstatus<CR>
+nnoremap gd :Gdiff<CR>
+nnoremap gb :Gblame<CR>
+nnoremap gr :Gread<CR>
+nnoremap gw :Gwrite<CR>
+nnoremap gP :Git push<CR>
+nnoremap g- :Silent Git stash<CR>:e<CR>
+nnoremap g+ :Silent Git stash pop<CR>:e<CR>
+": }}}
+
+": Git gutter {{{
+" let g:gitgutter_diff_args='--cached'
+let g:gitgutter_map_keys = 1
+let g:gitgutter_set_sign_backgrounds = 1
+let g:gitgutter_grep = 'rg'
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_highlight_linenrs = 0
+let g:gitgutter_preview_win_floating = 1
+" command! Gqf GitGutterQuickFix | copen
+" nnoremap <leader>G :Gqf<cr>
+
+nmap ga <Plug>(GitGutterStageHunk)
+nmap gu <Plug>(GitGutterUndoHunk)
+nmap gp <Plug>(GitGutterPreviewHunk)
+
+highlight GitGutterAdd          guifg=#00d900 ctermfg=2 ctermbg=NONE guibg=NONE
+highlight GitGutterChange       guifg=#fdfd00 ctermfg=3 ctermbg=NONE guibg=NONE
+highlight GitGutterDelete       guifg=#ff2222 ctermfg=1 ctermbg=NONE guibg=NONE
+highlight GitGutterChangeDelete guifg=#fdfd00 ctermfg=3 ctermbg=NONE guibg=NONE
+
+highlight GitGutterAddLineNr            guifg=#00d900 ctermfg=2
+highlight GitGutterChangeLineNr         guifg=#fdfd00 ctermfg=3
+highlight GitGutterDeleteLineNr         guifg=#ff2222 ctermfg=1
+highlight GitGutterChangeDeleteLineNr   guifg=#df8202 ctermfg=1
+
+let g:gitgutter_sign_added              = '+'
+let g:gitgutter_sign_modified           = '~'
+let g:gitgutter_sign_removed            = '_'
+let g:gitgutter_sign_removed_first_line = '‾'
+let g:gitgutter_sign_removed_above_and_below = '_¯'
+let g:gitgutter_sign_modified_removed   = '~-'
+": }}}
+
 ": Tagbar {{{
 nnoremap <silent> <leader>b :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
@@ -544,38 +588,6 @@ let g:airline_skip_empty_sections = 0
 
 " let g:airline_left_sep=''
 " let g:airline_right_sep=''
-": }}}
-
-": Git gutter {{{
-let g:gitgutter_map_keys = 1
-let g:gitgutter_set_sign_backgrounds = 1
-let g:gitgutter_grep = 'rg'
-let g:gitgutter_highlight_lines = 0
-let g:gitgutter_highlight_linenrs = 0
-let g:gitgutter_preview_win_floating = 1
-command! Gqf GitGutterQuickFix | copen
-nnoremap <leader>G :Gqf<cr>
-
-nmap ga <Plug>(GitGutterStageHunk)
-nmap gu <Plug>(GitGutterUndoHunk)
-nmap gp <Plug>(GitGutterPreviewHunk)
-
-highlight GitGutterAdd          guifg=#00d900 ctermfg=2 ctermbg=NONE guibg=NONE
-highlight GitGutterChange       guifg=#fdfd00 ctermfg=3 ctermbg=NONE guibg=NONE
-highlight GitGutterDelete       guifg=#ff2222 ctermfg=1 ctermbg=NONE guibg=NONE
-highlight GitGutterChangeDelete guifg=#fdfd00 ctermfg=3 ctermbg=NONE guibg=NONE
-
-highlight GitGutterAddLineNr            guifg=#00d900 ctermfg=2
-highlight GitGutterChangeLineNr         guifg=#fdfd00 ctermfg=3
-highlight GitGutterDeleteLineNr         guifg=#ff2222 ctermfg=1
-highlight GitGutterChangeDeleteLineNr   guifg=#df8202 ctermfg=1
-
-let g:gitgutter_sign_added              = '+'
-let g:gitgutter_sign_modified           = '~'
-let g:gitgutter_sign_removed            = '_'
-let g:gitgutter_sign_removed_first_line = '‾'
-let g:gitgutter_sign_removed_above_and_below = '_¯'
-let g:gitgutter_sign_modified_removed   = '~-'
 ": }}}
 
 ": Language server {{{
