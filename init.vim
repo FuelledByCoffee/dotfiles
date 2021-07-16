@@ -462,8 +462,8 @@ let g:gitgutter_grep = 'rg'
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_highlight_linenrs = 0
 let g:gitgutter_preview_win_floating = 1
-" command! Gqf GitGutterQuickFix | copen
-" nnoremap <leader>G :Gqf<cr>
+command! Gqf GitGutterQuickFix | copen
+nnoremap <leader>G :Gqf<cr>
 
 nmap ga <Plug>(GitGutterStageHunk)
 nmap gu <Plug>(GitGutterUndoHunk)
