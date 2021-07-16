@@ -118,8 +118,8 @@ nnoremap <silent> k gk
 
 "--- some brilliant line movement mappings from junegunn ---"
 " move current line up/down
-nnoremap <silent> <S-Up>    :move-2<CR>
-nnoremap <silent> <S-Down>  :move+<CR>
+nnoremap <silent> √ :move+<CR>
+nnoremap <silent> ª :move-2<CR>
 
 " Move between splits
 nnoremap <C-J> <C-W><C-J>
