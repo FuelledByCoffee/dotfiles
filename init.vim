@@ -19,7 +19,7 @@ endif
 
 call plug#begin(s:home.'/plugged')
 
-if has('nvim-0.5')
+if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'nvim-treesitter/playground'
