@@ -257,8 +257,6 @@ let $MANPAGER=''
 " Use C syntax for .h files
 let g:c_syntax_for_h=1
 
-" let g:completion_enable_auto_popup = 1
-
 let g:termdebug_popup = 0
 " let g:termdebug_wide = 163
 
