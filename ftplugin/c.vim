@@ -3,6 +3,11 @@ setlocal foldlevel=20
 setlocal foldlevelstart=20
 setlocal makeprg=make
 
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal expandtab
+
 au QuickFixCmdPost [^l]* nested cwindow
 au QuickFixCmdPost    l* nested lwindow
 
