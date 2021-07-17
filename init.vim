@@ -181,8 +181,6 @@ set updatetime=100
 " Set default register to system clipboard
 set clipboard=unnamedplus
 
-set diffopt+=vertical
-
 set complete+=spell
 set completeopt=menuone,noselect,noinsert,preview
 
