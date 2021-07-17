@@ -171,7 +171,10 @@ set encoding=UTF-8
 
 set hidden
 
-set fillchars=eob:\ ,fold:\ ,
+if has('nvim')
+  set fillchars=eob:\ ,fold:\ ,
+  set diffopt+=vertical
+endif
 
 set updatetime=100
 
