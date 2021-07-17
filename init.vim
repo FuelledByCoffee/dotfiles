@@ -131,6 +131,9 @@ nnoremap <C-H> <C-W><C-H>
 "map <C-j> :cn<CR>
 "map <C-k> :cp<CR>
 
+nnoremap t<tab>   :tabnext<cr>
+nnoremap t<s-tab> :tabprevious<cr>
+
 nnoremap <Down>     <C-W><C-J>
 nnoremap <Up>       <C-W><C-K>
 nnoremap <Right>    <C-W><C-L>
