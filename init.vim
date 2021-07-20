@@ -178,9 +178,6 @@ endif
 
 set updatetime=100
 
-" Set default register to system clipboard
-set clipboard=unnamedplus
-
 set complete+=spell
 set completeopt=menuone,noselect,noinsert,preview
 
