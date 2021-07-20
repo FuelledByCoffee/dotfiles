@@ -32,6 +32,7 @@ if has('nvim')
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'hrsh7th/nvim-compe'
   Plug 'andersevenrud/compe-tmux'
+  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
   " Plug 'glepnir/lspsaga.nvim'
 else
   Plug 'bfrg/vim-cpp-modern' " syntax highlighting
