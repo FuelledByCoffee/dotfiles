@@ -443,15 +443,15 @@ colorscheme primary
 ": }}}
 
 ": Fugitive {{{
-nnoremap gs :tab Git<CR>
-nnoremap gc :tab Git commit<CR>
-nnoremap gd :Gdiff<CR>
-nnoremap gb :Gblame<CR>
-nnoremap gr :Gread<CR>
-nnoremap gw :Gwrite<CR>
-nnoremap gP :Git push<CR>
-nnoremap g- :Silent Git stash<CR>:e<CR>
-nnoremap g+ :Silent Git stash pop<CR>:e<CR>
+nnoremap         gs :tab Git<CR>
+nnoremap <leader>gc :tab Git commit<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gP :Git push<CR>
+nnoremap <leader>g- :Silent Git stash<CR>:e<CR>
+nnoremap <leader>g+ :Silent Git stash pop<CR>:e<CR>
 ": }}}
 
 ": Git gutter {{{
