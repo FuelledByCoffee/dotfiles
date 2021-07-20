@@ -83,7 +83,7 @@ nnoremap <leader>Q :qa<cr>
 nnoremap <leader>m :make<cr>
 nnoremap <leader>r :make test<cr>
 
-nnoremap - <cmd>Telescope buffers<CR>
+nnoremap <localleader>- <cmd>Telescope buffers<CR>
 nnoremap <localleader>g <cmd>Telescope git_files<CR>
 nnoremap <localleader>r <cmd>Telescope live_grep<CR>
 nnoremap <localleader>o <cmd>Telescope file_browser<CR>
@@ -597,12 +597,12 @@ if has('nvim')
   " Language server protocol mappings
   nnoremap <silent> H     <cmd>lua vim.lsp.buf.hover()<CR>
   nnoremap <silent> <C-F> <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-  nnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR>
-  vnoremap <silent> gq    <cmd>lua vim.lsp.buf.formatting()<CR><ESC>
-  nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-  nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
-  nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-  nnoremap <silent> gD    :tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
+  nnoremap <silent> -q    <cmd>lua vim.lsp.buf.formatting()<CR>
+  vnoremap <silent> -q    <cmd>lua vim.lsp.buf.formatting()<CR><ESC>
+  nnoremap <silent> -r    <cmd>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> -R    <cmd>lua vim.lsp.buf.rename()<CR>
+  nnoremap <silent> -d    <cmd>lua vim.lsp.buf.definition()<CR>
+  nnoremap <silent> -D    :tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
 
   " Show diagnostic on hover
   autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
