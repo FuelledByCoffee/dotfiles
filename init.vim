@@ -455,7 +455,6 @@ nnoremap g+ :Silent Git stash pop<CR>:e<CR>
 ": }}}
 
 ": Git gutter {{{
-" let g:gitgutter_diff_args='--cached'
 let g:gitgutter_map_keys = 1
 let g:gitgutter_set_sign_backgrounds = 1
 let g:gitgutter_grep = 'rg'
