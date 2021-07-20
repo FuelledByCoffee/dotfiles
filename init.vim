@@ -466,7 +466,7 @@ nnoremap <leader>G :Gqf<cr>
 
 nmap <leader>ga <Plug>(GitGutterStageHunk)
 nmap <leader>gu <Plug>(GitGutterUndoHunk)
-nmap <leader>gp <Plug>(GitGutterPreviewHunk)
+nmap         gp <Plug>(GitGutterPreviewHunk)
 
 nmap <leader>g[ <Plug>(GitGutterPrevHunk)
 nmap <leader>g] <Plug>(GitGutterNextHunk)
