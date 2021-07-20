@@ -464,9 +464,12 @@ let g:gitgutter_preview_win_floating = 1
 command! Gqf GitGutterQuickFix | copen
 nnoremap <leader>G :Gqf<cr>
 
-nmap ga <Plug>(GitGutterStageHunk)
-nmap gu <Plug>(GitGutterUndoHunk)
-nmap gp <Plug>(GitGutterPreviewHunk)
+nmap <leader>ga <Plug>(GitGutterStageHunk)
+nmap <leader>gu <Plug>(GitGutterUndoHunk)
+nmap <leader>gp <Plug>(GitGutterPreviewHunk)
+
+nmap <leader>g[ <Plug>(GitGutterPrevHunk)
+nmap <leader>g] <Plug>(GitGutterNextHunk)
 
 highlight GitGutterAdd          guifg=#00d900 ctermfg=2 ctermbg=NONE guibg=NONE
 highlight GitGutterChange       guifg=#fdfd00 ctermfg=3 ctermbg=NONE guibg=NONE
