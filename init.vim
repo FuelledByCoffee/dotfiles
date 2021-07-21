@@ -448,8 +448,8 @@ nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gP :Git push<CR>
-nnoremap <leader>g- :Silent Git stash<CR>:e<CR>
-nnoremap <leader>g+ :Silent Git stash pop<CR>:e<CR>
+nnoremap         g- :silent Git stash<CR>:e<CR>
+nnoremap         g+ :silent Git stash pop<CR>:e<CR>
 ": }}}
 
 ": Git gutter {{{
