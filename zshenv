@@ -29,8 +29,8 @@ elif command -v gcc &> /dev/null; then
   export CXXFLAGS="-Wall -Wextra -Wshadow -std=c++17"
 fi
 
-export C_INCLUDE_PATH="$HOME/.local/include"
-export CPLUS_INCLUDE_PATH="$HOME/.local/include"
+export C_INCLUDE_PATH="$HOME/.local/include:/opt/homebrew/include"
+export CPLUS_INCLUDE_PATH="$HOME/.local/include:/opt/homebrew/include"
 export LIBRARY_PATH="$HOME/.local/lib"
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 
