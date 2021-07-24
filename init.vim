@@ -38,6 +38,8 @@ else
   Plug 'bfrg/vim-cpp-modern' " syntax highlighting
   Plug 'cespare/vim-toml'
 endif
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ARM9/arm-syntax-vim'
@@ -269,6 +271,11 @@ function! MyFoldText()
     return ' ✦ '. foldedlinecount . line
 endfunction
 set foldtext=MyFoldText()
+
+let g:UltiSnipsExpandTrigger="<c-o>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 ": }}}
 
