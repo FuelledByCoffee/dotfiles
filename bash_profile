@@ -114,6 +114,9 @@
         . /usr/local/etc/bash_completion.d
     fi
 
+#   Load github completion
+    eval "$(gh completion -s bash)"
+
 #   Use vi mode in bash. Press escape to enter command mode
 #   ------------------------------------------------------------------
     set -o vi
