@@ -606,8 +606,8 @@ if has('nvim')
   nnoremap <silent> <C-F> <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
   nnoremap <silent> -q    <cmd>lua vim.lsp.buf.formatting()<CR>
   vnoremap <silent> -q    <cmd>lua vim.lsp.buf.formatting()<CR><ESC>
-  nnoremap <silent> -r    <cmd>lua vim.lsp.buf.references()<CR>
-  nnoremap <silent> -R    <cmd>lua vim.lsp.buf.rename()<CR>
+  nnoremap <silent> -R    <cmd>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> -r    <cmd>lua vim.lsp.buf.rename()<CR>
   nnoremap <silent> -d    <cmd>lua vim.lsp.buf.definition()<CR>
   nnoremap <silent> -D    :tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
 
