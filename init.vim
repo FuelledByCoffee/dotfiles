@@ -141,8 +141,8 @@ nnoremap <Left>     <C-W><C-H>
 " Navigate through quick-fix errors
 nnoremap <C-N> :cn<CR>
 nnoremap <C-P> :cp<CR>
-nnoremap co :copen<CR>
-nnoremap cc :cclose<CR>
+nnoremap <silent>co :copen<CR>
+nnoremap <silent>cc :cclose<CR>
 
 " Auto close whatever
 " inoremap " ""<left>
@@ -455,8 +455,8 @@ nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gP :Git push<CR>
-nnoremap         g- :silent Git stash<CR>:e<CR>
-nnoremap         g+ :silent Git stash pop<CR>:e<CR>
+nnoremap         g- :Git stash<CR>:e<CR>
+nnoremap         g+ :Git stash pop<CR>:e<CR>
 ": }}}
 
 ": Git gutter {{{
