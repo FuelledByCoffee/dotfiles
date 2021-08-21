@@ -50,6 +50,15 @@ function dump {
     -c 'map q :q!<cr>'
 }
 
+function clean {
+  emulate -L zsh
+  if [[ -f build.ninja ]]; then
+    ninja -t clean
+  else
+    make clean
+  fi
+}
+
 function hex {
   emulate -L zsh
   $VISUAL -b \
