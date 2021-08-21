@@ -31,7 +31,7 @@ fi
 
 export C_INCLUDE_PATH="$HOME/.local/include:/opt/homebrew/include"
 export CPLUS_INCLUDE_PATH="$HOME/.local/include:/opt/homebrew/include"
-export LIBRARY_PATH="$HOME/.local/lib"
+export LIBRARY_PATH="$HOME/.local/lib:/opt/homebrew/lib"
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 
 # CLI
