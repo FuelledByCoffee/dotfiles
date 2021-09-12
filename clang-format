@@ -5,6 +5,7 @@ Language:        Cpp
 AccessModifierOffset: -2
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: Consecutive
+# AlignArrayOfStructures: Right
 AlignConsecutiveAssignments: AcrossComments
 AlignConsecutiveBitFields: None
 AlignConsecutiveDeclarations: AcrossComments
@@ -19,7 +20,7 @@ AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Inline
 AllowShortLambdasOnASingleLine: None
-AllowShortIfStatementsOnASingleLine: Never
+AllowShortIfStatementsOnASingleLine: Always
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
