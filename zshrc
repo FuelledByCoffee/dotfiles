@@ -130,10 +130,6 @@ function extract () {
   fi
 }
 
-function cbuild() {
-  CC="clang -flto" CFLAGS="-WCL4 -Wshadow -std=c17" make $@
-}
-compdef _make cbuild
 #: }}}
 
 #: Prompt {{{
