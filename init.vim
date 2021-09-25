@@ -217,6 +217,12 @@ set autoindent
 set cindent
 set preserveindent
 
+if has('nvim')
+  set foldmethod=expr
+  set foldexpr=nvim_treesitter#foldexpr()
+endif
+set foldlevel=99
+
 set grepprg=rg
 
 set wrap
