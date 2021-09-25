@@ -1,5 +1,3 @@
-# vim: ft=bash
-
 export ZDOTDIR=$HOME
 
 # Encoding
