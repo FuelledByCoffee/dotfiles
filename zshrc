@@ -50,12 +50,22 @@ function dump {
     -c 'map q :q!<cr>'
 }
 
+function make {
+  CC="clang -flto" \
+  CXX="clang++ -flto" \
+  CFLAGS+="-WCL4 -Wshadow -std=c17" \
+  CXXFLAGS+="-WCL4 -Wshadow -std=c++17" \
+  command make $@
+}
+
+compdef _make cbuild
+
 function clean {
   emulate -L zsh
   if [[ -f build.ninja ]]; then
     ninja -t clean
   else
-    make clean
+    command make clean
   fi
 }
 

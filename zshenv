@@ -14,19 +14,19 @@ export LC_TIME="nb_NO.UTF-8"
 
 # Programming
 if command -v clang &> /dev/null; then
-  export CC="clang -flto"
+  export CC="clang"
   export CXX="clang++"
-  export CPPFLAGS=""
-  export CFLAGS="-WCL4 -Wshadow -std=c17"
-  export CXXFLAGS="-WCL4 -Wshadow -std=c++17"
-  export LDFLAGS=""
-  export LDLIBS=""
+  # export CPPFLAGS=""
+  # export CFLAGS=""
+  # export CXXFLAGS=""
+  # export LDFLAGS=""
+  # export LDLIBS=""
   export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
 elif command -v gcc &> /dev/null; then
   export CC="gcc"
   export CXX="g++"
-  export CFLAGS="-Wall -Wextra -Wshadow -std=gnu17"
-  export CXXFLAGS="-Wall -Wextra -Wshadow -std=c++17"
+  # export CFLAGS=""
+  # export CXXFLAGS=""
 fi
 
 export C_INCLUDE_PATH="$HOME/.local/include:/opt/homebrew/include"
