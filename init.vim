@@ -1,3 +1,4 @@
+" vim: foldlevel=0
 
 ": Plugins {{{
 
