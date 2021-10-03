@@ -142,9 +142,6 @@
 
     alias shortPS1='PS1=${userClr}\$\ ${no}'
 
-#   ------------------------------------------------------------------
-#   alias manpath="echo -e '${MANPATH//:/\\n}'"
-
 #   Aliases to make it easy to edit and load .bash_profile from anywhere
 #   ------------------------------------------------------------------
     alias reload="source ~/.bash_profile"   # Source bashrc
