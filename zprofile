@@ -1,6 +1,22 @@
 # vim: ft=zsh foldmethod=marker
 
+
+if [[ "$OSTYPE" == "linux"* ]]; then
+  path+=("/home/linuxbrew/.linuxbrew/bin")
+fi
+
+# Put home folder bin first in path
+path=("$HOME/.local/bin" $path)
+
+path+=("$HOME/go/bin")
+path+=("$HOME/.cargo/bin")
+path+=(".")
+
 eval $(brew shellenv)
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
 
 #: FZF {{{
 
@@ -32,18 +48,6 @@ fh() {
 }
 #: }}}
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  path+=("/Library/Developer/CommandLineTools/usr/bin")
-  path+=("$HOME/Library/Python/3.9/bin")
-  path+=("$HOME/Library/Python/3.8/bin")
-fi
-
-# Put home folder bin first in path
-path=("$HOME/.local/bin" $path)
-
-path+=("$HOME/go/bin")
-path+=("$HOME/.cargo/bin")
-path+=(".")
 
 typeset -U path # force path to have only unique values
 
@@ -67,4 +71,3 @@ fi
 
 [[ -r ~/.aliases ]] && source ~/.aliases
 alias edprof="nvim $ZDOTDIR/.zprofile && source $ZDOTDIR/.zprofile"
-

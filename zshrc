@@ -25,12 +25,11 @@ compinit -i # -i: ignore insecure directories
 
 #: Functions {{{
 
-eval "$(zoxide init zsh)"
-
 function chpwd {
   emulate -L zsh
   ls
 }
+
 
 # Fall back to zoxide if cd doesn't work
 function cd {
@@ -38,10 +37,12 @@ function cd {
   builtin cd $1 &> /dev/null && ls || z $1
 }
 
+
 cdl () {
   emulate -L zsh
   cd "$(dirname "$(readlink "$1")")";
 }
+
 
 function dump {
   emulate -L zsh
@@ -49,6 +50,7 @@ function dump {
     -c 'setf asm' \
     -c 'map q :q!<cr>'
 }
+
 
 function make {
   CC="clang -flto" \
@@ -58,7 +60,6 @@ function make {
   command make $@
 }
 
-compdef _make cbuild
 
 function clean {
   emulate -L zsh
@@ -68,6 +69,7 @@ function clean {
     command make clean
   fi
 }
+
 
 function hex {
   emulate -L zsh
