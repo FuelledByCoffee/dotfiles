@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# vim:foldmethod=marker:ft=zsh
+# vim: foldmethod=marker ft=zsh foldlevel=0
 
 #: Completions {{{
 zstyle ':completion:*' expand prefix
