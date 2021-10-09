@@ -40,4 +40,5 @@ fh() {
 }
 
 
-bindkey '^y' fzf-cd-widget
+bindkey '^p' fzf-cd-widget
+
