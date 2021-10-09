@@ -1,9 +1,7 @@
 # vim: ft=zsh foldmethod=marker foldlevel=0
 
 
-if [[ "$OSTYPE" == "linux"* ]]; then
-  path+=("/home/linuxbrew/.linuxbrew/bin")
-fi
+[[ "$OSTYPE" == "linux"* ]] && path+=("/home/linuxbrew/.linuxbrew/bin")
 
 # Put home folder bin first in path
 path=("$HOME/.local/bin" $path)
@@ -13,6 +11,8 @@ path+=("$HOME/.cargo/bin")
 path+=(".")
 
 eval $(brew shellenv)
+
+typeset -U path # force path to have only unique values
 
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
