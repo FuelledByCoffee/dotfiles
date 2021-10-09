@@ -64,7 +64,7 @@
 [alias]
     st = status
     co = checkout
-    br = branch
+    br = "!git branch | fzf-tmux -d 15 --info=inline"
     cb = checkout -b
     dt = difftool
     ps = "!git push &> .git/push.log || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
