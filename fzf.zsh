@@ -28,14 +28,10 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-# fdf - cd to selected directory
-fdf() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-    -o -type d -print 2> /dev/null | fzf +m) && cd "$dir"
-}
-
 # fh - search in your command history and execute selected command
 fh() {
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 }
+
+
+bindkey '^y' fzf-cd-widget
