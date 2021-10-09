@@ -53,8 +53,8 @@ function dump {
 
 
 function make {
-  CC="clang -flto" \
-  CXX="clang++ -flto" \
+  CC="clang" \
+  CXX="clang++" \
   CFLAGS+="-WCL4 -Wshadow -std=c17" \
   CXXFLAGS+="-WCL4 -Wshadow -std=c++17" \
   command make $@
