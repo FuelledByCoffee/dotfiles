@@ -14,22 +14,13 @@ export LC_TIME="nb_NO.UTF-8"
 if command -v clang &> /dev/null; then
   export CC="clang"
   export CXX="clang++"
-  # export CPPFLAGS=""
-  # export CFLAGS=""
-  # export CXXFLAGS=""
-  # export LDFLAGS=""
-  # export LDLIBS=""
-  export DBGFLAGS="-g -fsanitize=undefined -fsanitize=address"
-elif command -v gcc &> /dev/null; then
-  export CC="gcc"
-  export CXX="g++"
-  # export CFLAGS=""
-  # export CXXFLAGS=""
 fi
 
-export C_INCLUDE_PATH="$HOME/.local/include:/opt/homebrew/include"
-export CPLUS_INCLUDE_PATH="$HOME/.local/include:/opt/homebrew/include"
-export LIBRARY_PATH="$HOME/.local/lib:/opt/homebrew/lib"
+prefix=$(brew --prefix)
+
+# export C_INCLUDE_PATH="$HOME/.local/include:/opt/homebrew/include"
+export CPLUS_INCLUDE_PATH="$HOME/.local/include:$prefix/include"
+export LIBRARY_PATH="$HOME/.local/lib:$prefix/lib"
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 
 # CLI
