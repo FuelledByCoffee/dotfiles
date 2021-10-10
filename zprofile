@@ -10,7 +10,14 @@ path+=("$HOME/go/bin")
 path+=("$HOME/.cargo/bin")
 path+=(".")
 
-[[ -x brew ]] && eval $(brew shellenv)
+if command -v brew &> /dev/null; then
+  eval $(brew shellenv)
+  prefix=$(brew --prefix)
+
+  export C_INCLUDE_PATH="${C_INCLUDE_PATH:+${C_INCLUDE_PATH}:}$prefix/include"
+  export LIBRARY_PATH="${LIBRARY_PATH:+${LIBRARY_PATH}:}$prefix/lib"
+fi
+
 
 typeset -U path # force path to have only unique values
 
