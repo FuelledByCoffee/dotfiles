@@ -50,5 +50,5 @@ if command -v nvim &> /dev/null; then
 fi
 
 # Print one directory per line
-alias path="echo -e '${PATH//:/\\n}'"
-alias manpath="echo -e '${MANPATH//:/\\n}'"
+alias ppath="echo -e '${PATH//:/\\n}'"
+alias pmanpath="echo -e '${MANPATH//:/\\n}'"
