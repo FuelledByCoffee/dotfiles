@@ -16,7 +16,7 @@ if command -v clang &> /dev/null; then
   export CXX="clang++"
 fi
 
-prefix=$(brew --prefix)
+[[ -x brew ]] && prefix=$(brew --prefix)
 
 # export C_INCLUDE_PATH="$HOME/.local/include:/opt/homebrew/include"
 export CPLUS_INCLUDE_PATH="$HOME/.local/include:$prefix/include"

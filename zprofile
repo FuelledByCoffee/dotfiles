@@ -10,7 +10,7 @@ path+=("$HOME/go/bin")
 path+=("$HOME/.cargo/bin")
 path+=(".")
 
-eval $(brew shellenv)
+[[ -x brew ]] && eval $(brew shellenv)
 
 typeset -U path # force path to have only unique values
 
