@@ -1,4 +1,5 @@
 # vim: ft=ruby
+brew "ag"
 brew "fd"
 brew "sd"
 brew "gh"
