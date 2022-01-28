@@ -16,7 +16,7 @@ if command -v clang &> /dev/null; then
   export CXX="clang++"
 fi
 
-export C_INCLUDE_PATH="$HOME/.local/include"
+export CPATH="$HOME/.local/include"
 export LIBRARY_PATH="$HOME/.local/lib"
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 
