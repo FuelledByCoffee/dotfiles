@@ -158,7 +158,6 @@ inoremap {;<CR> {<CR>};<ESC>O
 ": }}}
 
 ": Settings {{{
-set relativenumber
 set number
 set cursorline
 
