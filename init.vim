@@ -173,6 +173,7 @@ set encoding=UTF-8
 
 set hidden
 
+" Remove ~ at end of buffer
 if has('nvim')
   set fillchars=eob:\ ,fold:\ ,
   set diffopt+=vertical
@@ -278,11 +279,6 @@ function! MyFoldText()
     return ' ✦ '. foldedlinecount . line
 endfunction
 set foldtext=MyFoldText()
-
-let g:UltiSnipsExpandTrigger="<c-o>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 ": }}}
 
