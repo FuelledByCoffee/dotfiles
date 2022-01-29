@@ -292,22 +292,6 @@ function! <SID>SynStack()
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-function! ToggleMinimal()
-  AirlineToggle
-  " GitGutterBufferToggle
-  set nu! rnu!
-  set showcmd!
-  " set showmode!
-  if &ls == 2
-    set ls=0
-    " set fdc=3
-  else
-    set ls=2
-    " set fdc=0
-  endif
-endfun
-" command! Minimal :call ToggleMinimal()
-" nnoremap <c-o> :call ToggleMinimal()<cr>
 
 function! TrimWhitespace()
   let l:save = winsaveview()
