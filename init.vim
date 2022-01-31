@@ -403,9 +403,6 @@ nnoremap <leader>t :call TermToggle(12, $SHELL)<CR>
 nnoremap <leader>r :call TermToggle(12, "make test")<CR>
 tnoremap <leader>t <C-\><C-n>:call TermToggle(12, $SHELL)<CR>
 
-" Terminal go back to normal mode
-tnoremap <Esc> <C-\><C-n>
-tnoremap :q! <C-\><C-n>:q!<CR>
 
 ": }}}
 
@@ -550,6 +547,36 @@ let g:airline_skip_empty_sections = 0
 " let g:airline_right_sep=''
 ": }}}
 
+": Tree-sitter {{{
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
+
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- List of parsers to ignore installing
+  ignore_install = {},
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- list of language that will be disabled
+    disable = {},
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+": }}}
+
 ": Language server {{{
 if has('nvim')
   autocmd BufEnter * lua require'completion'.on_attach()
@@ -563,8 +590,6 @@ if has('nvim')
   nnoremap <silent> -d    <cmd>lua vim.lsp.buf.definition()<CR>
   nnoremap <silent> -D    :tab split<CR><cmd>lua vim.lsp.buf.definition()<CR>
 
-  " Show diagnostic on hover
-  autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
   " Enable integrated highlight on yank
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("YankRegion", 1000)
