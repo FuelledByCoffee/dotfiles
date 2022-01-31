@@ -79,10 +79,6 @@
     export EDITOR="nvim"
     export VISUAL="nvim"
 
-#   For using the swift package manager.
-#   ------------------------------------------------------------------
-    export TOOLCHAINS="swift"
-
 #   Open man pages in vim instead of less
 #   Adds a few binds that make vim behave more like less
 #   ------------------------------------------------------------------
@@ -96,12 +92,6 @@
     export LANG=en_US.UTF-8
     export LC_ALL=en_US.UTF-8
     export LANGUAGE=en_US.UTF-8
-
-#   Set language to british english
-#   ------------------------------------------------------------------
-#   export LANG=en_GB.UTF-8
-#   export LC_ALL=en_GB.UTF-8
-#   export LANGUAGE=en_GB.UTF-8
 
 #   Set language to Norwegian bokmål
 #   ------------------------------------------------------------------
@@ -141,55 +131,6 @@
     fi
 
     alias shortPS1='PS1=${userClr}\$\ ${no}'
-
-#   Aliases to make it easy to edit and load .bash_profile from anywhere
-#   ------------------------------------------------------------------
-    alias reload="source ~/.bash_profile"   # Source bashrc
-    alias edprof="nvim ~/.bash_profile"         # Edit bashrc
-
-
-#   ------------------------------------------------------------------
-#   Compilers and interpreters
-#   ------------------------------------------------------------------
-
-#     Flags
-#   ------------------------------------------------------------------
-    export CFLAGS="-Wall -Wextra -Wshadow -std=c17"
-    export CXXFLAGS="-Wall -Wextra -Wshadow -std=c++17"
-    export CPPFLAGS=""
-    export LDFLAGS=""
-    export LDLIBS=""
-
-#   Python
-#   ------------------------------------------------------------------
-    alias py="python3"
-    complete -f py
-
-#   ------------------------------------------------------------------
-#   Utilities
-#   ------------------------------------------------------------------
-
-    alias softwareupdate="softwareupdate -l &>/dev/null"
-
-#   Homebrew
-#   ------------------------------------------------------------------
-    alias update="brew update && brew upgrade"      # Full update
-    alias berw="brew"                               # Hey we all make mistakes
-    alias bewr="brew"                               # Many mistakes
-
-#   Git     wow, such commit, very push
-#   ------------------------------------------------------------------
-    alias wow="git status"     # -u: Untracked files no: None
-    alias such="git"
-    alias very="git"
-
-#   Vim
-#   ------------------------------------------------------------------
-    alias vi="vim"
-
-#   Other shells
-#   ------------------------------------------------------------------
-    # alias powershell="pwsh"
 
 
 #   -----------------
