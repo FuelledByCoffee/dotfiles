@@ -52,15 +52,6 @@ function dump {
 }
 
 
-function make {
-  CC="clang" \
-  CXX="clang++" \
-  CFLAGS+="-WCL4 -Wshadow -std=c17" \
-  CXXFLAGS+="-WCL4 -Wshadow -std=c++17" \
-  command make $@
-}
-
-
 function clean {
   emulate -L zsh
   if [[ -f build.ninja ]]; then
