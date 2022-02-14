@@ -7,7 +7,9 @@
 path=("$HOME/.local/bin" $path)
 
 path+=("$HOME/go/bin")
-path+=("$HOME/.cargo/bin")
+path+=("$HOME/.cargo/bin") # rust
+path+=("$HOME/.cabal/bin") # haskell
+path+=("$HOME/.ghcup/bin") # haskell
 path+=(".")
 
 if command -v brew &> /dev/null; then
