@@ -198,6 +198,7 @@ source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
 
 bindkey '^ ' autosuggest-accept
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#a0a0a0,bg=none"
 
 # source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 #: }}}
