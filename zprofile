@@ -36,13 +36,7 @@ else
   export VISUAL='vim'
 fi
 export EDITOR=$VISUAL
-export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
-  $VISUAL -R \
-  -c 'set ft=man nomod nolist' \
-  -c 'map q :q<CR>' \
-  -c 'map <SPACE> <C-D>'\
-  -c 'map b <C-U>' \
-  -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+export MANPAGER='nvim +Man!'
 
 if command -v bat &> /dev/null; then
   export PAGER=bat
