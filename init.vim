@@ -171,6 +171,7 @@ set noshowmode
 
 set encoding=UTF-8
 
+" Required for rename across files
 set hidden
 
 " Remove ~ at end of buffer
