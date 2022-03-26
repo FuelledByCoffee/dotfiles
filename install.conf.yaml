@@ -17,11 +17,10 @@
 - link:
     ~/.alacritty.yml:
     ~/.tmux.conf:
-    ~/.gitmux.conf:
     ~/.aliases:
     ~/.gitconfig:
     ~/.inputrc:
-    ~/.vimrc: init.vim
+    ~/.vimrc:
     ~/.vim/colors/primary.vim:
     ~/.vim/after/ftplugin:
     ~/.config/nvim/init.vim:
