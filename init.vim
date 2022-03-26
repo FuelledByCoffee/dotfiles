@@ -426,10 +426,10 @@ au colorscheme * highlight Text               ctermbg=NONE guibg=NONE
 au colorscheme * highlight LineNr             ctermbg=NONE guibg=NONE
 au colorscheme * highlight CursorLineNR       ctermbg=NONE guibg=NONE
 au colorscheme * highlight SignColumn         ctermbg=NONE guibg=NONE
+au colorscheme * highlight EndOfBuffer        ctermfg=NONE guifg=NONE
 
 " au colorscheme * highlight folded             ctermbg=NONE guibg=NONE
 " au colorscheme * highlight FoldColumn         ctermbg=NONE guibg=NONE
-au colorscheme * highlight EndOfBuffer      guifg=black ctermfg=black
 
 set background=dark
 colorscheme primary
