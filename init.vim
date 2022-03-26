@@ -272,10 +272,9 @@ let g:termdebug_popup = 0
 " let g:termdebug_wide = 163
 
 " jump to previous position when reopening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-        \| exe "normal! g'\"" | endif
-endif
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal! g'\"" 
+  \| endif
 
 function! MyFoldText()
     let line = getline(v:foldstart)
