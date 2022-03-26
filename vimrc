@@ -29,6 +29,13 @@ nnoremap <silent> ª :move-2<CR>
 
 nnoremap <silent> // :noh<cr>
 
+" Navigate through quick-fix errors
+nnoremap <C-N> :cn<CR>
+nnoremap <C-P> :cp<CR>
+nnoremap <silent>co :copen<CR>
+nnoremap <silent>cc :cclose<CR>
+
+
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
