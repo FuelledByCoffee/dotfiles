@@ -64,7 +64,6 @@ set nobackup
 set nowritebackup
 set undolevels=100    " How many undos
 set undoreload=1000   " number of lines to save for undo
-set undodir=$HOME/.vim/undo-history
 set undofile          " Save undos after file closes
 set completeopt=menu,menuone,noselect,noinsert,preview
 set shortmess+=c
@@ -78,5 +77,5 @@ hi Statement        ctermfg=darkyellow
 
 " jump to previous position when reopening a file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-      \| exe "normal! g'\"" 
+      \| exe "normal! g'\""
       \| endif
