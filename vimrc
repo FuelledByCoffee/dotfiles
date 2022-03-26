@@ -13,6 +13,7 @@ nnoremap <silent><s-tab>  :bNext<cr>
 nnoremap <silent>t<tab>   :tnext<cr>
 nnoremap <silent>t<s-tab> :tNext<cr>
 
+nnoremap <silent> // :noh<cr>
 nnoremap <silent><leader>\| <C-W>L
 
 xnoremap <tab>   >gv
@@ -49,6 +50,24 @@ set nobackup
 set nowritebackup
 set hlsearch
 set incsearch
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set ignorecase
+set smartcase
+set smartindent
+set smarttab
+set scrolloff=7
+set sidescrolloff=5
+set nobackup
+set nowritebackup
+set undolevels=100    " How many undos
+set undoreload=1000   " number of lines to save for undo
+set undodir=$HOME/.vim/undo-history
+set undofile          " Save undos after file closes
+set completeopt=menu,menuone,noselect,noinsert,preview
+set shortmess+=c
 
 filetype plugin on
 filetype indent on
