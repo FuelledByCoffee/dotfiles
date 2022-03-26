@@ -20,38 +20,24 @@ endif
 
 call plug#begin(s:home.'/plugged')
 
-if has('nvim')
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'nvim-treesitter/playground'
-  Plug 'nvim-lua/completion-nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/lsp-status.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'christianchiarulli/nvcode-color-schemes.vim'
-  Plug 'norcalli/nvim-colorizer.lua'
-  Plug 'hrsh7th/nvim-compe'
-  " Plug 'andersevenrud/compe-tmux'
-  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
-  " Plug 'glepnir/lspsaga.nvim'
-else
-  Plug 'bfrg/vim-cpp-modern' " syntax highlighting
-  Plug 'cespare/vim-toml'
-endif
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'tjdevries/Comment.nvim'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+Plug 'Shatur/neovim-ayu'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ARM9/arm-syntax-vim'
-Plug 'zigford/vim-powershell'
-Plug 'lifepillar/vim-gruvbox8'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'alvan/vim-closetag'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
