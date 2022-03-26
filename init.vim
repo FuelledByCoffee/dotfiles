@@ -62,10 +62,8 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 let mapleader = ','
 let maplocalleader=" "
 
-" Press jj to escape from insert mode
 inoremap jj <esc>
 
-" Quickly save and quit
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>d :bd<cr>
