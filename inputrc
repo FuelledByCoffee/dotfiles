@@ -1,30 +1,26 @@
 #!/usr/bin/env bash
-# Make tab completion case-insensitive
+
 set completion-ignore-case on
-# Show all possible matches if ambiguous auto-complete
 set show-all-if-ambiguous on
 
-# Change the way tab-completion works
-TAB: menu-complete
-
-# Vi mode
+set keymap vi-insert
 set editing-mode vi
 set show-mode-in-prompt on
-# set vi-ins-mode-string \1\e[34;1m\2└──[ins] \1\e[0m\2
-# set vi-cmd-mode-string \1\e[33;1m\2└──[cmd] \1\e[0m\2
-set keymap vi-insert
 
-set expand-tilde off
-set convert-meta off
-set input-meta on
-set output-meta on
+set vi-ins-mode-string \1\e[34;1m\2
+set vi-cmd-mode-string \1\e[33;1m\2
+
+set expand-tilde  off
+set convert-meta  off
+set input-meta    on
+set output-meta   on
 set visible-stats on
 
 # Key binds
 "jj": "\e"
 "\C-x\C-e": edit-and-execute-command
-"\C-p":previous-history
-"\C-n":next-history
-"\C-a.":beginning-of-line
-"\C-e.":end-of-line
-"\C-l":clear-screen
+"\C-p":     previous-history
+"\C-n":     next-history
+"\C-l":     clear-screen
+TAB:        menu-complete
+"\e[Z":     menu-complete-backward
