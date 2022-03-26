@@ -32,11 +32,11 @@ fi
 
 if command -v nvim &> /dev/null; then
   export VISUAL='nvim'
+  export MANPAGER='nvim +Man!'
 else
   export VISUAL='vim'
 fi
 export EDITOR=$VISUAL
-export MANPAGER='nvim +Man!'
 
 if command -v bat &> /dev/null; then
   export PAGER=bat
