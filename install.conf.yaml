@@ -12,7 +12,6 @@
     - ~/.local/bin
     - ~/.local/include
     - ~/.local/lib
-    - ~/.vim/colors
 
 - link:
     ~/.alacritty.yml:
@@ -20,11 +19,18 @@
     ~/.aliases:
     ~/.gitconfig:
     ~/.inputrc:
-    ~/.vimrc:
-    ~/.vim/colors/primary.vim:
-    ~/.vim/after/ftplugin:
-    ~/.config/nvim/init.vim:
-    ~/.config/nvim/after/ftplugin:
+
+    ~/.vimrc: vim-config/vimrc
+    ~/.vim/after: vim-config/after
+    ~/.vim/colors: vim-config/colors
+    ~/.vim/indent: vim-config/indent
+
+    ~/.config/nvim/init.vim: vim-config/init.vim
+    ~/.config/nvim/after: vim-config/after
+    ~/.config/nvim/colors: vim-config/colors
+    ~/.config/nvim/indent: vim-config/indent
+    ~/.config/nvim/lua: vim-config/lua
+
     ~/.config/starship.toml:
     ~/.config/git/ignore:
         create: true
