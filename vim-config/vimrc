@@ -37,7 +37,6 @@ nnoremap <C-P> :cp<CR>
 nnoremap <silent>co :copen<CR>
 nnoremap <silent>cc :cclose<CR>
 
-
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
@@ -68,15 +67,50 @@ set undoreload=1000   " number of lines to save for undo
 set undofile          " Save undos after file closes
 set completeopt=menu,menuone,noselect,noinsert,preview
 set shortmess+=c
+set wildmenu
+
+let @/ = "" " Don't highlight after source vimrc
 
 filetype plugin on
 filetype indent on
 
-hi LineNr           ctermfg=grey
-hi Statement        ctermfg=darkyellow
-" hi Special          ctermfg=yellow
+hi LineNr       ctermfg=grey
+hi Statement    ctermfg=darkyellow
+hi Folded       ctermfg=black
+hi Folded       ctermbg=darkgrey
+" hi Special      ctermfg=yellow
 
 " jump to previous position when reopening a file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
       \| exe "normal! g'\""
       \| endif
+
+
+" Show syntax highlighting groups for word under cursor
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+nmap <F2> :call <SID>SynStack()<CR>
+
+
+function! TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+nnoremap <leader><space> :call TrimWhitespace()<cr>
+
+
+" Completion
+func! MayComplete()
+  if (can complete)
+    return ".\<C-X>\<C-O>"
+  endif
+  return '.'
+endfunc
+inoremap <expr> . MayComplete()
+inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-N>" : "\<lt>Down>"<CR>
+

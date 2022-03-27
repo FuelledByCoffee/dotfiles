@@ -1,5 +1,7 @@
 " vim: foldlevel=0
 
+source ~/.vimrc
+
 ": Plugins {{{
 
 
@@ -59,36 +61,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 ": }}}
 
 ": Key maps {{{
-let mapleader = ','
-let maplocalleader=" "
-
-inoremap jj <esc>
-
-nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q<cr>
-nnoremap <leader>d :bd<cr>
-nnoremap <leader>Q :qa<cr>
-nnoremap <leader>m :make<cr>
-nnoremap <leader>r :make test<cr>
-
-nnoremap <localleader>- <cmd>Telescope buffers<CR>
-nnoremap <localleader>g <cmd>Telescope git_files<CR>
-nnoremap <localleader>r <cmd>Telescope live_grep<CR>
-nnoremap <localleader>o <cmd>Telescope file_browser<CR>
-nnoremap <localleader>n <cmd>Telescope find_files<CR>
-nnoremap <localleader>b <cmd>Telescope git_branches<CR>
-nnoremap <localleader>s <cmd>Telescope lsp_document_symbols<CR>
-" nnoremap <localleader>F :Telescope grep_string<CR>
-
-" Use tab and shift-tab to go through completion options
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-nnoremap <silent><tab>   :bnext<cr>
-nnoremap <silent><s-tab> :bNext<cr>
-
-xnoremap <tab>   >gv
-xnoremap <s-tab> <gv
 
 " Escape from terminal mode
 tnoremap <Esc> <C-\><C-n>
@@ -142,7 +114,6 @@ inoremap {;<CR> {<CR>};<ESC>O
 ": }}}
 
 ": Settings {{{
-set number
 set cursorline
 
 if exists('$TMUX')
@@ -150,93 +121,32 @@ if exists('$TMUX')
   set t_8f=\<esc>[38;2;%lu;%lu;%lum
 endif
 
-" When a file has not been modified by vim but changed outside it.
-set autoread
-
 set showtabline=2
 set noshowmode
-
+set termguicolors
 set encoding=UTF-8
-
-" Required for rename across files
-set hidden
-
-" Remove ~ at end of buffer
-if has('nvim')
-  set fillchars=eob:\ ,fold:\ ,
-  set diffopt+=vertical
-endif
-
+set fillchars=eob:\ ,fold:\ ,
+set diffopt+=vertical
 set updatetime=100
-
-set complete+=spell
-set completeopt=menuone,noselect,noinsert,preview
-
 set rtp+=/opt/homebrew/opt/fzf
-
-set shortmess+=c
-
+set grepprg=rg
 set belloff+=ctrlg
+set foldlevel=99
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set signcolumn=yes
+set wildmode=longest,list:longest
+set completeopt=menu,menuone,noselect,noinsert,preview
 
-set wildmenu
-set wildmode=longest,list:full
+" set complete+=spell
 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
 
-set ignorecase
-set smartcase
-
-set hlsearch
-set incsearch
 let @/ = "" " Don't highlight after source vimrc
 
 set path=.,/usr/local/include,/usr/include
 set path+=$HOME/.local/include
 set path+=/Library/Developer/CommandLineTools/usr/include/c++/v1
 set path+=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include
-
-set smarttab
-set smartindent
-set copyindent
-set autoindent
-set cindent
-set preserveindent
-
-if has('nvim')
-  set foldmethod=expr
-  set foldexpr=nvim_treesitter#foldexpr()
-endif
-set foldlevel=99
-
-set grepprg=rg
-
-set wrap
-set breakindent
-
-set scrolloff=7
-set sidescrolloff=5
-
-set mouse=a
-
-set signcolumn=yes
-
-set nobackup
-set nowritebackup
-
-set undolevels=100    " How many undos
-set undoreload=1000   " number of lines to save for undo
-if has('nvim')
-  set undodir=$HOME/.config/nvim/undo-history
-else
-  set undodir=$HOME/.vim/undo-history
-endif
-set undofile          " Save undos after file closes
-
-" set splitbelow
-set splitright
 
 filetype plugin on
 filetype indent on
