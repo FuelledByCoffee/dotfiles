@@ -65,9 +65,10 @@ set nowritebackup
 set undolevels=100    " How many undos
 set undoreload=1000   " number of lines to save for undo
 set undofile          " Save undos after file closes
-set completeopt=menu,menuone,noselect,noinsert,preview
-set shortmess+=c
 set wildmenu
+set shortmess+=c
+set completeopt=menu,menuone,noselect,noinsert,preview
+set omnifunc=syntaxcomplete#Complete
 
 let @/ = "" " Don't highlight after source vimrc
 let g:c_syntax_for_h=1
