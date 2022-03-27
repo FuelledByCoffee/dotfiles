@@ -153,7 +153,6 @@ filetype indent on
 
 ": }}}
 
-
 ": Functions {{{
 " Show syntax highlighting groups for word under cursor
 nmap <F2> :call <SID>SynStack()<CR>
