@@ -1,4 +1,6 @@
 let mapleader = ','
+let g:c_syntax_for_h=1
+let @/ = "" " Don't highlight after source vimrc
 
 inoremap jj <esc>
 nnoremap <leader>w :w<cr>
@@ -40,6 +42,9 @@ nnoremap <silent>cc :cclose<CR>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
+inoremap <expr> <tab>   pumvisible() ? "\<C-n>" : "<tab>"
+inoremap <expr> <S-tab> pumvisible() ? "\<C-p>" : "<S-tab>"
+
 syntax on
 
 set mouse=a
@@ -69,9 +74,6 @@ set wildmenu
 set shortmess+=c
 set completeopt=menu,menuone,noselect,noinsert,preview
 set omnifunc=syntaxcomplete#Complete
-
-let @/ = "" " Don't highlight after source vimrc
-let g:c_syntax_for_h=1
 
 filetype plugin on
 filetype indent on
