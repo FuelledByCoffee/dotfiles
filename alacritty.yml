@@ -807,10 +807,10 @@ key_bindings:
   - { key: Return,   mods: Alt,                     action: ToggleFullscreen }
 
   # (macOS only)
-  - { key: D,      mods: Command, mode: ~Vi, chars: "\x04"            } # C-d
-  - { key: U,      mods: Command, mode: ~Vi, chars: "\x15"            } # C-u
-  - { key: Z,      mods: Command, mode: ~Vi, chars: "\x1A"            } # C-z
-  - { key: K,      mods: Command, mode: ~Vi, chars: "\x0C"            } # C-l
+  - { key: D,      mods: Command,            chars: "\x04"            } # C-d
+  - { key: U,      mods: Command,            chars: "\x15"            } # C-u
+  - { key: Z,      mods: Command,            chars: "\x1A"            } # C-z
+  - { key: K,      mods: Command,            chars: "\x0C"            } # C-l
   - { key: K,      mods: Command,            action: ClearHistory     }
   - { key: Key0,   mods: Command,            action: ResetFontSize    }
   - { key: Plus,   mods: Command,            action: IncreaseFontSize }
