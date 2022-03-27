@@ -165,11 +165,6 @@ let g:c_syntax_for_h=1
 let g:termdebug_popup = 0
 " let g:termdebug_wide = 163
 
-" jump to previous position when reopening a file
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-  \| exe "normal! g'\"" 
-  \| endif
-
 function! MyFoldText()
     let line = getline(v:foldstart)
     let foldedlinecount = v:foldend - v:foldstart + 1
@@ -328,74 +323,6 @@ set background=dark
 colorscheme primary
 ": }}}
 
-": Fugitive {{{
-nnoremap         gs :tab Git<CR>
-nnoremap <leader>gc :tab Git commit<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gr :Gread<CR>
-nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gP :Git push<CR>
-nnoremap         g- :Git stash<CR>:e<CR>
-nnoremap         g+ :Git stash pop<CR>:e<CR>
-": }}}
-
-": Git gutter {{{
-let g:gitgutter_map_keys = 1
-let g:gitgutter_set_sign_backgrounds = 1
-let g:gitgutter_grep = 'rg'
-let g:gitgutter_highlight_lines = 0
-let g:gitgutter_highlight_linenrs = 0
-let g:gitgutter_preview_win_floating = 1
-command! Gqf GitGutterQuickFix | copen
-nnoremap <leader>G :Gqf<cr>
-
-nmap <leader>ga <Plug>(GitGutterStageHunk)
-nmap <leader>gu <Plug>(GitGutterUndoHunk)
-nmap         gp <Plug>(GitGutterPreviewHunk)
-
-nmap <leader>g[ <Plug>(GitGutterPrevHunk)
-nmap <leader>g] <Plug>(GitGutterNextHunk)
-
-highlight GitGutterAdd          guifg=#00d900 ctermfg=2 ctermbg=NONE guibg=NONE
-highlight GitGutterChange       guifg=#fdfd00 ctermfg=3 ctermbg=NONE guibg=NONE
-highlight GitGutterDelete       guifg=#ff2222 ctermfg=1 ctermbg=NONE guibg=NONE
-highlight GitGutterChangeDelete guifg=#fdfd00 ctermfg=3 ctermbg=NONE guibg=NONE
-
-highlight GitGutterAddLineNr            guifg=#00d900 ctermfg=2
-highlight GitGutterChangeLineNr         guifg=#fdfd00 ctermfg=3
-highlight GitGutterDeleteLineNr         guifg=#ff2222 ctermfg=1
-highlight GitGutterChangeDeleteLineNr   guifg=#df8202 ctermfg=1
-
-let g:gitgutter_sign_added              = '+'
-let g:gitgutter_sign_modified           = '~'
-let g:gitgutter_sign_removed            = '_'
-let g:gitgutter_sign_removed_first_line = '‾'
-let g:gitgutter_sign_removed_above_and_below = '_¯'
-let g:gitgutter_sign_modified_removed   = '~-'
-": }}}
-
-": Tagbar {{{
-nnoremap <silent> <leader>b :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-": }}}
-
-": NerdTree {{{
-
-" Disable built in file manager
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-
-nnoremap <silent> <leader>e :NERDTreeToggle<CR>
-
-" Open NERDTree immediately when starting neovim
-" autocmd vimenter * NERDTree
-" Go to previous (last accessed) window.
-" autocmd VimEnter * wincmd p
-" Automatically quit if NERDTree is the only open window
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-": }}}
-
 ": Nerdcommenter {{{
 " Create default mappings
 let g:NERDCreateDefaultMappings = 0
@@ -423,10 +350,6 @@ let g:NERDCommentEmptyLines = 0
 let g:NERDCustomDelimiters = { 'c': { 'left': '//','right': '' } }
 
 map <silent> mm <Plug>NERDCommenterToggle
-": }}}
-
-": clang-format {{{
-map <silent> <leader>f :ClangFormat<cr>
 ": }}}
 
 ": airline {{{
