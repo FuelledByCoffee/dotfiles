@@ -70,6 +70,7 @@ set shortmess+=c
 set wildmenu
 
 let @/ = "" " Don't highlight after source vimrc
+let g:c_syntax_for_h=1
 
 filetype plugin on
 filetype indent on

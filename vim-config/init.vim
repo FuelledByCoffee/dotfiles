@@ -153,26 +153,6 @@ filetype indent on
 
 ": }}}
 
-": Configuration {{{
-
-" Reset manpager variable to use nvim for man pages
-" let $MANPAGER=''
-
-" Default is using c++ syntax for .h files
-" Use C syntax for .h files
-let g:c_syntax_for_h=1
-
-let g:termdebug_popup = 0
-" let g:termdebug_wide = 163
-
-function! MyFoldText()
-    let line = getline(v:foldstart)
-    let foldedlinecount = v:foldend - v:foldstart + 1
-    return ' ✦ '. foldedlinecount . line
-endfunction
-set foldtext=MyFoldText()
-
-": }}}
 
 ": Functions {{{
 " Show syntax highlighting groups for word under cursor
