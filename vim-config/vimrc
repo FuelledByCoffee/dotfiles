@@ -78,11 +78,12 @@ set omnifunc=syntaxcomplete#Complete
 filetype plugin on
 filetype indent on
 
+" hi Special      ctermfg=yellow
 hi LineNr       ctermfg=grey
 hi Statement    ctermfg=darkyellow
 hi Folded       ctermfg=black
 hi Folded       ctermbg=darkgrey
-" hi Special      ctermfg=yellow
+hi Pmenu        ctermbg=darkgrey
 
 " jump to previous position when reopening a file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
