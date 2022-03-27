@@ -12,6 +12,7 @@ nnoremap <silent><tab>    :bnext<cr>
 nnoremap <silent><s-tab>  :bNext<cr>
 nnoremap <silent>t<tab>   :tnext<cr>
 nnoremap <silent>t<s-tab> :tNext<cr>
+nnoremap <silent>ø zA
 
 nnoremap <silent> // :noh<cr>
 nnoremap <silent><leader>\| <C-W>L
