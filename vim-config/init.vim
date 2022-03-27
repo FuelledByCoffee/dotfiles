@@ -153,43 +153,7 @@ filetype indent on
 
 ": }}}
 
-": Functions {{{
-" Show syntax highlighting groups for word under cursor
-nmap <F2> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-    if !exists("*synstack")
-        return
-    endif
-    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
-
-function! TrimWhitespace()
-  let l:save = winsaveview()
-  keeppatterns %s/\s\+$//e
-  call winrestview(l:save)
-endfun
-" command! TrimWhiteSpace ':%s/\s\+$//gI'
-nnoremap <leader><space> :call TrimWhitespace()<cr>
-
-function! CleverTab()
-  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-    return "\<Tab>"
-  else
-    return "\<C-N>"
-  endif
-endfunction
-inoremap <silent> <Tab> <C-R>=CleverTab()<CR>
-
-function! MyOnBattery()
-  if has('macunix')
-    return match(system('pmset -g batt'), "Now drawing from 'Battery Power'") != -1
-  elseif has('unix')
-    return readfile('/sys/class/power_supply/AC/online') == ['0']
-  endif
-  return 0
-endfunction
-
+": Floating terminal {{{
 
 " Floating Term
 let s:float_term_border_win = 0
@@ -278,10 +242,6 @@ tnoremap <leader>t <C-\><C-n>:call TermToggle(12, $SHELL)<CR>
 ": }}}
 
 ": Colorscheme {{{
-
-if has('termguicolors')
-  set termguicolors
-endif
 
 let g:nvcode_termcolors=256
 
