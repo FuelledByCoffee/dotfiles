@@ -83,7 +83,7 @@ filetype plugin on
 filetype indent on
 
 " hi Special      ctermfg=yellow
-hi comment            ctermfg=Grey
+hi Comment            ctermfg=Grey
 hi LineNr             ctermfg=Grey
 hi Statement          ctermfg=DarkYellow
 hi Folded             ctermfg=Black
