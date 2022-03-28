@@ -3,6 +3,7 @@ let g:c_syntax_for_h=1
 let @/ = "" " Don't highlight after source vimrc
 
 inoremap jj <esc>
+
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>d :bd<cr>
@@ -12,8 +13,10 @@ nnoremap <leader>r :make test<cr>
 
 nnoremap <silent><tab>    :bnext<cr>
 nnoremap <silent><s-tab>  :bNext<cr>
+
 nnoremap <silent>t<tab>   :tnext<cr>
 nnoremap <silent>t<s-tab> :tNext<cr>
+
 nnoremap <silent>ø zA
 
 nnoremap <silent> // :noh<cr>
