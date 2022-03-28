@@ -135,11 +135,6 @@ set foldlevel=99
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set signcolumn=yes
-set wildmode=longest,list:longest
-set completeopt=menu,menuone,noselect,noinsert,preview
-
-" set complete+=spell
-
 
 let @/ = "" " Don't highlight after source vimrc
 
