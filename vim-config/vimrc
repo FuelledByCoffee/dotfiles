@@ -89,7 +89,7 @@ hi Statement          ctermfg=DarkYellow
 hi Folded             ctermfg=Black
 hi Folded             ctermbg=DarkGrey
 hi Pmenu              ctermbg=DarkGrey
-hi Pmenu              ctermbg=DarkGrey
+
 hi VimOption          ctermfg=DarkCyan
 hi VimHiCtermcolor    ctermfg=DarkCyan
 hi VimMapMod          ctermfg=DarkGrey
