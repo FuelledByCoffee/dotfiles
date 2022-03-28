@@ -74,7 +74,8 @@ set undolevels=100    " How many undos
 set undoreload=1000   " number of lines to save for undo
 set undofile          " Save undos after file closes
 set wildmenu
-set wildmode=longest,list:longest
+set wildignorecase    " case is ignored when completing file names and directories
+set wildmode=list:longest
 set shortmess+=c
 set completeopt=menu,menuone,noselect,noinsert,preview
 set omnifunc=syntaxcomplete#Complete

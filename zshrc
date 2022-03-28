@@ -195,7 +195,6 @@ unsetopt nomatch notify menu_complete
 #: Plugins {{{
 source $ZDOTDIR/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZDOTDIR/.zsh-hist/zsh-hist.plugin.zsh
 
 bindkey '^ ' autosuggest-accept
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=none"
