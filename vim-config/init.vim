@@ -4,21 +4,14 @@ source ~/.vimrc
 
 ": Plugins {{{
 
-
 ": Install vim-plug if not found {{{
-if has('nvim')
-  let s:home = $HOME.'/.config/nvim/'
-else
-  let s:home = $HOME.'/.vim/'
-endif
+let s:home = $HOME.'/.config/nvim/'
 let s:vim_plug_dir=expand(s:home.'/autoload')
 
 if !filereadable(s:vim_plug_dir.'/plug.vim')
   exe '!wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -P '.s:vim_plug_dir
 endif
 ": }}}
-
-
 
 call plug#begin(s:home.'/plugged')
 
@@ -64,53 +57,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 " Escape from terminal mode
 tnoremap <Esc> <C-\><C-n>
-
-" Cancel search highlight
-nnoremap <silent> // :noh<cr>
-
-" Move vertically by visual line. Useful when long lines wrap.
-nnoremap <silent> j gj
-nnoremap <silent> k gk
-
-"--- some brilliant line movement mappings from junegunn ---"
-" move current line up/down
-" use alt with j/k only works if alt does not send escape
-nnoremap <silent> √ :move+<CR>
-nnoremap <silent> ª :move-2<CR>
-
-" Move between splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-"map <C-j> :cn<CR>
-"map <C-k> :cp<CR>
-
-nnoremap t<tab>   :tabnext<cr>
-nnoremap t<s-tab> :tabprevious<cr>
-
-nnoremap <Down>     <C-W><C-J>
-nnoremap <Up>       <C-W><C-K>
-nnoremap <Right>    <C-W><C-L>
-nnoremap <Left>     <C-W><C-H>
-
-" Navigate through quick-fix errors
-nnoremap <C-N> :cn<CR>
-nnoremap <C-P> :cp<CR>
-nnoremap <silent>co :copen<CR>
-nnoremap <silent>cc :cclose<CR>
-
-" Auto close whatever
-" inoremap " ""<left>
-" inoremap ' ''<left>
-" inoremap ( ()<left>
-" inoremap [ []<left>
-" inoremap { {}<left>
-" inoremap < <><left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>
 ": }}}
 
 ": Settings {{{
@@ -135,8 +82,7 @@ set foldlevel=99
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set signcolumn=yes
-
-let @/ = "" " Don't highlight after source vimrc
+set complete+=spell
 
 set path=.,/usr/local/include,/usr/include
 set path+=$HOME/.local/include
