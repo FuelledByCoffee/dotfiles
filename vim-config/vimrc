@@ -83,18 +83,18 @@ filetype plugin on
 filetype indent on
 
 " hi Special      ctermfg=yellow
-hi comment            ctermfg=grey
-hi LineNr             ctermfg=grey
-hi Statement          ctermfg=darkyellow
-hi Folded             ctermfg=black
-hi Folded             ctermbg=darkgrey
-hi Pmenu              ctermbg=darkgrey
-hi Pmenu              ctermbg=darkgrey
-hi VimOption          ctermfg=darkcyan
-hi VimHiCtermcolor    ctermfg=darkcyan
+hi comment            ctermfg=Grey
+hi LineNr             ctermfg=Grey
+hi Statement          ctermfg=DarkYellow
+hi Folded             ctermfg=Black
+hi Folded             ctermbg=DarkGrey
+hi Pmenu              ctermbg=DarkGrey
+hi Pmenu              ctermbg=DarkGrey
+hi VimOption          ctermfg=DarkCyan
+hi VimHiCtermcolor    ctermfg=DarkCyan
 hi VimMapMod          ctermfg=DarkGrey
-hi VimMapModKey       ctermfg=darkblue
-hi VimNotation        ctermfg=darkblue
+hi VimMapModKey       ctermfg=DarkBlue
+hi VimNotation        ctermfg=DarkBlue
 hi VimBracket         ctermfg=DarkGrey
 
 " jump to previous position when reopening a file
