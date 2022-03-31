@@ -75,8 +75,8 @@ set undoreload=1000   " number of lines to save for undo
 set undofile          " Save undos after file closes
 set wildmenu
 set wildignorecase    " case is ignored when completing file names and directories
-set shortmess+=c
-set completeopt=menu,menuone,noselect,noinsert,preview
+set shortmess+=c      " Silence insert completion messages
+set completeopt=menu,menuone,noselect,preview
 set omnifunc=syntaxcomplete#Complete
 
 filetype plugin on
