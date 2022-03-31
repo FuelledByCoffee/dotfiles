@@ -1,6 +1,5 @@
 # vim: ft=zsh foldmethod=marker foldlevel=0
 
-
 [[ "$OSTYPE" == "linux"* ]] && path+=("/home/linuxbrew/.linuxbrew/bin")
 
 # Put home folder bin first in path
@@ -10,6 +9,7 @@ path+=("$HOME/go/bin")
 path+=("$HOME/.cargo/bin") # rust
 path+=("$HOME/.cabal/bin") # haskell
 path+=("$HOME/.ghcup/bin") # haskell
+path+=("$HOME/.local/llvm/bin")
 path+=(".")
 
 if command -v brew &> /dev/null; then
@@ -26,8 +26,6 @@ typeset -U path # force path to have only unique values
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
 if command -v nvim &> /dev/null; then
