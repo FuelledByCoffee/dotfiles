@@ -17,9 +17,9 @@ call plug#begin(s:home.'/plugged')
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-lua/popup.nvim'
 Plug 'tjdevries/Comment.nvim'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'norcalli/nvim-colorizer.lua'
