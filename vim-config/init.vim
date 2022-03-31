@@ -78,9 +78,6 @@ set updatetime=100
 set rtp+=/opt/homebrew/opt/fzf
 set grepprg=rg
 set belloff+=ctrlg
-set foldlevel=99
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
 set signcolumn=yes
 set complete+=spell
 
