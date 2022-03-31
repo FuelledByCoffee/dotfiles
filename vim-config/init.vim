@@ -79,7 +79,6 @@ set rtp+=/opt/homebrew/opt/fzf
 set grepprg=rg
 set belloff+=ctrlg
 set signcolumn=yes
-set complete+=spell
 
 set path=.,/usr/local/include,/usr/include
 set path+=$HOME/.local/include
