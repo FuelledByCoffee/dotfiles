@@ -63,10 +63,10 @@ nnoremap <silent> <leader>e :NERDTreeToggle<CR>
 
 ": Settings {{{
 
-if exists('$TMUX')
-  set t_8b=\<esc>[48;2;%lu;%lu;%lum
-  set t_8f=\<esc>[38;2;%lu;%lu;%lum
-endif
+" if exists('$TMUX')
+"   set t_8b=\<esc>[48;2;%lu;%lu;%lum
+"   set t_8f=\<esc>[38;2;%lu;%lu;%lum
+" endif
 
 set cursorline
 set showtabline=2
