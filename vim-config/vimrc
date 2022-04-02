@@ -122,14 +122,14 @@ function! TrimWhitespace()
 endfun
 nnoremap <leader><space> :call TrimWhitespace()<cr>
 
+function! IsTriggerChar()
+  return (v:char >= 'a' && v:char <= 'z') || (v:char >= 'A' && v:char <= 'Z') || (v:char == '.')
+endfunction
 
-" Completion
-func! MayComplete()
-  if (can complete)
-    return ".\<C-X>\<C-O>"
-  endif
-  return '.'
-endfunc
-inoremap <expr> . MayComplete()
-inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-N>" : "\<lt>Down>"<CR>
+function! OpenCompletion()
+    if !pumvisible() && IsTriggerChar()
+        call feedkeys("\<C-x>\<C-o>", "n")
+    endif
+endfunction
+autocmd InsertCharPre * call OpenCompletion()
 
