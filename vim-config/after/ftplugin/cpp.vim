@@ -1,4 +1,4 @@
-setlocal kp=:silent\ !tmux\ new-window\ cppman\ <cword>
+setlocal keywordprg=:silent\ !tmux\ new-window\ cppman\ <cword>
 
 setlocal tabstop=4
 setlocal softtabstop=4
