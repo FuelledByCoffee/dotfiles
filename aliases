@@ -19,15 +19,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ll='ls -FGl'
 fi
 
-if command -v rg &> /dev/null
-then
-  alias grep='rg'
-else
-  # Grep color — Seriously though use ripgrep
-  alias grep='grep   --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-fi
+alias grep='grep   --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # Common commands
 alias mv='mv -vi'
