@@ -3,6 +3,10 @@ setlocal foldlevel=20
 setlocal foldlevelstart=20
 setlocal makeprg=make
 
+" Instead of syntax
+setlocal foldmethod=expr
+setlocal foldexpr=nvim_treesitter#foldexpr()
+
 setlocal tabstop=4
 setlocal softtabstop=4
 setlocal shiftwidth=4
