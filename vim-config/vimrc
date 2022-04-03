@@ -45,6 +45,9 @@ nnoremap <C-P> :cp<CR>
 nnoremap <silent>co :copen<CR>
 nnoremap <silent>cc :cclose<CR>
 
+nnoremap <leader>y "*y
+nnoremap <leader>p "*p
+
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
