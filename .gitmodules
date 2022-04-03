@@ -17,3 +17,9 @@
 [submodule "zsh-completions"]
 	path = zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "neovim"]
+	path = neovim
+	url = https://github.com/FuelledByCoffee/neovim
+[submodule "vim"]
+	path = vim
+	url = https://github.com/FuelledByCoffee/vim
