@@ -1,6 +1,7 @@
 # vim: ft=zsh foldmethod=marker foldlevel=0
 
 [[ "$OSTYPE" == "linux"* ]] && path+=("/home/linuxbrew/.linuxbrew/bin")
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # Put home folder bin first in path
 path=("$HOME/.local/bin" $path)
