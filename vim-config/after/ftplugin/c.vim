@@ -13,6 +13,6 @@ au QuickFixCmdPost    l* nested lwindow
 
 setlocal fo-=o
 
-nnoremap <leader>m :make<cr>
-nnoremap <leader>r :make test<cr>
-nnoremap <leader><bs> :!make clean<cr>
+nnoremap <buffer><leader>m :make<cr>
+nnoremap <buffer><leader>r :make test<cr>
+nnoremap <buffer><leader><bs> :!make clean<cr>
