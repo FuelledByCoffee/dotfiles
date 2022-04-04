@@ -21,6 +21,9 @@ if command -v brew &> /dev/null; then
   export LIBRARY_PATH="${LIBRARY_PATH:+${LIBRARY_PATH}:}$prefix/lib"
 fi
 
+if command -v thefuck &> /dev/null; then
+  eval $(thefuck --alias)
+fi
 
 typeset -U path # force path to have only unique values
 
@@ -42,4 +45,3 @@ if command -v bat &> /dev/null; then
 fi
 
 [[ -r ~/.aliases ]] && source ~/.aliases
-alias edprof="nvim $ZDOTDIR/.zprofile && source $ZDOTDIR/.zprofile"
