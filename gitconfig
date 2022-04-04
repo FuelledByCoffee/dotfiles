@@ -64,12 +64,12 @@
 [alias]
     st = status
     co = checkout
-    br = "!git branch | fzf-tmux -d 15 --info=inline"
-    cb = checkout -b
     dt = difftool
+    br = "!git branch | fzf-tmux -d 15 --info=inline"
     ps = "!git push &> .git/push.log || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
     discard  = checkout HEAD --
     unstage  = reset HEAD --
+    untrack  = rm --cached
     uncommit = reset --soft HEAD~1
     recommit = commit --amend --no-edit
     get  = pull origin main
