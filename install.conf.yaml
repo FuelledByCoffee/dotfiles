@@ -22,6 +22,7 @@
     ~/.inputrc:
 
     ~/.vim: vim
+    ~/.vimrc: vim/vimrc
     ~/.config/nvim: neovim
 
     ~/.config/git/ignore:
