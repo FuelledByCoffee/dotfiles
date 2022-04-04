@@ -14,20 +14,22 @@
 
 - link:
     ~/.alacritty.yml:
+    ~/.config/starship.toml:
     ~/.tmux.conf:
-    ~/.aliases:
     ~/.gitconfig:
+    ~/.aliases:
+    ~/.bash_profile:
     ~/.inputrc:
 
     ~/.vim: vim
     ~/.config/nvim: neovim
 
-    ~/.config/starship.toml:
     ~/.config/git/ignore:
         create: true
         path: ignore
+
     ~/.config/powershell/Microsoft.Powershell_profile.ps1:
-    ~/.bash_profile:
+
     ~/.zshenv:
     ~/.zshrc:
     ~/.zprofile:
