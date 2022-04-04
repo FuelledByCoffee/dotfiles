@@ -50,15 +50,10 @@
 #   ------------------------------------------------------------------
     export PS1="[${userClr}\u${no}@${hostClr}\h ${bl}\W${no}]\\$ "
     export PS2="> "
-#   Reset the path each time the terminal is launched. Add furter directories here.
 
+#   Add directories to path
 #   ------------------------------------------------------------------
-    PATH="$PATH:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin"
-    PATH="$PATH:/Library/Developer/CommandLineTools/usr/bin"
-    PATH="$PATH:$HOME/Library/Python/3.8/bin"
-    PATH="$HOME/.cargo/bin:$PATH"
-    PATH="$PATH:."
-    export PATH
+    PATH="${PATH:+${PATH}:}."
 
 #   Adds gnu manuals to man search
 #   ------------------------------------------------------------------
@@ -66,7 +61,7 @@
 
 #   Custom colors
 #   ------------------------------------------------------------------
-    export CLICOLOR=1   # I'll never understand how some people can work in mono-bit color
+    # export CLICOLOR=1   # I'll never understand how some people can work in mono-bit color
 
 #   Add and define colors and options for ls
 #   ------------------------------------------------------------------
@@ -76,14 +71,14 @@
 
 #   Set vim as the default editor and viewer of textfiles
 #   ------------------------------------------------------------------
-    export EDITOR="nvim"
-    export VISUAL="nvim"
+    export EDITOR="vim"
+    export VISUAL="vim"
 
-#   Open man pages in vim instead of less
+#   Open man pages in $VISUAL which hopefully is either vim or neovim
 #   Adds a few binds that make vim behave more like less
 #   ------------------------------------------------------------------
-    export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-        nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
+        $VISUAL -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
         -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
         -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
@@ -92,20 +87,6 @@
     export LANG=en_US.UTF-8
     export LC_ALL=en_US.UTF-8
     export LANGUAGE=en_US.UTF-8
-
-#   Set language to Norwegian bokmål
-#   ------------------------------------------------------------------
-#   export LANG=no_NO.UTF-8
-#   export LC_ALL=no_NO.UTF-8
-#   export LANGUAGE=no_NO.UTF-8
-
-#   Load automatic completion for bash
-    if [ -f /usr/local/etc/bash_completion.d ]; then
-        . /usr/local/etc/bash_completion.d
-    fi
-
-#   Load github completion
-    eval "$(gh completion -s bash)"
 
 #   Use vi mode in bash. Press escape to enter command mode
 #   ------------------------------------------------------------------
@@ -125,12 +106,6 @@
 #       aliases
 #   ---------------
     [[ -r .aliases ]] && source .aliases
-
-    if [[ -f "$XDG_CONFIG_HOME/broot/launcher/bash/br" ]]; then
-      source "$XDG_CONFIG_HOME/broot/launcher/bash/br"
-    fi
-
-    alias shortPS1='PS1=${userClr}\$\ ${no}'
 
 
 #   -----------------
