@@ -25,6 +25,7 @@ brew "ranger"
 brew "cppman"
 brew "zoxide"
 brew "ripgrep"
+brew "thefuck"
 brew "starship"
 
 # tap "jgavris/rs-git-fsmonitor https://github.com/jgavris/rs-git-fsmonitor.git"
