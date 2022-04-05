@@ -12,6 +12,7 @@
     default = upstream
 [diff]
     tool = vimdiff
+	submodule = log
 [difftool]
     prompt = false
 [difftool "vimdiff"]

@@ -25,11 +25,11 @@ if command -v thefuck &> /dev/null; then
   eval $(thefuck --alias)
 fi
 
-typeset -U path # force path to have only unique values
-
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
 fi
+
+typeset -U path # force path to have only unique values
 
 
 if command -v nvim &> /dev/null; then
