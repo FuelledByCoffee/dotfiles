@@ -1,79 +1,79 @@
-# vim: ft=gitconfig ts=4 sw=4
+# vim: ft=gitconfig
 # This is Git's per-user configuration file.
 [user]
-    name = Johannes Eckhoff
-    email = j.eckhoff@gmail.com
-    user = FuelledByCoffee
+  name = Johannes Eckhoff
+  email = j.eckhoff@gmail.com
+  user = FuelledByCoffee
 [github]
-    user = FuelledByCoffee
+  user = FuelledByCoffee
 [url "https://github.com/FuelledByCoffee/"]
-    insteadOf = gh:
+  insteadOf = gh:
 [push]
-    default = upstream
+  default = upstream
 [diff]
-    tool = vimdiff
-    submodule = log
+  tool = vimdiff
+  submodule = log
 [difftool]
-    prompt = false
+  prompt = false
 [difftool "vimdiff"]
-    cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 [merge]
-    tool = nvim
-    conflictstyle = diff3
+  tool = nvim
+  conflictstyle = diff3
 [mergetool]
-    prompt = false
+  prompt = false
 [mergetool "nvim"]
-    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 [branch]
-    autosetupmerge = true
-    autosetuprebase = local
+  autosetupmerge = true
+  autosetuprebase = local
 [filter "lfs"]
-    required = true
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 [pull]
-    rebase = true
+  rebase = true
 [rebase]
-    autoStash = true
+  autoStash = true
 [commit]
-    verbose = true
+  verbose = true
 [help]
-    autocorrect = 1
+  autocorrect = 1
 [color]
-    ui = auto
-    branch = auto
-    diff = auto
-    status = auto
+  ui = auto
+  branch = auto
+  diff = auto
+  status = auto
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [credential]
-    helper = osxkeychain
+  helper = osxkeychain
 [core]
-    excludesfile = ~/.config/git/ignore
+  excludesfile = ~/.config/git/ignore
 [alias]
-    st = status
-    co = checkout
-    dt = difftool
-    br = "!git branch | fzf-tmux -d 15 --info=inline"
-    ps = "!git push &> .git/push.log || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
-    discard  = checkout HEAD --
-    unstage  = reset HEAD --
-    untrack  = rm --cached
-    uncommit = reset --soft HEAD~1
-    recommit = commit --amend --no-edit
-    get  = pull origin main
-    yeet = push origin HEAD
+  st = status
+  co = checkout
+  dt = difftool
+  br = "!git branch | fzf-tmux -d 15 --info=inline"
+  ps = "!git push &> .git/push.log || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
+  discard  = checkout HEAD --
+  unstage  = reset HEAD --
+  untrack  = rm --cached
+  uncommit = reset --soft HEAD~1
+  recommit = commit --amend --no-edit
+  get  = pull origin main
+  yeet = push origin HEAD
 [init]
-    defaultBranch = main
+  defaultBranch = main
