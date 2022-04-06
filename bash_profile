@@ -105,7 +105,7 @@
 #   ---------------
 #       aliases
 #   ---------------
-    [[ -r .aliases ]] && source .aliases
+    [[ -r ~/.aliases ]] && source ~/.aliases
 
 
 #   -----------------
