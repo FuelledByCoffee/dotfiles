@@ -48,7 +48,7 @@ window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
 
-  opacity: 1.0
+  opacity: 0.8
 
   # Window decorations
   #
@@ -291,7 +291,7 @@ schemes:
       red:     '#c91b00'
       green:   '#00c200'
       yellow:  '#ffc026'
-      blue:    '#4499f7'
+      blue:    '#4398f6'
       magenta: '#c930c7'
       cyan:    '#3bc9c7'
       white:   '#c5c8c6'
@@ -302,7 +302,7 @@ schemes:
       red:     '#fc0000'
       green:   '#00ff00'
       yellow:  '#ffda26'
-      blue:    '#0090ff'
+      blue:    '#0090ea'
       magenta: '#ff1dce'
       cyan:    '#00ffff'
       white:   '#eaeaea'
