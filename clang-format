@@ -1,5 +1,8 @@
 # vim: ft=yaml
 ---
+Language:      Json
+BasedOnStyle:  LLVM
+---
 Language:        Cpp
 # BasedOnStyle:  LLVM
 AccessModifierOffset: -2
