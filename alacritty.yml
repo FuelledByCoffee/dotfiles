@@ -304,7 +304,7 @@ schemes:
       yellow:  '#ffda26'
       blue:    '#0090ea'
       magenta: '#ff1dce'
-      cyan:    '#00ffff'
+      cyan:    '#00f8f8'
       white:   '#ececec'
 
     # Dim colors
