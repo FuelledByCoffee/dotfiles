@@ -174,12 +174,6 @@ eval "$(starship init zsh)"
 # eval "$(oh-my-posh --init --shell zsh --config $(brew --prefix oh-my-posh)/themes/half-life.omp.json)"
 #: }}}
 
-#: broot {{{
-if [[ -f $XDG_CONFIG_HOME/broot/launcher/bash/br ]]; then
-  source $XDG_CONFIG_HOME/broot/launcher/bash/br
-fi
-#: }}}
-
 #: History {{{
 setopt appendhistory
 HISTFILE=~/.histfile
