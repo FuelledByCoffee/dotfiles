@@ -67,7 +67,7 @@
   co = checkout
   dt = difftool
   br = "!git branch | fzf-tmux -d 15 --info=inline"
-  ps = "!git push &> .git/push.log || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
+  ps = "!git push &> /dev/null || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
   discard  = checkout HEAD --
   unstage  = reset HEAD --
   untrack  = rm --cached
