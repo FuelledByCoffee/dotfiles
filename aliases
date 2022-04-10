@@ -29,6 +29,8 @@ alias cp='cp -vi'
 alias ln='ln -vw'
 alias du='du -h'
 
+alias vtop='vtop --theme brew'
+
 if command -v grm &> /dev/null; then
   alias rm='grm -vI'
   alias del='gmv -t ~/.Trash'
