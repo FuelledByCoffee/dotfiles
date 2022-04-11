@@ -1,7 +1,7 @@
 # vim: ft=zsh foldmethod=marker foldlevel=0
 
-[[ "$OSTYPE" == "linux"* ]] && path+=("/home/linuxbrew/.linuxbrew/bin")
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+[[ -z $TMUX ]] && tmux new -A && exit
+
 
 # Put home folder bin first in path
 path=("$HOME/.local/bin" $path)
@@ -13,26 +13,36 @@ path+=("$HOME/.ghcup/bin") # haskell
 path+=("$HOME/.local/llvm/bin")
 path+=(".")
 
-if command -v brew &> /dev/null; then
+[[ -d /home/linuxbrew/.linuxbrew/bin ]] && path=("/home/linuxbrew/.linuxbrew/bin" $path)
+
+if hash brew 2> /dev/null; then
   eval $(brew shellenv)
   prefix=$(brew --prefix)
 
   export C_INCLUDE_PATH="${C_INCLUDE_PATH:+${C_INCLUDE_PATH}:}$prefix/include"
   export LIBRARY_PATH="${LIBRARY_PATH:+${LIBRARY_PATH}:}$prefix/lib"
+
+  [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 fi
 
-if command -v thefuck &> /dev/null; then
+if hash thefuck 2> /dev/null;
+then
   eval $(thefuck --alias)
 fi
 
-if command -v zoxide &> /dev/null; then
+if hash zoxide  2> /dev/null;
+then
   eval "$(zoxide init zsh)"
 fi
 
 typeset -U path # force path to have only unique values
 
+if hash bat 2> /dev/null;
+then
+  export PAGER=bat
+fi
 
-if command -v nvim &> /dev/null; then
+if hash nvim 2> /dev/null; then
   export VISUAL='nvim'
   export MANPAGER='nvim +Man!'
 else
@@ -43,9 +53,5 @@ else
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 fi
 export EDITOR=$VISUAL
-
-if command -v bat &> /dev/null; then
-  export PAGER=bat
-fi
 
 [[ -r ~/.aliases ]] && source ~/.aliases
