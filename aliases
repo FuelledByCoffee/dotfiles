@@ -2,7 +2,7 @@
 
 # Some ls aliases
 # Use exa if it is available
-if command -v exa &> /dev/null
+if hash exa 2> /dev/null
 then
   alias ls='exa -F'
   alias la='exa -Fa'
@@ -41,9 +41,9 @@ fi
 
 alias mkdir='mkdir -pv'
 
-if command -v nvim &> /dev/null; then
-  alias vim='nvim'
-fi
+# if command -v nvim &> /dev/null; then
+#   alias vim='nvim'
+# fi
 
 # Print one directory per line
 alias ppath="echo -e '${PATH//:/\\n}'"
