@@ -48,7 +48,8 @@
 
 #   And finally, export the prompt.
 #   ------------------------------------------------------------------
-    export PS1="[${userClr}\u${no}@${hostClr}\h ${bl}\W${no}]\\$ "
+#   export PS1="[${userClr}\u${no}@${hostClr}\h ${bl}\W${no}]\\$ ${no}"
+    export PS1="\W${no} \\$ "
     export PS2="> "
 
 #   Add directories to path
