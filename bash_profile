@@ -60,10 +60,6 @@
 #   ------------------------------------------------------------------
 #   export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-#   Custom colors
-#   ------------------------------------------------------------------
-    # export CLICOLOR=1   # I'll never understand how some people can work in mono-bit color
-
 #   Add and define colors and options for ls
 #   ------------------------------------------------------------------
 #   export LSCOLORS="exfxcxdxBxegedabagacad"            # For BSD and mac
