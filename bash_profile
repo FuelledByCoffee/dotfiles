@@ -191,4 +191,5 @@
       fi
     }
 
-# vim:ft=bash
+
+# vim: ft=bash shiftwidth=4 tabstop=4
