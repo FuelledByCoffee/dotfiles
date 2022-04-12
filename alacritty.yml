@@ -811,6 +811,7 @@ key_bindings:
   - { key: U,      mods: Command,            chars: "\x15"            } # C-u
   - { key: Z,      mods: Command,            chars: "\x1A"            } # C-z
   - { key: K,      mods: Command,            chars: "\x0C"            } # C-l
+  - { key: O,      mods: Command,            chars: "\x18\x0f"        } # C-xC-o omni-complete in vim
   - { key: K,      mods: Command,            action: ClearHistory     }
   - { key: Key0,   mods: Command,            action: ResetFontSize    }
   - { key: Plus,   mods: Command,            action: IncreaseFontSize }

@@ -39,7 +39,7 @@ typeset -U path # force path to have only unique values
 
 if hash bat 2> /dev/null;
 then
-  export PAGER=bat
+  export PAGER="bat --style=grid"
 fi
 
 if hash nvim 2> /dev/null; then
