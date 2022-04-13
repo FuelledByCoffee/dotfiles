@@ -1,7 +1,5 @@
 # vim: ft=zsh foldmethod=marker foldlevel=0
 
-[[ -z $TMUX ]] && tmux new -A && exit
-
 
 # Put home folder bin first in path
 path=("$HOME/.local/bin" $path)
