@@ -1,6 +1,5 @@
 # vim: ft=zsh foldmethod=marker foldlevel=0
 
-
 # Put home folder bin first in path
 path=("$HOME/.local/bin" $path)
 
