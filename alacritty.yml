@@ -812,6 +812,7 @@ key_bindings:
   - { key: Z,      mods: Command,            chars: "\x1A"            } # C-z
   - { key: K,      mods: Command,            chars: "\x0C"            } # C-l
   - { key: O,      mods: Command,            chars: "\x18\x0f"        } # C-xC-o omni-complete in vim
+  - { key: F,      mods: Command,            chars: "\x18\x06"        } # C-xC-f file-complete in vim
   - { key: K,      mods: Command,            action: ClearHistory     }
   - { key: Key0,   mods: Command,            action: ResetFontSize    }
   - { key: Plus,   mods: Command,            action: IncreaseFontSize }
@@ -823,11 +824,12 @@ key_bindings:
   - { key: M,      mods: Command,            action: Minimize         }
   - { key: Q,      mods: Command,            action: Quit             }
   - { key: F,      mods: Command|Control,    action: ToggleFullscreen }
-  - { key: F,      mods: Command,            action: SearchForward    }
-  - { key: B,      mods: Command,            action: SearchBackward   }
+  # - { key: F,      mods: Command,            action: SearchForward    }
+  # - { key: B,      mods: Command,            action: SearchBackward   }
 
   # Tmux commands
   - { key: A,      mods: Command,        chars: "\x01"  }
+  - { key: B,      mods: Command,        chars: "\x02"  }
   - { key: J,      mods: Command,        chars: "\x02"  }
   - { key: N,      mods: Command,        chars: "\x02n" }
   - { key: P,      mods: Command,        chars: "\x02p" }
