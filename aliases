@@ -28,6 +28,7 @@ alias mv='mv -vi'
 alias cp='cp -vi'
 alias ln='ln -vw'
 alias du='du -h'
+alias rg='rg -i'
 
 alias vtop='vtop --theme brew'
 
