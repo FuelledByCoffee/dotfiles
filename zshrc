@@ -84,7 +84,7 @@ function ql {
 }
 
 # Hide folder in finder
-hide () {
+function hide () {
   if [[ -d $1 ]] ; then
     chflags hidden $1
   else
@@ -93,7 +93,7 @@ hide () {
 }
 
 # Unhide folder in finder
-show () {
+function show () {
   if [[ -d $1 ]] ; then
     chflags nohidden $1
   else
