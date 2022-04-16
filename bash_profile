@@ -74,10 +74,10 @@
 #   Open man pages in $VISUAL which hopefully is either vim or neovim
 #   Adds a few binds that make vim behave more like less
 #   ------------------------------------------------------------------
-    export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
-        $VISUAL -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-        -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-        -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+    export MANPAGER="vim --not-a-term\
+        -c '%!col -b'\
+        -c 'set ft=man nomod'\
+        -"
 
 #   Set language to american english
 #   ------------------------------------------------------------------

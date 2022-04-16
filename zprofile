@@ -44,10 +44,10 @@ if hash nvim 2> /dev/null; then
   export MANPAGER='nvim +Man!'
 else
   export VISUAL='vim'
-  export MANPAGER="/bin/sh -c \"unset MANPAGER;col -b -x | \
-    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+  export MANPAGER="vim --not-a-term\
+    -c '%!col -b'\
+    -c 'set ft=man nomod'\
+    -"
 fi
 export EDITOR=$VISUAL
 
