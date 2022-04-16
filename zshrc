@@ -192,6 +192,4 @@ source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
 
 bindkey '^ ' autosuggest-accept
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=none"
-
-# source ~/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 #: }}}
