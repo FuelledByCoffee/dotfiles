@@ -11,7 +11,7 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="nb_NO.UTF-8"
 
 # Programming
-if command -v clang &> /dev/null; then
+if hash clang 2> /dev/null; then
   export CC="clang"
   export CXX="clang++"
 fi
