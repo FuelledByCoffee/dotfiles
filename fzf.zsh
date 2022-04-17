@@ -27,7 +27,8 @@ export FZF_DEFAULT_OPTS="\
   --bind 'ctrl-a:change-prompt(All> )+reload(fd)' \
   --preview '([[ -f {} ]] && (bat --style=plain --color=always {} \
   || cat {})) \
-  || ([[ -d {} ]] && (exa -T {})) \
+  || ([[ -d {} ]] && (exa -T 2> /dev/null {}) \
+  || (ls {})) \
   || echo {} 2> /dev/null | head -200'"
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -56,7 +57,7 @@ fh() {
 
 # Search for and kill process
 function hunt() {
-  ps -ef | fzf | awk '{print $2}' | xargs kill -9
+  ps -ef | fzf --preview '' | awk '{print $2}' | xargs kill -9
 }
 
 
