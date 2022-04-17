@@ -74,10 +74,7 @@
 #   Open man pages in $VISUAL which hopefully is either vim or neovim
 #   Adds a few binds that make vim behave more like less
 #   ------------------------------------------------------------------
-    export MANPAGER="vim --not-a-term\
-        -c '%!col -b'\
-        -c 'set ft=man nomod'\
-        -"
+    export MANPAGER="vim --not-a-term -M +MANPAGER -"
 
 #   Set language to american english
 #   ------------------------------------------------------------------

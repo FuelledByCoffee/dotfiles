@@ -44,10 +44,7 @@ if hash nvim 2> /dev/null; then
   export MANPAGER='nvim +Man!'
 else
   export VISUAL='vim'
-  export MANPAGER="vim --not-a-term\
-    -c '%!col -b'\
-    -c 'set ft=man nomod'\
-    -"
+  export MANPAGER="vim --not-a-term -M +MANPAGER -"
 fi
 export EDITOR=$VISUAL
 
