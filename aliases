@@ -15,11 +15,11 @@ elif [[ "$OSTYPE" == "linux"* ]]; then
   alias ll='ls -l --color=auto'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls='ls -FG'
-  alias la='ls -FGA'
-  alias ll='ls -FGl'
+  alias la='ls -A'
+  alias ll='ls -l'
 fi
 
-alias grep='grep   --color=auto'
+alias  grep=' grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
