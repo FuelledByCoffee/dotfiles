@@ -16,7 +16,7 @@ source "$prefix/opt/fzf/shell/key-bindings.zsh"
 export FZF_DIR="$prefix/opt/fzf"
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git"
 export FZF_DEFAULT_OPTS="\
-  --height 90% \
+  --height 95% \
   --layout=reverse \
   --border=sharp \
   --margin=1 \
