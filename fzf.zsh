@@ -54,5 +54,11 @@ fh() {
 }
 
 
+# Search for and kill process
+function hunt() {
+  ps -ef | fzf | awk '{print $2}' | xargs kill -9
+}
+
+
 bindkey '^p' fzf-cd-widget
 
