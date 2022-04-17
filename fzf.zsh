@@ -15,8 +15,16 @@ source "$prefix/opt/fzf/shell/key-bindings.zsh"
 
 export FZF_DIR="$prefix/opt/fzf"
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git"
-export FZF_DEFAULT_OPTS="--height 100% \
+export FZF_DEFAULT_OPTS="\
+  --height 90% \
   --layout=reverse \
+  --border=sharp \
+  --margin=1 \
+  --padding=1 \
+  --prompt='All> ' \
+  --bind 'ctrl-f:change-prompt(Files> )+reload(fd -t f)' \
+  --bind 'ctrl-d:change-prompt(Directories> )+reload(fd -t d)' \
+  --bind 'ctrl-a:change-prompt(All> )+reload(fd)' \
   --preview '([[ -f {} ]] && (bat --style=plain --color=always {} \
   || cat {})) \
   || ([[ -d {} ]] && (exa -T {})) \
