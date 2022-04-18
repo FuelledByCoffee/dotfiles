@@ -26,7 +26,7 @@ export FZF_DEFAULT_OPTS="\
   --bind '?:toggle-preview' \
   --bind 'ctrl-f:change-prompt(Files❯ )+reload(fd -t f)' \
   --bind 'ctrl-d:change-prompt(Directories❯ )+reload(fd -t d)' \
-  --bind 'ctrl-o:change-prompt(All❯ )+reload(fd)' \
+  --bind 'ctrl-r:change-prompt(All❯ )+reload(fd)' \
   --bind 'ctrl-e:execute(echo {+} | xargs -o $VISUAL)' \
   --preview '([[ -f {} ]] && (bat --style=plain --color=always {} \
   || cat {})) \
