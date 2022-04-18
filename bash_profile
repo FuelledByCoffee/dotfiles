@@ -71,10 +71,12 @@
     export EDITOR="vim"
     export VISUAL="vim"
 
-#   Open man pages in $VISUAL which hopefully is either vim or neovim
-#   Adds a few binds that make vim behave more like less
+#   Use vim to view manuals
 #   ------------------------------------------------------------------
-    export MANPAGER="vim --not-a-term -M +MANPAGER -"
+    export MANPAGER="/bin/bash -c \"col -b -x \
+        | vim -R --not-a-term \
+            -c 'set ft=man' \
+            - \""
 
 #   Set language to american english
 #   ------------------------------------------------------------------
