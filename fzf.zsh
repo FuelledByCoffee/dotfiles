@@ -38,13 +38,13 @@ export FZF_CTRL_R_COMMAND="$FZF_DEFAULT_COMMAND"
 # command for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
-_fzf_compgen_path() {
+function _fzf_compgen_path {
   fd --hidden --follow --exclude ".git" . "$1"
 }
 
 
 # Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
+function _fzf_compgen_dir {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
@@ -58,7 +58,7 @@ function fh {
 
 
 # Search for and kill process
-function hunt() {
+function hunt {
   ps -ef | fzf --preview '' | awk '{print $2}' | xargs kill -9
 }
 
