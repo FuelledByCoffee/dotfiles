@@ -49,3 +49,6 @@ alias mkdir='mkdir -pv'
 # Print one directory per line
 alias ppath="echo -e '${PATH//:/\\n}'"
 alias pmanpath="echo -e '${MANPATH//:/\\n}'"
+
+
+# vim: ft=bash sw=2 ts=2
