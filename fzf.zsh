@@ -55,14 +55,17 @@ function _fzf_compgen_dir {
 # fh - search in your command history and execute selected command
 function fh {
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) \
-    | fzf --preview '' +s --tac \
+    | fzf --no-preview +s --tac \
     | sed 's/ *[0-9]* *//')
 }
 
 
 # Search for and kill process
 function hunt {
-  ps -ef | fzf --preview '' | awk '{print $2}' | xargs kill -9
+  ps -ef \
+    | fzf --no-preview --bind 'ctrl-r:reload(ps -ef)' --header 'Press CTRL-R to reload' \
+    | awk '{print $2}' \
+    | xargs kill -9
 }
 
 
