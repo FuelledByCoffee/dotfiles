@@ -31,13 +31,6 @@ function chpwd {
 }
 
 
-# Fall back to zoxide if cd doesn't work
-function cd {
-  emulate -L zsh
-  builtin cd $@ &> /dev/null && ls || z $1
-}
-
-
 cdl () {
   emulate -L zsh
   cd "$(dirname "$(readlink "$1")")";
