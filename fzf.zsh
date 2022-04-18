@@ -15,19 +15,19 @@ source "$prefix/opt/fzf/shell/key-bindings.zsh"
 
 export FZF_DIR="$prefix/opt/fzf"
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git"
-export FZF_DEFAULT_OPTS="\
-  --height 95% \
-  --layout=reverse \
-  --pointer='▶ ' \
-  --border=sharp \
-  --margin=1 \
-  --padding=1 \
-  --prompt='All❯ ' \
-  --bind '?:toggle-preview' \
-  --bind 'ctrl-f:change-prompt(Files❯ )+reload(fd -t f)' \
-  --bind 'ctrl-d:change-prompt(Directories❯ )+reload(fd -t d)' \
-  --bind 'ctrl-r:change-prompt(All❯ )+reload(fd)' \
-  --bind 'ctrl-e:execute(echo {+} | xargs -o $VISUAL)' \
+export FZF_DEFAULT_OPTS="
+  --height 95%
+  --layout=reverse
+  --pointer='▶ '
+  --margin=1
+  --padding=1
+  --prompt='All❯ '
+  --bind '?:toggle-preview'
+  --bind 'ctrl-f:change-prompt(Files❯ )+reload(fd -t f)'
+  --bind 'ctrl-d:change-prompt(Directories❯ )+reload(fd -t d)'
+  --bind 'ctrl-r:change-prompt(All❯ )+reload(fd)'
+  --bind 'ctrl-e:execute(echo {+} | xargs -o $VISUAL)'
+  --header='CTRL-r to reset'
   --preview '([[ -f {} ]] && (bat --style=plain --color=always {} \
   || cat {})) \
   || ([[ -d {} ]] && (exa -T 2> /dev/null {}) \
@@ -35,7 +35,11 @@ export FZF_DEFAULT_OPTS="\
   || echo {} 2> /dev/null | head -200'"
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS=""
 export FZF_CTRL_R_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_R_OPTS="--preview-window=:hidden"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+export FZF_ALT_C_OPTS=""
 
 
 # command for listing path candidates.
@@ -55,7 +59,7 @@ function _fzf_compgen_dir {
 # fh - search in your command history and execute selected command
 function fh {
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) \
-    | fzf --no-preview +s --tac \
+    | fzf +s --tac --no-preview \
     | sed 's/ *[0-9]* *//')
 }
 
