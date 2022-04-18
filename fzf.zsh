@@ -18,13 +18,16 @@ export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git"
 export FZF_DEFAULT_OPTS="\
   --height 95% \
   --layout=reverse \
+  --pointer='▶ ' \
   --border=sharp \
   --margin=1 \
   --padding=1 \
-  --prompt='All> ' \
-  --bind 'ctrl-f:change-prompt(Files> )+reload(fd -t f)' \
-  --bind 'ctrl-d:change-prompt(Directories> )+reload(fd -t d)' \
-  --bind 'ctrl-a:change-prompt(All> )+reload(fd)' \
+  --prompt='All❯ ' \
+  --bind '?:toggle-preview' \
+  --bind 'ctrl-f:change-prompt(Files❯ )+reload(fd -t f)' \
+  --bind 'ctrl-d:change-prompt(Directories❯ )+reload(fd -t d)' \
+  --bind 'ctrl-o:change-prompt(All❯ )+reload(fd)' \
+  --bind 'ctrl-e:execute(echo {+} | xargs -o $VISUAL)' \
   --preview '([[ -f {} ]] && (bat --style=plain --color=always {} \
   || cat {})) \
   || ([[ -d {} ]] && (exa -T 2> /dev/null {}) \
