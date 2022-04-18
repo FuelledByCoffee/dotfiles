@@ -30,6 +30,8 @@ alias ln='ln -vw'
 alias du='du -h'
 alias rg='rg -i'
 
+alias mkdir='mkdir -pv'
+
 alias vtop='vtop --theme brew'
 
 if command -v grm &> /dev/null; then
@@ -39,16 +41,5 @@ elif [[ "$OSTYPE" == "linux"* ]]; then
   alias rm='rm -vI'
   alias del='mv -t ~/.Trash'
 fi
-
-alias mkdir='mkdir -pv'
-
-# if command -v nvim &> /dev/null; then
-#   alias vim='nvim'
-# fi
-
-# Print one directory per line
-alias ppath="echo -e '${PATH//:/\\n}'"
-alias pmanpath="echo -e '${MANPATH//:/\\n}'"
-
 
 # vim: ft=bash sw=2 ts=2

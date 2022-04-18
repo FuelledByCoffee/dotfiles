@@ -138,6 +138,17 @@
       stat --printf="%s bytes\n" $@
     }
 
+    # Print one directory per line
+    ppath() {
+        echo -e "${PATH//:/\\n}"
+    }
+
+
+    function pmanpath {
+        echo -e "${MANPATH//:/\\n}"
+    }
+
+
 #   Hide a folder in finder
 #   ------------------------------------------------------------------
     hide () {
