@@ -37,6 +37,17 @@ cdl () {
 }
 
 
+# Print one directory per line
+function ppath {
+  echo -e "${PATH//:/\\n}"
+}
+
+
+function pmanpath {
+  echo -e "${MANPATH//:/\\n}"
+}
+
+
 function dump {
   emulate -L zsh
   objdump -d $1 | $VISUAL -R \

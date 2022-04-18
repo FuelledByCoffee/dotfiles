@@ -122,7 +122,7 @@
 #   Print partial trace of actions to screen
 #   ------------------------------------------------------------------
     delete () {
-      for file in $@
+      for file in "$@"
       do
         command mv $file ~/.Trash/$(basename $file) && echo "$(basename $file) -> Trash"
       done
