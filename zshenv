@@ -28,14 +28,14 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZDOTDIR/.zsh-syntax-highlighting/highlig
 
 
 # Put home folder bin first in path
-path=("$HOME/.local/bin" $path)
+path=($HOME/.local/bin $path)
 
-path+=("$HOME/go/bin")
-path+=("$HOME/.cargo/bin") # rust
-path+=("$HOME/.cabal/bin") # haskell
-path+=("$HOME/.ghcup/bin") # haskell
-path+=("$HOME/.local/llvm/bin")
-path+=(".")
+path+=($HOME/go/bin)
+path+=($HOME/.cargo/bin) # rust
+path+=($HOME/.cabal/bin) # haskell
+path+=($HOME/.ghcup/bin) # haskell
+path+=($HOME/.local/llvm/bin)
+path+=(.)
 
 [[ -d /home/linuxbrew/.linuxbrew/bin ]] && path=("/home/linuxbrew/.linuxbrew/bin" $path)
 
