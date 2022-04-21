@@ -37,7 +37,7 @@ path+=($HOME/.ghcup/bin) # haskell
 path+=($HOME/.local/llvm/bin)
 path+=(.)
 
-[[ -d /home/linuxbrew/.linuxbrew/bin ]] && path=("/home/linuxbrew/.linuxbrew/bin" $path)
+[[ -d /home/linuxbrew/.linuxbrew/bin ]] && path=(/home/linuxbrew/.linuxbrew/bin $path)
 
 if hash brew 2> /dev/null; then
   eval $(brew shellenv)
