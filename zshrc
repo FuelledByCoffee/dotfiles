@@ -1,4 +1,3 @@
-#!/usr/bin/env zsh
 # vim: ft=zsh foldmethod=marker foldlevel=0
 
 #: Completions {{{
