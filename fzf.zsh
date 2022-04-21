@@ -2,7 +2,7 @@
 # ---------
 prefix=$(brew --prefix)
 if [[ ! "$PATH" == "*$prefix/opt/fzf/bin*" ]]; then
-  export PATH="${PATH:+${PATH}:}$prefix/opt/fzf/bin"
+  path+=($prefix/opt/fzf/bin)
 fi
 
 # Auto-completion
