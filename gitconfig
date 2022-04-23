@@ -19,7 +19,6 @@
   cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 [merge]
   tool = nvim
-  conflictstyle = diff3
 [mergetool]
   prompt = false
 [mergetool "nvim"]
@@ -55,8 +54,8 @@
   old = red bold
   new = green bold
 [color "status"]
-  added = yellow
-  changed = green
+  added = green
+  changed = yellow
   untracked = cyan
 [credential]
   helper = osxkeychain
@@ -66,7 +65,7 @@
   st = status
   co = checkout
   dt = difftool
-  br = "!git branch | fzf-tmux -d 15 --info=inline"
+  br = "!git branch | fzf-tmux --no-preview -d 15"
   ps = "!git push &> /dev/null || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
   discard  = checkout HEAD --
   unstage  = reset HEAD --
