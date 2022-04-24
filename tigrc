@@ -1,0 +1,5 @@
+# vim: ft=toml
+
+# set git-colors = no
+
+color cursor black blue
