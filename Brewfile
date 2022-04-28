@@ -29,6 +29,7 @@ brew "thefuck"
 brew "libmagic"
 brew "starship"
 brew "rust-analyzer"
+brew "clang-format"
 
 # tap "jgavris/rs-git-fsmonitor https://github.com/jgavris/rs-git-fsmonitor.git"
 # brew "rs-git-fsmonitor"
