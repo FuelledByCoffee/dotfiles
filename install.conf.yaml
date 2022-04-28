@@ -48,5 +48,8 @@
       description: Installing Homebrew
     - [chsh -s $(which zsh), Making zsh the default shell]
     - [source ~/.zshenv, Setting up environment]
-    - [source $ZDOTDIR/.zprofile, Setting up path]
-    - [brew bundle, Installing various utilities]
+    -
+      command: brew bundle
+      stdin: false
+      stdout: true
+      description: Installing homebrew formulae]
