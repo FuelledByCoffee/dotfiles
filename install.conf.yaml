@@ -34,8 +34,6 @@
 
     ~/.zshenv:
     ~/.zshrc:
-    ~/.zprofile:
-    ~/.zsh-autocomplete:
     ~/.zsh-syntax-highlighting:
     ~/.zsh-autosuggestions:
     ~/.fzf.zsh:
