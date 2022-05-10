@@ -6,7 +6,7 @@
   user = FuelledByCoffee
 [github]
   user = FuelledByCoffee
-[url "https://github.com/FuelledByCoffee/"]
+[url "git@github.com:FuelledByCoffee/"]
   insteadOf = gh:
 [push]
   default = upstream
