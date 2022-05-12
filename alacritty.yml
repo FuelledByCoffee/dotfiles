@@ -432,7 +432,7 @@ live_config_reload: true
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /opt/homebrew/bin/zsh
+  program: bash
   args:
     - -l
     - -c
