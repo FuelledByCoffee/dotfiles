@@ -73,5 +73,13 @@ function hunt {
 }
 
 
+# Search for environment variable to unset
+function env-rm {
+  unset $(env \
+    | fzf --no-preview --bind 'ctrl-r:reload(env)' --header 'Press CTRL-R to reload' \
+    | sed 's/=.*//')
+}
+
+
 bindkey '^p' fzf-cd-widget
 
