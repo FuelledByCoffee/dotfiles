@@ -54,7 +54,13 @@
 
 #   Add directories to path
 #   ------------------------------------------------------------------
-    PATH="${PATH:+${PATH}:}."
+    if [[ ! "$PATH" == "*.*" ]]; then
+        PATH="${PATH:+${PATH}:}."
+    fi
+
+    if [[ -d /home/linuxbrew/.linuxbrew/bin ]] ; then
+        PATH="${PATH:+${PATH}:}/home/linuxbrew/.linuxbrew/bin"
+    fi
 
 #   Adds gnu manuals to man search
 #   ------------------------------------------------------------------
@@ -201,5 +207,9 @@
       fi
     }
 
+    if [ -z $TMUX ] ; then
+      tmux new -A
+    fi
 
 # vim: ft=bash shiftwidth=4 tabstop=4
+. "$HOME/.cargo/env"
