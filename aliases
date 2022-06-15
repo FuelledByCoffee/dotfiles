@@ -26,7 +26,7 @@ alias egrep='egrep --color=auto'
 # Common commands
 alias mv='mv -vi'
 alias cp='cp -vi'
-alias ln='ln -vw'
+alias ln='ln -v'
 alias du='du -h'
 alias rg='rg -i'
 
