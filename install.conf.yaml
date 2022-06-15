@@ -32,6 +32,8 @@
 
     ~/.config/powershell/Microsoft.Powershell_profile.ps1:
 
+    ~/.clang-format:
+
     ~/.zshenv:
     ~/.zshrc:
     ~/.zsh-syntax-highlighting:
