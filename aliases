@@ -2,17 +2,10 @@
 
 # Some ls aliases
 # Use exa if it is available
-if hash exa 2> /dev/null
-then
-  alias ls='exa -F'
-  alias la='exa -Fa'
-  alias ll='exa -FlhH --sort=extension'
-  alias lt='exa -FT'
-  alias tree='exa -FT'    # Tree replacement
-elif [[ "$OSTYPE" == "linux"* ]]; then
+if [[ "$OSTYPE" == "linux"* ]]; then
   alias ls='ls -F --color=auto'
-  alias la='ls -A --color=auto'
-  alias ll='ls -l --color=auto'
+  alias la='ls -A'
+  alias ll='ls -l'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls='ls -FG'
   alias la='ls -A'
