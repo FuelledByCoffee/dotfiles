@@ -16,8 +16,23 @@ if hash clang 2> /dev/null; then
   export CXX="clang++"
 fi
 
-export CPATH="$HOME/.local/include"
-export LIBRARY_PATH="$HOME/.local/lib"
+export CPATH="${CPATH:-HOME/.local/include}"
+export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
+
+if [[ -d /usr/local/llvm ]]; then
+  llvm_install_dir="/usr/local/llvm"
+elif [[ -d $HOME/.local/llvm ]]; then
+  llvm_install_dir="$HOME/.local/llvm"
+fi
+
+if [[ -n llvm_install_dir ]]; then
+  export LDFLAGS="-Wl,-rpath,$llvm_install_dir/lib"
+  export LIBRARY_PATH="$llvm_install_dir/lib${LIBRARY_PATH:+:${LIBRARY_PATH}}"
+  export CPATH="$llvm_install_dir/include${CPATH:+:${CPATH}}"
+
+  path+=($llvm_install_dir/bin)
+fi
+
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 
 # CLI
@@ -34,7 +49,6 @@ path+=($HOME/go/bin)
 path+=($HOME/.cargo/bin) # rust
 path+=($HOME/.cabal/bin) # haskell
 path+=($HOME/.ghcup/bin) # haskell
-path+=($HOME/.local/llvm/bin)
 path+=(.)
 
 [[ -d /home/linuxbrew/.linuxbrew/bin ]] && path=(/home/linuxbrew/.linuxbrew/bin $path)
@@ -43,8 +57,9 @@ if hash brew 2> /dev/null; then
   eval $(brew shellenv)
   prefix=$(brew --prefix)
 
-  export C_INCLUDE_PATH="${C_INCLUDE_PATH:+${C_INCLUDE_PATH}:}$prefix/include"
+  export CPATH="${CPATH:+${CPATH}:}$prefix/include"
   export LIBRARY_PATH="${LIBRARY_PATH:+${LIBRARY_PATH}:}$prefix/lib"
+  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
 
   [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 fi
