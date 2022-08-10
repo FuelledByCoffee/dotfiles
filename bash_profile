@@ -59,7 +59,11 @@
     fi
 
     if [[ -d /home/linuxbrew/.linuxbrew/bin ]] ; then
-        PATH="${PATH:+${PATH}:}/home/linuxbrew/.linuxbrew/bin"
+        PATH="/home/linuxbrew/.linuxbrew/bin${PATH:+:${PATH}}"
+    fi
+
+    if [[ ! "$PATH" == "*~/.local/bin*" ]]; then
+          PATH="${PATH:+${PATH}:}$HOME/.local/bin"
     fi
 
 #   Adds gnu manuals to man search
