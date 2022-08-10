@@ -64,22 +64,24 @@ if hash brew 2> /dev/null; then
   [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 fi
 
-if hash thefuck 2> /dev/null;
-then
-  eval $(thefuck --alias)
-fi
-
-if hash zoxide  2> /dev/null;
-then
-  eval "$(zoxide init zsh)"
-fi
 
 typeset -U path # force path to have only unique values
 
-if hash bat 2> /dev/null;
-then
+
+if hash thefuck 2> /dev/null; then
+  eval $(thefuck --alias)
+fi
+
+
+if hash zoxide  2> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+
+if hash bat 2> /dev/null; then
   export PAGER="bat --style=grid"
 fi
+
 
 if hash nvim 2> /dev/null; then
   export VISUAL='nvim'
