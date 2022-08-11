@@ -3,12 +3,12 @@
 Language:      Json
 BasedOnStyle:  LLVM
 ---
-Language:        Cpp
-# BasedOnStyle:  LLVM
+Language:      Cpp
+BasedOnStyle:  LLVM
 AccessModifierOffset: -2
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: Consecutive
-# AlignArrayOfStructures: Right
+AlignArrayOfStructures: Right
 AlignConsecutiveAssignments: AcrossComments
 AlignConsecutiveBitFields: None
 AlignConsecutiveDeclarations: AcrossComments
@@ -22,8 +22,8 @@ AllowShortEnumsOnASingleLine: false
 AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Inline
-AllowShortLambdasOnASingleLine: None
-AllowShortIfStatementsOnASingleLine: Always
+AllowShortLambdasOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: WithoutElse
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
@@ -111,7 +111,7 @@ JavaScriptWrapImports: true
 KeepEmptyLinesAtTheStartOfBlocks: true
 MacroBlockBegin: ''
 MacroBlockEnd:   ''
-MaxEmptyLinesToKeep: 4
+MaxEmptyLinesToKeep: 2
 NamespaceIndentation: None
 ObjCBinPackProtocolList: Auto
 ObjCBlockIndentWidth: 2
@@ -160,7 +160,7 @@ StatementMacros:
   - QT_REQUIRE_VERSION
 TabWidth:        4
 UseCRLF:         false
-UseTab:          Never
+UseTab:          AlignWithSpaces
 WhitespaceSensitiveMacros:
   - STRINGIZE
   - PP_STRINGIZE
