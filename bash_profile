@@ -12,35 +12,35 @@
 
 #   Color stuff
 #   ------------------------------------------------------------------
-    rd="\[\e[0;31m\]"   # Red
-    gr="\[\e[0;32m\]"   # Green
-    yl="\[\e[0;33m\]"   # Yellow
-    bl="\[\e[0;34m\]"   # Blue
-    mg="\[\e[0;35m\]"   # Magenta
-    cy="\[\e[0;36m\]"   # Cyan
+#   rd="\[\e[0;31m\]"   # Red
+#   gr="\[\e[0;32m\]"   # Green
+#   yl="\[\e[0;33m\]"   # Yellow
+#   bl="\[\e[0;34m\]"   # Blue
+#   mg="\[\e[0;35m\]"   # Magenta
+#   cy="\[\e[0;36m\]"   # Cyan
 
-    brd="\[\e[1;31m\]"  # Bold Red
-    bgr="\[\e[1;32m\]"  # Bold Green
-    byl="\[\e[1;33m\]"  # Bold Yellow
-    bbl="\[\e[1;34m\]"  # Bold Blue
-    bmg="\[\e[1;35m\]"  # Bold Magenta
-    bcy="\[\e[1;36m\]"  # Bold Cyan
+#   brd="\[\e[1;31m\]"  # Bold Red
+#   bgr="\[\e[1;32m\]"  # Bold Green
+#   byl="\[\e[1;33m\]"  # Bold Yellow
+#   bbl="\[\e[1;34m\]"  # Bold Blue
+#   bmg="\[\e[1;35m\]"  # Bold Magenta
+#   bcy="\[\e[1;36m\]"  # Bold Cyan
 
     no="\[\e[0m\]"  # Normal
 
 #   Set colours depending on host and user state.
 #   ------------------------------------------------------------------
-    if (( EUID == 0 )); then
-        userClr=$rd     # If user is root: set colour to red.
-    else
-        userClr=$bgr     # Else: set user colour to green.
-    fi
+#   if (( EUID == 0 )); then
+#       userClr=$rd     # If user is root: set colour to red.
+#   else
+#       userClr=$bgr     # Else: set user colour to green.
+#   fi
 
-    if [ -n "$SSH_CONNECTION" ]; then
-        hostClr=$cy     # If remote ssh connection: show host as cyan.
-    else
-        hostClr=$bgr     # Else: show host as green.
-    fi
+#   if [ -n "$SSH_CONNECTION" ]; then
+#       hostClr=$cy     # If remote ssh connection: show host as cyan.
+#   else
+#       hostClr=$bgr     # Else: show host as green.
+#   fi
 
 #   Get local host name. Using \h tends to replace the local name with an ip.
 #   ------------------------------------------------------------------
@@ -58,11 +58,12 @@
         PATH="${PATH:+${PATH}:}."
     fi
 
-    if [[ -d /home/linuxbrew/.linuxbrew/bin ]] ; then
-        PATH="/home/linuxbrew/.linuxbrew/bin${PATH:+:${PATH}}"
+    brewbin="/home/linuxbrew/.linuxbrew/bin"
+    if [[ -d $brewbin && $PATH != "*$brewbin*" ]] ; then
+        PATH="$brewbin${PATH:+:${PATH}}"
     fi
 
-    if [[ ! "$PATH" == "*~/.local/bin*" ]]; then
+    if [[ ! "$PATH" == "*$HOME/.local/bin*" ]]; then
           PATH="${PATH:+${PATH}:}$HOME/.local/bin"
     fi
 
@@ -72,7 +73,7 @@
 
 #   Add and define colors and options for ls
 #   ------------------------------------------------------------------
-#   export LSCOLORS="exfxcxdxBxegedabagacad"            # For BSD and mac
+    export LSCOLORS="exfxcxdxBxegedabagacad"            # For BSD and mac
     export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31"    # For Linux
     export QUOTING_STYLE="literal"                      # Don't put names with spaces in quotes
 
@@ -217,3 +218,4 @@
 
 # vim: ft=bash shiftwidth=4 tabstop=4
 . "$HOME/.cargo/env"
+[ -f ~/.fzf.bash ] && source $HOME/.fzf.bash
