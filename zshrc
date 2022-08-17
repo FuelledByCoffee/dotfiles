@@ -139,6 +139,10 @@ autoload -Uz add-zsh-hook-widget
 autoload -Uz vcs_info
 setopt promptsubst
 
+if hash starship 2> /dev/null; then
+  eval "$(starship init zsh)"
+fi
+
 #: Powerlineglyphs {{{
 #                                        
 #: }}}
@@ -173,8 +177,6 @@ setopt promptsubst
 # zle -N zle-line-pre-redraw
 
 # RPROMPT='%(?..%B%F{red}❌ %?%f%b)'
-eval "$(starship init zsh)"
-# eval "$(oh-my-posh --init --shell zsh --config $(brew --prefix oh-my-posh)/themes/half-life.omp.json)"
 #: }}}
 
 #: History {{{
