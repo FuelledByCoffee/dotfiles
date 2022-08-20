@@ -16,19 +16,22 @@ if hash clang 2> /dev/null; then
   export CXX="clang++"
 fi
 
+unset CPPFLAGS
+unset LDFLAGS
+
 export CPATH="${CPATH:-HOME/.local/include}"
 export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
 
 if [[ -d /usr/local/llvm ]]; then
   llvm_install_dir="/usr/local/llvm"
+  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I $llvm_install_dir/include"
+  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L $llvm_install_dir/lib -Wl,-rpath,$llvm_install_dir/lib"
+
+  path+=($llvm_install_dir/bin)
 elif [[ -d $HOME/.local/llvm ]]; then
   llvm_install_dir="$HOME/.local/llvm"
-fi
-
-if [[ -n llvm_install_dir ]]; then
-  export LDFLAGS="-Wl,-rpath,$llvm_install_dir/lib"
-  export LIBRARY_PATH="$llvm_install_dir/lib${LIBRARY_PATH:+:${LIBRARY_PATH}}"
-  export CPATH="$llvm_install_dir/include${CPATH:+:${CPATH}}"
+  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I $llvm_install_dir/include"
+  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L $llvm_install_dir/lib -Wl,-rpath,$llvm_install_dir/lib"
 
   path+=($llvm_install_dir/bin)
 fi
@@ -57,13 +60,11 @@ if hash brew 2> /dev/null; then
   eval $(brew shellenv)
   prefix=$(brew --prefix)
 
-  export CPATH="${CPATH:+${CPATH}:}$prefix/include"
-  export LIBRARY_PATH="${LIBRARY_PATH:+${LIBRARY_PATH}:}$prefix/lib"
-  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
-
-  [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I $prefix/include"
+  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L $prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
 fi
 
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 typeset -U path # force path to have only unique values
 
