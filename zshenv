@@ -24,13 +24,13 @@ export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
 
 if [[ -d /usr/local/llvm ]]; then
   llvm_install_dir="/usr/local/llvm"
-  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I $llvm_install_dir/include"
+  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$llvm_install_dir/include"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$llvm_install_dir/lib -Wl,-rpath,$llvm_install_dir/lib"
 
   path+=($llvm_install_dir/bin)
 elif [[ -d $HOME/.local/llvm ]]; then
   llvm_install_dir="$HOME/.local/llvm"
-  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I $llvm_install_dir/include"
+  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$llvm_install_dir/include"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$llvm_install_dir/lib -Wl,-rpath,$llvm_install_dir/lib"
 
   path+=($llvm_install_dir/bin)
@@ -58,7 +58,7 @@ if hash brew 2> /dev/null; then
   eval $(brew shellenv)
   prefix=$(brew --prefix)
 
-  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I $prefix/include"
+  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$prefix/include"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
 fi
 
