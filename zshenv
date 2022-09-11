@@ -58,6 +58,8 @@ if hash brew 2> /dev/null; then
   eval $(brew shellenv)
   prefix=$(brew --prefix)
 
+  export LIBRARY_PATH="${LIBRARY_PATH:+${LIBRARY_PATH}:}$prefix/lib"
+
   export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$prefix/include"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
 fi
