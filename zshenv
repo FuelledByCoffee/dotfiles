@@ -54,6 +54,11 @@ path+=($HOME/.cabal/bin) # haskell
 path+=($HOME/.ghcup/bin) # haskell
 path+=(.)
 
+brewbin="/home/linuxbrew/.linuxbrew/bin"
+if [[ -d $brewbin && $PATH != "*$brewbin*" ]] ; then
+  PATH="$brewbin${PATH:+:${PATH}}"
+fi
+
 if hash brew 2> /dev/null; then
   eval $(brew shellenv)
   prefix=$(brew --prefix)
