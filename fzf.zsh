@@ -41,6 +41,10 @@ export FZF_CTRL_R_OPTS="--preview-window=:hidden"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_ALT_C_OPTS=""
 
+# zoxide
+# export _ZO_FZF_OPTS="
+#   --height 95%"
+
 
 # command for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
