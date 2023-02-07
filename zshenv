@@ -22,17 +22,15 @@ unset LDFLAGS
 export CPATH="${CPATH:-HOME/.local/include}"
 export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
 
-if [[ -d /usr/local/llvm ]]; then
+if [[ -d "/usr/local/llvm" ]]; then
   llvm_install_dir="/usr/local/llvm"
-  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$llvm_install_dir/include"
-  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$llvm_install_dir/lib -Wl,-rpath,$llvm_install_dir/lib"
-
-  path+=($llvm_install_dir/bin)
-elif [[ -d $HOME/.local/llvm ]]; then
+elif [[ -d "$HOME/.local/llvm" ]]; then
   llvm_install_dir="$HOME/.local/llvm"
+fi
+
+if [[ -n $llvm_install_dir ]]; then
   export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$llvm_install_dir/include"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$llvm_install_dir/lib -Wl,-rpath,$llvm_install_dir/lib"
-
   path+=($llvm_install_dir/bin)
 fi
 
