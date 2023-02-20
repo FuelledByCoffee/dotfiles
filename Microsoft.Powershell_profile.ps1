@@ -1,1 +1,6 @@
-Invoke-Expression (oh-my-posh --init --shell pwsh --config "$(brew --prefix oh-my-posh)/themes/half-life.omp.json")
+Import-Module posh-git
+Import-Module oh-my-posh
+Set-PoshPrompt -Theme half-life # half-life
+
+Set-PSReadlineKeyHandler -Key ctrl+d -Function ViExit
+Set-PSReadlineOption -EditMode vi
