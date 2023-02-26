@@ -6,8 +6,12 @@
   user = FuelledByCoffee
 [github]
   user = FuelledByCoffee
-[url "git@github.com:FuelledByCoffee/"]
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[url "git@github.com:"]
   insteadOf = gh:
+[url "git@github.com:FuelledByCoffee/"]
+  insteadOf = me:
 [push]
   default = upstream
 [diff]
