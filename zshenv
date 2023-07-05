@@ -55,6 +55,8 @@ path+=(.)
 brewbin="/home/linuxbrew/.linuxbrew/bin"
 if [[ -d $brewbin && $PATH != "*$brewbin*" ]] ; then
   PATH="$brewbin${PATH:+:${PATH}}"
+elif [[ ! "$PATH" == "*/opt/homebrew/bin*" ]]; then
+  path+=(/opt/homebrew/bin)
 fi
 
 if hash brew 2> /dev/null; then
