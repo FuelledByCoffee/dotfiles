@@ -70,7 +70,6 @@ CommentPragmas:  '^ IWYU pragma:'
 CompactNamespaces: true
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ConstructorInitializerIndentWidth: 3
-ContinuationIndentWidth: 3
 Cpp11BracedListStyle: true
 DeriveLineEnding: true
 DerivePointerAlignment: true
@@ -106,8 +105,9 @@ IndentGotoLabels: true
 IndentPPDirectives: BeforeHash
 IndentExternBlock: AfterExternBlock
 IndentRequires:  false
-IndentWidth:     3
 IndentWrappedFunctionNames: false
+IndentWidth:     3
+ContinuationIndentWidth: 6
 InsertTrailingCommas: None
 JavaScriptQuotes: Leave
 JavaScriptWrapImports: true
