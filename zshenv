@@ -31,6 +31,7 @@ fi
 if [[ -n $llvm_install_dir ]]; then
   export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$llvm_install_dir/include"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$llvm_install_dir/lib -Wl,-rpath,$llvm_install_dir/lib"
+  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-lc++ -lc++abi"
   path+=($llvm_install_dir/bin)
 fi
 
