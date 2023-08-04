@@ -70,6 +70,7 @@ CommentPragmas:  '^ IWYU pragma:'
 CompactNamespaces: true
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ConstructorInitializerIndentWidth: 3
+ContinuationIndentWidth: 6
 Cpp11BracedListStyle: true
 DeriveLineEnding: true
 DerivePointerAlignment: true
@@ -132,6 +133,7 @@ PenaltyReturnTypeOnItsOwnLine: 60
 PenaltyIndentedWhitespace: 0
 PointerAlignment: Right
 ReflowComments:  true
+SeparateDefinitionBlocks: Always
 SortIncludes:    true
 SortJavaStaticImport: Before
 SortUsingDeclarations: true
