@@ -22,9 +22,7 @@ unset LDFLAGS
 export CPATH="${CPATH:-HOME/.local/include}"
 export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
 
-if [[ -d "/usr/local/llvm" ]]; then
-  llvm_install_dir="/usr/local/llvm"
-elif [[ -d "$HOME/.local/llvm" ]]; then
+if [[ -d "$HOME/.local/llvm" ]]; then
   llvm_install_dir="$HOME/.local/llvm"
 fi
 
@@ -47,10 +45,7 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZDOTDIR/.zsh-syntax-highlighting/highlig
 # Put home folder bin first in path
 path=($HOME/.local/bin $path)
 
-path+=($HOME/go/bin)
 path+=($HOME/.cargo/bin) # rust
-path+=($HOME/.cabal/bin) # haskell
-path+=($HOME/.ghcup/bin) # haskell
 path+=(.)
 
 brewbin="/home/linuxbrew/.linuxbrew/bin"
@@ -66,7 +61,7 @@ if hash brew 2> /dev/null; then
 
   export LIBRARY_PATH="${LIBRARY_PATH:+${LIBRARY_PATH}:}$prefix/lib"
 
-  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$prefix/include"
+  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-isystem $prefix/include"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
 fi
 
