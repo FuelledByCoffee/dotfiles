@@ -19,6 +19,8 @@ fi
 unset CPPFLAGS
 unset LDFLAGS
 
+export CMAKE_GENERATOR=Ninja
+
 export CPATH="${CPATH:-HOME/.local/include}"
 export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
 
@@ -95,3 +97,4 @@ fi
 export EDITOR=$VISUAL
 
 [[ -r ~/.aliases ]] && source ~/.aliases
+. "$HOME/.cargo/env"
