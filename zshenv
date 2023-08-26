@@ -56,6 +56,11 @@ path+=(.)
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
+# Put home folder bin first in path
+path+=($HOME/.cargo/bin) # rust
+path=($HOME/.local/bin $path)
+path+=(.)
+
 typeset -U path # force path to have only unique values
 
 
