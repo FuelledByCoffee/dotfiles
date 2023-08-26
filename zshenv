@@ -32,13 +32,6 @@ export QUOTING_STYLE='literal' # Don't put names with spaces in quotes
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZDOTDIR/.zsh-syntax-highlighting/highlighters"
 
-
-# Put home folder bin first in path
-path=($HOME/.local/bin $path)
-
-path+=($HOME/.cargo/bin) # rust
-path+=(.)
-
 brewbin="/home/linuxbrew/.linuxbrew/bin"
 if [[ -d $brewbin && $PATH != "*$brewbin*" ]] ; then
   PATH="$brewbin${PATH:+:${PATH}}"
@@ -55,6 +48,11 @@ if hash brew 2> /dev/null; then
   export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-isystem $prefix/include"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
 fi
+
+# Put home folder bin first in path
+path+=($HOME/.cargo/bin) # rust
+path=($HOME/.local/bin $path)
+path+=(.)
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
