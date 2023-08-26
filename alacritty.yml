@@ -811,6 +811,7 @@ key_bindings:
   - { key: N,      mods: Command,        chars: "\x02n"    }
   - { key: P,      mods: Command,        chars: "\x02p"    }
   - { key: R,      mods: Command,        chars: "\x02\x0f" } # rotate panes
+  - { key: R,      mods: Command|Shift,  chars: "\x12"     } # ctrl-r
   - { key: T,      mods: Command,        chars: "\x02c"    }
   - { key: S,      mods: Command,        chars: "\x02|"    }
   - { key: Minus,  mods: Command|Shift,  chars: "\x02-"    }
