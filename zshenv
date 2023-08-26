@@ -24,17 +24,6 @@ export CMAKE_GENERATOR=Ninja
 export CPATH="${CPATH:-HOME/.local/include}"
 export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
 
-if [[ -d "$HOME/.local/llvm" ]]; then
-  llvm_install_dir="$HOME/.local/llvm"
-fi
-
-if [[ -n $llvm_install_dir ]]; then
-  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$llvm_install_dir/include"
-  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$llvm_install_dir/lib -Wl,-rpath,$llvm_install_dir/lib"
-  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-lc++ -lc++abi"
-  path+=($llvm_install_dir/bin)
-fi
-
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 
 # CLI
