@@ -69,8 +69,6 @@ ColumnLimit:     80
 CommentPragmas:  '^ IWYU pragma:'
 CompactNamespaces: true
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
-ConstructorInitializerIndentWidth: 3
-ContinuationIndentWidth: 6
 Cpp11BracedListStyle: true
 DeriveLineEnding: true
 DerivePointerAlignment: true
@@ -109,6 +107,7 @@ IndentRequires:  false
 IndentWrappedFunctionNames: false
 IndentWidth:     3
 ContinuationIndentWidth: 6
+ConstructorInitializerIndentWidth: 3
 InsertTrailingCommas: None
 JavaScriptQuotes: Leave
 JavaScriptWrapImports: true
