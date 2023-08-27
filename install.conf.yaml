@@ -33,6 +33,7 @@
     ~/.config/powershell/Microsoft.Powershell_profile.ps1:
 
     ~/.clang-format:
+    ~/.llvm-config:
 
     ~/.zshenv:
     ~/.zshrc:

@@ -5,9 +5,9 @@ if [[ -d "$HOME/.local/llvm" ]]; then
 fi
 
 if [[ -n $llvm_install_dir ]]; then
-  export CXXFLAGS="${CPPFLAGS:+${CPPFLAGS} }-isystem $llvm_install_dir/include/c++/v1"
+  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$llvm_install_dir/include/c++/v1"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$llvm_install_dir/lib -Wl,-rpath,$llvm_install_dir/lib"
-  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-lc++ -lc++abi"
+  export LDFLAGS="${LDFLAGS:+${LDFLAGS} } -lc++abi"
   path+=($llvm_install_dir/bin)
 
   export CC="$llvm_install_dir/bin/clang"

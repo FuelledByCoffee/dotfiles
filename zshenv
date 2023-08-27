@@ -40,6 +40,8 @@ elif [[ ! "$PATH" == "*/opt/homebrew/bin*" ]]; then
   path+=(/opt/homebrew/bin)
 fi
 
+[[ -f ~/.llvm-config ]] && source ~/.llvm-config
+
 if hash brew 2> /dev/null; then
   eval $(brew shellenv)
   prefix=$(brew --prefix)
@@ -49,11 +51,6 @@ if hash brew 2> /dev/null; then
   export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-isystem $prefix/include"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
 fi
-
-# Put home folder bin first in path
-path+=($HOME/.cargo/bin) # rust
-path=($HOME/.local/bin $path)
-path+=(.)
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
@@ -90,4 +87,3 @@ fi
 export EDITOR=$VISUAL
 
 [[ -r ~/.aliases ]] && source ~/.aliases
-. "$HOME/.cargo/env"
