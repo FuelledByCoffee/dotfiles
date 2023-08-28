@@ -8,7 +8,7 @@ if [[ -n $llvm_install_dir ]]; then
   export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-I$llvm_install_dir/include/c++/v1"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$llvm_install_dir/lib -Wl,-rpath,$llvm_install_dir/lib"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} } -lc++abi"
-  path+=($llvm_install_dir/bin)
+  [[ ":$PATH:" != *"$llvm_install_dir"* ]] && PATH="${PATH}:$llvm_install_dir/bin"
 
   export CC="$llvm_install_dir/bin/clang"
   export CXX="$llvm_install_dir/bin/clang++"
