@@ -2,6 +2,7 @@
 brew "fd"
 brew "gh"
 brew "git"
+brew "git-lfs"
 brew "zsh"
 brew "tig"
 brew "bat"
