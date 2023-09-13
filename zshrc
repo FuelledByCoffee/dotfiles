@@ -17,6 +17,7 @@ zstyle ':completion:*' verbose true
 
 # Plugin completions
 fpath=("~/dotfiles/zsh-completions/src" $fpath)
+fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 autoload -Uz compinit
 compinit -i # -i: ignore insecure directories
