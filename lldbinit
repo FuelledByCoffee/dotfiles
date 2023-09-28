@@ -1,0 +1,2 @@
+settings set plugin.process.gdb-remote.packet-timeout 300
+break set -n exit -c '$arg1 != 0'
