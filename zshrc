@@ -67,8 +67,8 @@ function hex {
   $VISUAL -b \
     -c ':%!xxd' \
     -c 'setf xxd' \
-    -c 'map ,q :q!<cr>' \
-    -c 'map ,w :%!xxd -r<cr> :w<cr> :%!xxd<cr>' \
+    -c 'map <leader>w :%!xxd -r<cr>:w<cr>:%!xxd<cr>' \
+    -c 'map <leader>q :q!<cr>' \
     $@
 }
 
