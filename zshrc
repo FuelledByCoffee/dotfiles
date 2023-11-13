@@ -50,19 +50,15 @@ function pmanpath {
 
 function dump {
   emulate -L zsh
-  objdump -d $1 | $VISUAL -R \
-    -c 'setf asm' \
-    -c 'map q :q!<cr>'
+  objdump -d $1 | $VISUAL -R -M \
+    -c 'setf objdump'
 }
 
 
-function clean {
+function dump_intel {
   emulate -L zsh
-  if [[ -f build.ninja ]]; then
-    ninja -t clean
-  else
-    command make clean
-  fi
+  objdump -M intel -d $1 | $VISUAL -R -M \
+    -c 'setf objdump'
 }
 
 
@@ -75,6 +71,17 @@ function hex {
     -c 'map ,w :%!xxd -r<cr> :w<cr> :%!xxd<cr>' \
     $@
 }
+
+
+function clean {
+  emulate -L zsh
+  if [[ -f build.ninja ]]; then
+    ninja -t clean
+  else
+    command make clean
+  fi
+}
+
 
 function mcd {
   emulate -L zsh
