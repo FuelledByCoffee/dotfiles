@@ -12,7 +12,7 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' special-dirs true
-zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' use-compctl false # Disable old completion system
 zstyle ':completion:*' verbose true
 
 # Plugin completions
