@@ -21,6 +21,10 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 autoload -Uz compinit
 compinit -i # -i: ignore insecure directories
+
+# Shift-tab
+# bindkey -M menuselect '^[[Z' reverse-menu-complete
+bindkey '^[[Z' reverse-menu-complete
 #: }}}
 
 #: Functions {{{
