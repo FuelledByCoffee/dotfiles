@@ -14,19 +14,19 @@
   insteadOf = me:
 [push]
   default = upstream
-[diff]
-  tool = vimdiff
-  submodule = log
 [difftool]
-  prompt = false
-[difftool "vimdiff"]
-  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+  prompt = true
+[diff]
+  tool = nvimdiff
+  ; submodule = log
+[difftool "nvimdiff"]
+  cmd = nvim -d "'$LOCAL'" "'$REMOTE'"
 [merge]
   tool = nvim
 [mergetool]
   prompt = false
 [mergetool "nvim"]
-  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+  cmd = nvim -f -c "'Gdiffsplit!'" "'$MERGED'"
 [branch]
   autosetupmerge = true
   autosetuprebase = local
@@ -78,5 +78,6 @@
   recommit = commit --amend --no-edit
   get  = pull origin main
   yeet = push origin HEAD
+	search-clone = "!git clone --recursive gh:$(gh search repos --owner fuelledbycoffee -L300 | fzf | awk '{print $1}')"
 [init]
   defaultBranch = main
