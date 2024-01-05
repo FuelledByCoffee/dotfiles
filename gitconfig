@@ -20,13 +20,13 @@
   tool = nvimdiff
   ; submodule = log
 [difftool "nvimdiff"]
-  cmd = nvim -d "'$LOCAL'" "'$REMOTE'"
+  cmd = nvim -d "'$LOCAL' '$REMOTE'"
 [merge]
   tool = nvim
 [mergetool]
   prompt = false
 [mergetool "nvim"]
-  cmd = nvim -f -c "'Gdiffsplit!'" "'$MERGED'"
+  cmd = nvim -f -c '"Gdiffsplit!" "$MERGED"'
 [branch]
   autosetupmerge = true
   autosetuprebase = local

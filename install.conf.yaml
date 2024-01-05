@@ -26,6 +26,8 @@
     ~/.vimrc: vim/vimrc
     ~/.config/nvim: neovim
 
+    ~/.config/alacritty:
+
     ~/.config/git/ignore:
         create: true
         path: ignore
@@ -50,6 +52,7 @@
       stdin: true
       stdout: true
       description: Installing Homebrew
+    - [PATH="$PATH:]
     - [chsh -s $(which zsh), Making zsh the default shell]
     - [source ~/.zshenv, Setting up environment]
     -

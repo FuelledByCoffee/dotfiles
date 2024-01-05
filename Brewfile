@@ -17,7 +17,7 @@ brew "ctags"
 brew "ninja"
 brew "cmake"
 brew "cmake-docs"
-brew "cppman"
+brew "cppman" # TODO: fix this
 brew "zoxide"
 brew "ripgrep"
 brew "pyright"
