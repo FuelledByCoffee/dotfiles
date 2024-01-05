@@ -19,8 +19,7 @@ zstyle ':completion:*' verbose true
 fpath=("~/dotfiles/zsh-completions/src" $fpath)
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-autoload -Uz compinit
-compinit -i # -i: ignore insecure directories
+autoload -Uz compinit && compinit # -i: ignore insecure directories
 
 # Shift-tab
 # bindkey -M menuselect '^[[Z' reverse-menu-complete
