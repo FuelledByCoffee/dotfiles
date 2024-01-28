@@ -52,7 +52,8 @@
       stdin: true
       stdout: true
       description: Installing Homebrew
-    - [PATH="$PATH:]
+    - [PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"]
+    - [PATH="$PATH:/opt/homebrew/bin"]
     - [chsh -s $(which zsh), Making zsh the default shell]
     - [source ~/.zshenv, Setting up environment]
     -
