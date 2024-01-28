@@ -73,6 +73,7 @@
   ps = "!git push &> /dev/null || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
   discard  = checkout HEAD --
   unstage  = reset HEAD --
+	unpick   = reset -p
   untrack  = rm --cached
   uncommit = reset --soft HEAD~1
   recommit = commit --amend --no-edit
