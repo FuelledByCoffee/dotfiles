@@ -1,4 +1,5 @@
-export ZDOTDIR=$HOME
+export XDG_CONFIG_HOME="$HOME/.config"
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
 # Encoding
 export LANG="en_US.UTF-8"
@@ -31,7 +32,7 @@ export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31' # For Linux
 export QUOTING_STYLE='literal' # Don't put names with spaces in quotes
 
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZDOTDIR/.zsh-syntax-highlighting/highlighters"
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZDOTDIR/zsh-syntax-highlighting/highlighters"
 
 brewbin="/home/linuxbrew/.linuxbrew/bin"
 if [[ -d $brewbin && $PATH != "*$brewbin*" ]] ; then
@@ -40,7 +41,7 @@ elif [[ ! "$PATH" == "*/opt/homebrew/bin*" ]]; then
   path+=(/opt/homebrew/bin)
 fi
 
-[[ -f ~/.llvm-config ]] && source ~/.llvm-config
+# [[ -f ~/.llvm-config ]] && source ~/.llvm-config
 
 if hash brew 2> /dev/null; then
   eval $(brew shellenv)
@@ -52,7 +53,8 @@ if hash brew 2> /dev/null; then
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
 fi
 
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+[[ -f $ZDOTDIR/fzf.zsh ]] && source $ZDOTDIR/fzf.zsh
+[[ -f $XDG_CONFIG_HOME/aliases ]] && source $XDG_CONFIG_HOME/aliases
 
 # Put home folder bin first in path
 path+=($HOME/.cargo/bin) # rust
@@ -86,4 +88,3 @@ else
 fi
 export EDITOR=$VISUAL
 
-[[ -r ~/.aliases ]] && source ~/.aliases

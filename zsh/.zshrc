@@ -144,11 +144,11 @@ function extract () {
 bindkey -v
 bindkey -M viins jj vi-cmd-mode # Double tap 'j' to exit insert mode
 
-autoload -Uz colors && colors
-autoload -Uz add-zsh-hook
-autoload -Uz add-zsh-hook-widget
-autoload -Uz vcs_info
-setopt promptsubst
+# autoload -Uz colors && colors
+# autoload -Uz add-zsh-hook
+# autoload -Uz add-zsh-hook-widget
+# autoload -Uz vcs_info
+# setopt promptsubst
 
 if hash starship 2> /dev/null; then
   eval "$(starship init zsh)"
@@ -203,8 +203,8 @@ unsetopt nomatch notify menu_complete
 #: }}}
 
 #: Plugins {{{
-source $ZDOTDIR/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZDOTDIR/.zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 bindkey '^ ' autosuggest-accept
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=none"

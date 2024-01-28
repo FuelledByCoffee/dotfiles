@@ -7,40 +7,26 @@
 - clean: ['~']
 
 - create:
-    - ~/.config
     - ~/.local/bin
     - ~/.local/include
     - ~/.local/lib
     - ~/.undo-vim
 
 - link:
-    ~/.config/starship.toml:
     ~/.tmux.conf:
-    ~/.gitconfig:
-    ~/.aliases:
+    ~/.gitconfig: git/config
     ~/.bash_profile:
     ~/.inputrc:
 
     ~/.vim: vim
-    ~/.config/nvim: neovim
-
-    ~/.config/alacritty:
 
     ~/.config/git/ignore:
         create: true
         path: ignore
 
-    ~/.config/powershell/Microsoft.Powershell_profile.ps1:
-
     ~/.clang-format:
     ~/.llvm-config:
     ~/.lldbinit:
-
-    ~/.zshenv:
-    ~/.zshrc:
-    ~/.zsh-syntax-highlighting:
-    ~/.zsh-autosuggestions:
-    ~/.fzf.zsh:
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
@@ -57,8 +43,3 @@
       stdin: false
       stdout: true
       description: Installing homebrew formulae]
-    - 
-      command: chsh -s $(which zsh)
-      stdin: true
-      stdout: true
-      description: Making zsh the default shell
