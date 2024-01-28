@@ -14,7 +14,6 @@
     - ~/.undo-vim
 
 - link:
-    ~/.alacritty.yml:
     ~/.config/starship.toml:
     ~/.tmux.conf:
     ~/.gitconfig:
@@ -23,7 +22,6 @@
     ~/.inputrc:
 
     ~/.vim: vim
-    ~/.vimrc: vim/vimrc
     ~/.config/nvim: neovim
 
     ~/.config/alacritty:
