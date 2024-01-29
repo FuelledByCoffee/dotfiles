@@ -13,20 +13,15 @@
     - ~/.undo-vim
 
 - link:
-    ~/.tmux.conf:
-    ~/.gitconfig: git/config
-    ~/.bash_profile:
-    ~/.inputrc:
-
-    ~/.vim: vim
-
-    ~/.config/git/ignore:
-        create: true
-        path: ignore
-
     ~/.clang-format:
     ~/.llvm-config:
     ~/.lldbinit:
+    ~/.tmux.conf:
+    ~/.bash_profile:
+    ~/.inputrc:
+    ~/.zshenv: zsh/zshenv
+    ~/.gitconfig: git/config
+    ~/.vim: vim
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
