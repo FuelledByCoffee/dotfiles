@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # Some ls aliases
-# Use exa if it is available
 if [[ "$OSTYPE" == "linux"* ]]; then
   alias ls='ls -F --color=auto'
   alias la='ls -A'
