@@ -2,6 +2,7 @@
 .vscode
 .clangd
 .cache
+.gdb_history
 compile_commands.json
 *.dSYM
 *.out
