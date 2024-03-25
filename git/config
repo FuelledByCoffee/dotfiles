@@ -65,6 +65,7 @@
   helper = osxkeychain
 [core]
   excludesfile = ~/.config/git/ignore
+  editor = nvim
 [alias]
   st = status
   co = checkout
