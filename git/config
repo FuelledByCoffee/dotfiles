@@ -26,8 +26,9 @@
 	conflictstyle = diff3
 [mergetool]
   prompt = false
-[mergetool "nvim"]
-  cmd = nvim -f -c '"Gdiffsplit!" "$MERGED"'
+[mergetool "nvimdiff"]
+  ; cmd = nvim -f -c '"Gdiffsplit!" "$MERGED"'
+	layout = "LOCAL,BASE,REMOTE / MERGED"
 [branch]
   autosetupmerge = true
   autosetuprebase = local
