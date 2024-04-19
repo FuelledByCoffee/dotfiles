@@ -15,12 +15,12 @@
 [push]
   default = upstream
 [difftool]
-  prompt = true
+  prompt = false
 [diff]
   tool = nvimdiff
   ; submodule = log
 [difftool "nvimdiff"]
-  cmd = nvim -d "'$LOCAL' '$REMOTE'"
+  cmd = nvim -d "\"$LOCAL\" \"$REMOTE\""
 [merge]
   tool = nvim
 [mergetool]
