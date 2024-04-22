@@ -23,12 +23,16 @@
   cmd = nvim -d "\"$LOCAL\" \"$REMOTE\""
 [merge]
   tool = nvimdiff
-	conflictstyle = diff3
+  conflictstyle = diff3
 [mergetool]
   prompt = false
 [mergetool "nvimdiff"]
   ; cmd = nvim -f -c '"Gdiffsplit!" "$MERGED"'
-	layout = "LOCAL,BASE,REMOTE / MERGED"
+  layout = "LOCAL,BASE,REMOTE / MERGED"
+[tig]
+  show-changes = true
+[tig "color"]
+  cursor = green black bold
 [branch]
   autosetupmerge = true
   autosetuprebase = local
