@@ -537,6 +537,16 @@ key = "S"
 mods = "Command"
 
 [[keyboard.bindings]]
+chars = "\u0002g"
+key = "G"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002."
+key = "."
+mods = "Command"
+
+[[keyboard.bindings]]
 chars = "\u0002-"
 key = "Minus"
 mods = "Command|Shift"
