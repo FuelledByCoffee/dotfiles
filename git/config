@@ -1,93 +1,94 @@
 # vim: ft=gitconfig
 # This is Git's per-user configuration file.
 [user]
-  name = Johannes Eckhoff
-  email = j.eckhoff@gmail.com
-  user = FuelledByCoffee
+	name = Johannes Eckhoff
+	email = j.eckhoff@gmail.com
+	user = FuelledByCoffee
 [github]
-  user = FuelledByCoffee
+	user = FuelledByCoffee
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [url "git@github.com:"]
-  insteadOf = gh:
+	insteadOf = gh:
 [url "git@github.com:FuelledByCoffee/"]
-  insteadOf = me:
+	insteadOf = me:
 [push]
-  default = upstream
+	default = upstream
 [difftool]
-  prompt = false
+	prompt = false
 [diff]
-  tool = nvimdiff
-  ; submodule = log
+	tool = nvimdiff
+	; submodule = log
 [difftool "nvimdiff"]
-  cmd = nvim -d "\"$LOCAL\" \"$REMOTE\""
+	cmd = nvim -d "\"$LOCAL\" \"$REMOTE\""
 [merge]
-  tool = nvimdiff
-  conflictstyle = diff3
+	tool = nvimdiff
+	conflictstyle = diff3
 [mergetool]
-  prompt = false
+	prompt = false
 [mergetool "nvimdiff"]
-  ; cmd = nvim -f -c '"Gdiffsplit!" "$MERGED"'
-  layout = "LOCAL,BASE,REMOTE / MERGED"
+	; cmd = nvim -f -c '"Gdiffsplit!" "$MERGED"'
+	layout = "LOCAL,BASE,REMOTE / MERGED"
 [tig]
-  show-changes = true
+	show-changes = true
 [tig "color"]
-  cursor = green black bold
+	cursor = green black bold
 [branch]
-  autosetupmerge = true
-  autosetuprebase = local
+	autosetupmerge = true
+	autosetuprebase = local
 [filter "lfs"]
-  required = true
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 [pull]
-  rebase = true
+	rebase = true
 [rebase]
-  autoStash = true
+	autoStash = true
 [commit]
-  verbose = true
+	verbose = true
 [help]
-  autocorrect = 1
+	autocorrect = 1
 [color]
-  ui = auto
-  branch = auto
-  diff = auto
-  status = auto
+	ui = auto
+	branch = auto
+	diff = auto
+	status = auto
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
 [color "status"]
-  added = green
-  changed = yellow
-  untracked = cyan
+	added = green
+	changed = yellow
+	untracked = cyan
 [credential]
-  helper = osxkeychain
+	helper = osxkeychain
 [core]
-  excludesfile = ~/.config/git/ignore
-  editor = nvim
+	excludesfile = ~/.config/git/ignore
+	editor = nvim
 [alias]
-  st = status
-  co = checkout
-  dt = difftool
-  br = "!git branch | fzf-tmux --no-preview -d 15"
-  ps = "!git push &> /dev/null || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
-  discard  = checkout HEAD --
-  unstage  = reset HEAD --
+	st = status
+	co = checkout
+	dt = difftool
+	br = "!git branch | fzf-tmux --no-preview -d 15"
+	ps = "!git push &> /dev/null || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
+	discard  = checkout HEAD --
+	unstage  = reset HEAD --
 	unpick   = reset -p
-  untrack  = rm --cached
-  uncommit = reset --soft HEAD~1
-  recommit = commit --amend --no-edit
-  get  = pull origin main
-  yeet = push origin HEAD
+	untrack  = rm --cached
+	uncommit = reset --soft HEAD~1
+	recommit = commit --amend --no-edit
+	origin   = remote show origin
+	get  = pull origin main
+	yeet = push origin HEAD
 	tree = log --graph --abbrev-commit --pretty=oneline
 	delete-remote = "!gh auth refresh -s delete_repo && gh repo delete"
 	search-clone = "!git clone --recursive gh:$(gh search repos --owner fuelledbycoffee -L300 | fzf | awk '{print $1}')"
 [init]
-  defaultBranch = main
+	defaultBranch = main
