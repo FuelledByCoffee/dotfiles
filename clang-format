@@ -5,7 +5,7 @@ BasedOnStyle:  LLVM
 ---
 Language:      Cpp
 BasedOnStyle:  LLVM
-AccessModifierOffset: -2
+AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: Consecutive
 AlignArrayOfStructures: Right
@@ -105,9 +105,9 @@ IndentPPDirectives: BeforeHash
 IndentExternBlock: AfterExternBlock
 IndentRequires:  false
 IndentWrappedFunctionNames: false
-IndentWidth:     3
-ContinuationIndentWidth: 6
-ConstructorInitializerIndentWidth: 3
+IndentWidth:     4
+ContinuationIndentWidth: 8
+ConstructorInitializerIndentWidth: 4
 InsertTrailingCommas: None
 JavaScriptQuotes: Leave
 JavaScriptWrapImports: true
@@ -162,7 +162,7 @@ Standard:        Latest
 StatementMacros:
   - Q_UNUSED
   - QT_REQUIRE_VERSION
-TabWidth:        3
+TabWidth:        4
 UseCRLF:         false
 UseTab:          AlignWithSpaces
 WhitespaceSensitiveMacros:
