@@ -10,6 +10,7 @@
     - ~/.local/bin
     - ~/.local/include
     - ~/.local/lib
+    - ~/.config
     - ~/.undo-vim
 
 - link:
@@ -22,6 +23,8 @@
     ~/.zshenv: zsh/zshenv
     ~/.gitconfig: git/config
     ~/.vim: vim
+    ~/.config/zsh: zsh
+    ~/.config/nvim: nvim
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
