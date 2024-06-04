@@ -30,14 +30,13 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+    - PATH="$PATH:/opt/homebrew/bin"
     -
       command: /bin/bash -c
         \ "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       stdin: true
       stdout: true
       description: Installing Homebrew
-    - [PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"]
-    - [PATH="$PATH:/opt/homebrew/bin"]
     -
       command: brew bundle
       stdin: false
