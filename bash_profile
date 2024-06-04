@@ -217,5 +217,4 @@
     fi
 
 # vim: ft=bash shiftwidth=4 tabstop=4
-. "$HOME/.cargo/env"
 [ -f ~/.fzf.bash ] && source $HOME/.fzf.bash
