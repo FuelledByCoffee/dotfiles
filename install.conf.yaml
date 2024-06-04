@@ -20,7 +20,7 @@
     ~/.tmux.conf:
     ~/.bash_profile:
     ~/.inputrc:
-    ~/.zshenv: zsh/zshenv
+    ~/.zshenv: zsh/.zshenv
     ~/.gitconfig: git/config
     ~/.vim: vim
     ~/.config/zsh: zsh
