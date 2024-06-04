@@ -26,6 +26,7 @@
     ~/.config/zsh: zsh
     ~/.config/nvim: nvim
     ~/.config/git: 
+    ~/.config/alacritty: 
     ~/.config/aliases:
     ~/.config/starship.toml:
 
