@@ -26,6 +26,7 @@
     ~/.config/zsh: zsh
     ~/.config/nvim: nvim
     ~/.config/aliases:
+    ~/.config/starship.toml:
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
