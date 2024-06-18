@@ -212,10 +212,10 @@ SAVEHIST=1000
 setopt autocd 
 setopt beep 
 setopt extendedglob 
+setopt menu_complete # jump directly into menu completion
 
 unsetopt nomatch 
 unsetopt notify 
-# unsetopt menu_complete
 #: }}}
 
 #: Plugins {{{
