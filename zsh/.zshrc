@@ -5,15 +5,19 @@ zstyle ':completion:*' expand prefix
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' ignore-parents pwd
+zstyle ':completion:*' squeeze-slashes true # cd ~//folder becomes cd ~/folder
+zstyle ':completion:*' complete-options true # use '-<tab>' to complete options/flags
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*'
-zstyle ':completion:*' menu select=2
+zstyle ':completion:*' menu select=2 # use menu if more than 2 matches !! Look into fuzzy searching !!
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' use-compctl false # Disable old completion system
 zstyle ':completion:*' verbose true
+zstyle ':completion:*' use-cache on # use cache to speed up completion
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 
 # Plugin completions
 fpath=("~/dotfiles/zsh-completions/src" $fpath)
