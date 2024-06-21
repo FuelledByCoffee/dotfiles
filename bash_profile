@@ -112,7 +112,7 @@
 #   ---------------
 #       aliases
 #   ---------------
-    [[ -r ~/.aliases ]] && source ~/.aliases
+    [[ -r ~/.config/aliases ]] && source ~/.config/aliases
 
 
 #   -----------------
