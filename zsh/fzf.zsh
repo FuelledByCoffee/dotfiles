@@ -27,7 +27,7 @@ export FZF_DEFAULT_OPTS="
   --bind 'ctrl-d:change-prompt(Directories❯ )+reload(fd -t d)'
   --bind 'ctrl-r:change-prompt(All❯ )+reload(fd)'
   --bind 'ctrl-e:execute(echo {+} | xargs -o $VISUAL)'
-  --header='CTRL-r to reset'
+  --header='C-r reset | C-d Directories | C-f files | C-e edit | ? toggle preview'
   --preview '([[ -f {} ]] && (bat --style=plain --color=always {} \
   || cat {})) \
   || ([[ -d {} ]] && (exa -T 2> /dev/null {}) \
