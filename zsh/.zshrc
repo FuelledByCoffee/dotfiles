@@ -24,10 +24,6 @@ fpath=("~/dotfiles/zsh-completions/src" $fpath)
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 autoload -Uz compinit && compinit # -i: ignore insecure directories
-
-# Shift-tab
-# bindkey -M menuselect '^[[Z' reverse-menu-complete
-bindkey '^[[Z' reverse-menu-complete
 #: }}}
 
 #: Functions {{{
@@ -145,9 +141,6 @@ function extract () {
 
 #: Prompt {{{
 
-bindkey -v
-bindkey -M viins jj vi-cmd-mode # Double tap 'j' to exit insert mode
-
 # autoload -Uz colors && colors
 # autoload -Uz add-zsh-hook
 # autoload -Uz add-zsh-hook-widget
@@ -222,6 +215,19 @@ unsetopt notify
 source $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-bindkey '^ ' autosuggest-accept
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=none"
+#: }}}
+
+#: Bindings {{{
+bindkey -v
+bindkey -M viins jj vi-cmd-mode # Double tap 'j' to exit insert mode
+
+bindkey '^k' up-history
+bindkey '^j' down-history
+
+bindkey '^ ' autosuggest-accept # zsh-autosuggestions
+
+# Shift-tab
+# bindkey -M menuselect '^[[Z' reverse-menu-complete
+bindkey '^[[Z' reverse-menu-complete
 #: }}}
