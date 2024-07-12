@@ -2,7 +2,7 @@ live_config_reload = true
 working_directory = "None"
 
 import = [
-"~/.config/alacritty/keybindings.toml"
+	"~/.config/alacritty/keybindings.toml",
 ]
 
 [bell]
