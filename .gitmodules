@@ -23,5 +23,5 @@
 	url = https://github.com/zsh-users/zsh-autosuggestions
 	branch = master
 [submodule "alacritty-theme"]
-	path = alacritty/alacritty-theme
+	path = alacritty/themes
 	url = git@github.com:alacritty/alacritty-theme.git
