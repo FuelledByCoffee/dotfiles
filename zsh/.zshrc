@@ -20,8 +20,8 @@ zstyle ':completion:*' use-cache on # use cache to speed up completion
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 
 # Plugin completions
-fpath=("~/dotfiles/zsh-completions/src" $fpath)
-fpath+=${ZDOTDIR:-~}/.zsh_functions
+fpath=("${ZDOTDIR:-~}/zsh-completions/src" $fpath)
+fpath+=(${ZDOTDIR:-~}/.zsh_functions)
 
 autoload -Uz compinit && compinit # -i: ignore insecure directories
 #: }}}
