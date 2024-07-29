@@ -132,7 +132,7 @@ PenaltyReturnTypeOnItsOwnLine: 60
 PenaltyIndentedWhitespace: 0
 PointerAlignment: Right
 ReflowComments:  true
-SeparateDefinitionBlocks: Always
+SeparateDefinitionBlocks: Leave # Always|Never|Leave -- leave so short functions can be squeezed together
 SortIncludes:    true
 SortJavaStaticImport: Before
 SortUsingDeclarations: true
