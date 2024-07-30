@@ -23,6 +23,19 @@ error_symbol = '[❯](bold red)'
 vicmd_symbol = '[❮](bold green)'
 disabled = false
 
+[c]
+format = 'via [$symbol($name)-($version)]($style)'
+symbol = 'C '
+version_format = '${major}'
+commands = [
+	[ 'cc', '--version' ],
+	[ 'clang', '--version' ],
+	[ 'gcc', '--version' ]
+]
+detect_extensions = ['c', 'h']
+style = 'bold 149'
+disabled = false
+
 [cmake]
 format = 'via [$symbol($version )]($style)'
 # symbol = '△ '
