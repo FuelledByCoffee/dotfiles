@@ -35,14 +35,14 @@ export QUOTING_STYLE='literal' # Don't put names with spaces in quotes
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZDOTDIR/zsh-syntax-highlighting/highlighters"
 
+# [[ -f ~/.llvm-config ]] && source ~/.llvm-config
+
 brewbin="/home/linuxbrew/.linuxbrew/bin"
 if [[ -d $brewbin && $PATH != "*$brewbin*" ]] ; then
   PATH="$brewbin${PATH:+:${PATH}}"
 elif [[ ! "$PATH" == "*/opt/homebrew/bin*" ]]; then
   path+=(/opt/homebrew/bin)
 fi
-
-# [[ -f ~/.llvm-config ]] && source ~/.llvm-config
 
 if hash brew 2> /dev/null; then
   eval $(brew shellenv)
