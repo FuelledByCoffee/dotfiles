@@ -49,7 +49,6 @@ if hash brew 2> /dev/null; then
   prefix=$(brew --prefix)
 
   export LIBRARY_PATH="${LIBRARY_PATH:+${LIBRARY_PATH}:}$prefix/lib"
-  export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}$prefix/lib"
 
   export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-isystem $prefix/include"
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
