@@ -24,12 +24,12 @@ vicmd_symbol = '[❮](bold green)'
 disabled = false
 
 [c]
-format = 'via [$symbol($name)-($version)]($style)'
+format = 'via [$symbol($name) ($version )]($style)'
 symbol = 'C '
 version_format = '${major}'
 commands = [
-	[ 'cc', '--version' ],
 	[ 'clang', '--version' ],
+	[ 'cc', '--version' ],
 	[ 'gcc', '--version' ]
 ]
 detect_extensions = ['c', 'h']
