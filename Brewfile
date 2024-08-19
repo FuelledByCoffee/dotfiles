@@ -20,12 +20,12 @@ brew "cmake"
 brew "cmake-docs"
 brew "cppman" # TODO: fix this
 brew "zoxide"
+brew "rustup"
 brew "ripgrep"
 brew "pyright"
 brew "starship"
 brew "graphviz" # dot language
 brew "pkg-config"
-brew "rustup-init"
 brew "rust-analyzer"
 brew "clang-format"
 
