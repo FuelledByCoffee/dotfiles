@@ -25,7 +25,7 @@ export CMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 export CPATH="${CPATH:-$HOME/.local/include}"
 export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
-export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-Wl,-rpath,/usr/local/lib"
+export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
 
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 

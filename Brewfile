@@ -26,6 +26,7 @@ brew "pyright"
 brew "starship"
 brew "graphviz" # dot language
 brew "pkg-config"
+brew "rustup-init"
 brew "rust-analyzer"
 brew "clang-format"
 
