@@ -25,3 +25,6 @@
 [submodule "alacritty-theme"]
 	path = alacritty/themes
 	url = git@github.com:alacritty/alacritty-theme.git
+[submodule "kickstart.nvim"]
+	path = kickstart.nvim
+	url = git@github.com:FuelledByCoffee/kickstart.nvim.git
