@@ -20,6 +20,9 @@ fi
 unset CPPFLAGS
 unset LDFLAGS
 
+export CPPFLAGS="-isystem $HOME/.local/include"
+export LDFLAGS="-L$HOME/.local/lib -Wl,-rpath,$HOME/.local/lib"
+
 export CMAKE_GENERATOR=Ninja
 export CMAKE_EXPORT_COMPILE_COMMANDS=ON
 export CMAKE_COLOR_DIAGNOSTICS=true
