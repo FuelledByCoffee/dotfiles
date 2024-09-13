@@ -231,4 +231,8 @@ bindkey '^ ' autosuggest-accept # zsh-autosuggestions
 # Shift-tab
 # bindkey -M menuselect '^[[Z' reverse-menu-complete
 bindkey '^[[Z' reverse-menu-complete
+
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
 #: }}}
