@@ -2,7 +2,7 @@
 
 # Some ls aliases
 if [[ "$OSTYPE" == "linux"* ]]; then
-  alias ls='ls -F --color=auto'
+  alias ls='ls -F --color=auto --group-directories-first'
   alias la='ls -A'
   alias ll='ls -l'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
