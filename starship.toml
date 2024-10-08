@@ -24,7 +24,7 @@ vicmd_symbol = '[❮](bold green)'
 disabled = false
 
 [c]
-format = 'via [$symbol($name)-($version )]($style)'
+format = '[($name(-$version) )]($style)'
 symbol = 'C '
 version_format = '${major}'
 commands = [
