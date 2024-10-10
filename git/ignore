@@ -1,8 +1,10 @@
+# vim: ft=gitignore 
 .DS_Store
 .vscode
 .clangd
 .cache
 .gdb_history
+.venv
 compile_commands.json
 *.dSYM
 *.out
