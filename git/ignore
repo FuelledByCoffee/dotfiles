@@ -6,6 +6,7 @@
 .gdb_history
 .venv
 compile_commands.json
+build
 *.dSYM
 *.out
 .*.swp
