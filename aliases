@@ -26,6 +26,10 @@ alias mkdir='mkdir -pv'
 
 alias vtop='vtop --theme brew'
 
+if command -v nvim &> /dev/null; then
+  alias e=nvim
+fi
+
 if command -v grm &> /dev/null; then
   alias rm='grm -vI'
   alias del='gmv -t ~/.Trash'
