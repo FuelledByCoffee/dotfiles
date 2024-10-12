@@ -21,7 +21,7 @@ unset CPPFLAGS
 unset LDFLAGS
 
 export CPPFLAGS="-isystem $HOME/.local/include"
-export LDFLAGS="-L$HOME/.local/lib -Wl,-rpath,$HOME/.local/lib"
+export LDFLAGS="-L$HOME/.local/lib -Wl,-rpath,$HOME/.local/lib -Wl,-rpath,/usr/local/lib"
 
 export CMAKE_GENERATOR=Ninja
 export CMAKE_EXPORT_COMPILE_COMMANDS=ON
@@ -29,7 +29,7 @@ export CMAKE_COLOR_DIAGNOSTICS=true
 
 export CPATH="${CPATH:-$HOME/.local/include}"
 export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
-export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
+export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}" # :$HOME/Library/Vulkan/macOS/lib
 
 export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
 
@@ -93,3 +93,4 @@ else
 fi
 export EDITOR=$VISUAL
 
+source $HOME/dotfiles/vulkan.sh
