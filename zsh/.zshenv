@@ -93,4 +93,3 @@ else
 fi
 export EDITOR=$VISUAL
 
-source $HOME/dotfiles/vulkan.sh
