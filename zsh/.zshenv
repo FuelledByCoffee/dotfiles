@@ -12,16 +12,21 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="nb_NO.UTF-8"
 
 # Programming
+unset CPPFLAGS
+unset LDFLAGS
+
 if hash clang 2> /dev/null; then
   export CC="clang"
   export CXX="clang++"
 fi
 
-unset CPPFLAGS
-unset LDFLAGS
+if hash lld 2> /dev/null; then
+  export LDFLAGS="-fuse-ld=lld"
+fi
 
 export CPPFLAGS="-isystem $HOME/.local/include"
 export LDFLAGS="-L$HOME/.local/lib -Wl,-rpath,$HOME/.local/lib -Wl,-rpath,/usr/local/lib"
+export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$HOME/.local/lib -Wl,-rpath,$HOME/.local/lib"
 
 export CMAKE_GENERATOR=Ninja
 export CMAKE_EXPORT_COMPILE_COMMANDS=ON
