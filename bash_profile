@@ -136,6 +136,10 @@
         find / -type f -size +$1G -ls | sort -k7 -r |head -20
     }
 
+    if hash zoxide 2>/dev/null; then
+        eval "$(zoxide init bash)"
+    fi
+
 #   Move files to Trash
 #   Use standard unaliased version of mv
 #   Print partial trace of actions to screen
