@@ -24,7 +24,7 @@
     ~/.gitconfig: git/config
     ~/.vim: vim
     ~/.config/zsh: zsh
-    ~/.config/nvim: nvim
+    ~/.config/nvim: kickstart.nvim
     ~/.config/git: 
     ~/.config/alacritty: 
     ~/.config/aliases:
