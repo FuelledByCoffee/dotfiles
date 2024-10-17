@@ -116,10 +116,11 @@
     shopt -s expand_aliases # Use aliases when not interactive
 
 #   ---------------
-#       aliases
+#       source
 #   ---------------
     [[ -r ~/.config/aliases ]] && source ~/.config/aliases
 
+    [[ -r ~/.fzf.bash ]] && source $HOME/.fzf.bash
 
 #   -----------------
 #       Functions
@@ -223,4 +224,3 @@
     }
 
 # vim: ft=bash shiftwidth=4 tabstop=4
-[ -f ~/.fzf.bash ] && source $HOME/.fzf.bash
