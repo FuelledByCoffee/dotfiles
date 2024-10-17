@@ -223,4 +223,4 @@
       fi
     }
 
-# vim: ft=bash shiftwidth=4 tabstop=4
+# vim: ft=bash shiftwidth=4 tabstop=4 expandtab:
