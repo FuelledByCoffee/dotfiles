@@ -62,9 +62,6 @@ if hash brew 2> /dev/null; then
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
 fi
 
-[[ -e $XDG_CONFIG_HOME/aliases ]] && source $XDG_CONFIG_HOME/aliases
-[[ -e $ZDOTDIR/fzf.zsh ]] && source $ZDOTDIR/fzf.zsh
-
 # Put home folder bin first in path
 path+=($HOME/.cargo/bin) # rust
 path=($HOME/.local/bin $path)
@@ -72,6 +69,8 @@ path+=(.)
 
 typeset -U path # force path to have only unique values
 
+[[ -e $XDG_CONFIG_HOME/aliases ]] && source $XDG_CONFIG_HOME/aliases
+[[ -e $ZDOTDIR/fzf.zsh ]] && source $ZDOTDIR/fzf.zsh
 
 if hash thefuck 2> /dev/null; then
   eval $(thefuck --alias)
