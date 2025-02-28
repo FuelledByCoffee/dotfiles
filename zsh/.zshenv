@@ -62,8 +62,8 @@ if hash brew 2> /dev/null; then
   export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
 fi
 
-[[ -f $XDG_CONFIG_HOME/aliases ]] && source $XDG_CONFIG_HOME/aliases
-[[ -f $ZDOTDIR/fzf.zsh ]] && source $ZDOTDIR/fzf.zsh
+[[ -e $XDG_CONFIG_HOME/aliases ]] && source $XDG_CONFIG_HOME/aliases
+[[ -e $ZDOTDIR/fzf.zsh ]] && source $ZDOTDIR/fzf.zsh
 
 # Put home folder bin first in path
 path+=($HOME/.cargo/bin) # rust
