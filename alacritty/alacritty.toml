@@ -166,3 +166,13 @@ y = 0
 [window.position]
 x = 350
 y = 489
+
+[general]
+live_config_reload = true
+working_directory = "None"
+
+import = [
+	"~/.config/alacritty/keybindings.toml",
+]
+
+[terminal]
