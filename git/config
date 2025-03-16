@@ -87,7 +87,7 @@
 	recommit = commit --amend --no-edit
 	origin   = remote show origin
 	get  = pull origin main
-	yeet = push origin HEAD
+	yeet = push origin HEAD --force
 	tree = log --graph --abbrev-commit --pretty=oneline
 	delete-remote = "!gh auth refresh -s delete_repo && gh repo delete"
 	search-clone = "!git clone --recursive gh:$(gh search repos --owner fuelledbycoffee -L300 | fzf | awk '{print $1}')"
