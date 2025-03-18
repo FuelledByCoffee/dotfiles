@@ -4,7 +4,7 @@
 if [[ "$OSTYPE" == "linux"* ]]; then
   alias ls='ls -F --color=auto --group-directories-first'
   alias la='ls -A'
-  alias ll='ls -l'
+  alias ll='la -l'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls='ls -FG'
   alias la='ls -A'
