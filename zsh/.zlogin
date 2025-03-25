@@ -1,3 +1,3 @@
 if [[ -z $TMUX ]]; then
-  tmux new -A && exit
+  tmux new -A -s main
 fi

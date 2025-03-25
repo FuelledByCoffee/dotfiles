@@ -242,14 +242,6 @@ unsetopt nomatch
 unsetopt notify 
 #: }}}
 
-#: Plugins {{{
-source $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZDOTDIR/zsh-completions/zsh-completions.plugin.zsh
-source $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=none"
-#: }}}
-
 #: Bindings {{{
 bindkey -v
 bindkey -M viins jj vi-cmd-mode # Double tap 'j' to exit insert mode
@@ -266,4 +258,12 @@ bindkey '^[[Z' reverse-menu-complete
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
+#: }}}
+
+#: Plugins {{{
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=none"
+
+source $ZDOTDIR/zsh-completions/zsh-completions.plugin.zsh
+source $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #: }}}
