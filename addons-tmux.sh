@@ -24,7 +24,7 @@ function get_cmake_build_type() {
 }
 
 function load_average() {
-    printf "%s " "$(uptime | awk -F: '{printf $NF}' | tr -d ',')"
+	printf "%s " "$(uptime | awk -F: '{printf $NF}' | tr -d ',')"
 }
 
 function main() {
@@ -36,3 +36,4 @@ function main() {
 
 main
 
+# vim: ts=2 noexpandtab

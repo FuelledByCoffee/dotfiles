@@ -133,7 +133,7 @@ save_to_clipboard = false
 
 [terminal.shell]
 program = "/opt/homebrew/bin/tmux"
-args = ["new", "-A"]
+args = ["new", "-A", "-s", "main"]
 
 [window]
 decorations = "None"
