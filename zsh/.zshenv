@@ -30,6 +30,7 @@ export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$HOME/.local/lib -Wl,-rpath,$HOME/.loca
 export CMAKE_GENERATOR=Ninja
 export CMAKE_EXPORT_COMPILE_COMMANDS=ON
 export CMAKE_COLOR_DIAGNOSTICS=true
+export CMAKE_INSTALL_PREFIX=$HOME/.local
 
 export CPATH="${CPATH:-$HOME/.local/include}"
 export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
