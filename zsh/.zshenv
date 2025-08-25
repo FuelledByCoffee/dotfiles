@@ -60,7 +60,10 @@ if hash brew 2> /dev/null; then
   export LIBRARY_PATH="${LIBRARY_PATH:+${LIBRARY_PATH}:}$prefix/lib"
 
   export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-isystem $prefix/include"
-  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,/home/linuxbrew/.linuxbrew/lib"
+  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,$prefix/lib"
+
+  # export CXXFLAGS="${CXXFLAGS:+${CXXFLAGS} }-stdlib=libc++"
+  # export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/opt/llvm/lib -Wl,-rpath,$prefix/opt/llvm/lib -lc++ -lc++abi -lunwind" # libc++
 fi
 
 # Put home folder bin first in path
