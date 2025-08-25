@@ -78,7 +78,7 @@
 	co = checkout
 	dt = difftool
 	br = "!git branch | fzf-tmux --no-preview -d 15"
-	ps = "!git push &> /dev/null || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
+	ps = "!nohup git push || (echo \"Fuck! Push failed!\" && echo \"git push initiated from $(pwd) at $(date) threw an error!\") &"
 	discard  = checkout HEAD --
 	unstage  = reset HEAD --
 	unpick   = reset -p
