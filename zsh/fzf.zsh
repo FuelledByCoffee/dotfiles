@@ -84,6 +84,7 @@ function rm-env {
     | sed 's/=.*//')
 }
 
+# Search git commits
 # https://github.com/rothgar/mastering-zsh/blob/master/docs/helpers/functions.md#interactive-git-diff
 function fshow() {
   git log --graph --color=always \
