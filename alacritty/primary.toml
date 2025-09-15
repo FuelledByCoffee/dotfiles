@@ -1,0 +1,41 @@
+# Colors (primary)
+
+# Default colors
+[colors.primary]
+background = "#1d1f21"
+foreground = "#e5e8e6"
+
+[colors.bright]
+black = "#000000"
+blue = "#0090ea"
+cyan = "#00f8f8"
+green = "#87ff00"
+magenta = "#ff1dce"
+red = "#dc0000"
+white = "#ececec"
+yellow = "#ffda26"
+
+[colors.cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[colors.normal]
+black = "#2f3035"
+blue = "#4196f6"
+cyan = "#3bc9c7"
+green = "#87d700"
+magenta = "#cd29d9"
+red = "#c91b00"
+white = "#c5c8c6"
+yellow = "#ffc026"
+
+[colors.selection]
+background = "CellForeground"
+text = "CellBackground"
+
+[colors.vi_mode_cursor]
+cursor = "CellBackground"
+text = "CellBackground"
+
+[colors]
+draw_bold_text_with_bright_colors = false
