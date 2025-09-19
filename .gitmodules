@@ -11,7 +11,7 @@
 	url = https://github.com/zsh-users/zsh-completions.git
   branch = master
 [submodule "neovim"]
-	path = nvim
+	path = old-nvim-config
 	url = https://github.com/FuelledByCoffee/neovim
   branch = main
 [submodule "vim"]
@@ -26,5 +26,5 @@
 	path = alacritty/themes
 	url = git@github.com:alacritty/alacritty-theme.git
 [submodule "kickstart.nvim"]
-	path = kickstart.nvim
+	path = nvim
 	url = git@github.com:FuelledByCoffee/kickstart.nvim.git
