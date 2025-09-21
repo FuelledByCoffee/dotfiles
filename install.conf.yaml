@@ -13,6 +13,7 @@
     - ~/.undo-vim
 
 - link:
+    ~/.aliases:
     ~/.clang-format:
     ~/.llvm-config:
     ~/.lldbinit:
