@@ -24,3 +24,6 @@
 [submodule "kickstart.nvim"]
 	path = nvim
 	url = git@github.com:FuelledByCoffee/kickstart.nvim.git
+[submodule "zsh/syntax-highlighting"]
+	path = zsh/syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
