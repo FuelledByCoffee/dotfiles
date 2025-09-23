@@ -263,7 +263,7 @@ bindkey "^X^E" edit-command-line
 #: Plugins {{{
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=none"
 
-source $ZDOTDIR/zsh-completions/zsh-completions.plugin.zsh
-source $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/completions/zsh-completions.plugin.zsh
+source $ZDOTDIR/autosuggestions/zsh-autosuggestions.zsh
+source $ZDOTDIR/syntax-highlighting/zsh-syntax-highlighting.zsh
 #: }}}
