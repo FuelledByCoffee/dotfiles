@@ -6,6 +6,8 @@
 .venv
 compile_commands.json
 build
+*.o
+*.o.json
 *.dSYM
 *.out
 .*.swp
