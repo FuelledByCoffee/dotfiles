@@ -21,11 +21,11 @@ render_timer = false
 TERM = "alacritty"
 
 [font]
-size = 13.0
+size = 12.0
 
-normal = { family = "CodeNewRoman nerd font", style = "Regular" }
-bold   = { family = "CodeNewRoman nerd font", style = "Bold"    }
-italic = { family = "CodeNewRoman nerd font", style = "Italic"  }
+normal = { family = "CaskaydiaCove nerd font", style = "Regular" }
+bold   = { family = "CaskaydiaCove nerd font", style = "Bold"    }
+italic = { family = "CaskaydiaCove nerd font", style = "Italic"  }
 
 [font.glyph_offset]
 x = 0
@@ -111,7 +111,7 @@ instance = "Alacritty"
 
 [window.dimensions]
 columns = 164
-lines = 50
+lines = 55
 
 [window.padding]
 x = 0
@@ -119,7 +119,7 @@ y = 0
 
 [window.position]
 x = 350
-y = 489
+y = 480
 
 [general]
 live_config_reload = true
