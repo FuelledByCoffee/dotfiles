@@ -6,6 +6,8 @@
 .venv
 compile_commands.json
 build
+vcpkg-manifest-install.log
+vcpkg_installed
 *.o
 *.o.json
 *.dSYM
