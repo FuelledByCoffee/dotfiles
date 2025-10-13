@@ -22,6 +22,7 @@ brew "zoxide"
 brew "rustup"
 brew "ripgrep"
 brew "pyright"
+brew "luarocks" # Neovim lazy
 brew "starship"
 brew "graphviz" # dot language
 brew "pkg-config"
