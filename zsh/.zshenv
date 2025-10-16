@@ -27,10 +27,13 @@ export CMAKE_EXPORT_COMPILE_COMMANDS=ON
 export CMAKE_COLOR_DIAGNOSTICS=true
 export CMAKE_INSTALL_PREFIX=$HOME/.local
 
-export CPATH="${CPATH:+$CPATH}:$HOME/.local/include}"
-export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib"
-export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH:+$DYLD_LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib" # :$HOME/Library/Vulkan/macOS/lib
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib" # :$HOME/Library/Vulkan/macOS/lib
+if [[ -z $HAS_SET_ENV ]]; then
+  export HAS_SET_ENV="true"
+  export CPATH="${CPATH:+$CPATH}:$HOME/.local/include}"
+  export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib"
+  export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH:+$DYLD_LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib" # :$HOME/Library/Vulkan/macOS/lib
+  export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib" # :$HOME/Library/Vulkan/macOS/lib
+fi
 
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$HOME/.local/lib/pkgconfig"
 
@@ -46,6 +49,19 @@ if [[ -d $brewbin && $PATH != "*$brewbin*" ]] ; then
 elif [[ ! "$PATH" == "*/opt/homebrew/bin*" ]]; then
   path+=(/opt/homebrew/bin)
 fi
+
+if hash clang 2> /dev/null && [[ -z $SET_LLVM ]]; then
+  export SET_LLVM="true"
+  export CC="clang"
+  export CXX="clang++"
+  export CPPFLAGS="${CPPFLAGS:+ }-isysroot /usr/lib/llvm-20"
+  export CXXFLAGS="-nostdlib++ -stdlib=libc++"
+  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-nostdlib++ -stdlib=libc++ -lc++ -lc++abi"
+  export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}/usr/lib/llvm-20/lib"
+  export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/usr/lib/llvm-20/lib"
+  # export CLANG_DEFAULT_CXX_STDLIB="libc++"
+fi
+
 
 if hash brew 2> /dev/null; then
   eval $(brew shellenv)
