@@ -10,7 +10,6 @@ brew "curl"
 brew "wget"
 brew "gzip"
 brew "scdoc" # For manual pages
-brew "ctags"
 brew "ninja"
 brew "cmake"
 brew "cmake-docs"
