@@ -23,7 +23,6 @@ brew "starship"
 brew "graphviz" # dot language
 brew "pkg-config"
 brew "rustup-init"
-brew "rust-analyzer"
 brew "clang-format"
 
 # tap "jgavris/rs-git-fsmonitor https://github.com/jgavris/rs-git-fsmonitor.git"
