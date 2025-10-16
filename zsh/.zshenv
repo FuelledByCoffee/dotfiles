@@ -13,12 +13,8 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="nb_NO.UTF-8"
 
 # Programming
-unset CPPFLAGS
-unset LDFLAGS
-
-if hash clang 2> /dev/null; then
-  export CC="clang"
-  export CXX="clang++"
+if hash ld.lld 2> /dev/null; then
+  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-fuse-ld=lld"
 fi
 
 if hash lld 2> /dev/null; then
