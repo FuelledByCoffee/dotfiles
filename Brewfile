@@ -1,8 +1,6 @@
 # vim: ft=ruby
 brew "fd"
 brew "gh"
-brew "git"
-brew "git-lfs"
 brew "tig"
 brew "bat"
 brew "fzf"
