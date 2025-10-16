@@ -17,23 +17,22 @@ if hash ld.lld 2> /dev/null; then
   export LDFLAGS="${LDFLAGS:+$LDFLAGS }-fuse-ld=lld"
 fi
 
-if hash lld 2> /dev/null; then
-  export LDFLAGS="-fuse-ld=lld"
+if [[ "$CPPFLAGS" != *"$HOME/.local/include"* ]]; then
+  export CPPFLAGS="-isystem $HOME/.local/include${CPPFLAGS:+ $CPPFLAGS}"
 fi
-
-export CPPFLAGS="-isystem $HOME/.local/include"
-export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$HOME/.local/lib -Wl,-rpath,$HOME/.local/lib -Wl,-rpath,/usr/local/lib"
+# export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L$HOME/.local/lib -Wl,-rpath,$HOME/.local/lib -Wl,-rpath,/usr/local/lib"
 
 export CMAKE_GENERATOR=Ninja
 export CMAKE_EXPORT_COMPILE_COMMANDS=ON
 export CMAKE_COLOR_DIAGNOSTICS=true
 export CMAKE_INSTALL_PREFIX=$HOME/.local
 
-export CPATH="${CPATH:-$HOME/.local/include}"
-export LIBRARY_PATH="${LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}"
-export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH:-/usr/lib:/usr/local/lib:$HOME/.local/lib}" # :$HOME/Library/Vulkan/macOS/lib
+export CPATH="${CPATH:+$CPATH}:$HOME/.local/include}"
+export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib"
+export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH:+$DYLD_LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib" # :$HOME/Library/Vulkan/macOS/lib
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib" # :$HOME/Library/Vulkan/macOS/lib
 
-export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$HOME/.local/lib/pkgconfig"
 
 # CLI
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31' # For Linux
@@ -43,7 +42,7 @@ export QUOTING_STYLE='literal' # Don't put names with spaces in quotes
 
 brewbin="/home/linuxbrew/.linuxbrew/bin"
 if [[ -d $brewbin && $PATH != "*$brewbin*" ]] ; then
-  PATH="$brewbin${PATH:+:${PATH}}"
+  PATH="$brewbin${PATH:+:$PATH}"
 elif [[ ! "$PATH" == "*/opt/homebrew/bin*" ]]; then
   path+=(/opt/homebrew/bin)
 fi
@@ -52,10 +51,10 @@ if hash brew 2> /dev/null; then
   eval $(brew shellenv)
   prefix=$(brew --prefix)
 
-  export LIBRARY_PATH="${LIBRARY_PATH:+${LIBRARY_PATH}:}$prefix/lib"
+  export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}$prefix/lib"
 
-  export CPPFLAGS="${CPPFLAGS:+${CPPFLAGS} }-isystem $prefix/include"
-  export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/lib -Wl,-rpath,$prefix/lib"
+  export CPPFLAGS="${CPPFLAGS:+$CPPFLAGS }-isystem $prefix/include"
+  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L$prefix/lib -Wl,-rpath,$prefix/lib"
 
   # export CXXFLAGS="${CXXFLAGS:+${CXXFLAGS} }-stdlib=libc++"
   # export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/opt/llvm/lib -Wl,-rpath,$prefix/opt/llvm/lib -lc++ -lc++abi -lunwind" # libc++
