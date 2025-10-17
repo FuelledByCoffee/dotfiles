@@ -29,7 +29,7 @@ export CMAKE_INSTALL_PREFIX=$HOME/.local
 
 if [[ -z $HAS_SET_ENV ]]; then
   export HAS_SET_ENV="true"
-  export CPATH="${CPATH:+$CPATH}:$HOME/.local/include}"
+  export CPATH="${CPATH:+$CPATH:}$HOME/.local/include"
   export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib"
   export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH:+$DYLD_LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib" # :$HOME/Library/Vulkan/macOS/lib
   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/usr/lib:/usr/local/lib:$HOME/.local/lib" # :$HOME/Library/Vulkan/macOS/lib
