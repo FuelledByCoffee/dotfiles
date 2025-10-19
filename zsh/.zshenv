@@ -63,17 +63,16 @@ if hash clang 2> /dev/null && [[ -z $SET_LLVM ]]; then
 fi
 
 
-if hash brew 2> /dev/null; then
+if hash brew 2> /dev/null && [[ -z $HOMEBREW_PREFIX ]]; then
   eval $(brew shellenv)
-  prefix=$(brew --prefix)
 
-  export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}$prefix/lib"
+  export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}$HOMEBREW_PREFIX/lib"
 
-  export CPPFLAGS="${CPPFLAGS:+$CPPFLAGS }-isystem $prefix/include"
-  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L$prefix/lib -Wl,-rpath,$prefix/lib"
+  export CPPFLAGS="${CPPFLAGS:+$CPPFLAGS }-isystem $HOMEBREW_PREFIX/include"
+  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L$HOMEBREW_PREFIX/lib -Wl,-rpath,$prefix/lib"
 
   # export CXXFLAGS="${CXXFLAGS:+${CXXFLAGS} }-stdlib=libc++"
-  # export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$prefix/opt/llvm/lib -Wl,-rpath,$prefix/opt/llvm/lib -lc++ -lc++abi -lunwind" # libc++
+  # export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$HOMEBREW_HOMEBREW_PREFIX/opt/llvm/lib -Wl,-rpath,$HOMEBREW_PREFIX/opt/llvm/lib -lc++ -lc++abi -lunwind" # libc++
 fi
 
 # Put home folder bin first in path
