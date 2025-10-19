@@ -497,22 +497,27 @@ key = "A"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002"
-key = "B"
+chars = "\u0001"
+key = "A"
 mods = "Command"
 
-[[keyboard.bindings]]
-chars = "\u0002"
-key = "J"
-mods = "Command"
+# [[keyboard.bindings]]
+# chars = "\u0001"
+# key = "J"
+# mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002n"
+chars = "\u0001n"
 key = "N"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002p"
+chars = "\u0005"
+key = "E"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0001p"
 key = "P"
 mods = "Command"
 
@@ -522,86 +527,86 @@ key = "R"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u000F"
+chars = "\u0001\u000F"
 key = "R"
 mods = "Command|Shift"
 
 [[keyboard.bindings]]
-chars = "\u0002c"
+chars = "\u0001c"
 key = "T"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002|"
+chars = "\u0001|"
 key = "S"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002g"
+chars = "\u0001g"
 key = "G"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002."
+chars = "\u0001."
 key = "."
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002-"
+chars = "\u0001-"
 key = "Minus"
 mods = "Command|Shift"
 
 [[keyboard.bindings]]
-chars = "\u0002&"
+chars = "\u0001&"
 key = "W"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00021"
+chars = "\u00011"
 key = "Key1"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00022"
+chars = "\u00012"
 key = "Key2"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00023"
+chars = "\u00013"
 key = "Key3"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00024"
+chars = "\u00014"
 key = "Key4"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00025"
+chars = "\u00015"
 key = "Key5"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00026"
+chars = "\u00016"
 key = "Key6"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00027"
+chars = "\u00017"
 key = "Key7"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00028"
+chars = "\u00018"
 key = "Key8"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00029"
+chars = "\u00019"
 key = "Key9"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002,"
+chars = "\u0001,"
 key = "Comma"
 mods = "Command"
