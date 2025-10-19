@@ -2,3 +2,4 @@
 Brewfile.lock.json
 gh/hosts.yml
 htop
+mgba/*
