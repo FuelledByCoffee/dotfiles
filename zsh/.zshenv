@@ -13,10 +13,6 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="nb_NO.UTF-8"
 
 # Programming
-if hash ld.lld 2> /dev/null; then
-  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-fuse-ld=lld"
-fi
-
 if [[ "$CPPFLAGS" != *"$HOME/.local/include"* ]]; then
   export CPPFLAGS="-isystem $HOME/.local/include${CPPFLAGS:+ $CPPFLAGS}"
 fi
@@ -50,16 +46,21 @@ elif [[ ! "$PATH" == "*/opt/homebrew/bin*" ]]; then
   path+=(/opt/homebrew/bin)
 fi
 
-if hash clang 2> /dev/null && [[ -z $SET_LLVM ]]; then
+if hash clang 2> /dev/null && [[ -d /usr/lib/llvm-20 && -z $SET_LLVM ]]; then
   export SET_LLVM="true"
   export CC="clang"
   export CXX="clang++"
-  export CPPFLAGS="${CPPFLAGS:+ }-isysroot /usr/lib/llvm-20"
-  export CXXFLAGS="-nostdlib++ -stdlib=libc++"
-  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-nostdlib++ -stdlib=libc++ -lc++ -lc++abi"
+  export CPPFLAGS="${CPPFLAGS:+$CPPFLAGS }-isysroot /usr/lib/llvm-20"
+  export CXXFLAGS="${CXXFLAGS:+$CXXFLAGS }-nostdlib++ -stdlib=libc++ -isystem /usr/lib/llvm-20/include/c++/v1"
+  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-nostdlib++ -stdlib=libc++ -lc++ -lc++abi -lunwind"
+  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L/usr/lib/llvm-20/lib -Wl,-rpath,/usr/lib/llvm-20/lib"
   export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}/usr/lib/llvm-20/lib"
   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/usr/lib/llvm-20/lib"
-  # export CLANG_DEFAULT_CXX_STDLIB="libc++"
+  export CLANG_DEFAULT_CXX_STDLIB="libc++"
+
+  if hash ld.lld 2> /dev/null; then
+    export LDFLAGS="${LDFLAGS:+$LDFLAGS }-fuse-ld=lld"
+  fi
 fi
 
 
@@ -69,10 +70,8 @@ if hash brew 2> /dev/null && [[ -z $HOMEBREW_PREFIX ]]; then
   export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}$HOMEBREW_PREFIX/lib"
 
   export CPPFLAGS="${CPPFLAGS:+$CPPFLAGS }-isystem $HOMEBREW_PREFIX/include"
-  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L$HOMEBREW_PREFIX/lib -Wl,-rpath,$prefix/lib"
-
-  # export CXXFLAGS="${CXXFLAGS:+${CXXFLAGS} }-stdlib=libc++"
-  # export LDFLAGS="${LDFLAGS:+${LDFLAGS} }-L$HOMEBREW_HOMEBREW_PREFIX/opt/llvm/lib -Wl,-rpath,$HOMEBREW_PREFIX/opt/llvm/lib -lc++ -lc++abi -lunwind" # libc++
+  export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$HOMEBREW_PREFIX/lib"
+  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L$HOMEBREW_PREFIX/lib -Wl,-rpath,$HOMEBREW_PREFIX/lib"
 fi
 
 # Put home folder bin first in path
