@@ -41,13 +41,8 @@ cdl () {
 
 
 # Print one directory per line
-function ppath {
-  echo -e "${PATH//:/\\n}"
-}
-
-
-function pmanpath {
-  echo -e "${MANPATH//:/\\n}"
+function print_env {
+  echo -e "${1//$2/\\n}"
 }
 
 
