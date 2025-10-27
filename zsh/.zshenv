@@ -40,9 +40,9 @@ export QUOTING_STYLE='literal' # Don't put names with spaces in quotes
 # [[ -f ~/.llvm-config ]] && source ~/.llvm-config
 
 brewbin="/home/linuxbrew/.linuxbrew/bin"
-if [[ -d $brewbin && $PATH != "*$brewbin*" ]] ; then
+if [[ -d $brewbin && ":$PATH:" != *":$brewbin:"* ]] ; then
   PATH="$brewbin${PATH:+:$PATH}"
-elif [[ ! "$PATH" == "*/opt/homebrew/bin*" ]]; then
+elif [[ ! "$PATH" == *":/opt/homebrew/bin:"* ]]; then
   path+=(/opt/homebrew/bin)
 fi
 
