@@ -1,19 +1,18 @@
 # Setup fzf
 # ---------
-prefix=$(brew --prefix)
-if [[ ! "$PATH" == "*$prefix/opt/fzf/bin*" ]]; then
-  path+=($prefix/opt/fzf/bin)
+if [[ ":$PATH:" != *":$HOMEBREW_PREFIX/opt/fzf/bin:"* ]]; then
+  path+=($HOMEBREW_PREFIX/opt/fzf/bin)
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "$prefix/opt/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-source "$prefix/opt/fzf/shell/key-bindings.zsh"
+source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 
-export FZF_DIR="$prefix/opt/fzf"
+export FZF_DIR="$HOMEBREW_PREFIX/opt/fzf"
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git"
 export FZF_DEFAULT_OPTS="
   --height 95%
