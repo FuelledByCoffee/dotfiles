@@ -24,6 +24,7 @@ brew "graphviz" # dot language
 brew "pkg-config"
 brew "rustup-init"
 brew "clang-format"
+brew "universal-ctags"
 
 # tap "jgavris/rs-git-fsmonitor https://github.com/jgavris/rs-git-fsmonitor.git"
 # brew "rs-git-fsmonitor"
