@@ -1,6 +1,12 @@
 # vim: ft=zsh foldmethod=marker foldlevel=0
 
 #: Completions {{{
+# Plugin completions
+fpath=("${ZDOTDIR:-~}/zsh-completions/src" $fpath)
+fpath+=(${ZDOTDIR:-~}/.zsh_functions)
+
+autoload -Uz compinit && compinit # -i: ignore insecure directories
+
 zstyle ':completion:*' expand prefix
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' group-name ''
@@ -18,12 +24,10 @@ zstyle ':completion:*' use-compctl false # Disable old completion system
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' use-cache true # use cache to speed up completion
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+zstyle ':completion:*' insert-unambiguous
+zstyle ':completion:*' insert-space true
+zstyle ':completion:*:*:cp:*' file-sort modification reverse
 
-# Plugin completions
-fpath=("${ZDOTDIR:-~}/zsh-completions/src" $fpath)
-fpath+=(${ZDOTDIR:-~}/.zsh_functions)
-
-autoload -Uz compinit && compinit # -i: ignore insecure directories
 #: }}}
 
 #: Functions {{{
