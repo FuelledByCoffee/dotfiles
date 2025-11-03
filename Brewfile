@@ -6,7 +6,6 @@ brew "bat"
 brew "fzf"
 brew "zip"
 brew "tmux"
-brew "curl"
 brew "wget"
 brew "gzip"
 brew "scdoc" # For manual pages
@@ -20,8 +19,6 @@ brew "ripgrep"
 brew "pyright"
 brew "luarocks" # Neovim lazy
 brew "starship"
-brew "graphviz" # dot language
-brew "pkg-config"
 brew "rustup-init"
 brew "clang-format"
 brew "universal-ctags"
