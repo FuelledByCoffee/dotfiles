@@ -14,7 +14,7 @@ export LC_TIME="nb_NO.UTF-8"
 
 # Programming
 if [[ "$CPPFLAGS" != *"$HOME/.local/include"* ]]; then
-  export CPPFLAGS="-isystem $HOME/.local/include${CPPFLAGS:+ $CPPFLAGS}"
+  export CPPFLAGS="-isystem $HOME/.local/include${CPPFLAGS:+ }$CPPFLAGS"
 fi
 # export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L$HOME/.local/lib -Wl,-rpath,$HOME/.local/lib -Wl,-rpath,/usr/local/lib"
 
