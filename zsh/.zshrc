@@ -16,7 +16,7 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' use-compctl false # Disable old completion system
 zstyle ':completion:*' verbose true
-zstyle ':completion:*' use-cache on # use cache to speed up completion
+zstyle ':completion:*' use-cache true # use cache to speed up completion
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 
 # Plugin completions
