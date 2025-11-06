@@ -47,17 +47,9 @@ elif [[ ! "$PATH" == *":/opt/homebrew/bin:"* ]]; then
   path+=(/opt/homebrew/bin)
 fi
 
-if hash clang 2> /dev/null && [[ -d /usr/lib/llvm-20 && -z $SET_LLVM ]]; then
-  export SET_LLVM="true"
+if hash clang 2> /dev/null; then
   export CC="clang"
   export CXX="clang++"
-  export CPPFLAGS="${CPPFLAGS:+$CPPFLAGS }-isysroot /usr/lib/llvm-20"
-  export CXXFLAGS="${CXXFLAGS:+$CXXFLAGS }-nostdlib++ -stdlib=libc++ -isystem /usr/lib/llvm-20/include/c++/v1"
-  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-nostdlib++ -stdlib=libc++ -lc++ -lc++abi -lunwind"
-  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L/usr/lib/llvm-20/lib -Wl,-rpath,/usr/lib/llvm-20/lib"
-  export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}/usr/lib/llvm-20/lib"
-  export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/usr/lib/llvm-20/lib"
-  export CLANG_DEFAULT_CXX_STDLIB="libc++"
 
   if hash ld.lld 2> /dev/null; then
     export LDFLAGS="${LDFLAGS:+$LDFLAGS }-fuse-ld=lld"
