@@ -23,5 +23,9 @@ brew "rustup-init"
 brew "clang-format"
 brew "universal-ctags"
 
+brew "zsh-completion"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+
 # tap "jgavris/rs-git-fsmonitor https://github.com/jgavris/rs-git-fsmonitor.git"
 # brew "rs-git-fsmonitor"

@@ -4,6 +4,7 @@
 # Plugin completions
 fpath=("${ZDOTDIR:-~}/zsh-completions/src" $fpath)
 fpath+=(${ZDOTDIR:-~}/.zsh_functions)
+fpath+=("$HOMEBREW_PREFIX/share/zsh-completions")
 
 autoload -Uz compinit && compinit # -i: ignore insecure directories
 
@@ -261,9 +262,8 @@ bindkey "^X^E" edit-command-line
 #: }}}
 
 #: Plugins {{{
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=none"
-
-source $ZDOTDIR/completions/zsh-completions.plugin.zsh
-source $ZDOTDIR/autosuggestions/zsh-autosuggestions.zsh
-source $ZDOTDIR/syntax-highlighting/zsh-syntax-highlighting.zsh
+if (( ${+HOMEBREW_PREFIX} )); then
+  source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 #: }}}

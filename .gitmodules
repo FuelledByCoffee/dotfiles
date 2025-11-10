@@ -2,10 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	branch = master
-[submodule "zsh-completions"]
-	path = zsh/completions
-	url = https://github.com/zsh-users/zsh-completions.git
-	branch = master
 [submodule "neovim"]
 	path = old-nvim-config
 	url = https://github.com/FuelledByCoffee/neovim
@@ -14,19 +10,12 @@
 	path = vim
 	url = https://github.com/FuelledByCoffee/vim
   branch = main
-[submodule "zsh-autosuggestions"]
-	path = zsh/autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
-	branch = master
 [submodule "alacritty-theme"]
 	path = alacritty/themes
 	url = git@github.com:alacritty/alacritty-theme.git
 [submodule "kickstart.nvim"]
 	path = nvim
 	url = git@github.com:FuelledByCoffee/kickstart.nvim.git
-[submodule "zsh/syntax-highlighting"]
-	path = zsh/syntax-highlighting
-	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
 [submodule "nvim-repro"]
 	path = nvim-repro
 	url = me:nvim-repro

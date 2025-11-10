@@ -103,3 +103,5 @@ else
   export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
 fi
 export EDITOR=$VISUAL
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=none"
