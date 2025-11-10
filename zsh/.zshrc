@@ -1,10 +1,8 @@
 # vim: ft=zsh foldmethod=marker foldlevel=0
 
 #: Completions {{{
-# Plugin completions
-fpath=("${ZDOTDIR:-~}/zsh-completions/src" $fpath)
 fpath+=(${ZDOTDIR:-~}/.zsh_functions)
-fpath+=("$HOMEBREW_PREFIX/share/zsh-completions")
+fpath+=("$HOMEBREW_PREFIX/share/zsh-completions") # Plugin completions
 fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 
 autoload -Uz compinit && compinit # -i: ignore insecure directories
