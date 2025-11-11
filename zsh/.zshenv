@@ -66,8 +66,11 @@ if hash brew 2> /dev/null && [[ -z $HOMEBREW_PREFIX ]]; then
   export CPPFLAGS="${CPPFLAGS:+$CPPFLAGS }-isystem $HOMEBREW_PREFIX/include"
   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$HOMEBREW_PREFIX/lib"
   export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH:+$DYLD_LIBRARY_PATH:}$HOMEBREW_PREFIX/lib"
-  export DYLD_LIBRARY_PATH=$HOMEBREW_PREFIX/Cellar/sqlite/3.50.4/lib:$DYLD_LIBRARY_PATH
   export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L$HOMEBREW_PREFIX/lib -Wl,-rpath,$HOMEBREW_PREFIX/lib"
+
+  # Sqlite3
+  export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$HOMEBREW_PREFIX/opt/sqlite/lib/pkgconfig"
+  export DYLD_LIBRARY_PATH=$HOMEBREW_PREFIX/opt/sqlite3/lib:$DYLD_LIBRARY_PATH
 fi
 
 # Put home folder bin first in path
