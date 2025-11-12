@@ -1,3 +1,10 @@
 html body {
-    font-family : Helvetica !important
+  font-family: Helvetica !important;
+  font-family: 'CaskaydiaCove nerd font', monospace;
+  tab-size: 4;
+}
+
+pre, code, textarea {
+  tab-size: 4;
+  font-family: 'CaskaydiaCove nerd font', monospace;
 }
