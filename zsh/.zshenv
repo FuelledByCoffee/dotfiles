@@ -108,3 +108,9 @@ fi
 export EDITOR=$VISUAL
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=none"
+
+
+if (( ${+WSL_DISTRO_NAME})); then
+  export BROWSER="explorer.exe"
+  alias start="explorer.exe"
+fi
