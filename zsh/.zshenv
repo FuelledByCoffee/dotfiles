@@ -71,6 +71,7 @@ if hash brew 2> /dev/null && [[ -z $HOMEBREW_PREFIX ]]; then
   # Sqlite3
   export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$HOMEBREW_PREFIX/opt/sqlite/lib/pkgconfig"
   export DYLD_LIBRARY_PATH="$HOMEBREW_PREFIX/opt/sqlite3/lib:$DYLD_LIBRARY_PATH"
+  export DOTNET_ROOT="$HOMEBREW_PREFIX/opt/dotnet/libexec"
 fi
 
 # Put home folder bin first in path
