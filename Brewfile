@@ -14,6 +14,7 @@ brew "cmake"
 brew "cmake-docs"
 brew "cppman" # TODO: fix this
 brew "zoxide"
+brew "pkgconf"
 brew "rustup"
 brew "ripgrep"
 brew "pyright"
