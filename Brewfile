@@ -6,6 +6,7 @@ brew "bat"
 brew "fzf"
 brew "zip"
 brew "tmux"
+brew "btop"
 brew "wget"
 brew "gzip"
 brew "scdoc" # For manual pages
