@@ -22,6 +22,7 @@ brew "luarocks" # Neovim lazy
 brew "starship"
 brew "rustup-init"
 brew "clang-format"
+brew "tree-sitter-cli"
 brew "universal-ctags"
 
 brew "zsh-completion"
