@@ -1,0 +1,78 @@
+# This is the configuration file for Ghostty.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+#
+# Ghostty can reload the configuration while running by using the menu
+# options or the bound key (default: Command + Shift + comma on macOS and
+# Control + Shift + comma on other platforms). Not all config options can be
+# reloaded while running; some only apply to new windows and others may require
+# a full restart to take effect.
+
+# Config syntax crash course
+# ==========================
+# # The config file consists of simple key-value pairs,
+# # separated by equals signs.
+font-family = "CaskaydiaCove nerd font"
+window-padding-x = 0
+window-padding-y = 0
+#
+# # Spacing around the equals sign does not matter.
+# # All of these are identical:
+# key=value
+# key= value
+# key =value
+# key = value
+
+# Bind Cmd+, to open the config in Neovim via the CLI action
+keybind = super+,=text:ghostty +edit-config\r
+
+#
+# # Any line beginning with a # is a comment. It's not possible to put
+# # a comment after a config option, since it would be interpreted as a
+# # part of the value. For example, this will have a value of "#123abc":
+# background = #123abc
+#
+# # Empty values are used to reset config keys to default.
+# key =
+#
+# # Some config options have unique syntaxes for their value,
+# # which is explained in the docs for that config option.
+# # Just for example:
+# resize-overlay-duration = 4s 200ms
+
+# Theme - auto-switches with macOS appearance
+theme = light:Catppuccin Latte,dark:Catppuccin Frappe
+# theme = Catppuccin Frappe
+# Shell
+shell-integration = zsh
+
+# Shift+Enter sends literal newline (useful in editors)
+keybind = shift+enter=text:\n
+keybind = cmd+d=text:\x04
+
+# tmux binds
+keybind = cmd+a=text:\x01
+keybind = cmd+t=text:\x01c
+
+# Remove titlebar and rounded corners for max terminal space
+window-decoration = false
+
+# Distribute leftover pixels evenly instead of dumping at bottom
+window-padding-balance = true
+
+# Use Ghostty's own fullscreen instead of native macOS animation
+macos-non-native-fullscreen = true
+
+# Left Option key acts as Alt (needed for helix/tmux keybinds)
+macos-option-as-alt = right
+
+# Auto-copy selected text to clipboard (handy with tmux)
+copy-on-select = clipboard
+
+# Hide cursor while typing to reduce visual noise
+mouse-hide-while-typing = true
+
