@@ -56,6 +56,8 @@ keybind = cmd+r=text:\x12
 keybind = cmd+a=text:\x01
 keybind = cmd+t=text:\x01c
 keybind = cmd+s=text:\x01|
+keybind = cmd+n=text:\x01n
+keybind = cmd+p=text:\x01p
 
 # # Some config options have unique syntaxes for their value,
 # # which is explained in the docs for that config option.
