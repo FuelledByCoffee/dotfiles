@@ -43,7 +43,8 @@ window-step-resize = true
 # key =
 
 # Bind Cmd+, to open the config in Neovim via the CLI action
-keybind = super+,=text:ghostty +edit-config\r
+# keybind = super+,=text:ghostty +edit-config\r
+keybind = super+,=text:\x01,
 
 # Shift+Enter sends literal newline (useful in editors)
 keybind = shift+enter=text:\n
