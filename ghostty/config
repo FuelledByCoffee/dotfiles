@@ -53,11 +53,23 @@ keybind = cmd+k=text:\x0c
 keybind = cmd+r=text:\x12
 
 # tmux binds
+# =========================================================
 keybind = cmd+a=text:\x01
 keybind = cmd+t=text:\x01c
 keybind = cmd+s=text:\x01|
 keybind = cmd+n=text:\x01n
 keybind = cmd+p=text:\x01p
+
+# Maps to ctrl-a 1 ctrl-a 2 etc...
+keybind = cmd+digit_1=text:\x011
+keybind = cmd+digit_2=text:\x012
+keybind = cmd+digit_3=text:\x013
+keybind = cmd+digit_4=text:\x014
+keybind = cmd+digit_5=text:\x015
+keybind = cmd+digit_6=text:\x016
+keybind = cmd+digit_7=text:\x017
+keybind = cmd+digit_8=text:\x018
+keybind = cmd+digit_9=text:\x019
 
 # # Some config options have unique syntaxes for their value,
 # # which is explained in the docs for that config option.
