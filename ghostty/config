@@ -33,9 +33,6 @@ window-step-resize = true
 # key =value
 # key = value
 
-# Bind Cmd+, to open the config in Neovim via the CLI action
-keybind = super+,=text:ghostty +edit-config\r
-
 #
 # # Any line beginning with a # is a comment. It's not possible to put
 # # a comment after a config option, since it would be interpreted as a
@@ -44,18 +41,9 @@ keybind = super+,=text:ghostty +edit-config\r
 #
 # # Empty values are used to reset config keys to default.
 # key =
-#
-# # Some config options have unique syntaxes for their value,
-# # which is explained in the docs for that config option.
-# # Just for example:
-# resize-overlay-duration = 4s 200ms
 
-# Theme - auto-switches with macOS appearance
-# theme = light:Catppuccin Latte,dark:Brogrammer
-theme = Brogrammer
-
-# Shell
-shell-integration = zsh
+# Bind Cmd+, to open the config in Neovim via the CLI action
+keybind = super+,=text:ghostty +edit-config\r
 
 # Shift+Enter sends literal newline (useful in editors)
 keybind = shift+enter=text:\n
@@ -68,6 +56,18 @@ keybind = cmd+r=text:\x12
 keybind = cmd+a=text:\x01
 keybind = cmd+t=text:\x01c
 keybind = cmd+s=text:\x01|
+
+# # Some config options have unique syntaxes for their value,
+# # which is explained in the docs for that config option.
+# # Just for example:
+# resize-overlay-duration = 4s 200ms
+
+# Theme - auto-switches with macOS appearance
+theme = light:Catppuccin Latte,dark:Catppuccin Machiato
+# theme = Brogrammer
+
+# Shell
+shell-integration = zsh
 
 # Use Ghostty's own fullscreen instead of native macOS animation
 macos-non-native-fullscreen = false
