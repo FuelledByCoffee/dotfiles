@@ -17,8 +17,14 @@
 # # The config file consists of simple key-value pairs,
 # # separated by equals signs.
 font-family = "CaskaydiaCove nerd font"
+
 window-padding-x = 0
 window-padding-y = 0
+window-padding-balance = false
+
+# Remove titlebar and rounded corners for max terminal space
+window-decoration = true
+window-step-resize = true
 #
 # # Spacing around the equals sign does not matter.
 # # All of these are identical:
@@ -45,27 +51,26 @@ keybind = super+,=text:ghostty +edit-config\r
 # resize-overlay-duration = 4s 200ms
 
 # Theme - auto-switches with macOS appearance
-theme = light:Catppuccin Latte,dark:Catppuccin Frappe
-# theme = Catppuccin Frappe
+# theme = light:Catppuccin Latte,dark:Brogrammer
+theme = Brogrammer
+
 # Shell
 shell-integration = zsh
 
 # Shift+Enter sends literal newline (useful in editors)
 keybind = shift+enter=text:\n
+keybind = cmd+u=text:\x15
 keybind = cmd+d=text:\x04
+keybind = cmd+k=text:\x0c
+keybind = cmd+r=text:\x12
 
 # tmux binds
 keybind = cmd+a=text:\x01
 keybind = cmd+t=text:\x01c
-
-# Remove titlebar and rounded corners for max terminal space
-window-decoration = false
-
-# Distribute leftover pixels evenly instead of dumping at bottom
-window-padding-balance = true
+keybind = cmd+s=text:\x01|
 
 # Use Ghostty's own fullscreen instead of native macOS animation
-macos-non-native-fullscreen = true
+macos-non-native-fullscreen = false
 
 # Left Option key acts as Alt (needed for helix/tmux keybinds)
 macos-option-as-alt = right
