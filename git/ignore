@@ -12,6 +12,7 @@ vcpkg-manifest-install.log
 vcpkg_installed
 *.o
 *.o.json
+*.o.make
 *.dSYM
 *.out
 .*.swp
