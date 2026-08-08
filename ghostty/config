@@ -78,8 +78,8 @@ keybind = cmd+digit_9=text:\x019
 # resize-overlay-duration = 4s 200ms
 
 # Theme - auto-switches with macOS appearance
-theme = light:Catppuccin Latte,dark:Catppuccin Machiato
-# theme = Brogrammer
+theme = light:Catppuccin Latte,dark:Catppuccin Macchiato
+# theme = Catppuccin Latte
 
 # Shell
 shell-integration = zsh
