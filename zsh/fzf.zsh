@@ -15,19 +15,33 @@ source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 # Check if macOS is currently set to dark mode
 if defaults read -g AppleInterfaceStyle &>/dev/null; then
 	bat_theme="Catppuccin Macchiato"
+	fzf_colors="--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+	--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+	--color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
 else
 	bat_theme="Catppuccin Latte"
+	fzf_colors="--color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
+	--color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
+	--color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
 fi
 bat_preview=" bat --style=numbers --color=always --theme=\"$bat_theme\" --line-range :500"
+
+# Layout & Border Customizations
+fzf_visual_style="
+  --height 95%
+  --layout=reverse
+  --border=sharp
+  --border-label=' Finder '
+  --border-label-pos=2
+  --pointer='▶ '
+  --margin=1
+  --padding=1
+  $fzf_colors"
 
 export FZF_DIR="$HOMEBREW_PREFIX/opt/fzf"
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git"
 export FZF_DEFAULT_OPTS="
-  --height 95%
-  --layout=reverse
-  --pointer='▶ '
-  --margin=1
-  --padding=1
+  $fzf_visual_style
   --prompt='All❯ '
   --bind '?:toggle-preview'
   --bind 'ctrl-f:change-prompt(Files❯ )+reload(fd -t f)'
@@ -43,7 +57,6 @@ export FZF_DEFAULT_OPTS="
 # Search for files and folders within the current directory
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS=""
-export FZF_CTRL_R_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_CTRL_R_OPTS="--preview-window=:hidden"
 # Syncs your command history search to match your premium visual layout
 export FZF_CTRL_R_OPTS="
