@@ -36,6 +36,7 @@ fzf_visual_style="
   --pointer='▶ '
   --margin=1
   --padding=1
+  --preview-window='border-sharp'
   $fzf_colors"
 
 export FZF_DIR="$HOMEBREW_PREFIX/opt/fzf"
