@@ -50,10 +50,24 @@ export FZF_DEFAULT_OPTS="
   --bind 'ctrl-r:change-prompt(All❯ )+reload(fd)'
   --bind 'ctrl-e:execute(echo {+} | xargs -o \$VISUAL)'
   --header='C-r reset | C-d Directories | C-f files | C-e edit | ? toggle preview'
-  --preview '([[ -f {} ]] && ($bat_preview {} \
-  || cat {})) \
-  || ([[ -d {} ]] && (tree -C 2> /dev/null {} || ls -p {})) \
-  || echo {} 2> /dev/null | head -200'"
+  --preview '
+  if [[ -f {} ]]; then
+    mime=\$(file --mime-type -b {})
+    if [[ \$mime == image/* ]]; then
+      if command -v asciiart &>/dev/null; then
+        asciiart -s \"\$FZF_PREVIEW_COLUMNS\" {}
+      else
+        file -b {}  # Falls back to printing image metadata (dimensions, type)
+      fi
+    else
+      $bat_preview {} || cat {}
+    fi
+  elif [[ -d {} ]]; then
+    tree -C {} 2> /dev/null || ls -p {}
+  else
+    echo {}
+  fi | head -200'
+"
 
 # Search for files and folders within the current directory
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
