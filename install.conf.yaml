@@ -20,6 +20,7 @@
     ~/.tmux.conf:
     ~/.bash_profile:
     ~/.inputrc:
+    ~/.ripgreprc:
     ~/.zshenv: zsh/.zshenv
     ~/.gitconfig: git/config
     ~/.vim: vim
