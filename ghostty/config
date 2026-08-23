@@ -96,3 +96,6 @@ copy-on-select = clipboard
 # Hide cursor while typing to reduce visual noise
 mouse-hide-while-typing = true
 
+confirm-close-surface = false
+
+# vim: ft=dosini
