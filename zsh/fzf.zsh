@@ -45,6 +45,7 @@ export FZF_DEFAULT_OPTS="
   $fzf_visual_style
   --prompt='All❯ '
   --bind '?:toggle-preview'
+  --bind 'tab:down,shift-tab:up'
   --bind 'ctrl-f:change-prompt(Files❯ )+reload(fd -t f)'
   --bind 'ctrl-d:change-prompt(Directories❯ )+reload(fd -t d)'
   --bind 'ctrl-r:change-prompt(All❯ )+reload(fd)'
