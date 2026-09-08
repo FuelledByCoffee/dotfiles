@@ -145,4 +145,27 @@ function fshow() {
     FZF-EOF"
 }
 
+
+cninja-fzf() {
+  local cache_file="build/CMakeCache.txt"
+  if [ ! -f "$cache_file" ]; then
+    echo "No CMakeCache.txt found. Run initial cmake configure first."
+    return 1
+  fi
+  
+  # Fuzzy search through your project variables using fzf
+  local var=$(grep -E '^[a-zA-Z0-9_-]+:[A-Z]+=' "$cache_file" | fzf --prompt="Select CMake Variable > ")
+  [ -z "$var" ] && return
+  
+  local name=$(echo "$var" | cut -d: -f1)
+  
+  # Zsh prompt syntax: read "VARNAME?Prompt text"
+  local new_val
+  read "new_val?Enter new value for $name: "
+  [ -z "$new_val" ] && return
+  
+  # Updates the setting and regenerates the Ninja file automatically
+  cmake -G Ninja -B build -D"${name}=${new_val}"
+}
+
 bindkey '^p' fzf-cd-widget
