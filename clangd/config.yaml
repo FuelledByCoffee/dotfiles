@@ -1,0 +1,16 @@
+Diagnostics:
+  ClangTidy:
+    Add:
+      # - bugprone-*
+      # - readability-*
+      - performance-*
+      - misc-include-cleaner
+    Remove:
+      - readability-identifier-length
+      - readability-math-missing-parentheses
+      - readability-braces-around-statements
+      - readability-magic-numbers
+      - readability-implicit-bool-conversion
+
+Documentation:
+  CommentFormat: Doxygen
