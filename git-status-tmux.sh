@@ -23,7 +23,7 @@ conflicts=$(echo "$file_changes" | grep -E -c '^(U.|.U|AA|DD)')
 
 staged=$(echo "$file_changes" | grep -c '^[AMDR]')
 unstaged=$(echo "$file_changes" | grep -c '^.[MDR]')
-untracked=$(echo "$file_changes" | grep -c '^\??')
+untracked=$(echo "$file_changes" | grep -c '^\?\?')
 
 # 3. Assemble Output
 output="#[fg=#129f0f] $branch"
