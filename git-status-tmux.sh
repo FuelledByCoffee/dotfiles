@@ -26,7 +26,7 @@ unstaged=$(echo "$file_changes" | grep -c '^.[MDR]')
 untracked=$(echo "$file_changes" | grep -c '^\??')
 
 # 3. Assemble Output
-output="#[fg=#129fff] $branch"
+output="#[fg=#129f0f] $branch"
 
 # Append upstream indicators
 upstream=""
@@ -45,7 +45,7 @@ fi
 [ "$untracked" -gt 0 ] && flags="${flags}#[fg=#ffffff]…${untracked}"
 
 if [ -n "$flags" ]; then
-    echo -e "${output} (${flags}#[fg=#129fff])#[default] "
+    echo -e "${output} #[fg=#ff0000][#[default]${flags}#[fg=#ff0000]]#[default] "
 else
     echo -e "${output}#[default] "
 fi
