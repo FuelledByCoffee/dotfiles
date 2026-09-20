@@ -6,7 +6,7 @@ if ! git rev-parse --is-inside-work-tree &>/dev/null; then
 fi
 
 # Fetch status AND branch information
-status=$(timeout 0.5 git status --porcelain --branch -uno 2>/dev/null)
+status=$(timeout 0.5 git status --porcelain --branch -unormal 2>/dev/null)
 
 # 1. Parse Branch and Tracking Data
 branch_line=$(echo "$status" | head -n 1)
