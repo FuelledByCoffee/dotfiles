@@ -8,7 +8,7 @@ BasedOnStyle:  LLVM
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: Consecutive
-AlignArrayOfStructures: Right
+AlignArrayOfStructures: Left
 AlignConsecutiveAssignments:
   Enabled: true
   PadOperators: true
