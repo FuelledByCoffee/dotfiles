@@ -13,8 +13,13 @@ AlignConsecutiveAssignments:
   Enabled: true
   PadOperators: true
   AcrossEmptyLines: false
-AlignConsecutiveBitFields: None
-AlignConsecutiveDeclarations: AcrossComments
+  AlignCompound: true
+AlignConsecutiveBitFields: true
+AlignConsecutiveDeclarations: 
+  Enabled: true
+  AcrossComments: true
+  AlignFunctionDeclarations: true
+  AlignFunctionPointers: true
 AlignEscapedNewlines: Left
 AlignOperands:   AlignAfterOperator
 AlignTrailingComments: true
