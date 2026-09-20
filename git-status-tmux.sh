@@ -46,7 +46,7 @@ fi
 [ "$untracked" -gt 0 ] && flags="${flags}#[fg=#00cddd]${untracked}?"
 
 if [ -n "$flags" ]; then
-    echo -e "${output} #[fg=#ff0000][#[default]${flags}#[fg=#ff0000]]#[default] "
+    echo -e "${output} #[fg=#ff0000][#[default]${flags}#[fg=#ff0000]]#[default]"
 else
-    echo -e "${output}#[default] "
+    echo -e "${output}#[default]"
 fi
