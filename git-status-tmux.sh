@@ -41,8 +41,8 @@ if [ "$conflicts" -gt 0 ]; then
     flags="${flags}#[fg=#ff0000,reverse,bold] !${conflicts} #[noreverse,none]"
 fi
 
-[ "$staged" -gt 0 ] && flags="${flags}#[fg=#00ff00]${staged}●"
-[ "$unstaged" -gt 0 ] && flags="${flags}#[fg=#ffcc00]${unstaged}+"
+[ "$staged" -gt 0 ] && flags="${flags}#[fg=#00ff00]${staged}+"
+[ "$unstaged" -gt 0 ] && flags="${flags}#[fg=#ffcc00]${unstaged}!"
 [ "$untracked" -gt 0 ] && flags="${flags}#[fg=#00cddd]${untracked}?"
 
 if [ -n "$flags" ]; then
