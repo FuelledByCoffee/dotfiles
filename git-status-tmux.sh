@@ -40,9 +40,10 @@ if [ "$conflicts" -gt 0 ]; then
     # High visibility red alert flag for merge conflicts
     flags="${flags}#[fg=#ff0000,reverse,bold] !${conflicts} #[noreverse,none]"
 fi
-[ "$staged" -gt 0 ] && flags="${flags}#[fg=#00ff00]●${staged}"
-[ "$unstaged" -gt 0 ] && flags="${flags}#[fg=#ffcc00]✚${unstaged}"
-[ "$untracked" -gt 0 ] && flags="${flags}#[fg=#ffffff]…${untracked}"
+
+[ "$staged" -gt 0 ] && flags="${flags}#[fg=#00ff00]${staged}●"
+[ "$unstaged" -gt 0 ] && flags="${flags}#[fg=#ffcc00]${unstaged}+"
+[ "$untracked" -gt 0 ] && flags="${flags}#[fg=#00cddd]${untracked}?"
 
 if [ -n "$flags" ]; then
     echo -e "${output} #[fg=#ff0000][#[default]${flags}#[fg=#ff0000]]#[default] "
