@@ -14,5 +14,5 @@ build_types=$(fd -IH --fixed-strings --max-depth 2 "CMakeCache.txt" -X \
 
 # Only print if a build type string was successfully pulled out
 if [ -n "$build_types" ]; then
-    echo "#[fg=#0012dd]⟁ $build_types#[default]"
+    echo "#[fg=#0012dd]⟁  $build_types#[default]"
 fi
