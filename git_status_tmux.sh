@@ -56,4 +56,4 @@ elif [[ -n ${upstream} ]]; then
 	output="${output}]"
 fi
 
-echo -e "${output}"
+echo -e "${output}#[pop-default,default]"
