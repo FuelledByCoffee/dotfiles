@@ -38,4 +38,5 @@ elif [[ "$OSTYPE" == "linux"* ]]; then
   alias del='mv -t ~/.Trash'
 fi
 
+alias ccmake="TERM=xterm ccmake"
 # vim: ft=bash sw=2 ts=2
