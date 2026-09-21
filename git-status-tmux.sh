@@ -20,8 +20,8 @@ file_changes=$(echo "$status" | tail -n +2)
 
 # ripgrep outputs nothing on zero matches; || echo 0 ensures a safe mathematical fallback
 conflicts=$(echo "$file_changes" | rg -c '^(U.|.U|AA|DD)' || echo 0)
-staged=$(echo "$file_changes" | rg -c '^[AMDR]' || echo 0)
-unstaged=$(echo "$file_changes" | rg -c '^.[MDR]' || echo 0)
+staged=$(echo "$file_changes"    | rg -c '^[AMDR]' || echo 0)
+unstaged=$(echo "$file_changes"  | rg -c '^.[MDR]' || echo 0)
 untracked=$(echo "$file_changes" | rg -c '^\?\?' || echo 0)
 
 stashes=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
