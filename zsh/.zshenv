@@ -23,7 +23,7 @@ export CMAKE_GENERATOR=Ninja
 export CMAKE_EXPORT_COMPILE_COMMANDS=ON
 export CMAKE_COLOR_DIAGNOSTICS=true
 export CMAKE_INSTALL_PREFIX=$HOME/.local
-export CCMAKE_COLORS="s=160:p=2:c=3:y=4:n=5"
+export CCMAKE_COLORS="s=3:p=4:c=5:y=2:n=1"
 
 
 if [[ -z $HAS_SET_ENV ]]; then
