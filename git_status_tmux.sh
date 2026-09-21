@@ -29,28 +29,28 @@ untracked=$(echo "$file_changes" | rg -c '^\?' || echo 0)
 stashes=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
 
 # 3. Assemble Output
-output="#[fg=#129f0f] $branch"
+output="#[fg=#000000,reverse]#[noreverse]#[bg=#000000,fg=#129f0f]  $branch#[fg=#ff0000]"
 
 # Append upstream indicators (only display if greater than 0)
 upstream=""
-[ -n "$ahead" ]  && [ "$ahead" -gt 0 ]  && upstream="${upstream}#[fg=#dd00df]⇡${ahead}"
-[ -n "$behind" ] && [ "$behind" -gt 0 ] && upstream="${upstream}#[fg=#ff0055]⇣${behind}"
+[ -n "$ahead" ]  && [ "$ahead" -gt 0 ]  && upstream="${upstream}⇡${ahead}"
+[ -n "$behind" ] && [ "$behind" -gt 0 ] && upstream="${upstream}⇣${behind}"
 [ -n "$upstream" ] && output="${output} ${upstream}"
 
 # Append local modifications & merge conflict alerts
 flags=""
 if [ "$conflicts" -gt 0 ]; then
     # High visibility red alert flag for merge conflicts
-    flags="${flags}#[fg=#ff0000,reverse,bold] ${conflicts}= #[noreverse,none]"
+    flags="${flags}${conflicts}="
 fi
 
-[ "$staged"    -gt 0 ] && flags="${flags}#[fg=#00df00]${staged}+"
-[ "$unstaged"  -gt 0 ] && flags="${flags}#[fg=#DAA520]${unstaged}!"
-[ "$untracked" -gt 0 ] && flags="${flags}#[fg=#00cded]${untracked}?"
-[ "$stashes"   -gt 0 ] && flags="${flags}#[fg=#b58900]${stashes}\$"
+[ "$staged"    -gt 0 ] && flags="${flags}${staged}+"
+[ "$unstaged"  -gt 0 ] && flags="${flags}${unstaged}!"
+[ "$untracked" -gt 0 ] && flags="${flags}${untracked}?"
+[ "$stashes"   -gt 0 ] && flags="${flags}${stashes}\$"
 
 if [ -n "$flags" ]; then
-    echo -e "${output} #[fg=#ff0000][#[default]${flags}#[fg=#ff0000]]#[default]"
+    echo -e "${output} [${flags}]"
 else
-    echo -e "${output}#[default]"
+    echo -e "${output}"
 fi
