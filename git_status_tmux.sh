@@ -33,24 +33,27 @@ output="#[fg=#000000,reverse]#[noreverse]#[bg=#000000,fg=#129f0f]  $branch
 
 # Append upstream indicators (only display if greater than 0)
 upstream=""
-[ -n "$ahead" ]  && [ "$ahead" -gt 0 ]  && upstream="${upstream}⇡${ahead}"
-[ -n "$behind" ] && [ "$behind" -gt 0 ] && upstream="${upstream}⇣${behind}"
-[ -n "$upstream" ] && output="${output} ${upstream}"
+[[ -n "$ahead" ]]  && [[ "$ahead" -gt 0 ]]  && upstream="${upstream}${ahead}⇡"
+[[ -n "$behind" ]] && [[ "$behind" -gt 0 ]] && upstream="${upstream}${behind}⇣"
 
-# Append local modifications & merge conflict alerts
+if [ -n "$upstream" ]; then
+	output="${output} [${upstream}"
+fi
+
 flags=""
-if [ "$conflicts" -gt 0 ]; then
-    # High visibility red alert flag for merge conflicts
-    flags="${flags}${conflicts}="
+[[ "$conflicts" -gt 0 ]] && flags="${flags}${conflicts}="
+[[ "$staged"    -gt 0 ]] && flags="${flags}${staged}+"
+[[ "$unstaged"  -gt 0 ]] && flags="${flags}${unstaged}!"
+[[ "$untracked" -gt 0 ]] && flags="${flags}${untracked}?"
+[[ "$stashes"   -gt 0 ]] && flags="${flags}${stashes}\$"
+
+if [[ -n ${flags} ]]; then 
+	if [[ -z ${upstream} ]]; then
+		output="${output}["
+	fi
+	output="${output}${flags}]"
+elif [[ -n ${upstream} ]]; then
+	output="${output}]"
 fi
 
-[ "$staged"    -gt 0 ] && flags="${flags}${staged}+"
-[ "$unstaged"  -gt 0 ] && flags="${flags}${unstaged}!"
-[ "$untracked" -gt 0 ] && flags="${flags}${untracked}?"
-[ "$stashes"   -gt 0 ] && flags="${flags}${stashes}\$"
-
-if [ -n "$flags" ]; then
-    echo -e "${output} [${flags}]"
-else
-    echo -e "${output}"
-fi
+echo -e "${output}"
