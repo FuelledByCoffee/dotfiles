@@ -12,38 +12,40 @@ status=$(timeout 0.5 git status --porcelain --branch -unormal 2>/dev/null)
 branch_line=$(echo "$status" | head -n 1)
 branch=$(echo "$branch_line" | sed -E 's/^## ([^. ]+).*/\1/')
 
-ahead=$(echo "$branch_line" | grep -oE 'ahead [0-9]+' | awk '{print $2}')
-behind=$(echo "$branch_line" | grep -oE 'behind [0-9]+' | awk '{print $2}')
+ahead=$(echo "$branch_line" | rg -oE 'ahead [0-9]+' | awk '{print $2}')
+behind=$(echo "$branch_line" | rg -oE 'behind [0-9]+' | awk '{print $2}')
 
 # 2. Parse File Changes & Conflicts
 file_changes=$(echo "$status" | tail -n +2)
 
-# Unmerged / Conflicts (Look for U anywhere in the two-letter status)
-conflicts=$(echo "$file_changes" | grep -E -c '^(U.|.U|AA|DD)')
+# ripgrep outputs nothing on zero matches; || echo 0 ensures a safe mathematical fallback
+conflicts=$(echo "$file_changes" | rg -c '^(U.|.U|AA|DD)' || echo 0)
+staged=$(echo "$file_changes" | rg -c '^[AMDR]' || echo 0)
+unstaged=$(echo "$file_changes" | rg -c '^.[MDR]' || echo 0)
+untracked=$(echo "$file_changes" | rg -c '^\?\?' || echo 0)
 
-staged=$(echo "$file_changes" | grep -c '^[AMDR]')
-unstaged=$(echo "$file_changes" | grep -c '^.[MDR]')
-untracked=$(echo "$file_changes" | grep -c '^\?\?')
+stashes=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
 
 # 3. Assemble Output
 output="#[fg=#129f0f] $branch"
 
 # Append upstream indicators
 upstream=""
-[ -n "$ahead" ] && upstream="${upstream}#[fg=#dd00df]⇡${ahead}"
-[ -n "$behind" ] && upstream="${upstream}#[fg=#ff0055]⇣${behind}"
+[ -n "$ahead" ]    && upstream="${upstream}#[fg=#dd00df]⇡${ahead}"
+[ -n "$behind" ]   && upstream="${upstream}#[fg=#ff0055]⇣${behind}"
 [ -n "$upstream" ] && output="${output} ${upstream}"
 
 # Append local modifications & merge conflict alerts
 flags=""
 if [ "$conflicts" -gt 0 ]; then
     # High visibility red alert flag for merge conflicts
-    flags="${flags}#[fg=#ff0000,reverse,bold] !${conflicts} #[noreverse,none]"
+    flags="${flags}#[fg=#ff0000,reverse,bold] ${conflicts}= #[noreverse,none]"
 fi
 
-[ "$staged" -gt 0 ]    && flags="${flags}#[fg=#00df00]${staged}+"
-[ "$unstaged" -gt 0 ]  && flags="${flags}#[fg=#DAA520]${unstaged}!"
+[ "$staged"    -gt 0 ] && flags="${flags}#[fg=#00df00]${staged}+"
+[ "$unstaged"  -gt 0 ] && flags="${flags}#[fg=#DAA520]${unstaged}!"
 [ "$untracked" -gt 0 ] && flags="${flags}#[fg=#00cded]${untracked}?"
+[ "$stashes"   -gt 0 ] && flags="${flags}#[fg=#b58900]${stashes}\$"
 
 if [ -n "$flags" ]; then
     echo -e "${output} #[fg=#ff0000][#[default]${flags}#[fg=#ff0000]]#[default]"
