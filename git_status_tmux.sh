@@ -29,7 +29,7 @@ untracked=$(echo "$file_changes" | rg -c '^\?' || echo 0)
 stashes=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
 
 # 3. Assemble Output
-output="#[fg=#000000,reverse]#[noreverse]#[bg=#000000,fg=#129f0f]  $branch#[fg=#ff0000]"
+output="#[push-default,fg=#F05032] $branch#[fg=#ff0000]"
 
 # Append upstream indicators (only display if greater than 0)
 upstream=""
