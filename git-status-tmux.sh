@@ -30,7 +30,7 @@ output="#[fg=#129f0f] $branch"
 
 # Append upstream indicators
 upstream=""
-[ -n "$ahead" ] && upstream="${upstream}#[fg=#00ff00]⇡${ahead}"
+[ -n "$ahead" ] && upstream="${upstream}#[fg=#dd00df]⇡${ahead}"
 [ -n "$behind" ] && upstream="${upstream}#[fg=#ff0055]⇣${behind}"
 [ -n "$upstream" ] && output="${output} ${upstream}"
 
