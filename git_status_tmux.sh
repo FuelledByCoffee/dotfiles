@@ -49,7 +49,7 @@ flags=""
 
 if [[ -n ${flags} ]]; then 
 	if [[ -z ${upstream} ]]; then
-		output="${output}["
+		output="${output} ["
 	fi
 	output="${output}${flags}]"
 elif [[ -n ${upstream} ]]; then
