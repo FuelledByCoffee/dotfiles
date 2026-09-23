@@ -15,8 +15,7 @@ build_types=$(fd -IH --fixed-strings --max-depth 2 "CMakeCache.txt" -X \
     awk -F= '/^CMAKE_BUILD_TYPE:STRING=/ {print $2}' | sort -u | paste -sd, -)
 
 # Only print if a build type string was successfully pulled out
-if [ -n "$build_types" ]; then
-    echo "#[fg=${cmake_blue}]#[fg=#fdfdfd,bg=${cmake_blue}] \
-		cmake v${cmake_version}: $build_types #[default,fg=${cmake_blue}]#[default]   "
+if [[ -n "$build_types" ]]; then
+    echo "#[fg=#129fff]cmake v${cmake_version}: $build_types#[default]"
 fi
 #   
