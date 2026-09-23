@@ -20,7 +20,18 @@ font-family = "CaskaydiaCove nerd font"
 
 window-padding-x = 0
 window-padding-y = 0
-window-padding-balance = false
+window-padding-balance = true
+# window-theme = dark
+
+window-width = 150
+window-height = 50
+
+window-position-x = 100
+window-position-y = 50
+
+# Use Ghostty's own fullscreen instead of native macOS animation
+# Necessary for no decorations
+macos-non-native-fullscreen = false
 
 # Remove titlebar and rounded corners for max terminal space
 window-decoration = true
@@ -81,12 +92,14 @@ keybind = cmd+digit_9=text:\x019
 # Theme - auto-switches with macOS appearance
 theme = light:Catppuccin Latte,dark:Catppuccin Macchiato
 # theme = Catppuccin Latte
+# theme = 0x96f
 
 # Shell
 shell-integration = zsh
 
-# Use Ghostty's own fullscreen instead of native macOS animation
-macos-non-native-fullscreen = false
+background-opacity = 1
+background-opacity-cells = true
+background-blur = 20
 
 # Left Option key acts as Alt (needed for helix/tmux keybinds)
 macos-option-as-alt = right
@@ -98,5 +111,3 @@ copy-on-select = clipboard
 mouse-hide-while-typing = true
 
 confirm-close-surface = false
-
-# vim: ft=dosini
