@@ -36,7 +36,7 @@ upstream=""
 [[ -n "$ahead" ]]  && [[ "$ahead" -gt 0 ]]  && upstream="${upstream}${ahead}⇡"
 [[ -n "$behind" ]] && [[ "$behind" -gt 0 ]] && upstream="${upstream}${behind}⇣"
 
-[[ -n "$upstream" ]] && output="${output} [${upstream}"
+[[ -n "$upstream" ]] && output="${output} #[bold][${upstream}"
 
 flags=""
 [[ "$conflicts" -gt 0 ]] && flags="${flags}${conflicts}="
@@ -47,7 +47,7 @@ flags=""
 
 if [[ -n ${flags} ]]; then 
 	if [[ -z ${upstream} ]]; then
-		output="${output} ["
+		output="${output} #[bold]["
 	fi
 	output="${output}${flags}]"
 elif [[ -n ${upstream} ]]; then
