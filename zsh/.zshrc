@@ -329,6 +329,8 @@ bindkey "^X^E" edit-command-line
 if (( ${+HOMEBREW_PREFIX} )); then
   source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+	ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
 
 source $ZDOTDIR/fzf.zsh
