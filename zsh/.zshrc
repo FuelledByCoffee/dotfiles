@@ -19,6 +19,19 @@ zstyle ':completion:*' matcher-list \
   'l:|=* r:|=*'
 zstyle ':completion:*' expand prefix
 zstyle ':completion:*' ignore-parents pwd
+# Prioritize source files when completing after an editor
+zstyle ':completion:*:*:(nvim|e):*' file-patterns \
+  '*.*(#q.):source-files:source\ files' \
+  '*(#q.):all-files:all\ files'
+
+# 3. Define what to filter out for your editor completions
+zstyle ':completion:*:*:(nvim|e):*:source-files' ignored-patterns \
+  '*.(o|a|so|dylib|out|pyc|class|pdf|png|jpg|jpeg|gif|zip|tar.gz)' \
+  '*.make'
+
+# Force 'cd' to only complete directories (ignores all files completely)
+zstyle ':completion:*:*:cd:*' file-patterns '%p:directories'
+
 zstyle ':completion:*' squeeze-slashes true # cd ~//folder becomes cd ~/folder
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 
