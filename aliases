@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Some ls aliases
-if ! command -v eza &> /dev/null; then
+if ! command -v eza &> /dev/null || [[ -z "$ZSH_VERSION" ]]; then
   if [[ "$OSTYPE" == "linux"* ]]; then
     alias ls='ls -CF --color=auto --group-directories-first'
   elif [[ "$OSTYPE" == "darwin"* ]]; then
