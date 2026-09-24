@@ -45,7 +45,7 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*:*:cp:*' file-sort modification reverse
 zstyle ':completion:*' file-sort name
 
-compdef e=nvim
+compdef _nvim e
 
 #: }}}
 
