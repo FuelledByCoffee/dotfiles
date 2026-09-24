@@ -28,6 +28,13 @@ zstyle ':completion:*:*:(nvim|e):*:source-files' ignored-patterns \
   '*.(o|a|so|dylib|out|pyc|class|pdf|png|jpg|jpeg|gif|zip|tar.gz)' \
   '*.make'
 
+# Stop untracked build noise from cluttering 'git add' completions
+zstyle ':completion:*:*:git-add:*' ignored-patterns \
+  '*.(o|a|so|dylib|out|pyc|class)' \
+  '*.make'
+
+# Prioritize dirty/modified files over untracked files for git add
+zstyle ':completion:*:*:git-add:*' tag-order 'modified-files' 'untracked-files'
 # Force 'cd' to only complete directories (ignores all files completely)
 zstyle ':completion:*:*:cd:*' file-patterns '%p:directories'
 
