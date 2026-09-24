@@ -1,4 +1,4 @@
-# vim: ft=zsh foldmethod=marker foldlevel=0
+# vim: ft=zsh foldmethod=marker foldlevel=0 ts=2
 
 #: Completions {{{
 fpath+=(${ZDOTDIR:-~}/.zsh_functions)
