@@ -35,6 +35,22 @@ zstyle ':completion:*:*:git-add:*' ignored-patterns \
 
 # Prioritize dirty/modified files over untracked files for git add
 zstyle ':completion:*:*:git-add:*' tag-order 'modified-files' 'untracked-files'
+
+# ==============================================================================
+# UNIVERSAL & PORTABLE KILL TAB COMPLETION (macOS, Linux, FreeBSD)
+# ==============================================================================
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:*:kill:*' force-list always
+
+# Add description
+zstyle ':completion:*:*:kill:*' description 'yes'
+zstyle ':completion:*:*:kill:*:descriptions' format '%F{yellow}-- %d --%f'
+
+zstyle ':completion:*:*:kill:*:processes' command 'ps -o pid,tty,command'
+
+# Colorize the PID (red) while keeping TTY and Command text default
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+
 # Force 'cd' to only complete directories (ignores all files completely)
 zstyle ':completion:*:*:cd:*' file-patterns '%p:directories'
 
