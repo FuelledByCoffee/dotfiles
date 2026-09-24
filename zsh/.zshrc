@@ -11,7 +11,6 @@ autoload -Uz compinit && compinit # -i: ignore insecure directories
 zstyle ':completion:*' use-cache true # use cache to speed up completion
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 
-
 # Matching & fuzzy selection
 zstyle ':completion:*' matcher-list \
   'm:{a-zA-Z}={A-Za-z}' \
