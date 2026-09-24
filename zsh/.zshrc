@@ -89,11 +89,9 @@ compdef _nvim e
 if whence eza >/dev/null; then
 	ls() {
 		emulate -L zsh
-		eza "$@"
+		eza --classify=auto "$@"
 	}
 	compdef _eza ls
-else
-	alias ls="ls -F"
 fi
 
 function chpwd {

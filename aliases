@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
 # Some ls aliases
-if [[ "$OSTYPE" == "linux"* ]]; then
-  alias ls='ls -CF --color=auto --group-directories-first'
-  alias la='ls -A'
-  alias ll='la -l'
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  alias ls='ls -FG'
-  alias la='ls -A'
-  alias ll='ls -l'
+if ! command -v eza &> /dev/null; then
+  if [[ "$OSTYPE" == "linux"* ]]; then
+    alias ls='ls -CF --color=auto --group-directories-first'
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    alias ls='ls -FG'
+  fi
 fi
+
+alias la='ls -A'
+alias ll='ls -l'
 
 alias  grep=' grep --color=auto'
 alias fgrep='fgrep --color=auto'
