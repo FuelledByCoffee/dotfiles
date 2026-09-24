@@ -89,7 +89,7 @@ compdef _nvim e
 if whence eza >/dev/null; then
 	ls() {
 		emulate -L zsh
-		eza -F "$@"
+		eza "$@"
 	}
 	compdef _eza ls
 else
