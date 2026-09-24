@@ -27,7 +27,7 @@ if [[ -z "$build_types" ]]; then
 fi
 
 # Print the CMake version and build type matching your tmux style
-echo -n "#[fg=#129fff]cmake v${cmake_version}: $build_types"
+echo -n "#[fg=#129fff]CMake v${cmake_version}: $build_types"
 
 # Ensure the log exists and contains more than just the header
 if [ -f "$build_dir/.ninja_log" ] && [ $(wc -l < "$build_dir/.ninja_log") -gt 1 ]; then
