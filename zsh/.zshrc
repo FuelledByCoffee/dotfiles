@@ -25,8 +25,7 @@ zstyle ':completion:*:*:(nvim|e):*' file-patterns \
 
 # 3. Define what to filter out for your editor completions
 zstyle ':completion:*:*:(nvim|e):*:source-files' ignored-patterns \
-  '*.(o|a|so|dylib|out|pyc|class|pdf|png|jpg|jpeg|gif|zip|tar.gz)' \
-  '*.make'
+	'*.(o|a|so|dylib|out|pyc|class|pdf|png|jpg|jpeg|gif|zip|tar.gz|make|json)'
 
 # Stop untracked build noise from cluttering 'git add' completions
 zstyle ':completion:*:*:git-add:*' ignored-patterns \
