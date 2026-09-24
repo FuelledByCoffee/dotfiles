@@ -7,30 +7,59 @@ fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 
 autoload -Uz compinit && compinit # -i: ignore insecure directories
 
+# cache for speedup
+zstyle ':completion:*' use-cache true # use cache to speed up completion
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+
+
+# Matching & fuzzy selection
+zstyle ':completion:*' matcher-list \
+  'm:{a-zA-Z}={A-Za-z}' \
+  'r:|[._-]=* r:|=*' \
+  'l:|=* r:|=*'
 zstyle ':completion:*' expand prefix
-zstyle ':completion:*' file-sort name
-zstyle ':completion:*' group-name ''
 zstyle ':completion:*' ignore-parents pwd
 zstyle ':completion:*' squeeze-slashes true # cd ~//folder becomes cd ~/folder
-zstyle ':completion:*' complete-options true # use '-<tab>' to complete options/flags
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*'
-zstyle ':completion:*' menu select=2 # use menu if more than 2 matches !! Look into fuzzy searching !!
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+
+# Menu & UX options
+zstyle ':completion:*' menu select=2 # use menu if more than 2 matches !! Look into fuzzy searching !!
+zstyle ':completion:*' complete-options true # use '-<tab>' to complete options/flags
+zstyle ':completion:*' insert-unambiguous
+zstyle ':completion:*' insert-space false
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' use-compctl false # Disable old completion system
 zstyle ':completion:*' verbose true
-zstyle ':completion:*' use-cache true # use cache to speed up completion
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
-zstyle ':completion:*' insert-unambiguous
-zstyle ':completion:*' insert-space true
+
+# Formatting and colors
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+zstyle ':completion:*:*:*:*:messages' format '%F{purple} -- %d --%f'
+zstyle ':completion:*:*:*:*:warnings' format '%F{red}!- No matches found -!%f'
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+
+# Command specific overrides
 zstyle ':completion:*:*:cp:*' file-sort modification reverse
+zstyle ':completion:*' file-sort name
+
+compdef e=nvim
 
 #: }}}
 
 #: Functions {{{
+
+if whence eza >/dev/null; then
+	ls() {
+		emulate -L zsh
+		eza -F "$@"
+	}
+	compdef _eza ls
+else
+	alias ls="ls -F"
+fi
 
 function chpwd {
   emulate -L zsh
@@ -238,6 +267,7 @@ setopt beep
 setopt extendedglob 
 setopt menu_complete # jump directly into menu completion
 
+unsetopt list_beep
 unsetopt nomatch 
 unsetopt notify 
 #: }}}
