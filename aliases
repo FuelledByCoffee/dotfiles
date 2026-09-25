@@ -37,4 +37,6 @@ elif [[ "$OSTYPE" == "linux"* ]]; then
 fi
 
 alias ccmake="TERM=xterm ccmake"
+
+alias opt-viewer="python3 $(brew --prefix)/opt/llvm/share/opt-viewer/opt-viewer.py"
 # vim: ft=bash sw=2 ts=2
