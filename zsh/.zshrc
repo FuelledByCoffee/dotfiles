@@ -20,8 +20,8 @@ zstyle ':completion:*' expand prefix
 zstyle ':completion:*' ignore-parents pwd
 # Prioritize source files when completing after an editor
 zstyle ':completion:*:*:(nvim|e):*' file-patterns \
-  '(*.*|Makefile|README|Dockerfile)(#q.):source-files:source\ files' \
-  '*(#q.):all-files:all\ files'
+  '(*.*|Makefile|README|Dockerfile)(#q.):source-files:source\ files *(-/):directories:directories' \
+'*(#q.):all-files:all\ files*(-/):directories:directories'
 
 # 3. Define what to filter out for your editor completions
 zstyle ':completion:*:*:(nvim|e):*:source-files' ignored-patterns \
