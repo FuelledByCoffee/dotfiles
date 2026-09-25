@@ -305,6 +305,9 @@ unsetopt notify
 #: }}}
 
 #: Bindings {{{
+# load keymap
+zmodload zsh/complist
+
 bindkey -v
 bindkey -M viins jj vi-cmd-mode # Double tap 'j' to exit insert mode
 
@@ -316,6 +319,7 @@ bindkey '^ ' autosuggest-accept # zsh-autosuggestions
 # Shift-tab
 # bindkey -M menuselect '^[[Z' reverse-menu-complete
 bindkey '^[[Z' reverse-menu-complete
+bindkey -M menuselect '^C' undo
 
 autoload -z edit-command-line
 zle -N edit-command-line

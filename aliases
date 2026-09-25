@@ -8,9 +8,8 @@ if ! command -v eza &> /dev/null || [[ -z "$ZSH_VERSION" ]]; then
     alias ls='ls -FG'
   fi
 fi
-
 alias la='ls -A'
-alias ll='ls -l'
+alias ll='la -l'
 
 alias  grep=' grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -24,8 +23,6 @@ alias du='du -h'
 alias rg='rg -i'
 
 alias mkdir='mkdir -pv'
-
-alias vtop='vtop --theme brew'
 
 if command -v nvim &> /dev/null; then
   alias e=nvim
