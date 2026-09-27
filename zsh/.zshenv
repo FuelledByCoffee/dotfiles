@@ -51,17 +51,17 @@ elif [[ ! "$PATH" == *":/opt/homebrew/bin:"* ]]; then
   path+=(/opt/homebrew/bin)
 fi
 
-if hash clang 2> /dev/null; then
+if whence -p clang > /dev/null; then
   export CC="clang"
   export CXX="clang++"
 
-  if hash ld.lld 2> /dev/null; then
+  if whence -p ld.lld > /dev/null; then
     export LDFLAGS="${LDFLAGS:+$LDFLAGS }-fuse-ld=lld"
   fi
 fi
 
 
-if hash brew 2> /dev/null && [[ -z $HOMEBREW_PREFIX ]]; then
+if whence -p brew > /dev/null && [[ -z $HOMEBREW_PREFIX ]]; then
   eval $(brew shellenv)
 
   export LIBRARY_PATH="${LIBRARY_PATH:+$LIBRARY_PATH:}$HOMEBREW_PREFIX/lib"
@@ -88,22 +88,22 @@ typeset -U path # force path to have only unique values
 [[ -e $XDG_CONFIG_HOME/aliases ]] && source $XDG_CONFIG_HOME/aliases
 [[ -e $ZDOTDIR/fzf.zsh ]] && source $ZDOTDIR/fzf.zsh
 
-if hash thefuck 2> /dev/null; then
+if whence -p thefuck > /dev/null; then
   eval $(thefuck --alias)
 fi
 
 
-if hash zoxide 2> /dev/null; then
+if whence -p zoxide > /dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
 
-if hash bat 2> /dev/null; then
+if whence -p bat > /dev/null; then
   export PAGER="bat --style=grid"
 fi
 
 
-if hash nvim 2> /dev/null; then
+if whence -p nvim > /dev/null; then
   export VISUAL='nvim'
   export MANPAGER='nvim +Man!'
 else
