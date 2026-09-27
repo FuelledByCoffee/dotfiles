@@ -16,6 +16,3 @@
 [submodule "kickstart.nvim"]
 	path = nvim
 	url = git@github.com:FuelledByCoffee/kickstart.nvim.git
-[submodule "nvim-repro"]
-	path = nvim-repro
-	url = me:nvim-repro

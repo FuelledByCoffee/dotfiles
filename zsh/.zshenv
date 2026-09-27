@@ -36,6 +36,8 @@ fi
 
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}$HOME/.local/lib/pkgconfig"
 
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 # CLI
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31' # For Linux
 export QUOTING_STYLE='literal' # Don't put names with spaces in quotes
