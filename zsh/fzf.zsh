@@ -169,3 +169,24 @@ cninja-fzf() {
 }
 
 bindkey '^p' fzf-cd-widget
+
+_fzf_git_checkout_completion() {
+    # Only trigger fzf if we are on 'git checkout'
+    if [[ "$words[2]" == "checkout" ]]; then
+        local branches selection
+        # Get branches sorted by committer date
+        branches=$(git branch --sort=-committerdate | sed 's/^[* ]*//')
+        
+        # Run through fzf-tmux using your exact flags
+        selection=$(echo "$branches" | fzf-tmux --no-preview -d 15)
+        
+        if [[ -n "$selection" ]]; then
+            # Feed the selection into Zsh's completion reply array
+            compadd -Q -- "$selection"
+        fi
+    fi
+}
+
+# Register the function into Zsh's completion system for git
+compdef _fzf_git_checkout_completion git
+
