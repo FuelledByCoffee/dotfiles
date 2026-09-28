@@ -331,6 +331,9 @@ if (( ${+HOMEBREW_PREFIX} )); then
   source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+	# 3. Plugin overrides (Must be AFTER sourcing the plugin)
+	zstyle ':autocomplete:*' add-space ''
+
 	ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 fi
 
