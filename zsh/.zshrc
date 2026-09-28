@@ -239,7 +239,7 @@ function extract () {
 # }
 # setprompt
 
-if hash starship 2> /dev/null; then
+if whence -p starship > /dev/null; then
   eval "$(starship init zsh)"
 fi
 
