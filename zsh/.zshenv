@@ -86,7 +86,6 @@ path+=(.)
 typeset -U path # force path to have only unique values
 
 [[ -e $XDG_CONFIG_HOME/aliases ]] && source $XDG_CONFIG_HOME/aliases
-[[ -e $ZDOTDIR/fzf.zsh ]] && source $ZDOTDIR/fzf.zsh
 
 if whence -p thefuck > /dev/null; then
   eval $(thefuck --alias)
