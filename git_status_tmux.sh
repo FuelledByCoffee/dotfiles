@@ -11,6 +11,11 @@ status=$(timeout 0.5 git status --porcelain=v2 --branch -unormal 2>/dev/null)
 # 1. Parse Branch and Tracking Data (v2 layout)
 branch=$(echo "$status" | awk '/# branch.head/ {print $3}')
 
+# If HEAD is detached, find the exact tag or fallback to the short commit hash
+if [[ "$branch" == "(detached)" ]]; then
+    branch=$(git describe --tags --exact-match 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+fi
+
 # v2 outputs ahead/behind on a line like: "# branch.ab +1 -0"
 # We parse the + (ahead) and - (behind) values, stripping the sign symbols
 ahead=$(echo "$status" | awk '/# branch.ab/ {sub(/\+/,"",$3); print $3}')
