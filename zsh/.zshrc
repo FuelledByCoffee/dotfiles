@@ -85,7 +85,7 @@ compdef _nvim e
 #: Functions {{{
 
 if whence eza >/dev/null; then
-	ls() {
+	function ls {
 		emulate -L zsh
 		eza --classify=auto "$@"
 	}
