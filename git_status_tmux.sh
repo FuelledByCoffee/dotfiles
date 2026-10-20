@@ -34,29 +34,22 @@ untracked=$(echo "$file_changes" | rg -c '^\?' || echo 0)
 stashes=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
 
 # 3. Assemble Output
-output="#[push-default,fg=#F05032] $branch#[fg=#ff0000]"
+output="#[push-default,fg=#F05032] $branch#[bold,fg=#ff0000]"
 
 # Append upstream indicators (only display if greater than 0)
 upstream=""
-[[ -n "$ahead" ]]  && [[ "$ahead" -gt 0 ]]  && upstream="${upstream}${ahead}⇡"
-[[ -n "$behind" ]] && [[ "$behind" -gt 0 ]] && upstream="${upstream}${behind}⇣"
+[[ -n "$ahead" ]]  && [[ "$ahead" -gt 0 ]]  && upstream="${upstream} ⇡${ahead}"
+[[ -n "$behind" ]] && [[ "$behind" -gt 0 ]] && upstream="${upstream} ⇣${behind}"
 
-[[ -n "$upstream" ]] && output="${output} #[bold][${upstream}"
+[[ -n "$upstream" ]] && output="${output} ${upstream}"
 
 flags=""
-[[ "$conflicts" -gt 0 ]] && flags="${flags}${conflicts}="
-[[ "$staged"    -gt 0 ]] && flags="${flags}${staged}+"
-[[ "$unstaged"  -gt 0 ]] && flags="${flags}${unstaged}!"
-[[ "$untracked" -gt 0 ]] && flags="${flags}${untracked}?"
-[[ "$stashes"   -gt 0 ]] && flags="${flags}${stashes}\$"
+[[ "$conflicts" -gt 0 ]] && flags="${flags} #[fg=#ff0000]≠${conflicts}"
+[[ "$staged"    -gt 0 ]] && flags="${flags} #[fg=#00ac12]+${staged}"
+[[ "$unstaged"  -gt 0 ]] && flags="${flags} #[fg=#fdad00]!${unstaged}"
+[[ "$untracked" -gt 0 ]] && flags="${flags} #[fg=#52a0af]?${untracked}"
+[[ "$stashes"   -gt 0 ]] && flags="${flags} #[fg=#dd00df]\$${stashes}"
 
-if [[ -n ${flags} ]]; then 
-	if [[ -z ${upstream} ]]; then
-		output="${output} #[bold]["
-	fi
-	output="${output}${flags}]"
-elif [[ -n ${upstream} ]]; then
-	output="${output}]"
-fi
+output="${output}${flags}"
 
 echo -e "${output}#[pop-default,default]"
